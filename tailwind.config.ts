@@ -47,6 +47,10 @@ export default {
                     DEFAULT: 'var(--accent-hex)', // Dein bestehendes var(--accent-hex) wird verwendet
                     foreground: 'hsl(var(--accent-foreground))'
                 },
+                third: {
+                    DEFAULT: 'var(--third-hex)',
+                    foreground: 'hsl(var(--third-foreground))'
+                },
                 popover: {
                     DEFAULT: 'hsl(var(--popover))',
                     foreground: 'hsl(var(--popover-foreground))'
@@ -58,6 +62,7 @@ export default {
                 // Deine Theme-spezifischen Farben bleiben wie sie sind
                 'theme-primary': 'var(--primary-hex)',
                 'theme-secondary': 'var(--secondary-hex)',
+                'theme-third': 'var(--third-hex)',
                 'theme-accent': 'var(--accent-hex)',
                 'theme-text': 'var(--foreground-hex)',
                 'theme-title-color': 'var(--primary-hex)',

@@ -8,18 +8,25 @@ export default function ImpressumPage() {
   return (
     <>
       <Navigation />
-      <div className="min-h-screen bg-background text-foreground">
-        <div className="container mx-auto px-6 py-16">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-foreground mb-8 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Impressum
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted/10 to-accent/5 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2344b8c9' fill-opacity='0.2'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+        
+        <div className="container mx-auto px-6 py-20 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-12 text-center">
+              <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                Impressum
+              </span>
             </h1>
             
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/15 p-8 space-y-6">
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-white/30 p-12 space-y-8 shadow-2xl">
               <div>
-                <h2 className="text-xl font-semibold text-foreground mb-4">Angaben gemäß § 5 TMG</h2>
-                <address className="not-italic text-foreground/80 space-y-2">
-                  <p className="font-medium">Inklu-Solutions Gesellschaft für Inklusion und Teilhabe GmbH</p>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Angaben gemäß § 5 TMG</h2>
+                <address className="not-italic text-lg text-foreground/85 space-y-3 leading-relaxed">
+                  <p className="font-semibold text-xl">Inklu-Solutions Gesellschaft für Inklusion und Teilhabe GmbH</p>
                   <p>Altenwall 17</p>
                   <p>28195 Bremen</p>
                   <p>Deutschland</p>
@@ -27,21 +34,21 @@ export default function ImpressumPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">Vertreten durch</h3>
-                <p className="text-foreground/80 mb-4">Nils Dreyer &amp; Özlem Cetin</p>
+                <h3 className="text-xl font-bold mb-4 text-foreground">Vertreten durch</h3>
+                <p className="text-lg text-foreground/85 mb-6">Nils Dreyer &amp; Özlem Cetin</p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">Kontakt</h3>
-                <div className="text-foreground/80 space-y-2">
-                  <p>Telefon: <a href="tel:+4942159629800" className="text-accent hover:text-accent/80 hover:underline">0421 – 59 629 800</a></p>
-                  <p>E-Mail: <a href="mailto:NDreyer@inklusolutions.de" className="text-accent hover:text-accent/80 hover:underline">NDreyer@inklusolutions.de</a></p>
+                <h3 className="text-xl font-bold mb-4 text-foreground">Kontakt</h3>
+                <div className="text-lg text-foreground/85 space-y-3">
+                  <p>Telefon: <a href="tel:+4942159629800" className="text-primary hover:text-secondary hover:underline transition-colors duration-300 font-medium">0421 – 59 629 800</a></p>
+                  <p>E-Mail: <a href="mailto:NDreyer@inklusolutions.de" className="text-primary hover:text-secondary hover:underline transition-colors duration-300 font-medium">NDreyer@inklusolutions.de</a></p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">Registereintrag</h3>
-                <div className="text-foreground/80">
+                <h3 className="text-xl font-bold mb-4 text-foreground">Registereintrag</h3>
+                <div className="text-lg text-foreground/85 space-y-2">
                   <p>Eintragung im Handelsregister</p>
                   <p>Registergericht: Bremen</p>
                   <p>Registernummer: HRB 40070</p>
@@ -49,20 +56,20 @@ export default function ImpressumPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-foreground">Umsatzsteuer-ID</h3>
-                <p className="text-foreground/80 mb-2">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
-                <p className="font-mono text-sm text-foreground/60">[USt-IdNr.]</p>
+                <h3 className="text-xl font-bold mb-4 text-foreground">Umsatzsteuer-ID</h3>
+                <p className="text-lg text-foreground/85 mb-3">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
+                <p className="font-mono text-lg text-foreground/70">[USt-IdNr.]</p>
               </div>
 
-              <div className="pt-4 border-t border-white/20">
-                <p className="text-sm text-foreground/60">
+              <div className="pt-6 border-t border-white/30">
+                <p className="text-base text-foreground/70 leading-relaxed">
                   Dieses Impressum ist ein Mustertext und ersetzt keine rechtliche Beratung. Bitte lassen Sie das Impressum gegebenenfalls durch einen Rechtsanwalt prüfen.
                 </p>
               </div>
             </div>
 
-            <div className="mt-8 text-center">
-              <Link href="/" className="text-accent hover:text-accent/80 hover:underline font-medium">
+            <div className="mt-12 text-center">
+              <Link href="/" className="text-xl text-primary hover:text-secondary hover:underline font-semibold transition-colors duration-300">
                 Zurück zur Startseite
               </Link>
             </div>

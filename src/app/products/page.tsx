@@ -153,8 +153,8 @@ function Section({ children, className = '', ...props }: React.PropsWithChildren
 
 function Pill({ children }: React.PropsWithChildren) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-xs font-medium text-foreground/80">
-      <Sparkles className="h-3.5 w-3.5" />
+    <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-gradient-to-r from-card/80 to-muted/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-foreground/90 shadow-lg">
+      <Sparkles className="h-4 w-4 text-third" />
       {children}
     </span>
   )
@@ -169,13 +169,13 @@ function FeaturedStrip({ items }: { items: { name: string; slug: string; categor
   return (
     <div className="not-prose relative -mx-4 md:mx-0">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-transparent to-background [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]" />
-      <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 md:px-0">
+      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-3 md:px-0">
         {items.map((it) => (
           <Link key={`${it.category}-${it.slug}`} href={`/products/${it.slug}`} className="snap-start">
-            <span className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-gradient-to-r from-muted/60 to-card/60 px-4 py-2 text-sm font-medium shadow-sm transition-all hover:border-primary/50 hover:from-primary/10 hover:to-accent/10">
-              <Star className="h-4 w-4 text-primary" />
+            <span className="group inline-flex items-center gap-3 rounded-full border border-border/60 bg-gradient-to-r from-muted/80 to-card/80 backdrop-blur-sm px-6 py-3 text-base font-medium shadow-lg transition-all hover:border-primary/60 hover:from-primary/15 hover:to-third/15 hover:scale-105 hover:shadow-xl">
+              <Star className="h-5 w-5 text-primary group-hover:text-third transition-colors duration-300" />
               {it.name}
-              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>
         ))}
@@ -194,46 +194,46 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <motion.div variants={cardVariants} whileHover="hover" className="h-full">
-      <Card className={`relative h-full overflow-hidden bg-[#EDEDED] shadow-lg transition-all duration-500 ${
-        product.highlight ? 'ring-2 ring-primary/20 from-primary/5 to-accent/5' : ''
+      <Card className={`relative h-full overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
+        product.highlight ? 'ring-2 ring-primary/30 from-primary/10 to-accent/10' : 'border-white/30'
       }`}>
         {product.highlight && (
           <div className="absolute right-4 top-4 z-10">
-            <div className="flex items-center gap-1 rounded-full bg-gradient-to-r from-primary to-secondary px-3 py-1.5 text-sm font-semibold text-primary-foreground shadow-lg">
-              <Star className="h-3 w-3 fill-current" /> Empfohlen
+            <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-secondary to-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
+              <Star className="h-4 w-4 fill-current" /> Empfohlen
             </div>
           </div>
         )}
 
-        <CardHeader className="px-6 pb-3 pt-6">
+        <CardHeader className="px-6 pb-4 pt-6">
           <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
             {product.name}
           </CardTitle>
           {product.description && (
-            <CardDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            <CardDescription className="mt-3 text-base leading-relaxed text-muted-foreground">
               {product.description}
             </CardDescription>
           )}
         </CardHeader>
 
-        <CardContent className="px-6 pb-2">
+        <CardContent className="px-6 pb-3">
           {isMasterclass && (
-            <div className="mt-4 space-y-3">
-              <div className="mb-3 flex items-center gap-2 text-sm font-medium text-primary">
-                <Award className="h-4 w-4" /> Verfügbare Module
+            <div className="mt-4 space-y-4">
+              <div className="mb-4 flex items-center gap-2 text-base font-medium text-primary">
+                <Award className="h-5 w-5" /> Verfügbare Module
               </div>
-              <div className="grid max-h-80 gap-3 overflow-y-auto pr-1">
+              <div className="grid max-h-80 gap-4 overflow-y-auto pr-1">
                 {product.topics!.slice(0, 6).map((t) => (
-                  <Link key={t.id} href={`/products/${product.slug}/${t.slug}`} className="group rounded-lg border border-border/30 bg-gradient-to-r from-muted/40 to-muted/20 p-3 transition-colors hover:border-primary/30 hover:from-primary/5 hover:to-accent/5">
-                    <div className="mb-1 text-sm font-semibold transition-colors group-hover:text-primary">{t.name}</div>
-                    <p className="line-clamp-2 text-xs text-muted-foreground">{t.description}</p>
-                    <div className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-accent">
-                      Mehr erfahren <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                  <Link key={t.id} href={`/products/${product.slug}/${t.slug}`} className="group rounded-xl border-2 border-border/30 bg-gradient-to-r from-muted/50 to-muted/30 p-4 transition-all duration-300 hover:border-primary/40 hover:from-primary/10 hover:to-third/10 hover:shadow-lg hover:-translate-y-1">
+                    <div className="mb-2 text-base font-semibold transition-colors group-hover:text-primary">{t.name}</div>
+                    <p className="line-clamp-2 text-sm text-muted-foreground leading-relaxed">{t.description}</p>
+                    <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:text-primary transition-colors duration-300">
+                      Mehr erfahren <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </Link>
                 ))}
                 {product.topics!.length > 6 && (
-                  <div className="py-1 text-center text-xs text-muted-foreground">
+                  <div className="py-2 text-center text-sm text-muted-foreground font-medium">
                     +{product.topics!.length - 6} weitere Module
                   </div>
                 )}
@@ -338,56 +338,107 @@ export default function ProductsOverviewPage() {
       <Navigation />
 
       {/* Background decorations */}
-      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-muted/10 to-third/5">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23970200' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+        
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 top-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl" />
-          <div className="absolute -right-20 bottom-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-l from-accent/10 to-transparent blur-3xl" />
-          <div className="absolute left-1/3 top-3/4 h-80 w-80 animate-blob rounded-full bg-gradient-to-r from-secondary/10 to-transparent blur-3xl" />
+          <div className="absolute -left-20 top-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-r from-primary/15 to-transparent blur-3xl" />
+          <div className="absolute -right-20 bottom-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-l from-accent/15 to-transparent blur-3xl" />
+          <div className="absolute left-1/3 top-3/4 h-80 w-80 animate-blob rounded-full bg-gradient-to-r from-third/15 to-transparent blur-3xl" />
         </div>
 
   <div className="container relative z-10 mx-auto px-6 py-6 md:px-8 md:py-10">
           {/* HERO */}
-          <Section className="pb-6 text-center">
+          <Section className="pb-8 text-center">
             <motion.div initial={{ opacity: 0, y: -24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Pill>Inklusions-Lösungen für Unternehmen</Pill>
-              <h1 className="mt-2 text-4xl font-extrabold leading-tight md:text-6xl">
-                <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+              <h1 className="mt-4 text-5xl font-extrabold leading-tight md:text-7xl">
+                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
                   Produkte & Programme
                 </span>
               </h1>
-              <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              <p className="mx-auto mt-6 max-w-4xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
                 Von kompakten Workshops bis zu strategischer Transformation – modular, messbar, wirksam.
               </p>
-              <div className="mx-auto mt-4 max-w-4xl">
+              <div className="mx-auto mt-6 max-w-5xl">
                 <FeaturedStrip items={featured} />
               </div>
+            </motion.div>
+          </Section>
+
+          {/* CATEGORY NAVIGATION */}
+          <Section className="pb-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-center"
+            >
+              <h2 className="text-2xl font-bold text-foreground mb-6">Direkt zu Ihren Lösungen</h2>
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <Link href="/products/trainings">
+                  <Button size="lg" className="w-full rounded-xl bg-gradient-to-r from-primary via-secondary to-third px-6 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
+                    <Award className="mr-3 h-6 w-6" />
+                    Training & Qualifizierung
+                  </Button>
+                </Link>
+                <Link href="/products/services">
+                  <Button size="lg" variant="outline" className="w-full rounded-xl border-2 border-primary/50 px-6 py-4 font-semibold hover:border-primary/70 hover:bg-primary/10 transition-all duration-300 hover:scale-105">
+                    <Target className="mr-3 h-6 w-6" />
+                    Services & Beratung
+                  </Button>
+                </Link>
+                <Link href="/products/bewusstsein">
+                  <Button size="lg" variant="outline" className="w-full rounded-xl border-2 border-secondary/50 px-6 py-4 font-semibold hover:border-secondary/70 hover:bg-secondary/10 transition-all duration-300 hover:scale-105">
+                    <Users className="mr-3 h-6 w-6" />
+                    Bewusstsein & Sensibilisierung
+                  </Button>
+                </Link>
+              </div>
+              <p className="text-lg text-foreground/70 mt-8 mb-4">Oder entdecken Sie alle Angebote auf einen Blick:</p>
+              <Button asChild size="lg" variant="outline" className="rounded-xl border-2 border-border/50 px-10 py-4 font-semibold hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105">
+                <Link href="#alle-angebote" className="flex items-center gap-3 text-lg">
+                  Alle Angebote ansehen <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
             </motion.div>
           </Section>
 
 
           {/* CATEGORIES – split layout per category */}
           <LayoutGroup>
-            {productsByCategory.map((c) => (
-              <CategoryBlock key={c.category} cat={c} />)
-            )}
+            <div id="alle-angebote">
+              {productsByCategory.map((c) => (
+                <CategoryBlock key={c.category} cat={c} />)
+              )}
+            </div>
           </LayoutGroup>
 
           {/* CTA STRIPE */}
-          <Section className="mt-6 border-t border-border/30 text-center" id="kontakt">
-            <div className="mx-auto mb-6 max-w-2xl">
-              <h3 className="text-2xl font-bold text-foreground md:text-3xl">Bereit für den nächsten Schritt?</h3>
-              <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
+          <Section className="mt-8 border-t border-border/30 text-center" id="kontakt">
+            <div className="mx-auto mb-8 max-w-3xl">
+              <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                  Bereit für den nächsten Schritt?
+                </span>
+              </h3>
+              <p className="mt-4 text-xl leading-relaxed text-muted-foreground">
                 Lassen Sie uns gemeinsam die passende Lösung für Ihre Inklusionsziele finden.
               </p>
             </div>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-primary to-secondary px-8 py-3 font-semibold text-primary-foreground shadow-lg transition-all hover:from-secondary hover:to-primary">
-                <Link href="/team" className="flex items-center gap-2">
-                  <Users className="h-5 w-5" /> Kostenlose Beratung
+            <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
+              <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-primary via-secondary to-third px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
+                <Link href="/team" className="flex items-center gap-3 text-lg">
+                  <Users className="h-6 w-6" /> Kostenlose Beratung
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-xl border-border/50 px-8 py-3 font-semibold">
-                <Link href="/">Zurück zur Startseite <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Button asChild size="lg" variant="outline" className="rounded-xl border-2 border-border/50 px-10 py-4 font-semibold hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105">
+                <Link href="/" className="flex items-center gap-3 text-lg">
+                  Zurück zur Startseite <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </Section>
