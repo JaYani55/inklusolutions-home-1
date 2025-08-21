@@ -1,4 +1,5 @@
 // src/types/product.d.ts
+import { LucideIcon } from 'lucide-react';
 
 export interface Product {
     id: string;
@@ -41,7 +42,7 @@ export interface ProductData {
     cards?: Array<{
         title: string;
         description: string;
-        icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+        icon: LucideIcon;
         image: string;
         items: string[];
         color: string;

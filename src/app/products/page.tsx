@@ -5,7 +5,7 @@ import React, { useMemo } from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants, LayoutGroup } from 'framer-motion'
-import { ArrowRight, Star, Award, Users, Target, Sparkles, ChevronRight } from 'lucide-react'
+import { ArrowRight, Star, Award, Users, Target, Sparkles, ChevronRight, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -28,14 +28,14 @@ interface Product {
   name: string
   description?: string
   topics?: ProductTopic[]
-  categoryIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
+  categoryIcon?: LucideIcon
   highlight?: boolean
 }
 
 interface ProductCategory {
   category: string
   description: string
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+  icon: LucideIcon
   items: Product[]
 }
 
