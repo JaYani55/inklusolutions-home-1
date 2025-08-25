@@ -53,7 +53,7 @@ const servicesProducts = [
 function ProductCard({ product }: { product: any }) {
   return (
     <motion.div variants={cardVariants} whileHover="hover" className="h-full">
-      <Card className={`relative h-full overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
+      <Card className={`relative h-full flex flex-col overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
         product.highlight ? 'ring-2 ring-primary/30 from-primary/10 to-accent/10' : 'border-white/30'
       }`}>
         {product.highlight && (
@@ -72,7 +72,7 @@ function ProductCard({ product }: { product: any }) {
           </div>
         )}
 
-        <CardHeader className="px-6 pb-4 pt-6">
+        <CardHeader className="px-6 pb-4 pt-14">
           <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
             {product.name}
           </CardTitle>
@@ -83,8 +83,8 @@ function ProductCard({ product }: { product: any }) {
           )}
         </CardHeader>
 
-        <CardFooter className="px-6 pb-6 pt-3">
-          <Button asChild className="w-full rounded-xl bg-gradient-to-r from-primary via-primary to-secondary font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
+        <CardFooter className="px-6 pb-6 pt-3 mt-auto">
+          <Button asChild className="w-full rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
             <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
               Details ansehen <ArrowRight className="h-4 w-4" />
             </Link>
@@ -113,14 +113,14 @@ export default function ServicesPage() {
 
         <div className="container relative z-10 mx-auto px-6 py-6 md:px-8 md:py-10">
           {/* HERO */}
-          <section className="relative py-24 text-center">
+          <section className="relative py-12 text-center">
             <motion.div initial={{ opacity: 0, y: -24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 px-6 py-3">
                 <Target className="h-6 w-6 text-primary" />
                 <span className="text-lg font-semibold text-primary">Services & Beratung</span>
               </div>
               <h1 className="mt-4 text-5xl font-extrabold leading-tight md:text-7xl">
-                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Strategische Unterstützung
                 </span>
               </h1>
@@ -178,10 +178,10 @@ export default function ServicesPage() {
                     <div className="text-foreground/80">Konkrete Handlungsempfehlungen für nachhaltige Verbesserungen</div>
                   </div>
                 </div>
-                <Button asChild size="lg" className="bg-gradient-to-r from-primary via-secondary to-third hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 text-primary-foreground rounded-full px-10 py-4 text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105">
-                  <Link href="/products/inklu-score" className="flex items-center gap-3">
+                <Button asChild size="lg" className="bg-white border-2 border-accent text-foreground rounded-full px-10 py-4 text-lg font-semibold shadow-[0_0_18px_rgba(63,181,196,0.25)] hover:shadow-[0_0_26px_rgba(63,181,196,0.25)] transition-all duration-300 hover:scale-105">
+                  <Link href="/products/inklu-score" className="flex items-center gap-3 text-foreground">
                     InkluScore starten
-                    <BarChart2 className="h-5 w-5" />
+                    <BarChart2 className="h-5 w-5 text-accent" />
                   </Link>
                 </Button>
               </div>
@@ -197,7 +197,7 @@ export default function ServicesPage() {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Bereit für strategische Transformation?
                 </span>
               </h3>
@@ -205,14 +205,9 @@ export default function ServicesPage() {
                 Lassen Sie uns gemeinsam Ihre Inklusionsziele erreichen.
               </p>
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-                <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-primary via-secondary to-third px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
+                <Button asChild size="lg" className="text-lg rounded-full bg-accent px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
                   <Link href="/team" className="flex items-center gap-3 text-lg">
-                    <Target className="h-6 w-6" /> Kostenlose Beratung
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-xl border-2 border-border/50 px-10 py-4 font-semibold hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105">
-                  <Link href="/products" className="flex items-center gap-3 text-lg">
-                    Alle Produkte <ArrowRight className="ml-2 h-5 w-5" />
+                    <Users className="h-6 w-6" /> Kostenlose Beratung
                   </Link>
                 </Button>
               </div>

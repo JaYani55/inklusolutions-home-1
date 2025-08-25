@@ -5,7 +5,7 @@ import React from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
-import { ArrowRight, Star, Award, ChevronRight } from 'lucide-react'
+import { ArrowRight, Award, Star, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -18,6 +18,51 @@ const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.97 },
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
   hover: { y: -6, scale: 1.01, transition: { duration: 0.25 } },
+}
+
+function ProductCard({ product }: { product: any }) {
+  return (
+    <motion.div variants={cardVariants} whileHover="hover" className="h-full">
+      <Card className={`relative h-full flex flex-col overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
+        product.highlight ? 'ring-2 ring-primary/30 from-primary/10 to-accent/10' : 'border-white/30'
+      }`}>
+        {product.highlight && (
+          <div className="absolute right-4 top-4 z-10">
+            <div className="flex items-center gap-2 rounded-full bg-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
+              <Star className="h-4 w-4 fill-current" /> Empfohlen
+            </div>
+          </div>
+        )}
+
+        {product.withMentors && (
+          <div className="absolute left-4 top-4 z-10">
+            <div className="flex items-center gap-2 rounded-full bg-accent to-third px-3 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+              <Users className="h-3 w-3" /> Mit Mentor:innen
+            </div>
+          </div>
+        )}
+
+        <CardHeader className="px-6 pb-4 pt-14">
+          <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
+            {product.name}
+          </CardTitle>
+          {product.description && (
+            <CardDescription className="mt-3 text-base leading-relaxed text-muted-foreground">
+              {product.description}
+            </CardDescription>
+          )}
+        </CardHeader>
+
+        <CardFooter className="px-6 pb-6 pt-3 mt-auto">
+          <Button asChild className="w-full rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
+            <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
+              Details ansehen <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  )
 }
 
 const trainingsProducts = [
@@ -46,79 +91,6 @@ const trainingsProducts = [
   },
 ]
 
-function ProductCard({ product }: { product: any }) {
-  const isMasterclass = !!product.topics?.length
-
-  return (
-    <motion.div variants={cardVariants} whileHover="hover" className="h-full">
-      <Card className={`relative h-full overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
-        product.highlight ? 'ring-2 ring-primary/30 from-primary/10 to-accent/10' : 'border-white/30'
-      }`}>
-        {product.highlight && (
-          <div className="absolute right-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
-              <Star className="h-4 w-4 fill-current" /> Empfohlen
-            </div>
-          </div>
-        )}
-
-        <CardHeader className="px-6 pb-4 pt-6">
-          <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
-            {product.name}
-          </CardTitle>
-          {product.description && (
-            <CardDescription className="mt-3 text-base leading-relaxed text-muted-foreground">
-              {product.description}
-            </CardDescription>
-          )}
-        </CardHeader>
-
-        <CardContent className="px-6 pb-3">
-          {isMasterclass && (
-            <div className="mt-4 space-y-4">
-              <div className="mb-4 flex items-center gap-2 text-base font-medium text-primary">
-                <Award className="h-5 w-5" /> Verfügbare Module
-              </div>
-              <div className="grid max-h-80 gap-4 overflow-y-auto pr-1">
-                {product.topics!.slice(0, 6).map((t: any) => (
-                  <Link key={t.id} href={`/products/${product.slug}/${t.slug}`} className="group rounded-xl border-2 border-border/30 bg-gradient-to-r from-muted/50 to-muted/30 p-4 transition-all duration-300 hover:border-primary/40 hover:from-primary/10 hover:to-third/10 hover:shadow-lg hover:-translate-y-1">
-                    <div className="mb-2 text-base font-semibold transition-colors group-hover:text-primary">{t.name}</div>
-                    <p className="line-clamp-2 text-sm text-muted-foreground leading-relaxed">{t.description}</p>
-                    <div className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:text-primary transition-colors duration-300">
-                      Mehr erfahren <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </Link>
-                ))}
-                {product.topics!.length > 6 && (
-                  <div className="py-2 text-center text-sm text-muted-foreground font-medium">
-                    +{product.topics!.length - 6} weitere Module
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </CardContent>
-
-        <CardFooter className="px-6 pb-6 pt-3">
-          {isMasterclass ? (
-            <Button asChild variant="outline" className="w-full rounded-xl border-primary/30 font-semibold text-primary hover:border-primary/50 hover:bg-primary/5">
-              <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
-                Alle Module entdecken <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          ) : (
-            <Button asChild className="w-full rounded-xl bg-gradient-to-r from-primary via-primary to-secondary font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
-              <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
-                Details ansehen <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          )}
-        </CardFooter>
-      </Card>
-    </motion.div>
-  )
-}
-
 export default function TrainingsPage() {
   return (
     <>
@@ -137,14 +109,14 @@ export default function TrainingsPage() {
 
         <div className="container relative z-10 mx-auto px-6 py-6 md:px-8 md:py-10">
           {/* HERO */}
-          <section className="relative py-24 text-center">
+          <section className="relative py-12 text-center">
             <motion.div initial={{ opacity: 0, y: -24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 px-6 py-3">
                 <Award className="h-6 w-6 text-primary" />
                 <span className="text-lg font-semibold text-primary">Training & Qualifizierung</span>
               </div>
               <h1 className="mt-4 text-5xl font-extrabold leading-tight md:text-7xl">
-                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Professionelle Weiterbildung
                 </span>
               </h1>
@@ -154,23 +126,39 @@ export default function TrainingsPage() {
             </motion.div>
           </section>
 
-          {/* PRODUCTS */}
+          {/* Inklusionsführerschein Section */}
           <section className="py-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-6xl mx-auto">
-                {trainingsProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            </motion.div>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[0].name}</h2>
+              <p className="text-xl mb-6">{trainingsProducts[0].description}</p>
+              <ul className="mb-6 text-left list-disc mx-auto max-w-md">
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Consectetur adipiscing elit.</li>
+                <li>Sed do eiusmod tempor incididunt.</li>
+                <li>Ut labore et dolore magna aliqua.</li>
+              </ul>
+          <Button asChild className="w-auto rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
+            <Link href={`/products/${trainingsProducts[0].slug}`} className="flex items-center justify-center gap-2">
+              Details ansehen <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+            </div>
           </section>
 
-          {/* CTA */}
+          {/* Masterclass Section */}
+          <section className="py-12 bg-muted/10">
+            <div className="max-w-6xl mx-auto text-center">
+              <h2 className="text-foreground text-4xl font-bold mb-2">{trainingsProducts[1].name}</h2>
+              <p className="mb-8 text-xl">Spezialisierte Tiefgänge in Schlüsselthemen der Inklusion</p>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {trainingsProducts[1].topics?.map((topic) => (
+                  <ProductCard key={topic.id} product={topic} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
           <section className="mt-16 border-t border-border/30 text-center pt-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -179,7 +167,7 @@ export default function TrainingsPage() {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-                <span className="bg-gradient-to-r from-primary via-third to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Bereit für Ihre Weiterbildung?
                 </span>
               </h3>
@@ -187,14 +175,9 @@ export default function TrainingsPage() {
                 Investieren Sie in nachhaltige Kompetenz für Ihr Team.
               </p>
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-                <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-primary via-secondary to-third px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
+                <Button asChild size="lg" className="text-lg rounded-full bg-accent px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
                   <Link href="/team" className="flex items-center gap-3 text-lg">
-                    <Award className="h-6 w-6" /> Kostenlose Beratung
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-xl border-2 border-border/50 px-10 py-4 font-semibold hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105">
-                  <Link href="/products" className="flex items-center gap-3 text-lg">
-                    Alle Produkte <ArrowRight className="ml-2 h-5 w-5" />
+                    <Users className="h-6 w-6" /> Kostenlose Beratung
                   </Link>
                 </Button>
               </div>
