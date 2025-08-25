@@ -199,7 +199,7 @@ function ProductCard({ product }: { product: Product }) {
       }`}>
         {product.highlight && (
           <div className="absolute right-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-secondary to-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
+            <div className="flex items-center gap-2 rounded-full bg-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
               <Star className="h-4 w-4 fill-current" /> Empfohlen
             </div>
           </div>

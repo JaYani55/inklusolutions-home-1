@@ -70,7 +70,7 @@ function ProductCard({ product }: { product: any }) {
       }`}>
         {product.highlight && (
           <div className="absolute right-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-secondary to-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
+            <div className="flex items-center gap-2 rounded-full bg-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
               <Star className="h-4 w-4 fill-current" /> Empfohlen
             </div>
           </div>
@@ -78,7 +78,7 @@ function ProductCard({ product }: { product: any }) {
 
         {product.withMentors && (
           <div className="absolute left-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-secondary to-third px-3 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+            <div className="flex items-center gap-2 rounded-full bg-accent to-third px-3 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
               <Users className="h-3 w-3" /> Mit Mentor:innen
             </div>
           </div>
