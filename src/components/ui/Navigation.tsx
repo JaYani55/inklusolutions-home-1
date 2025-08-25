@@ -10,13 +10,13 @@ export default function Navigation() {
 
   const navItems = [
     { 
-      name: "Produkte", 
+      name: "Leistungen", 
       href: "/products",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Trainings", href: "/products/trainings" },
-        { name: "Services", href: "/products/services" },
+        { name: "Training", href: "/products/trainings" },
         { name: "Bewusstsein", href: "/products/bewusstsein" },
+        { name: "Services", href: "/products/services" },
       ]
     },
     { name: "Lösungen", href: "/solutions" },
