@@ -18,6 +18,7 @@
   --third-hex: #FFAF2E;
   --accent-hex: #44b8c9; /* Dein bestehendes #44b8c9 */
   --muted-hex: #e4e1f4ff;
+  --warm-bg-hex: #dcdcdcff; /* Neue warme Hintergrundfarbe */
 
   /* === HSL-Component-Variablen (wie von Shadcn/UI erwartet und von dir verwendet) === */
   /* Wichtig: HSL-Variablen sollten vollständige `hsl(h s l)` Werte sein,

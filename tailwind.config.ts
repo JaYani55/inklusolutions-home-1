@@ -68,7 +68,8 @@ export default {
                 'theme-title-color': 'var(--primary-hex)',
                 'theme-border': 'hsl(var(--theme-border))',
                 'theme-bg': 'hsl(var(--theme-bg))',
-                'theme-shadow-color': 'hsl(var(--theme-shadow-color))'
+                'theme-shadow-color': 'hsl(var(--theme-shadow-color))',
+                'warm-bg': 'var(--warm-bg-hex)'
             },
             borderRadius: {
                 lg: 'var(--radius)',

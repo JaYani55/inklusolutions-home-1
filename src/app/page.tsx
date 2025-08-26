@@ -12,6 +12,7 @@ import {
   BarChart3,
   Zap, ArrowRight, Users, Target, Award, Heart, CheckCircle, Star, Play, MessageCircle, Video, MapPin, Link2, BarChart2, GraduationCap, Building2, Calculator, Phone } from "lucide-react";
 import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
   const handlungsfelder = [
@@ -118,104 +119,144 @@ export default function HomePage() {
   ];
 
   const companyLogos = [
-    // Placeholder für Logos - können später durch echte Logos ersetzt werden
-    "Microsoft", "SAP", "Volkswagen", "Siemens", "Bosch", "Deutsche Bank"
+    // echte Logos aus public/logos
+    { src: '/logos/Cargill.png', alt: 'Cargill' },
+    { src: '/logos/Idealo.png', alt: 'Idealo' },
+    { src: '/logos/Kfzteile24.png', alt: 'Kfzteile24' },
+    { src: '/logos/Nordsee.png', alt: 'Nordsee' },
+    { src: '/logos/Radisson_Blu.png', alt: 'Radisson Blu' },
+    { src: '/logos/Scout24.png', alt: 'Scout24' },
+    { src: '/logos/UNIQLO.png', alt: 'UNIQLO' }
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       
-      {/* 1) HERO / Above the Fold */}
-      <section className="relative overflow-hidden h-[90vh] flex items-center justify-center">
-        {/* Background Image - Mentoren im echten Austausch */}
+      {/* 1) HERO / Above the Fold - Elegant Text Solution */}
+      <section className="relative overflow-hidden min-h-[90vh]">
+        {/* Background Image - clear and prominent */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
           style={{
-            backgroundImage: "url('/mentor-mentee.jpg')",
-            filter: 'brightness(0.55) contrast(0.95)'
+            backgroundImage: "url('/header.jpg')",
+            filter: 'brightness(0.75) contrast(1.1)'
           }}
         />
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.5px]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none" />
         
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 text-center text-white">
+        {/* Very subtle dark overlay only for text readability */}
+        <div className="absolute inset-0 bg-black/20" />
+        
+        {/* Content Container */}
+        <div className="relative z-10 flex flex-col justify-center min-h-[90vh] pt-80 px-8 lg:px-24 py-20">
+          {/* Main Content Block */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 max-w-6xl mx-auto"
+            className="max-w-5xl mx-auto text-center"
           >
-            {/* Claim (Eyebrow) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg lg:text-xl font-medium text-third/90 mb-6"
-            >
-              „Behinderung ist Teil der Lösung." – InkluSolutions
-            </motion.div>
-            
-            {/* H1 */}
-            <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-              <span className="bg-gradient-to-r from-[#d06119] to-primary bg-clip-text text-transparent">Inklusion braucht Menschen mit Erfahrung –
-              <br />
-                und verändert so Unternehmenskultur
-              </span>
-            </h1>
-          
-            
-            {/* H2 */}
-            <h2 className="text-accent text-2xl lg:text-3xl font-bold mb-4">
-              Impulsgeber:innen auf Augenhöhe - unsere Mentor:innen.
-            </h2>
-            
-
-            
-            {/* CTAs (3 Buttons) */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/products/trainings">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-[3px] border-primary text-black bg-white hover:text-black rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Training entdecken
-                  <GraduationCap className="ml-3 w-6 h-6" />
-                </Button>
-              </Link>
-              <Link href="/products/bewusstsein">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-[3px] border-secondary text-black hover:text-black bg-white rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Bewusstsein stärken
-                  <Users className="ml-3 w-6 h-6" />
-                </Button>
-              </Link>
-              <Link href="/products/services">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-[3px] border-accent text-black bg-white hover:text-black rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Services nutzen
-                  <Link2 className="ml-3 w-6 h-6" />
-                </Button>
-              </Link>
+            {/* Text Content with elegant text shadows */}
+            <div className="space-y-8 mb-12">
+              {/* Claim (Eyebrow) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg lg:text-xl font-medium mb-4 text-white drop-shadow-2xl"
+                style={{
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+                }}
+              >
+                „Behinderung ist Teil der Lösung." – InkluSolutions
+              </motion.div>
+              
+              {/* H1 with strong text shadow */}
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white drop-shadow-2xl"
+                style={{
+                  textShadow: '3px 3px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)'
+                }}
+              >
+                Inklusion beginnt mit Menschen –
+                <br />
+                und wird mit den richtigen Lösungen wirksam
+              </h1>
+              
+              {/* H2 */}
+              <h2 className="text-xl lg:text-2xl font-semibold text-white drop-shadow-2xl"
+                style={{
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+                }}
+              >
+                Impulsgeber:innen auf Augenhöhe - unsere Mentor:innen.
+              </h2>
+              
+              {/* Subline */}
+              <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl"
+                style={{
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+                }}
+              >
+                Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
+                mit Trainings, Dialog-Formaten und Services.
+              </p>
             </div>
-                        {/* Subline (2) */}
-            <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-5xl mx-auto mb-10">
-              Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
-              mit Trainings, Dialog-Formaten und Services.
-            </p>
+
+            {/* Integrated CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center max-w-4xl mx-auto"
+            >
+              <div className="flex-1">
+                <Link href="/products/trainings">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="w-full border-[3px] border-primary text-primary bg-white/95 hover:bg-primary hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
+                  >
+                    Training entdecken
+                    <GraduationCap className="ml-3 w-6 h-6" />
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="flex-1">
+                <Link href="/products/bewusstsein">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="w-full border-[3px] border-secondary text-secondary bg-white/95 hover:bg-secondary hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
+                  >
+                    Bewusstsein stärken
+                    <Lightbulb className="ml-3 w-6 h-6" />
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="flex-1">
+                <Link href="/products/services">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="w-full border-[3px] border-accent text-accent bg-white/95 hover:bg-accent hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
+                  >
+                    Services nutzen
+                    <Settings className="ml-3 w-6 h-6" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </motion.div>
+
+          {/* Subtle decorative elements */}
+          <div className="absolute top-1/4 left-8 w-24 h-24 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-8 w-32 h-32 bg-gradient-to-r from-red-400/20 to-amber-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
       </section>
 
-      {/* 3) SOCIAL PROOF (150+ Unternehmen) */}
+      {/* 2) SOCIAL PROOF (150+ Unternehmen) */}
       <section className="py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
         {/* Geometric background pattern */}
         <div className="absolute inset-0 opacity-10" style={{
@@ -241,19 +282,18 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Logo Grid */}
+          {/* Logo Carousel (infinite loop, arrow controls) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 md:grid-cols-6 gap-10 items-center justify-center mb-12"
+            className="relative w-full mb-12"
           >
-            {companyLogos.map((company, index) => (
-              <div key={index} className="text-center p-6 hover:opacity-100 transition-all duration-300 opacity-60 hover:scale-110 group">
-                <div className="text-lg font-semibold text-foreground/70 group-hover:text-primary transition-colors duration-300">{company}</div>
-              </div>
-            ))}
+            {/* Carousel state */}
+            {/* showCount controls how many logos are visible at once */}
+            {/* we duplicate the logos array to allow smooth looping */}
+            <Carousel logos={companyLogos} showCount={4} sidePadding={56} />
           </motion.div>
 
           {/* Mini-Testimonials */}
@@ -280,7 +320,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
+      {/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
 <section
   id="angebote"
   aria-labelledby="angebote-heading"
@@ -308,10 +348,7 @@ export default function HomePage() {
       viewport={{ once: true, margin: '0px 0px -80px 0px' }}
       className="text-center mb-16"
     >
-      <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground/70 bg-white/60 backdrop-blur px-3 py-1.5 rounded-full border border-white/50">
-        <span className="size-1.5 rounded-full bg-[hsl(var(--primary))]" />
-        Leistungen im Überblick
-      </p>
+
       <h2
         id="angebote-heading"
         className="text-4xl lg:text-5xl font-bold mb-6">        <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
@@ -452,7 +489,7 @@ export default function HomePage() {
                 alt="InkluSolutions Logo" 
                 className="h-12 mx-auto md:mx-0 mb-4"
               />
-              <p className="text-foreground/70 leading-relaxed">
+              <p className="!text-black leading-relaxed">
                 "Behinderung ist Teil der Lösung" – InkluSolutions
               </p>
             </div>
@@ -497,4 +534,99 @@ export default function HomePage() {
       </footer>
     </div>
   );
+}
+
+// Simple inline carousel component
+function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: string; alt: string }[]; showCount?: number; sidePadding?: number }) {
+   const total = logos.length;
+   const [containerWidth, setContainerWidth] = useState(0);
+   const containerRef = useRef<HTMLDivElement | null>(null);
+   // we use a currentIndex that starts in the middle copy to allow both-direction looping
+   const middle = total; // start index offset
+   const [currentIndex, setCurrentIndex] = useState(middle);
+   const [isAnimating, setIsAnimating] = useState(true);
+   const items = [...logos, ...logos, ...logos]; // triple for safe looping
+
+   useEffect(() => {
+     function measure() {
+       if (containerRef.current) setContainerWidth(containerRef.current.offsetWidth);
+     }
+     measure();
+     window.addEventListener('resize', measure);
+     return () => window.removeEventListener('resize', measure);
+   }, []);
+
+   const effectiveWidth = containerWidth ? Math.max(0, containerWidth - sidePadding * 2) : 0;
+   const itemWidth = effectiveWidth ? effectiveWidth / showCount : 0;
+
+   const go = (dir: number) => {
+     setIsAnimating(true);
+     setCurrentIndex((i) => i + dir);
+   };
+
+   const prev = () => go(-1);
+   const next = () => go(1);
+
+   // after each animation, if we left the central copy, jump back without animation
+   useEffect(() => {
+     if (!isAnimating) return;
+     const t = window.setTimeout(() => {
+       // normalize into middle range
+       if (currentIndex >= total * 2) {
+         setIsAnimating(false);
+         setCurrentIndex((ci) => ci - total);
+       } else if (currentIndex < total) {
+         setIsAnimating(false);
+         setCurrentIndex((ci) => ci + total);
+       }
+     }, 520);
+     return () => window.clearTimeout(t);
+   }, [currentIndex, isAnimating, total]);
+
+   // autoplay
+   useEffect(() => {
+     const t = window.setInterval(() => {
+       go(1);
+     }, 4500);
+     return () => window.clearInterval(t);
+   }, [containerWidth]);
+
+   const translateX = -currentIndex * itemWidth;
+
+   return (
+     <div className="relative px-[var(--side-padding)]" ref={containerRef} style={{ ['--side-padding' as any]: `${sidePadding}px` }}>
+       <div className="overflow-hidden">
+         <div
+           className="flex items-center"
+           style={{
+             width: `${items.length * itemWidth}px`,
+             transform: `translateX(${translateX}px)`,
+             transition: isAnimating ? 'transform 480ms ease' : 'none',
+           }}
+         >
+           {items.map((logo, idx) => (
+             <div key={idx} style={{ width: `${itemWidth}px` }} className="flex-shrink-0 flex items-center justify-center p-2">
+               <img src={logo.src} alt={logo.alt} className="h-16 object-contain" loading="lazy" />
+             </div>
+           ))}
+         </div>
+       </div>
+
+       <button
+         aria-label="Vorheriges"
+         onClick={prev}
+         className="absolute -left-6 top-1/2 -translate-y-1/2 p-1 bg-transparent hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+       >
+         <img src="/arrows.png" alt="Pfeil links" className="w-8 h-8 rotate-180" />
+       </button>
+
+       <button
+         aria-label="Nächstes"
+         onClick={next}
+         className="absolute -right-6 top-1/2 -translate-y-1/2 p-1 bg-transparent hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+       >
+         <img src="/arrows.png" alt="Pfeil rechts" className="w-8 h-8" />
+       </button>
+     </div>
+   );
 }

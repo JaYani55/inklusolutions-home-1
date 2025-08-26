@@ -28,7 +28,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-primary/10 bg-background/80 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-primary/10 bg-white backdrop-blur-xl">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
