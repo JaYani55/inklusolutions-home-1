@@ -35,7 +35,7 @@ function ProductCard({ product }: { product: any }) {
         )}
 
         {product.withMentors && (
-          <div className="absolute left-4 top-4 z-10">
+          <div className="absolute left-5 top-4 z-10">
             <div className="flex items-center gap-2 rounded-full bg-accent to-third px-3 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
               <Users className="h-3 w-3" /> Mit Mentor:innen
             </div>
@@ -196,7 +196,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       {/* Circle positioned so its center sits on the card's top-left corner */}
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Stellenausschreibung.png" alt="Stellenausschreibung" className="w-16 h-16 object-contain" />
                       </div>
                       {/* spacer to keep content spacing similar */}
@@ -218,7 +218,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#FCF9BE' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Barrierefreiheit.png" alt="Barrierefreiheit" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -239,7 +239,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#FFDCA9' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/KommunikationOnline.png" alt="Kommunikation Online" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -260,7 +260,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#FAAB78' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Onboarding.png" alt="Inklusives Onboarding" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -284,7 +284,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#B5C0D0' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -305,7 +305,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#CCD3CA' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/DeepDive.png" alt="Deep Dives" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -326,7 +326,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#EED3D9' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Foerdermittel.png" alt="Fördermittel" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -347,7 +347,7 @@ export default function TrainingsPage() {
                     style={{ backgroundColor: '#D7E4C0' }}
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
                         <img src="/Vernetzung.png" alt="Vernetzung" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -378,23 +378,28 @@ export default function TrainingsPage() {
               <p className="mt-4 text-xl leading-relaxed text-foreground/80 mb-8">
                 Investieren Sie in nachhaltige Kompetenz für Ihr Team.
               </p>
-              <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              >
-                Kostenlose Beratung
-                <Users className="ml-3 w-6 h-6" />
-              </Button>
-                            <Button 
-                variant="outline" 
-                size="lg"
-                className="border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              >
-                Alle Angebote entdecken
-                <ArrowRight className="ml-3 w-6 h-6" />
-              </Button>
+              <div className="flex flex-col items-center justify-center gap-6 sm:flex-row w-full sm:max-w-xl mx-auto">
+                  <div className="w-full sm:flex-1 min-w-0">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    Kostenlose Beratung
+                    <Users className="ml-3 w-6 h-6" />
+                  </Button>
+                </div>
+
+                <div className="w-full sm:flex-1 min-w-0">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="w-full sm:min-w-[12rem] border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    Alle Angebote entdecken
+                    <ArrowRight className="ml-3 w-6 h-6" />
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </section>

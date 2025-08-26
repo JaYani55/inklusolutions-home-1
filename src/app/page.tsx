@@ -191,8 +191,61 @@ export default function HomePage() {
                 Impulsgeber:innen auf Augenhöhe - unsere Mentor:innen.
               </h2>
               
-              {/* Subline */}
-              <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl"
+
+            </div>
+
+            {/* Integrated CTA Buttons — each button has its own gradient segment */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex justify-center max-w-4xl mx-auto"
+            >
+              <div className="w-full">
+                <div className="flex flex-col md:flex-row gap-4">
+                  {/* Button 1: primary -> third */}
+                  <div className="md:flex-1 min-w-0">
+                    <Link href="/products/trainings" className="block">
+                      <Button
+                        size="lg"
+                        className="w-full text-white bg-gradient-to-r from-primary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                      >
+                        Training entdecken
+                        <GraduationCap className="ml-4 w-7 h-7" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {/* Button 2: third -> secondary */}
+                  <div className="md:flex-1 min-w-0">
+                    <Link href="/products/bewusstsein" className="block">
+                      <Button
+                        size="lg"
+                        className="w-full text-white bg-gradient-to-r from-secondary to-third border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                      >
+                        Bewusstsein stärken
+                        <Lightbulb className="ml-4 w-7 h-7" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {/* Button 3: secondary -> accent */}
+                  <div className="md:flex-1 min-w-0">
+                    <Link href="/products/services" className="block">
+                      <Button
+                        size="lg"
+                        className="w-full text-white bg-gradient-to-r from-third to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                      >
+                        Services nutzen
+                        <Settings className="ml-4 w-7 h-7" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+                          {/* Subline */}
+              <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl pt-10"
                 style={{
                   textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
                 }}
@@ -200,54 +253,6 @@ export default function HomePage() {
                 Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
                 mit Trainings, Dialog-Formaten und Services.
               </p>
-            </div>
-
-            {/* Integrated CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center max-w-4xl mx-auto"
-            >
-              <div className="flex-1">
-                <Link href="/products/trainings">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="w-full border-[3px] border-primary text-primary bg-white/95 hover:bg-primary hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
-                  >
-                    Training entdecken
-                    <GraduationCap className="ml-3 w-6 h-6" />
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="flex-1">
-                <Link href="/products/bewusstsein">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="w-full border-[3px] border-secondary text-secondary bg-white/95 hover:bg-secondary hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
-                  >
-                    Bewusstsein stärken
-                    <Lightbulb className="ml-3 w-6 h-6" />
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="flex-1">
-                <Link href="/products/services">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="w-full border-[3px] border-accent text-accent bg-white/95 hover:bg-accent hover:text-white rounded-full px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm"
-                  >
-                    Services nutzen
-                    <Settings className="ml-3 w-6 h-6" />
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Subtle decorative elements */}
@@ -440,26 +445,33 @@ export default function HomePage() {
         <p className="text-foreground/70 mb-6">
           Entdecken Sie alle unsere Leistungen im Detail oder vereinbaren Sie ein kostenloses Beratungsgespräch.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/products">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-[3px] border-primary text-black bg-white hover:text-black rounded-full px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              Alle Angebote entdecken
-              <GraduationCap className="ml-3 w-6 h-6" />
-            </Button>
-          </Link>
-          <Link href="/team">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-accent text-white rounded-full px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              Kostenlose Beratung
-              <Phone className="ml-3 w-6 h-6" />
-            </Button>
-          </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
+          
+          <div className="w-full sm:flex-1 min-w-0">
+            <Link href="/products">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="w-full sm:min-w-[12rem] border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Alle Angebote entdecken
+                <Star className="ml-3 w-6 h-6" />
+              </Button>
+            </Link>
+          </div>
+          <div className="w-full sm:flex-1 min-w-0">
+            <Link href="/kontakt">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Kostenlose Beratung
+                <Phone className="ml-3 w-6 h-6" />
+              </Button>
+            </Link>
+          </div>
+
         </div>
       </div>
     </motion.div>

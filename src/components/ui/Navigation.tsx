@@ -44,7 +44,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="text-lg hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
                   {item.hasDropdown ? (
