@@ -60,12 +60,6 @@ export default function ImpressumPage() {
                 <p className="text-lg text-foreground/85 mb-3">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
                 <p className="font-mono text-lg text-foreground/70">[USt-IdNr.]</p>
               </div>
-
-              <div className="pt-6 border-t border-white/30">
-                <p className="text-base text-foreground/70 leading-relaxed">
-                  Dieses Impressum ist ein Mustertext und ersetzt keine rechtliche Beratung. Bitte lassen Sie das Impressum gegebenenfalls durch einen Rechtsanwalt prüfen.
-                </p>
-              </div>
             </div>
 
             <div className="mt-12 text-center">

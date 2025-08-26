@@ -431,9 +431,9 @@ export default function ProductsOverviewPage() {
             </div>
             <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
               <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-primary via-secondary to-third px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
-                <Link href="/team" className="flex items-center gap-3 text-lg">
+                <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-lg">
                   <Users className="h-6 w-6" /> Kostenlose Beratung
-                </Link>
+                </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-xl border-2 border-border/50 px-10 py-4 font-semibold hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:scale-105">
                 <Link href="/" className="flex items-center gap-3 text-lg">

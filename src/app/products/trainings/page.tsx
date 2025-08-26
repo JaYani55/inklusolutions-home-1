@@ -381,12 +381,15 @@ export default function TrainingsPage() {
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row w-full sm:max-w-xl mx-auto">
                   <div className="w-full sm:flex-1 min-w-0">
                   <Button 
+                    asChild
                     variant="outline" 
                     size="lg"
                     className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
-                    Kostenlose Beratung
-                    <Users className="ml-3 w-6 h-6" />
+                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      Kostenlose Beratung
+                      <Users className="ml-3 w-6 h-6" />
+                    </a>
                   </Button>
                 </div>
 

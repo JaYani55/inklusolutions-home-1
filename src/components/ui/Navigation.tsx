@@ -23,6 +23,7 @@ export default function Navigation() {
     //{ name: "Mentor:innen", href: "/mentors" },
     //{ name: "Team", href: "/team" },
     //{ name: "Historie", href: "/historie" },
+  { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
     { name: "Impressum", href: "/impressum" },
     { name: "Datenschutz", href: "/datenschutz" },
   ];
@@ -84,18 +85,36 @@ export default function Navigation() {
                       )}
                     </div>
                   ) : (
-                    <Link
-                      href={item.href}
-                      className="transition-colors duration-200 font-medium relative group"
-                    >
-                      <span
-                        className="inline-block px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255, 1))' }}
+                    // if external link (starts with http) render a regular anchor that opens in a new tab
+                    (item.href && item.href.startsWith('http')) ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-200 font-medium relative group"
                       >
-                        <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                      </span>
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
-                    </Link>
+                        <span
+                          className="inline-block px-3 py-1 rounded-full"
+                          style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255, 1))' }}
+                        >
+                          <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                        </span>
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="transition-colors duration-200 font-medium relative group"
+                      >
+                        <span
+                          className="inline-block px-3 py-1 rounded-full"
+                          style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255, 1))' }}
+                        >
+                          <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                        </span>
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+                      </Link>
+                    )
                   )}
                 </div>
               ))}
@@ -149,18 +168,35 @@ export default function Navigation() {
                         )}
                       </div>
                     ) : (
-                      <Link
-                        href={item.href}
-                        className="block px-3 py-2 rounded-lg transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <span
-                          className="inline-block px-3 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255,0.20))' }}
+                      (item.href && item.href.startsWith('http')) ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block px-3 py-2 rounded-lg transition-colors"
+                          onClick={() => setIsOpen(false)}
                         >
-                          <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                        </span>
-                      </Link>
+                          <span
+                            className="inline-block px-3 py-1 rounded-full"
+                            style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255,0.20))' }}
+                          >
+                            <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                          </span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="block px-3 py-2 rounded-lg transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <span
+                            className="inline-block px-3 py-1 rounded-full"
+                            style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255,0.20))' }}
+                          >
+                            <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                          </span>
+                        </Link>
+                      )
                     )}
                   </div>
                 ))}
