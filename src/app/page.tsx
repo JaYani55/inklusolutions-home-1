@@ -4,7 +4,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/ui/Navigation";
 import MentorCarousel from "@/components/shared/MentorCarousel";
-import { ArrowRight, Users, Target, Award, Heart, CheckCircle, Star, Play, MessageCircle, Video, MapPin, Link2, BarChart2, GraduationCap, Building2, Calculator, Phone } from "lucide-react";
+import { 
+  Lightbulb, 
+  Settings,
+  ChevronRight,
+  UserCheck,
+  BarChart3,
+  Zap, ArrowRight, Users, Target, Award, Heart, CheckCircle, Star, Play, MessageCircle, Video, MapPin, Link2, BarChart2, GraduationCap, Building2, Calculator, Phone } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -20,31 +26,51 @@ export default function HomePage() {
   const productCategories = [
     {
       title: "Training",
-      subtitle: "Inklusionsführerschein, Masterclasses",
-      description: "Strukturiertes Lernen für nachhaltige Veränderung",
       icon: GraduationCap,
       color: "from-primary to-secondary",
-      link: "/products/trainings"
+      link: "/products/trainings",
+      products: ["inklusionsfuehrerschein", "masterclasses"]
     },
     {
       title: "Bewusstsein",
-      subtitle: "DAW, InkluStories",
-      description: "\"Lass uns reden\", Spotlight Moments, InkluTalks",
-      icon: Users,
+      icon: Lightbulb,
       color: "from-secondary to-accent",
       withMentors: true,
+      products: ["DAW", "inklustories", "Lass uns reden", "Spotlight Moments", "InkluTalks"],
       link: "/products/bewusstsein"
     },
     {
       title: "Services", 
-      subtitle: "Peer-Mentoring, JobSync, InkluScore, Zertifikate",
-      description: "Datengestützte Lösungen für messbare Erfolge",
-      icon: Link2,
+      icon: Settings,
       color: "from-accent to-primary",
       withMentors: true,
-      link: "/products/services"
+      link: "/products/services",
+      products: ["peer-mentoring", "jobsync", "InkluScore", "zertifikate"]
     }
   ];
+
+  // map product keys (normalized) to Lucide icon components that fit the product semantics
+  const productIconMap: Record<string, any> = {
+    inklusionsfuehrerschein: GraduationCap,
+    masterclasses: GraduationCap,
+    daw: Lightbulb,
+    inklustories: Star,
+    "lass uns reden": Video,
+    "spotlight moments": Video,
+    inklutalks: MessageCircle,
+    "peer-mentoring": Users,
+    jobsync: Zap,
+    inkluscore: BarChart3,
+    zertifikate: Award,
+    default: CheckCircle,
+  };
+
+  const formatLabel = (s: string) =>
+    s
+      .replace(/-/g, " ")
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
 
   const caseHighlights = [
     { 
@@ -128,29 +154,24 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg lg:text-xl font-medium text-third/90 mb-6"
             >
-              „Behinderung ist Teil der Lösung."" – InkluSolutions
+              „Behinderung ist Teil der Lösung." – InkluSolutions
             </motion.div>
             
             {/* H1 */}
             <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-              <span className="text-white">Inklusion braucht Menschen mit Erfahrung –</span>
+              <span className="bg-gradient-to-r from-[#d06119] to-primary bg-clip-text text-transparent">Inklusion braucht Menschen mit Erfahrung –
               <br />
-              <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
                 und verändert so Unternehmenskultur
               </span>
             </h1>
           
             
             {/* H2 */}
-            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+            <h2 className="text-accent text-2xl lg:text-3xl font-bold mb-4">
               Impulsgeber:innen auf Augenhöhe - unsere Mentor:innen.
             </h2>
             
-            {/* Subline (2) */}
-            <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-5xl mx-auto mb-10">
-              Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
-              mit Trainings, Dialog-Formaten und Services.
-            </p>
+
             
             {/* CTAs (3 Buttons) */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -185,6 +206,11 @@ export default function HomePage() {
                 </Button>
               </Link>
             </div>
+                        {/* Subline (2) */}
+            <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-5xl mx-auto mb-10">
+              Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
+              mit Trainings, Dialog-Formaten und Services.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -254,79 +280,167 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) */}
-      <section className="py-24 bg-gradient-to-br from-background via-accent/5 to-background relative overflow-hidden">
-        {/* Subtle texture background */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url('/bg-texture-subtle.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }} />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                Unsere Angebote – nah und ganzheitlich
-              </span>
-            </h2>
-          </motion.div>
+      {/* 4) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
+<section
+  id="angebote"
+  aria-labelledby="angebote-heading"
+  className="relative overflow-hidden py-24 bg-gradient-to-br from-background via-accent/5 to-background"
+>
+  {/* Subtle texture + zwei weiche „blob“-highlights */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute inset-0 opacity-15"
+    style={{
+      backgroundImage: `url('/bg-texture-subtle.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  />
+  <div aria-hidden className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[hsl(var(--accent))] blur-3xl opacity-20" />
+  <div aria-hidden className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[hsl(var(--third))] blur-3xl opacity-20" />
 
-          <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {productCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="group relative"
-              >
-                <Link href={category.link}>
-                  <div className="h-full p-8 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/40 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:bg-white/90 cursor-pointer">
-                    {/*{category.withMentors && (
-                      <div className="absolute top-6 right-6 bg-accent text-black text-sm px-4 py-2 rounded-full font-medium shadow-lg">
-                        Mit Mentor:innen
-                      </div>
-                    )}*/}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                      <category.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">{category.title}</h3>
-                    <h4 className="text-lg font-semibold mb-4 text-primary/80">{category.subtitle}</h4>
-                    <p className="text-base text-foreground/80 leading-relaxed">{category.description}</p>
+  <div className="container mx-auto px-6 relative z-10">
+    {/* Headline */}
+    <motion.header
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+      className="text-center mb-16"
+    >
+      <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground/70 bg-white/60 backdrop-blur px-3 py-1.5 rounded-full border border-white/50">
+        <span className="size-1.5 rounded-full bg-[hsl(var(--primary))]" />
+        Leistungen im Überblick
+      </p>
+      <h2
+        id="angebote-heading"
+        className="text-4xl lg:text-5xl font-bold mb-6">        <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+          Unsere Angebote – nah und ganzheitlich
+        </span>
+      </h2>
+      <p className="mt-4 text-lg text-foreground/80">
+        Wir verbinden Wissen, Haltung und messbare Lösungen für gelebte Inklusion.
+      </p>
+    </motion.header>
+
+    {/* Karten */}
+    <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
+      {productCategories.map((category, index) => (
+        <motion.article
+          key={index}
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: index * 0.08 }}
+          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+          className="group relative"
+        >
+          <Link
+            href={category.link}
+            className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent))]/40 rounded-2xl"
+            aria-label={`${category.title} erkunden`}
+          >
+            {/* Gradient-Border-Karte */}
+            <div className="rounded-2xl p-[1px] bg-gradient-to-br from-white/40 via-white/60 to-white/30 group-hover:from-[hsl(var(--primary))]/30 group-hover:via-white/70 group-hover:to-[hsl(var(--accent))]/30 transition-all duration-300">
+              <div className="h-full rounded-2xl p-9 bg-white/80 backdrop-blur-md border border-white/60 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-1.5 transition-all duration-500">
+
+
+                {/* Icon */}
+                <div
+                  className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                >
+                  <category.icon className="w-10 h-10 text-white" aria-hidden />
+                </div>
+
+                {/* Titel + Untertitel */}
+                <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+
+                {/* optionale Produkt-Liste außerhalb der Karte (nicht clickable) */}
+                {Array.isArray(category.products) && category.products.length > 0 && (
+                  <div className="text-lg md:text-xl text-foreground/75 mt-6">
+                    <ul className="space-y-4">
+                      {category.products.map((product, pIndex) => {
+                        const key = String(product).toLowerCase().trim();
+                        const Icon = productIconMap[key] || productIconMap.default;
+                        return (
+                          <li key={pIndex} className="flex items-start gap-4">
+                            <span className="mt-0.5 text-primary">
+                              <Icon className="w-6 h-6" aria-hidden />
+                            </span>
+                            <span className="leading-snug">{formatLabel(String(product))}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                )}
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <Link href="/products">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-[3px] border-secondary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              >
-                Alle Angebote entdecken
-                <ArrowRight className="ml-3 w-6 h-6" />
-              </Button>
-            </Link>
-          </motion.div>
+                {/* „Mehr“-Hint */}
+                <div className="mt-8 inline-flex items-center gap-3 text-lg font-semibold text-foreground/80 group-hover:text-primary">
+                  Mehr erfahren
+                  <ArrowRight className="w-5 h-5 translate-x-0 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </Link>
+        </motion.article>
+      ))}
+    </div>
+
+    {/* CTA-Bar */}
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.3 }}
+      viewport={{ once: true }}
+      className="mt-20 text-center"
+    >
+      <div className="bg-white/70 backdrop-blur-lg rounded-2xl p-8 border border-white/50 shadow-lg max-w-2xl mx-auto">
+        <h3 className="text-2xl font-bold mb-4 text-foreground">
+          Bereit für den nächsten Schritt?
+        </h3>
+        <p className="text-foreground/70 mb-6">
+          Entdecken Sie alle unsere Leistungen im Detail oder vereinbaren Sie ein kostenloses Beratungsgespräch.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/products">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-[3px] border-primary text-black bg-white hover:text-black rounded-full px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Alle Angebote entdecken
+              <GraduationCap className="ml-3 w-6 h-6" />
+            </Button>
+          </Link>
+          <Link href="/team">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-primary to-accent text-white rounded-full px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Kostenlose Beratung
+              <Phone className="ml-3 w-6 h-6" />
+            </Button>
+          </Link>
         </div>
-      </section>      
+      </div>
+    </motion.div>
+  </div>
+
+  {/* reduced motion support */}
+  <style jsx>{`
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  `}</style>
+</section>
+ 
 
       {/* 9) FOOTER */}
       <footer className="bg-foreground/5 border-t border-border/20 py-12">

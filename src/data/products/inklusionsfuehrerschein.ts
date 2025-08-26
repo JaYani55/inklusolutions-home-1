@@ -3,7 +3,7 @@ import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const inklusionsfuehrerschein: ProductData = {
   id: '1',
-  slug: 'produkt-inklusionsfuehrerschein',
+  slug: 'inklusionsfuehrerschein',
   name: 'Inklusionsführerschein',
   subtitle: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur',
   hero: {

@@ -6,7 +6,8 @@ import { disabilityAwarenessSession } from './products/disability-awareness-sess
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
-  'produkt-inklusionsfuehrerschein': inklusionsfuehrerschein,
+  'inklusionsfuehrerschein': inklusionsfuehrerschein,
+  'produkt-inklusionsfuehrerschein': inklusionsfuehrerschein, // Fallback für alte Links
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
   'disability-awareness-session': disabilityAwarenessSession,

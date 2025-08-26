@@ -5,7 +5,7 @@ import React from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
-import { ArrowRight, Award, Star, Users } from 'lucide-react'
+import { ArrowRight, Award, Bubbles, Star, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -70,14 +70,14 @@ const trainingsProducts = [
     id: 'training-1',
     slug: 'inklusionsfuehrerschein',
     name: 'Inklusionsführerschein',
-    description: 'Zertifizierte 2-tägige Qualifizierung mit praktischen Werkzeugen für inklusives Arbeiten',
+    description: '1-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – ideal für DEI, SBV, IB',
     highlight: true,
   },
   {
     id: 'training-2',
     slug: 'masterclasses',
     name: 'Masterclass-Serie',
-    description: 'Spezialisierte Tiefgänge in Schlüsselthemen der Inklusion. Jedes Modul ist eigenständig buchbar.',
+    description: 'Kompakte Vertiefungen z. B. zu: barrierefreie Kommunikation, Fördermittel, Bewerbungssimulation',
     topics: [
       { id: 'mc-1', slug: 'inklusive-stellenausschreibungen', name: 'Inklusive Stellenausschreibungen', description: 'Optimieren Sie Ihre Jobtexte für maximale Diversität und Ansprache.' },
       { id: 'mc-2', slug: 'barrierefreiheit-umsetzen', name: 'Barrierefreiheit umsetzen', description: 'Konkrete Schritte für physische und digitale Zugänglichkeit.' },
@@ -117,45 +117,249 @@ export default function TrainingsPage() {
               </div>
               <h1 className="mt-4 text-5xl font-extrabold leading-tight md:text-7xl">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Professionelle Weiterbildung
+                  Vom Wollen ins Können
                 </span>
               </h1>
               <p className="mx-auto mt-8 max-w-4xl text-xl leading-relaxed text-foreground/80 md:text-2xl">
-                Zertifizierte Qualifizierungen und spezialisierte Module für nachhaltige Inklusion in Ihrem Unternehmen.
+                Mit unseren Trainings wird Inklusion lebendig.
               </p>
+            </motion.div>
+          </section>
+
+          {/* Beschreibung */}
+          <section className="py-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/30">
+                <p className="text-lg leading-relaxed text-foreground/90 mb-6">
+                  Wer Inklusion im Unternehmen wirksam gestalten will, braucht mehr als gute Absichten. Es geht um Haltung – und um Handwerk: Handlungskompetenz, Sicherheit im Umgang mit Behinderung und das Wissen, wie man Inklusion im Alltag lebt.
+                </p>
+                <p className="text-lg leading-relaxed text-foreground/90">
+                  Ob als Präsenz-Workshop oder Online-Session: In unseren Trainings machen wir aus Haltung Handlung – durch echtes Erleben, Reflexion und Praxistransfer. Weniger Theorie, mehr Erfahrung. Weniger Belehrung, mehr Begegnung.
+                </p>
+              </div>
             </motion.div>
           </section>
 
           {/* Inklusionsführerschein Section */}
           <section className="py-12">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[0].name}</h2>
-              <p className="text-xl mb-6">{trainingsProducts[0].description}</p>
-              <ul className="mb-6 text-left list-disc mx-auto max-w-md">
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Consectetur adipiscing elit.</li>
-                <li>Sed do eiusmod tempor incididunt.</li>
-                <li>Ut labore et dolore magna aliqua.</li>
-              </ul>
-          <Button asChild className="w-auto rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
-            <Link href={`/products/${trainingsProducts[0].slug}`} className="flex items-center justify-center gap-2">
-              Details ansehen <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/30">
+                <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[0].name}</h2>
+                <p className="text-xl mb-8 text-foreground/80">{trainingsProducts[0].description}</p>
+                <Button asChild className="w-auto rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
+                  <Link href={`/products/${trainingsProducts[0].slug}`} className="flex items-center justify-center gap-2">
+                    Details ansehen <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
           </section>
 
           {/* Masterclass Section */}
-          <section className="py-12 bg-muted/10">
-            <div className="max-w-6xl mx-auto text-center">
-              <h2 className="text-foreground text-4xl font-bold mb-2">{trainingsProducts[1].name}</h2>
-              <p className="mb-8 text-xl">Spezialisierte Tiefgänge in Schlüsselthemen der Inklusion</p>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {trainingsProducts[1].topics?.map((topic) => (
-                  <ProductCard key={topic.id} product={topic} />
-                ))}
+          <section className="py-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-7xl mx-auto text-center"
+            >
+              <div className="bg-muted/10 rounded-2xl p-8 mb-12">
+                <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[1].name}</h2>
+                <p className="mb-8 text-xl text-foreground/80">{trainingsProducts[1].description}</p>
               </div>
-            </div>
+              
+              {/* Masterclasses Grid - 2 Reihen mit je 4 Kästen */}
+              <div className="space-y-8">
+                {/* Obere Reihe */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Inklusive Stellenausschreibungen - Rot-Pink Verlauf */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#E8F3D6' }}
+                  >
+                    <div className="mb-4">
+                      {/* Circle positioned so its center sits on the card's top-left corner */}
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Stellenausschreibung.png" alt="Stellenausschreibung" className="w-16 h-16 object-contain" />
+                      </div>
+                      {/* spacer to keep content spacing similar */}
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Inklusive Stellenausschreibungen</h3>
+                    <p className="text-black text-sm leading-relaxed">
+                      Wie Stellenanzeigen, Anforderungsprofile und Recruitingprozesse barriereärmer und einladender gestaltet werden.
+                    </p>
+                  </motion.div>
+
+                  {/* Barrierefreiheit umsetzen - Orange */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#FCF9BE' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Barrierefreiheit.png" alt="Barrierefreiheit" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Barrierefreiheit umsetzen</h3>
+                    <p className="text-black text-sm leading-relaxed">
+                      Wie Barrieren im Arbeitsumfeld erkannt, priorisiert und pragmatisch abgebaut werden können.
+                    </p>
+                  </motion.div>
+
+                  {/* Barrierefreie Kommunikation online - Hellgelb */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#FFDCA9' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/KommunikationOnline.png" alt="Kommunikation Online" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Barrierefreie Kommunikation online</h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Wie Webseiten und Landingpages inklusiv, zugänglich und für Menschen mit Behinderung attraktiv gestaltet werden.
+                    </p>
+                  </motion.div>
+
+                  {/* Inklusives Onboarding - Helltürkis */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#FAAB78' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Onboarding.png" alt="Inklusives Onboarding" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Inklusives Onboarding</h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Wie ein inklusives Onboarding gestaltet wird – von Begrüßung bis Prozessanpassung.
+                    </p>
+                  </motion.div>
+                </div>
+
+                {/* Untere Reihe */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Bewerbungssimulation mit Mentor:innen - Lila */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#B5C0D0' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Bewerbungssimulation mit Mentor:innen</h3>
+                    <p className="text-black text-sm leading-relaxed">
+                      Bewerbungsgespräche mit Menschen mit Behinderung trainieren – mit ehrlichem Feedback und Aha-Momenten.
+                    </p>
+                  </motion.div>
+
+                  {/* Deep Dives: Behinderungsarten - Grün */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-black shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#CCD3CA' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/DeepDive.png" alt="Deep Dives" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Deep Dives: Behinderungsarten</h3>
+                    <p className="text-black text-sm leading-relaxed">
+                      Fachlich und erfahrungsbasiert – z. B. Autismus, psychische Erkrankungen oder chronische Schmerzen besser einordnen.
+                    </p>
+                  </motion.div>
+
+                  {/* Fördermittel-Optimierung - Sandfarben/Hellorange */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#EED3D9' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Foerdermittel.png" alt="Fördermittel" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Fördermittel-Optimierung</h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Überblick über relevante Leistungen und Strategien, wie Unternehmen Fördermittel effektiv für Inklusion nutzen können.
+                    </p>
+                  </motion.div>
+
+                  {/* Vernetzung & Anlaufstellen - Hellblau */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="relative rounded-2xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    style={{ backgroundColor: '#D7E4C0' }}
+                  >
+                    <div className="mb-4">
+                      <div className="p-2 bg-white absolute left-3 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible">
+                        <img src="/Vernetzung.png" alt="Vernetzung" className="w-16 h-16 object-contain" />
+                      </div>
+                      <div className="h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-3">Vernetzung & Anlaufstellen</h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Die wichtigsten externen Kontakte, Förderakteure und Netzwerke für Inklusionsverantwortliche im Überblick.
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
           </section>
 
           {/* CTA Section */}
@@ -167,7 +371,7 @@ export default function TrainingsPage() {
               viewport={{ once: true }}
             >
               <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="bg-primary bg-clip-text text-transparent">
                   Bereit für Ihre Weiterbildung?
                 </span>
               </h3>
@@ -175,11 +379,22 @@ export default function TrainingsPage() {
                 Investieren Sie in nachhaltige Kompetenz für Ihr Team.
               </p>
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-                <Button asChild size="lg" className="text-lg rounded-full bg-accent px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
-                  <Link href="/team" className="flex items-center gap-3 text-lg">
-                    <Users className="h-6 w-6" /> Kostenlose Beratung
-                  </Link>
-                </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Kostenlose Beratung
+                <Users className="ml-3 w-6 h-6" />
+              </Button>
+                            <Button 
+                variant="outline" 
+                size="lg"
+                className="border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Alle Angebote entdecken
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
               </div>
             </motion.div>
           </section>

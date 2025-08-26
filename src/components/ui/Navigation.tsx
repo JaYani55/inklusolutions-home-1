@@ -19,10 +19,10 @@ export default function Navigation() {
         { name: "Services", href: "/products/services" },
       ]
     },
-    { name: "Lösungen", href: "/solutions" },
-    { name: "Mentor:innen", href: "/mentors" },
-    { name: "Team", href: "/team" },
-    { name: "Historie", href: "/historie" },
+    //{ name: "Lösungen", href: "/solutions" },
+    //{ name: "Mentor:innen", href: "/mentors" },
+    //{ name: "Team", href: "/team" },
+    //{ name: "Historie", href: "/historie" },
     { name: "Impressum", href: "/impressum" },
     { name: "Datenschutz", href: "/datenschutz" },
   ];
