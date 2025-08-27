@@ -11,7 +11,7 @@ src/
 ├── data/
 │   ├── productService.ts          # Zentrale Service-Klasse
 │   └── products/                  # Einzelne Produktdateien
-│       ├── inklusionsfuehrerschein.ts
+│       ├── inklusionsführerschein.ts
 │       ├── vielfalt-sichtbar-machen.ts
 │       ├── inclusive-recruiting-platform.ts
 │       └── ...                    # Weitere Produkte

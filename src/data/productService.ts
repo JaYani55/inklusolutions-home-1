@@ -1,13 +1,13 @@
 import { ProductData } from '@/types/product';
-import { inklusionsfuehrerschein } from './products/inklusionsfuehrerschein';
+import { inklusionsführerschein } from './products/inklusionsführerschein';
 import { vielfaltSichtbarMachen } from './products/vielfalt-sichtbar-machen';
 import { inclusiveRecruitingPlatform } from './products/inclusive-recruiting-platform';
 import { disabilityAwarenessSession } from './products/disability-awareness-session';
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
-  'inklusionsfuehrerschein': inklusionsfuehrerschein,
-  'produkt-inklusionsfuehrerschein': inklusionsfuehrerschein, // Fallback für alte Links
+  'inklusionsführerschein': inklusionsführerschein,
+  'produkt-inklusionsführerschein': inklusionsführerschein, // Fallback für alte Links
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
   'disability-awareness-session': disabilityAwarenessSession,

@@ -30,18 +30,18 @@ export default function HomePage() {
       icon: GraduationCap,
       color: "from-primary to-secondary",
       link: "/products/trainings",
-      products: ["inklusionsfuehrerschein", "masterclasses"]
+      products: ["inklusionsführerschein", "masterclasses"]
     },
     {
-      title: "Bewusstsein",
+      title: "Awareness",
       icon: Lightbulb,
       color: "from-secondary to-accent",
       withMentors: true,
-      products: ["DAW", "inklustories", "Lass uns reden", "Spotlight Moments", "InkluTalks"],
+      products: ["DAW", "inkluStories", "InkluTalks"],
       link: "/products/bewusstsein"
     },
     {
-      title: "Services", 
+      title: "Services & Beratung", 
       icon: Settings,
       color: "from-accent to-primary",
       withMentors: true,
@@ -52,10 +52,10 @@ export default function HomePage() {
 
   // map product keys (normalized) to Lucide icon components that fit the product semantics
   const productIconMap: Record<string, any> = {
-    inklusionsfuehrerschein: GraduationCap,
+    inklusionsführerschein: GraduationCap,
     masterclasses: GraduationCap,
     daw: Lightbulb,
-    inklustories: Star,
+    inklustories: Video,
     "lass uns reden": Video,
     "spotlight moments": Video,
     inklutalks: MessageCircle,
@@ -394,7 +394,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Titel + Untertitel */}
-                <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="md:text-3xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
 

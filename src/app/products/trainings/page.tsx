@@ -25,7 +25,7 @@ import { Card, CardContent } from '@/components/ui/card'
 const trainingsProducts = [
   {
     id: 'training-1',
-    slug: 'inklusionsfuehrerschein',
+    slug: 'inklusionsführerschein',
     name: 'Inklusionsführerschein',
     description: '1-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – ideal für DEI, SBV, IB',
     highlight: true,
@@ -87,8 +87,8 @@ export default function TrainingsPage() {
                       size="lg"
                       className="border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-xl px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       onClick={() => {
-                        const inklusionsfuehrerscheinSection = document.getElementById('inklusionsfuehrerschein');
-                        inklusionsfuehrerscheinSection?.scrollIntoView({ behavior: 'smooth' });
+                        const inklusionsführerscheinSection = document.getElementById('inklusionsführerschein');
+                        inklusionsführerscheinSection?.scrollIntoView({ behavior: 'smooth' });
                       }}
                     >
                       Mehr erfahren
@@ -192,7 +192,7 @@ export default function TrainingsPage() {
         </section>
 
         {/* Inklusionsführerschein Section */}
-        <section id="inklusionsfuehrerschein" className="py-32">
+        <section id="inklusionsführerschein" className="py-32">
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-12 items-center">

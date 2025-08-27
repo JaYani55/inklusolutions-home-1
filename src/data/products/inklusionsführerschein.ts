@@ -1,9 +1,9 @@
 import { ProductData } from '@/types/product';
 import { Users, Wrench, CalendarDays } from 'lucide-react';
 
-export const inklusionsfuehrerschein: ProductData = {
+export const inklusionsführerschein: ProductData = {
   id: '1',
-  slug: 'inklusionsfuehrerschein',
+  slug: 'inklusionsführerschein',
   name: 'Inklusionsführerschein',
   subtitle: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur',
   hero: {

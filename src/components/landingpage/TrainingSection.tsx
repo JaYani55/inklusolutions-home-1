@@ -8,7 +8,7 @@ export default function TrainingSection() {
   const product1 = {
     title: "Inklusionsführerschein",
     subtitle: "2-tägiger Qualifizierungsworkshop",
-    href: "/products/produkt-inklusionsfuehrerschein",
+    href: "/products/produkt-inklusionsführerschein",
   };
 
   const masterclasses = [
