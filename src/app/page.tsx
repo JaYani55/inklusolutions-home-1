@@ -325,11 +325,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
+{/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
 <section
   id="angebote"
   aria-labelledby="angebote-heading"
-  className="relative overflow-hidden py-24 bg-gradient-to-br from-background via-accent/5 to-background"
+  className="relative overflow-hidden py-24 bg-gray-200"
 >
   {/* Subtle texture + zwei weiche „blob“-highlights */}
   <div
