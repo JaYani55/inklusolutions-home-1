@@ -58,7 +58,7 @@ export default function ImpressumPage() {
               <div>
                 <h3 className="text-xl font-bold mb-4 text-foreground">Umsatzsteuer-ID</h3>
                 <p className="text-lg text-foreground/85 mb-3">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
-                <p className="font-mono text-lg text-foreground/70">[USt-IdNr.]</p>
+                <p className="font-mono text-lg text-foreground/70">DE367049446</p>
               </div>
             </div>
 

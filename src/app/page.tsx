@@ -168,7 +168,6 @@ export default function HomePage() {
                   textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
                 }}
               >
-                „Behinderung ist Teil der Lösung." – InkluSolutions
               </motion.div>
               
               {/* H1 with strong text shadow */}
@@ -501,9 +500,6 @@ export default function HomePage() {
                 alt="InkluSolutions Logo" 
                 className="h-12 mx-auto md:mx-0 mb-4"
               />
-              <p className="!text-black leading-relaxed">
-                "Behinderung ist Teil der Lösung" – InkluSolutions
-              </p>
             </div>
             
             <div>

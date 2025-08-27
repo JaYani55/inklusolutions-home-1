@@ -124,7 +124,7 @@ export default function TrainingsPage() {
                 <Card className="bg-white/70 backdrop-blur-sm shadow-xl border border-white/30 rounded-2xl hover:shadow-2xl transition-all duration-300 group">
                   <CardContent className="p-8 space-y-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
-                      <Target className="h-6 w-6 text-primary" />
+                      <Target className="h-6 w-10 text-primary" />
                     </div>
                     
                     <div className="space-y-4">
