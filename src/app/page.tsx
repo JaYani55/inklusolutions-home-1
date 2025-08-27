@@ -134,10 +134,10 @@ export default function HomePage() {
       <Navigation />
       
       {/* 1) HERO / Above the Fold - Elegant Text Solution */}
-      <section className="relative overflow-hidden min-h-[90vh]">
+      <section className="relative overflow-hidden ">
         {/* Background Image - clear and prominent */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
+          className="absolute inset-0 w-full h-full bg-cover bg-bottom bg-no-repeat" 
           style={{
             backgroundImage: "url('/header.jpg')",
             filter: 'brightness(0.75) contrast(1.1)'
@@ -147,8 +147,8 @@ export default function HomePage() {
         {/* Very subtle dark overlay only for text readability */}
         <div className="absolute inset-0 bg-black/20" />
         
-        {/* Content Container */}
-        <div className="relative z-10 flex flex-col justify-center min-h-[90vh] pt-80 px-8 lg:px-24 py-20">
+  {/* Content Container (moved up visually without altering background) */}
+  <div className="relative z-10 flex flex-col justify-center min-h-[60vh] pt-80 px-8 lg:px-24 py-20 -translate-y-20 lg:-translate-y-32">
           {/* Main Content Block */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -355,7 +355,8 @@ export default function HomePage() {
 
       <h2
         id="angebote-heading"
-        className="text-4xl lg:text-5xl font-bold mb-6">        <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+        className="text-4xl lg:text-5xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
           Unsere Angebote – nah und ganzheitlich
         </span>
       </h2>

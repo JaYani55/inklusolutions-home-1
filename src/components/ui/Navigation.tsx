@@ -17,6 +17,7 @@ export default function Navigation() {
         { name: "Training", href: "/products/trainings" },
         { name: "Bewusstsein", href: "/products/bewusstsein" },
         { name: "Services", href: "/products/services" },
+        { name: "Übersicht", href: "/products" },
       ]
     },
     //{ name: "Lösungen", href: "/solutions" },
