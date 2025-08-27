@@ -134,131 +134,131 @@ export default function HomePage() {
       <Navigation />
       
       {/* 1) HERO / Above the Fold - Elegant Text Solution */}
-      <section className="relative overflow-hidden ">
-        {/* Background Image - clear and prominent */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-bottom bg-no-repeat" 
+<section className="relative overflow-hidden">
+  {/* Background Image - nur auf größeren Screens sichtbar */}
+  <div 
+    className="hidden sm:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
+    style={{
+      backgroundImage: "url('/header.jpg')",
+      filter: 'brightness(0.75) contrast(1.1)'
+    }}
+  />
+  
+  {/* Subtle dark overlay */}
+  <div className="hidden sm:block absolute inset-0 bg-black/20" />
+  
+  {/* Content Container - responsive height ohne negative translation */}
+  <div className="relative z-10 flex flex-col justify-center 
+                  min-h-[500px] sm:min-h-[65vh] md:min-h-[70vh] 
+                  px-6 sm:px-8 lg:px-24 py-16 sm:py-20 
+                  mobile-bg sm:bg-transparent">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="max-w-5xl mx-auto text-center"
+    >
+      {/* Text Content mit original Farben */}
+      <div className="space-y-8 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg lg:text-xl font-medium mb-4 text-white drop-shadow-2xl"
           style={{
-            backgroundImage: "url('/header.jpg')",
-            filter: 'brightness(0.75) contrast(1.1)'
+            textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
           }}
-        />
+        >
+        </motion.div>
         
-        {/* Very subtle dark overlay only for text readability */}
-        <div className="absolute inset-0 bg-black/20" />
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white drop-shadow-2xl"
+          style={{
+            textShadow: '3px 3px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)'
+          }}
+        >
+          Inklusion beginnt mit Menschen –
+          <br />
+          und wird mit den richtigen Lösungen wirksam
+        </h1>
         
-  {/* Content Container (moved up visually without altering background) */}
-  <div className="relative z-10 flex flex-col justify-center min-h-[60vh] pt-80 px-8 lg:px-24 py-20 -translate-y-20 lg:-translate-y-32">
-          {/* Main Content Block */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto text-center"
-          >
-            {/* Text Content with elegant text shadows */}
-            <div className="space-y-8 mb-12">
-              {/* Claim (Eyebrow) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg lg:text-xl font-medium mb-4 text-white drop-shadow-2xl"
-                style={{
-                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
-                }}
-              >
-              </motion.div>
-              
-              {/* H1 with strong text shadow */}
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white drop-shadow-2xl"
-                style={{
-                  textShadow: '3px 3px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)'
-                }}
-              >
-                Inklusion beginnt mit Menschen –
-                <br />
-                und wird mit den richtigen Lösungen wirksam
-              </h1>
-              
-              {/* H2 */}
-              <h2 className="text-xl lg:text-2xl font-semibold text-white drop-shadow-2xl"
-                style={{
-                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
-                }}
-              >
-                Impulsgeber:innen auf Augenhöhe - unsere Mentor:innen.
-              </h2>
-              
-
+        <h2 className="text-xl lg:text-2xl font-semibold text-white drop-shadow-2xl"
+          style={{
+            textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+          }}
+        >
+          Wir leben, was wir beraten: 55% unseres Teams sind schwerbehindert.
+        </h2>
+      </div>
+      
+      {/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="hidden sm:block justify-center max-w-4xl mx-auto"
+      >
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/trainings" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-primary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Training entdecken
+                  <GraduationCap className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
             </div>
-
-            {/* Integrated CTA Buttons — each button has its own gradient segment */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex justify-center max-w-4xl mx-auto"
-            >
-              <div className="w-full">
-                <div className="flex flex-col md:flex-row gap-4">
-                  {/* Button 1: primary -> third */}
-                  <div className="md:flex-1 min-w-0">
-                    <Link href="/products/trainings" className="block">
-                      <Button
-                        size="lg"
-                        className="w-full text-white bg-gradient-to-r from-primary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                      >
-                        Training entdecken
-                        <GraduationCap className="ml-4 w-7 h-7" />
-                      </Button>
-                    </Link>
-                  </div>
-
-                  {/* Button 2: third -> secondary */}
-                  <div className="md:flex-1 min-w-0">
-                    <Link href="/products/bewusstsein" className="block">
-                      <Button
-                        size="lg"
-                        className="w-full text-white bg-gradient-to-r from-secondary to-third border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                      >
-                        Bewusstsein stärken
-                        <Lightbulb className="ml-4 w-7 h-7" />
-                      </Button>
-                    </Link>
-                  </div>
-
-                  {/* Button 3: secondary -> accent */}
-                  <div className="md:flex-1 min-w-0">
-                    <Link href="/products/services" className="block">
-                      <Button
-                        size="lg"
-                        className="w-full text-white bg-gradient-to-r from-third to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                      >
-                        Services nutzen
-                        <Settings className="ml-4 w-7 h-7" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-                          {/* Subline */}
-              <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl pt-10"
-                style={{
-                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
-                }}
-              >
-                Gemeinsam schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen – 
-                mit Trainings, Dialog-Formaten und Services.
-              </p>
-          </motion.div>
-
-          {/* Subtle decorative elements */}
-          <div className="absolute top-1/4 left-8 w-24 h-24 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse" />
-          <div className="absolute bottom-1/3 right-8 w-32 h-32 bg-gradient-to-r from-red-400/20 to-amber-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/bewusstsein" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-secondary to-third border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Bewusstsein stärken
+                  <Lightbulb className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/services" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-third to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Services nutzen
+                  <Settings className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.div>
+      
+      {/* Einfache Mobile-Version */}
+      <div className="sm:hidden mt-8">
+        <Link href="/products">
+          <Button size="lg" className="bg-white px-8 py-6 text-lg">
+            Unsere Angebote entdecken
+          </Button>
+        </Link>
+      </div>
+      
+      <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl pt-10"
+        style={{
+          textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+        }}
+      >
+        Gemeinsam mit Menschen mit Behinderung als Mentor:innen schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen.
+      </p>
+    </motion.div>
+    
+    {/* Dekorative Elemente */}
+    <div className="hidden sm:block absolute top-1/4 left-8 w-24 h-24 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse" />
+    <div className="hidden sm:block absolute bottom-1/3 right-8 w-32 h-32 bg-gradient-to-r from-red-400/20 to-amber-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+  </div>
+</section>
 
       {/* 2) SOCIAL PROOF (150+ Unternehmen) */}
       <section className="py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
