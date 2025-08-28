@@ -66,8 +66,8 @@ const FeatureReveal: React.FC<FeatureRevealProps> = ({
       >
         {/* TITEL: Verwendet nun die generischen Theme-Farben für den Gradient-Text */}
         <h3 
-          className="text-4xl lg:text-5xl font-extrabold leading-relaxed mb-4 pb-2 bg-gradient-to-r from-theme-primary to-theme-secondary bg-clip-text text-transparent"
-          style={{ WebkitFontSmoothing: 'antialiased' }}
+          className="text-4xl lg:text-5xl font-normal leading-relaxed mb-4 pb-2 bg-gradient-to-r from-theme-primary to-theme-secondary bg-clip-text text-transparent"
+          style={{ WebkitFontSmoothing: 'antialiased', fontWeight: '400' }}
         >
           {title}
         </h3>

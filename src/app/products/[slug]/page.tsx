@@ -7,7 +7,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Rocket, Eye, CheckCircle, ArrowUpRight, Sparkles
+  Rocket, Eye, CheckCircle, ArrowUpRight, Sparkles, Phone
 } from "lucide-react";
 import TestimonialSlider from "@/components/shared/TestimonialSlider";
 import FeatureReveal from "@/components/shared/FeatureReveal";
@@ -99,13 +99,16 @@ const ProductSlugPage = () => {
                                 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                     <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer">
-                                        <Button
-                                            size="lg"
-                                            className="rounded-full bg-white text-foreground border-[3px] border-accent hover:text-secondary-foreground font-semibold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                        >
-                                            <Rocket className="mr-3 h-6 w-6" />
-                                            {productData.cta.primaryButton}
-                                        </Button>
+                                    <Button asChild
+                                    variant="outline" 
+                                    size="lg"
+                                    className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                    >
+                                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                        Kostenlose Beratung
+                                        <Phone className="ml-3 w-6 h-6" />
+                                    </a>
+                                    </Button>
                                     </a>
                                     {productData.cta.secondaryButton && (
                                         <Button
@@ -172,7 +175,7 @@ const ProductSlugPage = () => {
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
                         <div className="container mx-auto px-6 relative">
                             <div className="text-center mb-16">
-                                <h2 className="text-5xl font-bold mb-6 pb-2">
+                                <h2 className="text-5xl font-medium mb-6 pb-2">
                                     <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
                                         Details im Überblick
                                     </span>
@@ -201,7 +204,7 @@ const ProductSlugPage = () => {
                                                 <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6">
                                                     <IconComponent className="h-8 w-8 text-primary" />
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-foreground mb-4">
+                                                <h3 className="text-2xl font-medium text-foreground mb-4">
                                                     {card.title}
                                                 </h3>
                                                 <ul className="list-disc list-inside text-foreground/70 leading-relaxed mb-6">
@@ -209,10 +212,10 @@ const ProductSlugPage = () => {
                                                         <li key={itemIndex}>{item}</li>
                                                     ))}
                                                 </ul>
-                                                <div className="flex items-center text-accent group-hover:text-secondary transition-colors duration-300">
+{/*                                                 <div className="flex items-center text-primary group-hover:text-secondary transition-colors duration-300">
                                                     <span className="font-semibold text-sm">{card.description}</span>
                                                     <ArrowUpRight className="ml-2 h-4 w-4" />
-                                                </div>
+                                                </div> */}
                                             </CardContent>
                                         </Card>
                                     );
@@ -297,12 +300,15 @@ const ProductSlugPage = () => {
                                 {productData.cta.description}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                                <Button
-                                    size="lg"
-                                    className="rounded-full bg-white text-foreground border-[3px] border-accent hover:text-secondary-foreground font-semibold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                                <Button asChild
+                                variant="outline" 
+                                size="lg"
+                                className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
                                 >
-                                    <Rocket className="mr-3 h-6 w-6" />
-                                    {productData.cta.primaryButton}
+                                <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                    Kostenlose Beratung
+                                    <Phone className="ml-3 w-6 h-6" />
+                                </a>
                                 </Button>
                                 {productData.cta.secondaryButton && (
                                     <Button
