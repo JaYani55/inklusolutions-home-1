@@ -5,7 +5,7 @@ import React from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
-import { ArrowRight, Star, Users, Video, MessageCircle, Eye } from 'lucide-react'
+import { ArrowRight, Star, Users, Video, MessageCircle, Eye, Lightbulb, Pin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -20,6 +20,17 @@ const cardVariants: Variants = {
   hover: { y: -6, scale: 1.01, transition: { duration: 0.25 } },
 }
 
+// Icon-Mapping für Bewusstseins-Produkte (basierend auf der Produkt-Übersichtsseite)
+const productIconMap: Record<string, any> = {
+  'disability-awareness-session': Lightbulb,
+  'daw-awareness-workshop': Lightbulb,
+  'lass-uns-reden': Video,
+  'spotlight-moments': Video,
+  'inklu-talks': MessageCircle,
+  'begehung-analyse-vor-ort': Pin,
+  default: Users,
+}
+
 const bewusstseinsProducts = [
   {
     id: 'bewusstsein-1',
@@ -28,49 +39,63 @@ const bewusstseinsProducts = [
     description: 'Halbtägiger, interaktiver Sensibilisierungsworkshop mit authentischen Begegnungen und nachhaltigem Perspektivwechsel',
     highlight: true,
     withMentors: true,
+    icon: productIconMap['disability-awareness-session'],
+    hasDetailsPage: true,
   },
   {
     id: 'bewusstsein-2',
     slug: 'daw-awareness-workshop',
-    name: 'DAW - Disability Awareness Workshop',
-    description: '4-stündige interaktive Sensibilisierung mit nachhaltiger Wirkung - auch in Präsenz verfügbar',
+    name: 'DAW (Awareness Workshop)',
+    description: 'Halbtägiger Präsenzworkshop für Teams, Führungskräfte & HR mit Film, Mentor:innen & Reflexion',
     withMentors: true,
+    icon: productIconMap['daw-awareness-workshop'],
+    hasDetailsPage: false,
   },
   {
     id: 'bewusstsein-3',
     slug: 'lass-uns-reden',
-    name: '"Lass uns reden" - Videopaket',
-    description: 'Professionelle Video-Serie für interne Kommunikation und Events'
+    name: '„Lass uns reden"',
+    description: 'Videopaket mit authentischen Porträts für interne Kommunikation',
+    icon: productIconMap['lass-uns-reden'],
+    hasDetailsPage: false,
   },
   {
     id: 'bewusstsein-4',
     slug: 'spotlight-moments',
     name: 'Spotlight Moments',
-    description: 'Maßgeschneiderte Videoproduktion Ihrer Inklusionsgeschichten'
+    description: 'Professionell begleitete Videoproduktion mit Mitarbeitenden mit Behinderung',
+    icon: productIconMap['spotlight-moments'],
+    hasDetailsPage: false,
   },
   {
     id: 'bewusstsein-5',
     slug: 'inklu-talks',
-    name: 'Inklu-Talks',
-    description: '60-minütige Expert:innen-Talks für offenen Austausch und Diskussion'
+    name: 'Inklu-Talks (Lunchbag)',
+    description: 'Kurzes Austauschformat zu spezifischen Behinderungsbildern (z. B. Autismus, Depression etc.)',
+    icon: productIconMap['inklu-talks'],
+    hasDetailsPage: false,
   },
   {
     id: 'bewusstsein-6',
     slug: 'begehung-analyse-vor-ort',
-    name: 'Barrierefreiheits-Analyse',
-    description: 'Professionelle Vor-Ort-Begutachtung mit detailliertem Maßnahmenkatalog'
+    name: 'Begehung',
+    description: 'Analyse vor Ort zur Sichtbarmachung struktureller Barrieren & Ableitung von Praxisimpulsen',
+    icon: productIconMap['begehung-analyse-vor-ort'],
+    hasDetailsPage: false,
   },
 ]
 
 function ProductCard({ product }: { product: any }) {
+  const IconComponent = product.icon || Users;
+  
   return (
     <motion.div variants={cardVariants} whileHover="hover" className="h-full">
-      <Card className={`relative h-full flex flex-col overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${
-        product.highlight ? 'ring-2 ring-primary/30 from-primary/10 to-accent/10' : 'border-white/30'
+      <Card className={`relative h-full flex flex-col overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-white/90 border border-white/60 hover:border-accent/30 ${
+        product.highlight ? 'ring-2 ring-primary/30 border-primary/20' : ''
       }`}>
         {product.highlight && (
           <div className="absolute right-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-third px-4 py-2 text-sm font-semibold text-primary-foreground shadow-xl">
+            <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-secondary to-third px-4 py-2 text-sm font-semibold text-white shadow-lg">
               <Star className="h-4 w-4 fill-current" /> Empfohlen
             </div>
           </div>
@@ -78,29 +103,38 @@ function ProductCard({ product }: { product: any }) {
 
         {product.withMentors && (
           <div className="absolute left-4 top-4 z-10">
-            <div className="flex items-center gap-2 rounded-full bg-accent to-third px-3 py-2 text-xs font-semibold text-primary-foreground shadow-lg">
+            <div className="flex items-center gap-2 rounded-full bg-accent px-3 py-2 text-xs font-semibold text-white shadow-lg">
               <Users className="h-3 w-3" /> Mit Mentor:innen
             </div>
           </div>
         )}
 
-        <CardHeader className="px-6 pb-4 pt-14">
-          <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
+        {/* Product Icon */}
+        <div className="flex items-center justify-center pt-16 pb-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
+            <IconComponent className="h-8 w-8 text-primary" />
+          </div>
+        </div>
+
+        <CardHeader className="px-6 pb-4 pt-0">
+          <CardTitle className="text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-primary text-center">
             {product.name}
           </CardTitle>
           {product.description && (
-            <CardDescription className="mt-3 text-base leading-relaxed text-muted-foreground">
+            <CardDescription className="mt-3 text-base leading-relaxed text-foreground/70 text-center">
               {product.description}
             </CardDescription>
           )}
         </CardHeader>
 
         <CardFooter className="px-6 pb-6 pt-3 mt-auto">
-          <Button asChild className="w-full rounded-xl bg-third font-semibold text-primary-foreground shadow-md transition-all hover:from-secondary hover:to-primary">
-            <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
-              Details ansehen <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+          {product.hasDetailsPage && (
+            <Button asChild className="w-full rounded-full bg-white text-foreground border-[3px] border-accent hover:text-secondary-foreground font-semibold transition-all duration-300 hover:shadow-lg">
+              <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
+                Details ansehen <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          )}
         </CardFooter>
       </Card>
     </motion.div>
@@ -112,38 +146,63 @@ export default function BewusstseinsPage() {
     <>
       <Navigation />
 
-      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-muted/10 to-third/5">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23970200' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      <div className="min-h-screen bg-background text-foreground">
+        {/* Background pattern - styled like main page */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
         }} />
         
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 top-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-r from-primary/15 to-transparent blur-3xl" />
-          <div className="absolute -right-20 bottom-1/4 h-96 w-96 animate-blob rounded-full bg-gradient-to-l from-accent/15 to-transparent blur-3xl" />
-        </div>
+        {/* HERO */}
+        <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
+          {/* Hero Background Image */}
+          <img
+            src="/training2.jpg"
+            alt="Professionals Background"
+            className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
+          />
+          
+          {/* Subtiler Textur-Hintergrund */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-10 z-5"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 z-10" />
+          <div className="absolute top-0 left-0 w-full h-full opacity-20 z-20">
+            <div className="absolute top-20 left-10 w-2 h-2 bg-secondary rounded-full animate-pulse" />
+            <div className="absolute top-40 right-20 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          </div>
 
-        <div className="container relative z-10 mx-auto px-6 py-6 md:px-8 md:py-10">
-          {/* HERO */}
-          <section className="relative py-12 text-center">
-            <motion.div initial={{ opacity: 0, y: -24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/60 backdrop-blur-sm border border-white/30 px-6 py-3">
+          <div className="container mx-auto px-6 relative z-30">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/90 backdrop-blur-sm border border-white/60 px-6 py-3 shadow-lg">
                 <Users className="h-6 w-6 text-primary" />
                 <span className="text-lg font-semibold text-primary">Bewusstsein & Sensibilisierung</span>
               </div>
-              <h1 className="mt-4 text-5xl font-extrabold leading-tight md:text-7xl">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
                   Kulturwandel durch Begegnung
                 </span>
               </h1>
-              <p className="mx-auto mt-8 max-w-4xl text-xl leading-relaxed text-foreground/80 md:text-2xl">
+              <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
                 Authentische Sensibilisierung durch echte Begegnungen und professionelle Aufklärung für nachhaltigen Wandel.
               </p>
             </motion.div>
-          </section>
+          </div>
+        </section>
 
-          {/* PRODUCTS */}
-          <section className="py-12">
+        {/* PRODUCTS */}
+        <section className="py-24 bg-gradient-to-br from-warm-bg to-background relative overflow-visible">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 z-0" />
+          <div className="container mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,10 +215,21 @@ export default function BewusstseinsPage() {
                 ))}
               </div>
             </motion.div>
-          </section>
+          </div>
+        </section>
 
-          {/* Special Mentor Section */}
-          <section className="py-16">
+        {/* Special Mentor Section */}
+        <section className="py-20 bg-gradient-to-br from-background to-warm-bg relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
+          
+          {/* Decorative background elements like main page */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-15 z-10">
+            <div className="absolute top-32 right-16 w-3 h-3 bg-accent rounded-full animate-pulse" />
+            <div className="absolute bottom-32 left-16 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '4s' }} />
+          </div>
+
+          <div className="container mx-auto px-6 relative z-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -167,74 +237,79 @@ export default function BewusstseinsPage() {
               viewport={{ once: true }}
               className="max-w-5xl mx-auto"
             >
-              <div className="bg-gradient-to-br from-primary/10 via-third/10 to-accent/10 border-2 border-primary/30 rounded-3xl p-10 text-center hover:shadow-xl hover:border-primary/50 transition-all duration-300">
+              <div className="bg-white/80 border border-white/60 backdrop-blur-sm rounded-3xl p-10 text-center hover:shadow-xl hover:border-accent/30 transition-all duration-300">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <Eye className="h-8 w-8 text-primary" />
                   <h3 className="text-2xl lg:text-3xl font-bold text-foreground">Warum Sensibilisierung wirkt</h3>
                 </div>
-                <p className="text-lg lg:text-xl text-foreground/85 leading-relaxed mb-8">
+                <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mb-8 font-light">
                   Echte Veränderung beginnt mit Verständnis. Unsere Mentor:innen teilen ihre persönlichen Erfahrungen 
                   und schaffen authentische Begegnungen, die nachhaltig wirken.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="bg-white/60 rounded-xl p-6">
+                  <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                       <MessageCircle className="h-8 w-8 text-primary" />
                     </div>
                     <div className="text-xl font-bold text-primary mb-2">Authentizität</div>
-                    <div className="text-foreground/80">Echte Geschichten statt theoretische Konzepte</div>
+                    <div className="text-foreground/70">Echte Geschichten statt theoretische Konzepte</div>
                   </div>
-                  <div className="bg-white/60 rounded-xl p-6">
+                  <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                       <Users className="h-8 w-8 text-secondary" />
                     </div>
                     <div className="text-xl font-bold text-secondary mb-2">Begegnung</div>
-                    <div className="text-foreground/80">Direkte Interaktion auf Augenhöhe</div>
+                    <div className="text-foreground/70">Direkte Interaktion auf Augenhöhe</div>
                   </div>
-                  <div className="bg-white/60 rounded-xl p-6">
+                  <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                       <Video className="h-8 w-8 text-third" />
                     </div>
                     <div className="text-xl font-bold text-third mb-2">Nachhaltigkeit</div>
-                    <div className="text-foreground/80">Langfristige Veränderung der Unternehmenskultur</div>
+                    <div className="text-foreground/70">Langfristige Veränderung der Unternehmenskultur</div>
                   </div>
                 </div>
-                <Button asChild size="lg" className="bg-third hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 text-primary-foreground rounded-full px-10 py-4 text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105">
-                  <Link href="/products/disability-awareness-session" className="flex items-center gap-3">
-                    Sensibilisierung starten
-                    <Users className="h-5 w-5" />
-                  </Link>
-                </Button>
               </div>
             </motion.div>
-          </section>
+          </div>
+        </section>
 
-          {/* CTA */}
-          <section className="mt-16 border-t border-border/30 text-center pt-16">
+        {/* CTA */}
+        <section className="py-20 relative overflow-hidden bg-gradient-to-br from-warm-bg to-background">
+          <img
+            src="/bg-texture-subtle.jpg"
+            alt="CTA Background"
+            className="absolute inset-0 w-full h-full object-cover opacity-5"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
+          <div className="container mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="text-center"
             >
-              <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Bereit für echte Begegnungen?
-                </span>
-              </h3>
-              <p className="mt-4 text-xl leading-relaxed text-foreground/80 mb-8">
-                Starten Sie den Kulturwandel in Ihrem Unternehmen.
-              </p>
-              <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-                <Button asChild size="lg" className="text-lg rounded-full bg-accent px-10 py-4 font-semibold text-primary-foreground shadow-xl transition-all hover:from-primary/90 hover:via-secondary/90 hover:to-third/90 hover:scale-105">
-                  <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-lg">
-                    <Users className="h-6 w-6" /> Kostenlose Beratung
-                  </a>
-                </Button>
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-4xl lg:text-5xl font-bold mb-6 pb-2">
+                  <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                    Bereit für echte Begegnungen?
+                  </span>
+                </h3>
+                <p className="text-xl lg:text-2xl leading-relaxed text-foreground/80 mb-12 font-light">
+                  Starten Sie den Kulturwandel in Ihrem Unternehmen.
+                </p>
+                <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
+                  <Button asChild size="lg" className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
+                      <Users className="h-6 w-6" /> Kostenlose Beratung
+                    </a>
+                  </Button>
+                </div>
               </div>
             </motion.div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </>
   )
