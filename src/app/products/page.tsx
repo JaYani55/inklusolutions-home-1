@@ -39,7 +39,7 @@ const formatLabel = (s: string) =>
 // Mapping Produkt-Schlüssel (normalisiert) zu Lucide Icon Komponenten
 const productIconMap: Record<string, any> = {
   inklusionsführerschein: GraduationCap,
-  masterclasses: PlaneTakeoff, // Masterclasses könnten auch Award sein
+  masterclasses: Award, // Masterclasses könnten auch Award sein
   daw: Lightbulb,
   inklustories: Star, // Eventuell ein Story-Icon wenn vorhanden
   lassunsreden: Video,
@@ -146,7 +146,7 @@ export default function ProductsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl lg:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto"
           >
-            „Inklusion braucht Lösungen – keine Einzelmaßnahmen.“
+            Inklusion braucht Lösungen – keine Einzelmaßnahmen.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -154,13 +154,13 @@ export default function ProductsPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg lg:text-xl text-foreground/70 max-w-4xl mx-auto leading-relaxed"
           >
-            **InkluSolutions** steht für ganzheitliche Inklusionsentwicklung im
+            InkluSolutions steht für ganzheitliche Inklusionsentwicklung im
             Unternehmen: Von Bewusstsein über Qualifizierung bis zur
             strukturellen Verankerung. Statt isolierter Einzelmaßnahmen bieten
-            wir einen modularen Baukasten – **strategisch, praxisnah und
-            wirksam**. Mit **Mentor:innen**, **messbarem Impact** und einem
-            klaren Fokus auf die Potenziale eurer **Mitarbeitenden mit
-            Behinderung** begleiten wir euch auf dem Weg zu einer inklusiven
+            wir einen modularen Baukasten – strategisch, praxisnah und
+            wirksam. Mit Mentor:innen, messbarem Impact und einem
+            klaren Fokus auf die Potenziale eurer Mitarbeitenden mit
+            Behinderung begleiten wir euch auf dem Weg zu einer inklusiven
             Unternehmenskultur.
           </motion.p>
           {/* Anker-Links zu den Sektionen */}
@@ -177,7 +177,7 @@ export default function ProductsPage() {
                 className="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold text-lg hover:underline transition-colors duration-200"
               >
                 {category.title}
-                <Circle className="w-4 h-4" />
+
               </a>
             ))}
           </motion.div>
@@ -331,28 +331,6 @@ export default function ProductsPage() {
                     );
                   })}
                 </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="mt-12 text-center"
-                >
-                  <Link href={category.link}>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="lg"
-                      className="border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Alle {category.title}-Angebote
-                        <ArrowRight className="ml-3 w-5 h-5" />
-                      </span>
-                    </Button>
-                  </Link>
-                </motion.div>
               </motion.div>
             ) : (
               // Standardlayout für andere Kategorien
@@ -439,28 +417,30 @@ export default function ProductsPage() {
                   </motion.div>
                 </div>
 
-                {/* Zentrierter CTA-Button unter den beiden Spalten */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="mt-12 text-center"
-                >
-                  <Link href={category.link}>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="lg"
-                      className="border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Alle {category.title}-Angebote
-                        <ArrowRight className="ml-3 w-5 h-5" />
-                      </span>
-                    </Button>
-                  </Link>
-                </motion.div>
+                {/* CTA button only rendered for 'training' category */}
+                {category.id === "training" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    className="mt-12 text-center"
+                  >
+                    <Link href={category.link}>
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="lg"
+                        className="border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      >
+                        <span className="flex items-center justify-center gap-2">
+                          Alle {category.title}-Angebote
+                          <ArrowRight className="ml-3 w-5 h-5" />
+                        </span>
+                      </Button>
+                    </Link>
+                  </motion.div>
+                )}
               </>
             )}
           </div>

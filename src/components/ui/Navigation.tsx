@@ -14,19 +14,19 @@ export default function Navigation() {
       href: "/products",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Training", href: "/products/trainings" },
-        { name: "Bewusstsein", href: "/products/bewusstsein" },
-        { name: "Services", href: "/products/services" },
         { name: "Übersicht", href: "/products" },
+        { name: "Training", href: "/products/trainings" },
+        { name: "Bewusstsein (TBA)", href: "/products/bewusstsein", disabled: true },
+        { name: "Services(TBA)", href: "/products/services", disabled: true },
+
       ]
     },
     //{ name: "Lösungen", href: "/solutions" },
     //{ name: "Mentor:innen", href: "/mentors" },
     //{ name: "Team", href: "/team" },
     //{ name: "Historie", href: "/historie" },
-  { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
-    { name: "Impressum", href: "/impressum" },
-    { name: "Datenschutz", href: "/datenschutz" },
+      { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
+    ////{ name: "Datenschutz", href: "/datenschutz" },
   ];
 
   return (
@@ -72,14 +72,24 @@ export default function Navigation() {
                         <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-2xl z-50">
                           <div className="py-2">
                             {item.dropdownItems?.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="block px-4 py-3 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
-                                onClick={() => setIsProductsDropdownOpen(false)}
-                              >
-                                {dropdownItem.name}
-                              </Link>
+                              dropdownItem.disabled ? (
+                                <div
+                                  key={dropdownItem.name}
+                                  className="block px-4 py-3 text-gray-400 cursor-not-allowed select-none"
+                                  title="Dieser Eintrag ist noch nicht verfügbar"
+                                >
+                                  {dropdownItem.name}
+                                </div>
+                              ) : (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="block px-4 py-3 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
+                                  onClick={() => setIsProductsDropdownOpen(false)}
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              )
                             ))}
                           </div>
                         </div>
@@ -156,14 +166,24 @@ export default function Navigation() {
                         {isProductsDropdownOpen && (
                           <div className="ml-4 mt-2 space-y-1">
                             {item.dropdownItems?.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="block px-3 py-2 rounded-lg transition-colors text-foreground/70 hover:text-primary hover:bg-primary/5"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {dropdownItem.name}
-                              </Link>
+                              dropdownItem.disabled ? (
+                                <div
+                                  key={dropdownItem.name}
+                                  className="block px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed select-none"
+                                  title="Dieser Eintrag ist noch nicht verfügbar"
+                                >
+                                  {dropdownItem.name}
+                                </div>
+                              ) : (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="block px-3 py-2 rounded-lg transition-colors text-foreground/70 hover:text-primary hover:bg-primary/5"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              )
                             ))}
                           </div>
                         )}
