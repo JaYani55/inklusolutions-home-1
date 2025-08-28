@@ -94,7 +94,6 @@ export const inklusionsführerschein: ProductData = {
   cta: {
     title: 'BEREIT FÜR MEHR INKLUSION IM UNTERNEHMEN?',
     description: 'Melden Sie sich jetzt für den Inklusionsführerschein an und gestalten Sie aktiv eine inklusivere Zukunft für Ihr Unternehmen!',
-    primaryButton: 'Jetzt Platz sichern',
-    secondaryButton: 'Noch Fragen?'
+    primaryButton: 'Kontakt aufnehmen'
   }
 };

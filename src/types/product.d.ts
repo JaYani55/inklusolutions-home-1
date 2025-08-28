@@ -55,7 +55,7 @@ export interface ProductData {
         title: string;
         description: string;
         primaryButton: string;
-        secondaryButton: string;
+        secondaryButton?: string;
     };
 }
 

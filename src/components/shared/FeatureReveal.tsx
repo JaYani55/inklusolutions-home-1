@@ -55,8 +55,6 @@ const FeatureReveal: React.FC<FeatureRevealProps> = ({
           className="rounded-3xl w-full h-[300px] object-cover shadow-lg border border-[var(--theme-border)] transform hover:scale-105 transition-transform duration-500"
         />
         {/* Dekorative Elemente um das Bild, gesteuert durch das Theme (nutzen --theme- Farben und Schatten) */}
-        <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full animate-bounce-slow bg-[var(--theme-accent)]/30 shadow-[0_0_8px_var(--theme-shadow-color)]" />
-        <div className="absolute -bottom-4 -right-4 w-8 h-8 rounded-xl animate-spin-slow bg-[var(--theme-secondary)]/30 shadow-[0_0_8px_var(--theme-shadow-color)]" />
       </motion.div>
       {/* Bereich für den Textinhalt */}
       <motion.div
