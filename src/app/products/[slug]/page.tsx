@@ -10,7 +10,6 @@ import {
   Rocket, Eye, CheckCircle, ArrowUpRight, Sparkles, Phone
 } from "lucide-react";
 import TestimonialSlider from "@/components/shared/TestimonialSlider";
-import FeatureReveal from "@/components/shared/FeatureReveal";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Navigation from "@/components/ui/Navigation";
@@ -152,19 +151,75 @@ const ProductSlugPage = () => {
                     </div>
                 </section>
 
-                {/* Features Section */}
+                {/* Features Section - Text Only */}
                 <section className="py-24 bg-gradient-to-br from-warm-bg to-background relative overflow-visible">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 z-0" />
-                    <div className="container mx-auto px-6 relative z-10 space-y-24">
+                    
+                    {/* Decorative background elements */}
+                    <div className="absolute top-0 left-0 w-full h-full opacity-20 z-10">
+                        <div className="absolute top-20 left-10 w-2 h-2 bg-secondary rounded-full animate-pulse" />
+                        <div className="absolute top-40 right-20 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+                        <div className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+                        <div className="absolute top-60 right-1/4 w-1 h-1 bg-third rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+                    </div>
+
+                    <div className="container mx-auto px-6 relative z-20 space-y-20">
                         {productData.features.map((feature, index) => (
-                            <FeatureReveal
+                            <motion.div
                                 key={index}
-                                title={feature.title}
-                                text={feature.description}
-                                image={feature.image}
-                                reverse={feature.reverse}
-                                customTheme="warm"
-                            />
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, ease: "easeOut" }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                className={`max-w-4xl mx-auto text-center space-y-8 ${index % 2 === 1 ? 'lg:text-right' : 'lg:text-left'}`}
+                            >
+                                {/* Feature Number Badge */}
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
+                                    viewport={{ once: true }}
+                                    className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-2 border-primary/30 ${index % 2 === 1 ? 'lg:ml-auto lg:mr-0' : ''}`}
+                                >
+                                    <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                </motion.div>
+
+                                {/* Feature Title */}
+                                <motion.h3 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                    viewport={{ once: true }}
+                                    className="text-4xl lg:text-5xl font-normal leading-relaxed mb-6 pb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                                    style={{ WebkitFontSmoothing: 'antialiased', fontWeight: '400' }}
+                                >
+                                    {feature.title}
+                                </motion.h3>
+                                
+                                {/* Feature Description */}
+                                <motion.p 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.4 }}
+                                    viewport={{ once: true }}
+                                    className="text-xl leading-relaxed font-light text-foreground/80 max-w-3xl mx-auto"
+                                >
+                                    {feature.description}
+                                </motion.p>
+
+                                {/* Decorative separator line */}
+                                {index < productData.features.length - 1 && (
+                                    <motion.div
+                                        initial={{ opacity: 0, scaleX: 0 }}
+                                        whileInView={{ opacity: 1, scaleX: 1 }}
+                                        transition={{ duration: 0.8, delay: 0.6 }}
+                                        viewport={{ once: true }}
+                                        className="w-24 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto mt-16"
+                                    />
+                                )}
+                            </motion.div>
                         ))}
                     </div>
                 </section>
@@ -173,8 +228,22 @@ const ProductSlugPage = () => {
                 {productData.cards && (
                     <section className="py-20 relative bg-gradient-to-br from-background to-warm-bg">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
-                        <div className="container mx-auto px-6 relative">
-                            <div className="text-center mb-16">
+                        
+                        {/* Decorative background elements */}
+                        <div className="absolute top-0 left-0 w-full h-full opacity-15 z-10">
+                            <div className="absolute top-32 right-16 w-3 h-3 bg-accent rounded-full animate-pulse" />
+                            <div className="absolute bottom-32 left-16 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+                            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '4s' }} />
+                        </div>
+
+                        <div className="container mx-auto px-6 relative z-20">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
+                                className="text-center mb-16"
+                            >
                                 <h2 className="text-5xl font-medium mb-6 pb-2">
                                     <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
                                         Details im Überblick
@@ -187,37 +256,52 @@ const ProductSlugPage = () => {
                                 <p className="text-xl text-foreground/70 max-w-3xl mx-auto font-light">
                                     Tiefer Einblick in Inhalte, Zielgruppen und den Ablauf.
                                 </p>
-                            </div>
+                            </motion.div>
                             
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {productData.cards.map((card, index) => {
                                     const IconComponent = card.icon;
                                     
                                     return (
-                                        <Card key={index} className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg">
-                                            <img
-                                                src={card.image}
-                                                alt={card.title}
-                                                className="w-full h-48 object-cover"
-                                            />
-                                            <CardContent className="p-8 relative">
-                                                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                                                    <IconComponent className="h-8 w-8 text-primary" />
-                                                </div>
-                                                <h3 className="text-2xl font-medium text-foreground mb-4">
-                                                    {card.title}
-                                                </h3>
-                                                <ul className="list-disc list-inside text-foreground/70 leading-relaxed mb-6">
-                                                    {card.items.map((item, itemIndex) => (
-                                                        <li key={itemIndex}>{item}</li>
-                                                    ))}
-                                                </ul>
-{/*                                                 <div className="flex items-center text-primary group-hover:text-secondary transition-colors duration-300">
-                                                    <span className="font-semibold text-sm">{card.description}</span>
-                                                    <ArrowUpRight className="ml-2 h-4 w-4" />
-                                                </div> */}
-                                            </CardContent>
-                                        </Card>
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, y: 30 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <Card className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
+                                                <CardContent className="p-8 relative h-full flex flex-col">
+                                                    {/* Icon with gradient background */}
+                                                    <div className="w-20 h-20 bg-gradient-to-br from-primary/15 to-secondary/15 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                                                        <IconComponent className="h-10 w-10 text-primary group-hover:text-secondary transition-colors duration-300" />
+                                                    </div>
+                                                    
+                                                    {/* Title and Description */}
+                                                    <div className="mb-6">
+                                                        <h3 className="text-2xl font-medium text-foreground mb-3">
+                                                            {card.title}
+                                                        </h3>
+                                                        <p className="text-foreground/60 text-sm font-medium uppercase tracking-wider">
+                                                            {card.description}
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    {/* Items List */}
+                                                    <ul className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
+                                                        {card.items.map((item, itemIndex) => (
+                                                            <li key={itemIndex} className="flex items-start gap-3">
+                                                                <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                                                <span>{item}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+
+                                                    {/* Hover Effect */}
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                                                </CardContent>
+                                            </Card>
+                                        </motion.div>
                                     );
                                 })}
                             </div>

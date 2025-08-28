@@ -19,19 +19,16 @@ export const disabilityAwarenessSession: ProductData = {
   features: [
     {
       title: 'Authentische Begegnung auf Augenhöhe',
-      description: 'Kein abstrakter Vortrag, sondern gelebte Erfahrung: Die Session schafft einen geschützten Raum für ehrliche Fragen und direkten Dialog mit Expert:innen mit Behinderung. Perspektivwechsel wird erlebbar gemacht durch konkrete Handlungshilfen und nachhaltigen Austausch – ohne Fingerzeig.',
-      image: '/mentor-mentee.jpg'
+      description: 'Kein abstrakter Vortrag, sondern gelebte Erfahrung: Die Session schafft einen geschützten Raum für ehrliche Fragen und direkten Dialog mit Expert:innen mit Behinderung. Perspektivwechsel wird erlebbar gemacht durch konkrete Handlungshilfen und nachhaltigen Austausch – ohne Fingerzeig.'
     },
     {
       title: 'Umfassende Sensibilisierung',
       description: 'Von sichtbaren und unsichtbaren Behinderungen über Unconscious Bias bis hin zu Kommunikation und Disclosure: Die Session behandelt alle relevanten Aspekte. Mit dem Filmimpuls "The Interviewer" und anschließender Szenarienarbeit werden realistische Situationen trainiert.',
-      image: '/film.jpg',
       reverse: true
     },
     {
       title: 'Nachhaltige Wirkung ohne Umstellungsaufwand',
-      description: 'Die Session wirkt durch Haltungsänderung, nicht durch Strukturveränderung. Sie baut Unsicherheiten ab, ermutigt zu Reflexion und macht Menschen mit Behinderung sichtbarer und sicherer – ohne direkte Folgekosten oder Prozessänderungen.',
-      image: '/team-collaboration.jpg'
+      description: 'Die Session wirkt durch Haltungsänderung, nicht durch Strukturveränderung. Sie baut Unsicherheiten ab, ermutigt zu Reflexion und macht Menschen mit Behinderung sichtbarer und sicherer – ohne direkte Folgekosten oder Prozessänderungen.'
     }
   ],
   cards: [
@@ -39,7 +36,6 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Format & Ablauf',
       description: 'Workshop-Details',
       icon: Clock,
-      image: '/workshop-setting.jpg',
       items: [
         'Begrüßung und Einstieg mit Leitfrage: "Wie willkommen wäre ich – wenn ich eine Behinderung hätte?"',
         'Filmimpuls "The Interviewer" mit anschließender Szenarienarbeit',
@@ -53,7 +49,6 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Inhalte & Methoden',
       description: 'Was Sie lernen',
       icon: Lightbulb,
-      image: '/tools-and-materials.jpg',
       items: [
         'Einführung in sichtbare und unsichtbare Behinderungen',
         'Unconscious Bias und Ableismus verstehen',
@@ -67,7 +62,6 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Zielgruppen & Wirkung',
       description: 'Für wen & warum',
       icon: Target,
-      image: '/diverse-professionals.jpg',
       items: [
         'Alle Mitarbeitende: 15-40 Teilnehmende pro Session',
         'Abbau von Unsicherheiten im Umgang mit Behinderung',

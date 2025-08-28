@@ -77,15 +77,6 @@ const FeatureReveal: React.FC<FeatureRevealProps> = ({
           {text}
         </p>
         
-        {/* "Mehr erfahren" Button: Nutzt --theme-primary und --theme-secondary für Farben */}
-        <button className="inline-flex items-center transition-colors duration-300 font-mono uppercase tracking-wider group text-[var(--theme-primary)] hover:text-[var(--theme-secondary)]">
-          Mehr erfahren
-          {/* SVG-Icon für den Button, dessen Farbe sich mit dem Button-Text ändert */}
-          <svg className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            {/* SVG-Stroke Farbe muss direkt gesetzt werden auf var(--theme-primary) */}
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" stroke="currentColor"/>
-          </svg>
-        </button>
       </motion.div>
     </motion.div>
   );

@@ -19,19 +19,16 @@ export const inklusionsführerschein: ProductData = {
   features: [
     {
       title: 'Format & Rahmen',
-      description: 'Unser Inklusionsführerschein ist ein 2-tägiger Präsenz-Workshop, der quartalsweise stattfindet und auf maximal 25 Teilnehmende begrenzt ist. Der Preis von 998 € pro Person beinhaltet alle Materialien und ein Zertifikat. Wir empfehlen mindestens zwei Personen pro Unternehmen, um eine nachhaltige Umsetzung zu gewährleisten.',
-      image: '/workshop-setting.jpg'
+      description: 'Unser Inklusionsführerschein ist ein 2-tägiger Präsenz-Workshop, der quartalsweise stattfindet und auf maximal 25 Teilnehmende begrenzt ist. Der Preis von 998 € pro Person beinhaltet alle Materialien und ein Zertifikat. Wir empfehlen mindestens zwei Personen pro Unternehmen, um eine nachhaltige Umsetzung zu gewährleisten.'
     },
     {
       title: 'Ziel & Nutzen',
       description: 'Dieser Kurs ist Ihr idealer Einstieg in die praktische Inklusionsarbeit im Unternehmen. Wir verbinden fundiertes Wissen, gezielte Selbstreflexion, intensiven Austausch mit Expert:innen aus eigener Erfahrung und praktische Übungen. Das Ergebnis sind konkrete Handlungsideen, persönliche Sicherheit im Umgang mit Behinderung und ein strategisches Verständnis von DEI-Prozessen.',
-      image: '/team-collaboration.jpg',
       reverse: true
     },
     {
       title: 'Ergebnisse & Mehrwert',
-      description: 'Nach Abschluss des Inklusionsführerscheins verfügen Sie über mehr Sicherheit in der Kommunikation, fundiertes Wissen über Barrieren und deren Lösungsansätze sowie ein strategisches Verständnis für umfassende DEI-Prozesse. Sie erhalten ein Zertifikat und Ihr Unternehmen wird bei InkluSolutions öffentlich als "inklusives Unternehmen" gelistet.',
-      image: '/certificate-award.jpg'
+      description: 'Nach Abschluss des Inklusionsführerscheins verfügen Sie über mehr Sicherheit in der Kommunikation, fundiertes Wissen über Barrieren und deren Lösungsansätze sowie ein strategisches Verständnis für umfassende DEI-Prozesse. Sie erhalten ein Zertifikat und Ihr Unternehmen wird bei InkluSolutions öffentlich als "inklusives Unternehmen" gelistet.'
     }
   ],
   cards: [
@@ -39,7 +36,6 @@ export const inklusionsführerschein: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
       icon: Users,
-      image: '/diverse-professionals.jpg',
       items: [
         'DEI-Verantwortliche',
         'Schwerbehindertenvertretungen / Inklusionsbeauftragte',
@@ -52,7 +48,6 @@ export const inklusionsführerschein: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
       icon: Wrench,
-      image: '/tools-and-materials.jpg',
       items: [
         'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, DEI & rechtliche Grundlagen',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -66,7 +61,6 @@ export const inklusionsführerschein: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
       icon: CalendarDays,
-      image: '/calendar-planning.jpg',
       items: [
         'Zwei intensive Tage mit Theorie und Praxis',
         'Thematisierung typischer Ängste und Fallstricke',

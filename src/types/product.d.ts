@@ -36,14 +36,14 @@ export interface ProductData {
     features: Array<{
         title: string;
         description: string;
-        image: string;
+        image?: string; // Make image optional
         reverse?: boolean;
     }>;
     cards?: Array<{
         title: string;
         description: string;
         icon: LucideIcon;
-        image: string;
+        image?: string; // Make image optional
         items: string[];
         color: string;
     }>;
