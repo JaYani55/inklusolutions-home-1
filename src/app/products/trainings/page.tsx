@@ -7,10 +7,8 @@ import Navigation from '@/components/ui/Navigation'
 import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
-  Star, 
   Users, 
   Award, 
-  BookOpen, 
   CheckCircle, 
   Lightbulb,
   Target,

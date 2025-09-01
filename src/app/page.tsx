@@ -3,26 +3,18 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/ui/Navigation";
-import MentorCarousel from "@/components/shared/MentorCarousel";
+// MentorCarousel temporarily unused on home page
+// import MentorCarousel from "@/components/shared/MentorCarousel";
 import { 
   Lightbulb, 
   Settings,
-  ChevronRight,
-  UserCheck,
-  BarChart3,
-  Zap, ArrowRight, Users, Target, Award, Heart, CheckCircle, Star, Play, MessageCircle, Video, MapPin, Link2, BarChart2, GraduationCap, Building2, Calculator, Phone } from "lucide-react";
+  ArrowRight, Users, Award, CheckCircle, Star, Video, GraduationCap, Phone, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
-  const handlungsfelder = [
-    { title: "Wirtschaftlichkeit", desc: "ROI & Fördermittel strategisch nutzen", link: "/products/services" },
-    { title: "Strategie", desc: "Nachhaltige Inklusionsstrategien entwickeln", link: "/products/trainings" },
-    { title: "Offenlegung", desc: "Transparente Kommunikation & Reporting", link: "/products/services" },
-    { title: "Recruiting", desc: "Inklusives Personalmanagement implementieren", link: "/products/services" },
-    { title: "Sensibilisierung", desc: "Bewusstsein & Kultur nachhaltig verändern", link: "/products/bewusstsein", mentorProduct: true },
-    { title: "Zertifizierung", desc: "Fortschritte sichtbar machen & validieren", link: "/products/services" }
-  ];
+  // handlungsfelder (temporarily unused)
+  // const handlungsfelder = [ ... ]
 
   const productCategories = [
     {
@@ -51,6 +43,7 @@ export default function HomePage() {
   ];
 
   // map product keys (normalized) to Lucide icon components that fit the product semantics
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const productIconMap: Record<string, any> = {
     inklusionsführerschein: GraduationCap,
     masterclasses: GraduationCap,
@@ -58,13 +51,14 @@ export default function HomePage() {
     inklustories: Video,
     "lass uns reden": Video,
     "spotlight moments": Video,
-    inklutalks: MessageCircle,
+    inklutalks: Video,
     "peer-mentoring": Users,
-    jobsync: Zap,
+    jobsync: ArrowRight,
     inkluscore: BarChart3,
     zertifikate: Award,
     default: CheckCircle,
   };
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 
   const formatLabel = (s: string) =>
     s
@@ -73,50 +67,7 @@ export default function HomePage() {
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(" ");
 
-  const caseHighlights = [
-    { 
-      number: "16", 
-      label: "Mitarbeitende mit Behinderung", 
-      description: "in 18 Monaten erfolgreich eingestellt",
-      color: "from-primary to-secondary"
-    },
-    { 
-      number: "95%", 
-      label: "Teilnehmendenzufriedenheit", 
-      description: "bei unseren Sensibilisierungsformaten",
-      color: "from-secondary to-accent"
-    },
-    { 
-      number: "150+", 
-      label: "Partnerunternehmen", 
-      description: "vertrauen bereits auf unsere Expertise",
-      color: "from-accent to-third"
-    }
-  ];
-
-  const values = [
-    {
-      title: "Inklusion & Teilhabe",
-      description: "Echte Teilhabe entsteht durch authentische Begegnungen und gegenseitiges Verständnis.",
-      icon: Heart,
-      color: "from-primary to-secondary",
-      quote: "\"Inklusion bedeutet für mich, dass jeder Mensch seine Stärken einbringen kann.\" - Maria Schmidt"
-    },
-    {
-      title: "Ehrliche Kommunikation", 
-      description: "Offener Dialog und transparente Kommunikation schaffen Vertrauen und nachhaltige Veränderung.",
-      icon: MessageCircle,
-      color: "from-secondary to-third",
-      quote: "\"Nur durch ehrliche Gespräche können wir Vorurteile abbauen.\" - Thomas Weber"
-    },
-    {
-      title: "Wirkung & Integrität",
-      description: "Messbare Erfolge und nachhaltige Veränderungen stehen im Zentrum unserer Arbeit.",
-      icon: Target,
-      color: "from-third to-accent",
-      quote: "\"Wirkung zeigt sich in Zahlen und echten Veränderungen im Arbeitsalltag.\" - Sarah Klein"
-    }
-  ];
+  // caseHighlights & values currently unused - kept for future content
 
   const companyLogos = [
     // echte Logos aus public/logos
@@ -308,6 +259,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           >
+            {/*
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
                 "InkluSolutions hat uns geholfen, Inklusion von der Theorie in die Praxis zu bringen."
@@ -320,6 +272,7 @@ export default function HomePage() {
               </blockquote>
               <cite className="text-sm font-semibold text-primary">– Personalleitung, Konzern</cite>
             </div>
+            */}
           </motion.div>
         </div>
       </section>
@@ -509,12 +462,14 @@ export default function HomePage() {
                 <Link href="/products" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
                   Leistungen
                 </Link>
+                {/*
                 <Link href="/team" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
                   Team
                 </Link>
                 <Link href="/historie" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
                   Historie
                 </Link>
+                */}
               </div>
             </div>
             
@@ -527,9 +482,11 @@ export default function HomePage() {
                 <Link href="/datenschutz" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
                   Datenschutz
                 </Link>
+                {/*
                 <a href="/datenschutz/contact" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
                   Kontakt
                 </a>
+                */}
               </div>
             </div>
           </div>
@@ -602,8 +559,9 @@ function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: st
 
    const translateX = -currentIndex * itemWidth;
 
+   const sidePaddingVar = '--side-padding' as const;
    return (
-     <div className="relative px-[var(--side-padding)]" ref={containerRef} style={{ ['--side-padding' as any]: `${sidePadding}px` }}>
+     <div className="relative px-[var(--side-padding)]" ref={containerRef} style={{ [sidePaddingVar]: `${sidePadding}px` } as React.CSSProperties}>
        <div className="overflow-hidden">
          <div
            className="flex items-center"

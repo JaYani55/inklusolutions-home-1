@@ -23,6 +23,10 @@ const FeatureReveal: React.FC<FeatureRevealProps> = ({
   // Da die generischen Variablen im :root in globals.css die "warmen" Farben enthalten,
   // muss man hier keine spezielle Klassen oder Theme-Umschaltung mehr vornehmen.
   // Die Tailwind-Klassen nutzen automatisch die --theme- Variablen, die in globale CSS definiert sind.
+  
+  // Using customTheme for potential future styling variations
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  const themeClass = customTheme === 'warm' ? 'theme-warm' : '';
 
   return (
     <motion.div

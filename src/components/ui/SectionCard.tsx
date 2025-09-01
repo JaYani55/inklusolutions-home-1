@@ -22,9 +22,8 @@ export default function SectionCard({ title, subtitle, icon, accent = "#39b2c1",
         className,
       ].join(" ")}
       style={{
-        // @ts-ignore – CSS-Var für Glow
         "--accent": accent,
-      }}
+      } as React.CSSProperties}
     >
       {/* Glow bei Hover */}
       <div className="pointer-events-none absolute -inset-28 opacity-0 group-hover:opacity-30 transition-opacity duration-500"

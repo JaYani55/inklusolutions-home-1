@@ -7,12 +7,13 @@ import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Star, Users, Video, MessageCircle, Eye, Lightbulb, Pin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-}
+// fadeUp currently unused but kept for future animations
+// const fadeUp: Variants = {
+//   hidden: { opacity: 0, y: 24 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+// }
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.97 },
@@ -21,7 +22,8 @@ const cardVariants: Variants = {
 }
 
 // Icon-Mapping für Bewusstseins-Produkte (basierend auf der Produkt-Übersichtsseite)
-const productIconMap: Record<string, any> = {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const productIconMap: Record<string, React.ComponentType<any> | undefined> = {
   'disability-awareness-session': Lightbulb,
   'daw-awareness-workshop': Lightbulb,
   'lass-uns-reden': Video,
@@ -30,6 +32,7 @@ const productIconMap: Record<string, any> = {
   'begehung-analyse-vor-ort': Pin,
   default: Users,
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 const bewusstseinsProducts = [
   {
@@ -85,7 +88,20 @@ const bewusstseinsProducts = [
   },
 ]
 
-function ProductCard({ product }: { product: any }) {
+type BewusstseinProduct = {
+  id?: string;
+  slug?: string;
+  name?: string;
+  description?: string;
+  highlight?: boolean;
+  withMentors?: boolean;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  icon?: React.ComponentType<any>;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+  hasDetailsPage?: boolean;
+}
+
+function ProductCard({ product }: { product: BewusstseinProduct }) {
   const IconComponent = product.icon || Users;
   
   return (

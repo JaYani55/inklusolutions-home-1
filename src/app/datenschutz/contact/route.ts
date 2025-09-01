@@ -10,13 +10,14 @@ const Schema = z.object({
 export async function POST(req: Request) {
   try {
     const json = await req.json();
-    const data = Schema.parse(json);
+    // validate payload, discard parsed result
+    void Schema.parse(json);
 
     // TODO: hier könntest du Supabase-Insert oder Mailversand integrieren
     // await db.messages.insert(data)
 
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ ok: false, error: "Invalid payload" }, { status: 400 });
   }
 }

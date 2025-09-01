@@ -7,13 +7,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Rocket, Eye, CheckCircle, ArrowUpRight, Sparkles, Phone
+  Eye, CheckCircle, Phone
 } from "lucide-react";
-import TestimonialSlider from "@/components/shared/TestimonialSlider";
+// TestimonialSlider temporarily unused in product slug
+// import TestimonialSlider from "@/components/shared/TestimonialSlider";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Navigation from "@/components/ui/Navigation";
-import MentorCarousel from "@/components/shared/MentorCarousel";
+// MentorCarousel temporarily unused in product slug
+// import MentorCarousel from "@/components/shared/MentorCarousel";
 import { useParams } from 'next/navigation';
 import { ProductData } from '@/types/product';
 import { ProductService } from '@/data/productService';

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./command";
 import { useRouter } from 'next/navigation';
-import { Search, Sparkles, Phone, GraduationCap, Handshake } from "lucide-react";
+import { Sparkles, Phone, GraduationCap, Handshake } from "lucide-react";
 
 export default function CommandMenu() {
   const router = useRouter();

@@ -17,26 +17,23 @@ import {
   Circle,
   BarChart3,
   Award,
-  CheckCircle,
   ArrowRight,
   Phone,
-  PlaneTakeoff,
   Pin,
-  Target,
-  Heart,
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-// Hilfsfunktion zur Formatierung von Produkt-Labels, übernommen von deiner Startseite
-const formatLabel = (s: string) =>
-  s
-    .replace(/-/g, " ")
-    .split(" ")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+// formatLabel currently unused but kept for future use
+// const formatLabel = (s: string) =>
+//   s
+//     .replace(/-/g, " ")
+//     .split(" ")
+//     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+//     .join(" ");
 
 // Mapping Produkt-Schlüssel (normalisiert) zu Lucide Icon Komponenten
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const productIconMap: Record<string, any> = {
   inklusionsführerschein: GraduationCap,
   masterclasses: Award, // Masterclasses könnten auch Award sein
@@ -54,6 +51,7 @@ const productIconMap: Record<string, any> = {
   begehung: Pin, // Eventuell ein MapPin für Begehung
   default: Circle, // Standard-Icon falls kein spezifisches gefunden wird
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 // Deine Daten für die Produktkategorien
 const productCategories = [

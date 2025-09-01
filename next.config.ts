@@ -2,11 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-    eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors..
-    ignoreDuringBuilds: true,
-    },
+  eslint: {
+  // Note: linting will run during `next build`. Previously `ignoreDuringBuilds` was enabled.
+  // Keep default behavior (do not ignore ESLint errors during builds).
+  },
 };
 
 export default nextConfig;

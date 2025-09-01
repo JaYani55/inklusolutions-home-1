@@ -1,4 +1,3 @@
-// src/components/landingpage/AwarenessSection.tsx
 import React from "react";
 import { Users, Play, Video, MessageCircle, MapPin } from "lucide-react";
 
@@ -11,6 +10,7 @@ export default function AwarenessSection() {
     { title: "Begehung", desc: "Vor-Ort-Analyse: Barrieren sichtbar machen." },
   ] as const;
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const iconMap: Record<string, React.ComponentType<any>> = {
     "DAW (Awareness Workshop)": Users,
     '"Lass uns reden"': Play,
@@ -18,6 +18,7 @@ export default function AwarenessSection() {
     "Inklu-Talks": MessageCircle,
     "Begehung": MapPin,
   };
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

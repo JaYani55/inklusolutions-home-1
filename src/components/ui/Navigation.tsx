@@ -14,10 +14,10 @@ export default function Navigation() {
       href: "/products",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Übersicht", href: "/products" },
-        { name: "Training", href: "/products/trainings" },
-        { name: "Awareness", href: "/products/bewusstsein" },
-        { name: "Services(TBA)", href: "/products/services", disabled: true },
+  { name: "Übersicht", href: "/products", disabled: false },
+  { name: "Training", href: "/products/trainings", disabled: false },
+  { name: "Awareness", href: "/products/bewusstsein", disabled: false },
+    /* { name: "Services(TBA)", href: "/products/services", disabled: true }, */
 
       ]
     },

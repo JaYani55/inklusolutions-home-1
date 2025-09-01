@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { mentors, type Mentor } from '@/data/mentors/mentors';
+import { mentors } from '@/data/mentors/mentors';
 
 interface MentorCarouselProps {
   theme?: 'warm'; // Jetzt nur noch 'warm' möglich
@@ -129,7 +129,7 @@ const MentorCarousel: React.FC<MentorCarouselProps> = ({ theme = 'warm' }) => {
                     <blockquote className="relative mt-6">
                       <Quote className="absolute -top-2 -left-2 h-8 w-8 text-theme-accent/40" />
                       <p className="text-lg md:text-xl text-theme-text/90 italic leading-relaxed pl-6 min-h-[6rem] flex items-center">
-                        "{mentor.quote}"
+                        &ldquo;{mentor.quote}&rdquo;
                       </p>
                     </blockquote>
                   </div>

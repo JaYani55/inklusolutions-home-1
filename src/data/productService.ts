@@ -39,7 +39,7 @@ export class ProductService {
       if (productDatabase[decodedSlug]) {
         return productDatabase[decodedSlug];
       }
-    } catch (e) {
+    } catch {
       // URL dekodierung fehlgeschlagen, ignorieren
     }
     

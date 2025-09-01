@@ -55,6 +55,10 @@ interface FAQSectionProps {
 
 const FAQSection: React.FC<FAQSectionProps> = ({ theme = 'warm' }) => {
   const [openId, setOpenId] = useState<string | null>(null);
+  
+  // Using theme for potential future styling variations
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  const themeClasses = theme === 'warm' ? 'warm-theme' : '';
 
   const toggleFAQ = (id: string) => {
     setOpenId(openId === id ? null : id);

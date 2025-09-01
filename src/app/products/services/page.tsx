@@ -7,12 +7,13 @@ import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Star, Target, BarChart2, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-}
+// fadeUp currently unused but kept for future animations
+// const fadeUp: Variants = {
+//   hidden: { opacity: 0, y: 24 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+// }
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.97 },
@@ -50,7 +51,16 @@ const servicesProducts = [
   },
 ]
 
-function ProductCard({ product }: { product: any }) {
+type Product = {
+  id?: string;
+  slug?: string;
+  name?: string;
+  description?: string;
+  highlight?: boolean;
+  withMentors?: boolean;
+};
+
+function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div variants={cardVariants} whileHover="hover" className="h-full">
       <Card className={`relative h-full flex flex-col overflow-hidden bg-white/70 backdrop-blur-sm shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/90 border-2 hover:border-primary/40 ${

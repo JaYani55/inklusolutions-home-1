@@ -10,12 +10,14 @@ export default function ServiceSection() {
     { title: "Zertifikate & Auszeichnungen", desc: "Nachweise für Fortschritt & Sichtbarkeit." },
   ] as const;
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const iconMap: Record<string, React.ComponentType<any>> = {
     "Peer-Mentoring": Users,
     "Recruiting-Support (JobSync)": Link2,
     "Inklu-Score": BarChart2,
     "Zertifikate & Auszeichnungen": Award,
   };
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 
   return (
     <ul className="space-y-4">
