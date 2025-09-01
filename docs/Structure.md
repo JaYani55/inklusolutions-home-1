@@ -268,8 +268,3 @@ Alle statischen Assets (Bilder, Icons, Logos) liegen in `public/` und sind in Un
 
 - "gesamtübersicht über diese website" — Done: Diese Datei enthält eine strukturierte Gesamtübersicht. (Erledigt)
 - "Übersicht über die component und page Struktur" — Done: Komponenten- und Page-Ordner mit Schlüsselfiles sind dokumentiert. (Erledigt)
-
-Wenn du möchtest, kann ich jetzt noch:
-
-- die Struktur automatisch aus dem `src`-Ordner parsen und eine vollständige, automatisierte Liste aller Dateien erzeugen, oder
-- an spezifischen Komponenten- oder Page-Readmes arbeiten.

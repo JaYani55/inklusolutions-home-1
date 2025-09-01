@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,8 @@ export default function Navigation() {
     //{ name: "Mentor:innen", href: "/mentors" },
     //{ name: "Team", href: "/team" },
     //{ name: "Historie", href: "/historie" },
-      { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
+    { name: "Inklu-Connect", href: "https://inklu-connect.de", isExternal: true },
+    { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
     ////{ name: "Datenschutz", href: "/datenschutz" },
   ];
 
@@ -105,10 +106,13 @@ export default function Navigation() {
                         className="transition-colors duration-200 font-medium relative group"
                       >
                         <span
-                          className="inline-block px-3 py-1 rounded-full"
+                          className="inline-flex items-center px-3 py-1 rounded-full"
                           style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255, 1))' }}
                         >
                           <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                          {item.isExternal && (
+                            <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
+                          )}
                         </span>
                         <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
                       </a>
@@ -198,10 +202,13 @@ export default function Navigation() {
                           onClick={() => setIsOpen(false)}
                         >
                           <span
-                            className="inline-block px-3 py-1 rounded-full"
+                            className="inline-flex items-center px-3 py-1 rounded-full"
                             style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255,0.20))' }}
                           >
                             <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                            {item.isExternal && (
+                              <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
+                            )}
                           </span>
                         </a>
                       ) : (
