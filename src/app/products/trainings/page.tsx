@@ -7,18 +7,14 @@ import Navigation from '@/components/ui/Navigation'
 import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
-  Users, 
   Award, 
   CheckCircle, 
   Lightbulb,
   Target,
-  MessageSquare,
   GraduationCap,
-  TrendingUp,
   ArrowDown 
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import CTASection from '@/components/shared/CTASection'
 import Footer from '@/components/shared/Footer'
 

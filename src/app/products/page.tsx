@@ -18,7 +18,6 @@ import {
   BarChart3,
   Award,
   ArrowRight,
-  Phone,
   Pin,
 } from "lucide-react";
 import Link from "next/link";

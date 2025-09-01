@@ -8,7 +8,7 @@ import Navigation from "@/components/ui/Navigation";
 import { 
   Lightbulb, 
   Settings,
-  ArrowRight, Users, Award, CheckCircle, Star, Video, GraduationCap, Phone, BarChart3, MessageCircle, 
+  ArrowRight, Users, Award, CheckCircle, Video, GraduationCap, BarChart3, MessageCircle, 
   Zap} from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -262,13 +262,13 @@ export default function HomePage() {
           >
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                "Bei InkluSolutions hat uns geholfen: Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen."
+                &ldquo;Bei InkluSolutions hat uns geholfen: Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen.&rdquo;
               </blockquote>
               <cite className="text-sm font-semibold text-primary">– Katharina Erdmann, BLG Logistics</cite>
             </div>
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                "Bei InkluSolutions hat uns besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt."
+                &ldquo;Bei InkluSolutions hat uns besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt.&rdquo;
               </blockquote>
               <cite className="text-sm font-semibold text-primary">– Sebastian Dillner, Bremedia</cite>
             </div>
