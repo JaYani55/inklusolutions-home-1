@@ -35,7 +35,7 @@ export default function CommandMenu() {
           <CommandList>
             <CommandEmpty>Keine Treffer</CommandEmpty>
             <CommandGroup heading="Sektionen">
-              <CommandItem onSelect={() => go("awareness")}> <Sparkles className="mr-2 size-4"/> Bewusstsein</CommandItem>
+              <CommandItem onSelect={() => go("awareness")}> <Sparkles className="mr-2 size-4"/> Awareness</CommandItem>
               <CommandItem onSelect={() => go("services")}> <Handshake className="mr-2 size-4"/> Services</CommandItem>
               <CommandItem onSelect={() => go("training")}> <GraduationCap className="mr-2 size-4"/> Training</CommandItem>
               <CommandItem onSelect={() => go("contact")}> <Phone className="mr-2 size-4"/> Kontakt</CommandItem>

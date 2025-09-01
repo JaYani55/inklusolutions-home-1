@@ -17,7 +17,7 @@ export default function LandingPageLayout() {
         <div className="grid grid-cols-12 gap-8 auto-rows-[1fr]">
           {/* Awareness – großflächig */}
           <div className="col-span-12 md:col-span-7">
-            <SectionCard title="Bewusstsein" subtitle="Formate, die Haltung verändern" icon={"✨"} accent="#39b2c1">
+            <SectionCard title="Awareness" subtitle="Formate, die Haltung verändern" icon={"✨"} accent="#39b2c1">
               <AwarenessSection />
             </SectionCard>
           </div>

@@ -19,6 +19,8 @@ import Navigation from "@/components/ui/Navigation";
 import { useParams } from 'next/navigation';
 import { ProductData } from '@/types/product';
 import { ProductService } from '@/data/productService';
+import CTASection from '@/components/shared/CTASection';
+import Footer from '@/components/shared/Footer';
 
 const ProductSlugPage = () => {
   const params = useParams();
@@ -99,7 +101,6 @@ const ProductSlugPage = () => {
                                 </div>
                                 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer">
                                     <Button asChild
                                     variant="outline" 
                                     size="lg"
@@ -110,7 +111,6 @@ const ProductSlugPage = () => {
                                         <Phone className="ml-3 w-6 h-6" />
                                     </a>
                                     </Button>
-                                    </a>
                                     {productData.cta.secondaryButton && (
                                         <Button
                                             variant="outline"
@@ -368,49 +368,17 @@ const ProductSlugPage = () => {
                 </section> 
 
                 {/* CTA Section */}
-                <section className="py-20 relative overflow-hidden bg-gradient-to-br from-background to-warm-bg">
-                    <img
-                        src="/bg-texture-subtle.jpg"
-                        alt="CTA Background"
-                        className="absolute inset-0 w-full h-full object-cover opacity-5"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
-                    <div className="container mx-auto px-6 text-center relative z-10">
-                        <div className="max-w-4xl mx-auto">
-                            <h2 className="text-5xl font-bold mb-8 pb-2">
-                                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                                    {productData.cta.title}
-                                </span>
-                            </h2>
-                            <p className="text-xl mb-12 text-foreground/80 font-light">
-                                {productData.cta.description}
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                                <Button asChild
-                                variant="outline" 
-                                size="lg"
-                                className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                >
-                                <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                    Kostenlose Beratung
-                                    <Phone className="ml-3 w-6 h-6" />
-                                </a>
-                                </Button>
-                                {productData.cta.secondaryButton && (
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        className="rounded-full border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                    >
-                                        <Eye className="mr-2 h-5 w-5" />
-                                        {productData.cta.secondaryButton}
-                                    </Button>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <CTASection 
+                  title={productData.cta.title}
+                  description={productData.cta.description}
+                  subtitle=""
+                  primaryButtonText={productData.cta.secondaryButton || "Alle Angebote entdecken"}
+                  primaryButtonHref="/products"
+                  secondaryButtonText="Kostenlose Beratung"
+                  showSecondaryButton={true}
+                />
             </div>
+            <Footer />
         </>
     );
 };

@@ -1,11 +1,11 @@
-// src/app/products/services/page.tsx
+// src/app/products/awareness/page.tsx
 'use client'
 
 import React from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
-import { ArrowRight, Star, Target, BarChart2, Users, Zap, Award, Settings } from 'lucide-react'
+import { ArrowRight, Star, Users, Video, MessageCircle, Eye, Lightbulb, Pin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import CTASection from '@/components/shared/CTASection'
@@ -23,51 +23,57 @@ const cardVariants: Variants = {
   hover: { y: -6, scale: 1.01, transition: { duration: 0.25 } },
 }
 
-// Icon-Mapping für Services-Produkte
+// Icon-Mapping für Awareness-Produkte (basierend auf der Produkt-Übersichtsseite)
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const productIconMap: Record<string, React.ComponentType<any> | undefined> = {
-  'recruiting-support-jobsync': Zap,
-  'inklu-score': BarChart2,
-  'zertifikate-auszeichnungen': Award,
-  default: Settings,
+  'disability-awareness-session': Lightbulb,
+  'daw-awareness-workshop': Lightbulb,
+  'lass-uns-reden': Video,
+  'spotlight-moments': Video,
+  'inklu-talks': MessageCircle,
+  'begehung-analyse-vor-ort': Pin,
+  default: Users,
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const servicesProducts = [
+const awarenessProducts = [
   {
-    id: 'services-1',
-    slug: 'recruiting-support-jobsync',
-    name: 'Inklu-Connect JobSync - Recruiting-Support',
-    description: 'JobSync ist ein Softwareservice, welcher Ihnen intelligente und automatisierte Stellendistribution in ein Netzwerk von großen Jobplattformen und inklusiven Partnerplattformen bietet.',
+    id: 'awareness-1',
+    slug: 'disability-awareness-session',
+    name: 'Disability Awareness Session',
+    description: 'Halbtägiger, interaktiver Sensibilisierungsworkshop mit authentischen Begegnungen und nachhaltigem Perspektivwechsel',
     highlight: true,
-    icon: productIconMap['recruiting-support-jobsync'],
-    hasDetailsPage: false,
-    isExternal: true,
-    externalUrl: 'https://inklu-connect.de'
-  },
-  {
-    id: 'services-2',
-    slug: 'inklu-score',
-    name: 'InkluScore',
-    description: 'Wissenschaftliche Messung Ihrer Inklusionskultur mit Handlungsempfehlungen',
-    highlight: false,
-    icon: productIconMap['inklu-score'],
+    withMentors: true,
+    icon: productIconMap['disability-awareness-session'],
     hasDetailsPage: true,
-    isExternal: false
   },
   {
-    id: 'services-3',
-    slug: 'zertifikate-auszeichnungen',
-    name: 'Zertifikate & Auszeichnungen',
-    description: 'Professionelle Unterstützung für Nachweise und Sichtbarkeit Ihrer Bemühungen',
-    highlight: false,
-    icon: productIconMap['zertifikate-auszeichnungen'],
+    id: 'awareness-3',
+    slug: 'inklu-stories',
+    name: 'InkluStories',
+    description: 'Videoportraits - als Lernimpulse oder individuelle Videoproduktion',
+    icon: productIconMap['lass-uns-reden'],
     hasDetailsPage: false,
-    isExternal: false
+  },
+  {
+    id: 'awareness-4',
+    slug: 'inklu-talks',
+    name: 'InkluTalks',
+    description: 'Einmalige, intensive Experten-Talks für offenen Austausch und Diskussion',
+    icon: productIconMap['inklu-talks'],
+    hasDetailsPage: false,
+  },
+  {
+    id: 'awareness-5',
+    slug: 'begehung-analyse-vor-ort',
+    name: 'Begehung',
+    description: 'Analyse vor Ort zur Sichtbarmachung struktureller Barrieren & Ableitung von Praxisimpulsen',
+    icon: productIconMap['begehung-analyse-vor-ort'],
+    hasDetailsPage: false,
   },
 ]
 
-type ServicesProduct = {
+type AwarenessProduct = {
   id?: string;
   slug?: string;
   name?: string;
@@ -78,12 +84,10 @@ type ServicesProduct = {
   icon?: React.ComponentType<any>;
   /* eslint-enable @typescript-eslint/no-explicit-any */
   hasDetailsPage?: boolean;
-  isExternal?: boolean;
-  externalUrl?: string;
 }
 
-function ProductCard({ product }: { product: ServicesProduct }) {
-  const IconComponent = product.icon || Settings;
+function ProductCard({ product }: { product: AwarenessProduct }) {
+  const IconComponent = product.icon || Users;
   
   return (
     <motion.div variants={cardVariants} whileHover="hover" className="h-full">
@@ -125,22 +129,11 @@ function ProductCard({ product }: { product: ServicesProduct }) {
         </CardHeader>
 
         <CardFooter className="px-6 pb-6 pt-3 mt-auto">
-          {(product.hasDetailsPage || product.isExternal) && (
+          {product.hasDetailsPage && (
             <Button asChild className="w-full rounded-full bg-white text-foreground border-[3px] border-accent hover:text-secondary-foreground font-semibold transition-all duration-300 hover:shadow-lg">
-              {product.isExternal ? (
-                <a 
-                  href={product.externalUrl} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                >
-                  Jetzt entdecken <ArrowRight className="h-4 w-4" />
-                </a>
-              ) : (
-                <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
-                  Details ansehen <ArrowRight className="h-4 w-4" />
-                </Link>
-              )}
+              <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
+                Details ansehen <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
           )}
         </CardFooter>
@@ -149,13 +142,13 @@ function ProductCard({ product }: { product: ServicesProduct }) {
   )
 }
 
-export default function ServicesPage() {
+export default function AwarenessPage() {
   return (
     <>
       <Navigation />
 
       <div className="min-h-screen bg-background text-foreground">
-        {/* Background pattern - styled like awareness page */}
+        {/* Background pattern - styled like main page */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
         }} />
@@ -164,8 +157,8 @@ export default function ServicesPage() {
         <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
           {/* Hero Background Image */}
           <img
-            src="/team-collaboration.jpg"
-            alt="Services Background"
+            src="/training2.jpg"
+            alt="Professionals Background"
             className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
           />
           
@@ -192,16 +185,16 @@ export default function ServicesPage() {
               className="text-center"
             >
               <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/90 backdrop-blur-sm border border-white/60 px-6 py-3 shadow-lg">
-                <Target className="h-6 w-6 text-primary" />
-                <span className="text-lg font-semibold text-primary">Services & Beratung</span>
+                <Users className="h-6 w-6 text-primary" />
+                <span className="text-lg font-semibold text-primary">Awareness & Sensibilisierung</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
                 <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                  Strategische Unterstützung
+                  Kulturwandel durch Begegnung
                 </span>
               </h1>
               <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
-                Umfassende Services für nachhaltige Transformation und messbare Erfolge in der Inklusion.
+                Authentische Sensibilisierung durch echte Begegnungen und professionelle Aufklärung für nachhaltigen Wandel.
               </p>
             </motion.div>
           </div>
@@ -218,7 +211,7 @@ export default function ServicesPage() {
               viewport={{ once: true }}
             >
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-                {servicesProducts.map((product) => (
+                {awarenessProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
@@ -226,11 +219,11 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Special InkluScore Section */}
+        {/* Special Mentor Section */}
         <section className="py-20 bg-gradient-to-br from-background to-warm-bg relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
           
-          {/* Decorative background elements like awareness page */}
+          {/* Decorative background elements like main page */}
           <div className="absolute top-0 left-0 w-full h-full opacity-15 z-10">
             <div className="absolute top-32 right-16 w-3 h-3 bg-accent rounded-full animate-pulse" />
             <div className="absolute bottom-32 left-16 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
@@ -247,34 +240,34 @@ export default function ServicesPage() {
             >
               <div className="bg-white/80 border border-white/60 backdrop-blur-sm rounded-3xl p-10 text-center hover:shadow-xl hover:border-accent/30 transition-all duration-300">
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <BarChart2 className="h-8 w-8 text-primary" />
-                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground">InkluScore im Detail</h3>
+                  <Eye className="h-8 w-8 text-primary" />
+                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground">Warum Sensibilisierung wirkt</h3>
                 </div>
                 <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mb-8 font-light">
-                  Unser wissenschaftlich fundiertes Bewertungssystem macht Ihre Inklusionskultur messbar und gibt 
-                  Ihnen konkrete Handlungsempfehlungen für nachhaltigen Fortschritt.
+                  Echte Veränderung beginnt mit Verständnis. Unsere Mentor:innen teilen ihre persönlichen Erfahrungen 
+                  und schaffen authentische Begegnungen, die nachhaltig wirken.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
-                      <BarChart2 className="h-8 w-8 text-primary" />
+                      <MessageCircle className="h-8 w-8 text-primary" />
                     </div>
-                    <div className="text-xl font-bold text-primary mb-2">Messung</div>
-                    <div className="text-foreground/70">Wissenschaftliche Bewertung Ihrer aktuellen Inklusionskultur</div>
+                    <div className="text-xl font-bold text-primary mb-2">Authentizität</div>
+                    <div className="text-foreground/70">Echte Geschichten statt theoretische Konzepte</div>
                   </div>
                   <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
-                      <Target className="h-8 w-8 text-secondary" />
+                      <Users className="h-8 w-8 text-secondary" />
                     </div>
-                    <div className="text-xl font-bold text-secondary mb-2">Analyse</div>
-                    <div className="text-foreground/70">Detaillierte Auswertung mit Stärken und Entwicklungsfeldern</div>
+                    <div className="text-xl font-bold text-secondary mb-2">Begegnung</div>
+                    <div className="text-foreground/70">Direkte Interaktion auf Augenhöhe</div>
                   </div>
                   <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
-                      <Settings className="h-8 w-8 text-third" />
+                      <Video className="h-8 w-8 text-third" />
                     </div>
-                    <div className="text-xl font-bold text-third mb-2">Steuerung</div>
-                    <div className="text-foreground/70">Konkrete Handlungsempfehlungen für nachhaltige Verbesserungen</div>
+                    <div className="text-xl font-bold text-third mb-2">Nachhaltigkeit</div>
+                    <div className="text-foreground/70">Langfristige Veränderung der Unternehmenskultur</div>
                   </div>
                 </div>
               </div>

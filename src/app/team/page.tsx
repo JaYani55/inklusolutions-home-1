@@ -1,5 +1,6 @@
 // src/app/team/page.tsx
 import Navigation from "@/components/ui/Navigation";
+import Footer from "@/components/shared/Footer";
 
 export default function TeamPage() {
   return (
@@ -29,6 +30,7 @@ export default function TeamPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

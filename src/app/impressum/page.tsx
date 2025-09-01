@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Navigation from '@/components/ui/Navigation';
+import Footer from '@/components/shared/Footer';
 
 export default function ImpressumPage() {
   return (
@@ -70,6 +71,7 @@ export default function ImpressumPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

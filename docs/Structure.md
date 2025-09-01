@@ -35,7 +35,7 @@ Unterseiten / Routen (Auswahl):
 - `src/app/historie/page.tsx` — Firmenhistorie
 - `src/app/products/page.tsx` — Produkt-/Service-Übersicht (Listing)
 - `src/app/products/[slug]/` — Produktdetail-Seiten (dynamische Route)
-- `src/app/products/bewusstsein/` — Produkt-Unterseite
+- `src/app/products/awareness/` — Produkt-Unterseite
 - `src/app/products/services/` — Services-Übersicht
 - `src/app/products/trainings/` — Trainings-Übersicht
 - `src/app/team/page.tsx` — Team-Seite
@@ -82,7 +82,7 @@ Die folgenden Dateien wurden automatisch aus dem `src/`-Ordner ermittelt (Auswah
   - `src/app/team/page.tsx` — Team
   - `src/app/products/page.tsx` — Produkt-/Service-Übersicht
   - `src/app/products/[slug]/page.tsx` — Produkt-Detail (dynamischer Slug)
-  - `src/app/products/trainings/page.tsx`, `src/app/products/services/page.tsx`, `src/app/products/bewusstsein/page.tsx`
+  - `src/app/products/trainings/page.tsx`, `src/app/products/services/page.tsx`, `src/app/products/awareness/page.tsx`
 
 - Components — Landingpage
   - `src/components/landingpage/LandingPageLayout.tsx` — Landingpage Grid + SectionCards

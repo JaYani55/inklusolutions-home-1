@@ -4,6 +4,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Navigation from '@/components/ui/Navigation';
+import Footer from '@/components/shared/Footer';
 
 export default function DatenschutzPage() {
   return (
@@ -160,6 +161,7 @@ export default function DatenschutzPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

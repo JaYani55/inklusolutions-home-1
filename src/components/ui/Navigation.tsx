@@ -16,8 +16,8 @@ export default function Navigation() {
       dropdownItems: [
   { name: "Übersicht", href: "/products", disabled: false },
   { name: "Training", href: "/products/trainings", disabled: false },
-  { name: "Awareness", href: "/products/bewusstsein", disabled: false },
-    /* { name: "Services(TBA)", href: "/products/services", disabled: true }, */
+  { name: "Awareness", href: "/products/awareness", disabled: false },
+  { name: "Services", href: "/products/services", disabled: false },
 
       ]
     },

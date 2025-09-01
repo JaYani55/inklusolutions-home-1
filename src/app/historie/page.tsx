@@ -1,5 +1,6 @@
 // src/app/historie/page.tsx
 import Navigation from "@/components/ui/Navigation";
+import Footer from "@/components/shared/Footer";
 
 export default function HistoriePage() {
   return (
@@ -29,6 +30,7 @@ export default function HistoriePage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

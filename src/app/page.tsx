@@ -8,9 +8,12 @@ import Navigation from "@/components/ui/Navigation";
 import { 
   Lightbulb, 
   Settings,
-  ArrowRight, Users, Award, CheckCircle, Star, Video, GraduationCap, Phone, BarChart3 } from "lucide-react";
+  ArrowRight, Users, Award, CheckCircle, Star, Video, GraduationCap, Phone, BarChart3, MessageCircle, 
+  Zap} from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import CTASection from "@/components/shared/CTASection";
+import Footer from "@/components/shared/Footer";
 
 export default function HomePage() {
   // handlungsfelder (temporarily unused)
@@ -30,7 +33,7 @@ export default function HomePage() {
       color: "from-secondary to-accent",
       withMentors: true,
       products: ["DAW", "inkluStories", "InkluTalks"],
-      link: "/products/bewusstsein"
+      link: "/products/awareness"
     },
     {
       title: "Services & Beratung", 
@@ -51,9 +54,9 @@ export default function HomePage() {
     inklustories: Video,
     "lass uns reden": Video,
     "spotlight moments": Video,
-    inklutalks: Video,
+    inklutalks: MessageCircle,
     "peer-mentoring": Users,
-    jobsync: ArrowRight,
+    jobsync: Zap,
     inkluscore: BarChart3,
     zertifikate: Award,
     default: CheckCircle,
@@ -127,9 +130,7 @@ export default function HomePage() {
             textShadow: '3px 3px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)'
           }}
         >
-          Inklusion beginnt mit Menschen –
-          <br />
-          und wird mit den richtigen Lösungen wirksam
+          Inklusion beginnt mit Menschen und wird mit den richtigen Lösungen wirksam
         </h1>
         
         <h2 className="text-xl lg:text-2xl font-semibold text-white drop-shadow-2xl"
@@ -156,18 +157,18 @@ export default function HomePage() {
                   size="lg"
                   className="w-full text-white bg-gradient-to-r from-primary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
                 >
-                  Training entdecken
+                  Trainings
                   <GraduationCap className="ml-4 w-7 h-7" />
                 </Button>
               </Link>
             </div>
             <div className="md:flex-1 min-w-0">
-              <Link href="/products/bewusstsein" className="block">
+              <Link href="/products/awareness" className="block">
                 <Button
                   size="lg"
                   className="w-full text-white bg-gradient-to-r from-secondary to-third border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
                 >
-                  Bewusstsein stärken
+                  Awareness
                   <Lightbulb className="ml-4 w-7 h-7" />
                 </Button>
               </Link>
@@ -178,7 +179,7 @@ export default function HomePage() {
                   size="lg"
                   className="w-full text-white bg-gradient-to-r from-third to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
                 >
-                  Services nutzen
+                  Services & Beratung
                   <Settings className="ml-4 w-7 h-7" />
                 </Button>
               </Link>
@@ -259,20 +260,18 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           >
-            {/*
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                "InkluSolutions hat uns geholfen, Inklusion von der Theorie in die Praxis zu bringen."
+                "Bei InkluSolutions hat uns geholfen: Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen."
               </blockquote>
-              <cite className="text-sm font-semibold text-primary">– HR Director, Tech-Startup</cite>
+              <cite className="text-sm font-semibold text-primary">– Katharina Erdmann, BLG Logistics</cite>
             </div>
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                "Die Mentor:innen haben unsere Sichtweise nachhaltig verändert."
+                "Bei InkluSolutions hat uns besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt."
               </blockquote>
-              <cite className="text-sm font-semibold text-primary">– Personalleitung, Konzern</cite>
+              <cite className="text-sm font-semibold text-primary">– Sebastian Dillner, Bremedia</cite>
             </div>
-            */}
           </motion.div>
         </div>
       </section>
@@ -384,50 +383,7 @@ export default function HomePage() {
     </div>
 
     {/* CTA-Bar */}
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, delay: 0.3 }}
-      viewport={{ once: true }}
-      className="mt-20 text-center"
-    >
-      <div className="bg-white/70 backdrop-blur-lg rounded-2xl p-8 border border-white/50 shadow-lg max-w-2xl mx-auto">
-        <h3 className="text-2xl font-bold mb-4 text-foreground">
-          Bereit für den nächsten Schritt?
-        </h3>
-        <p className="text-foreground/70 mb-6">
-          Entdecken Sie alle unsere Leistungen im Detail oder vereinbaren Sie ein kostenloses Beratungsgespräch.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
-          
-          <div className="w-full sm:flex-1 min-w-0">
-            <Link href="/products">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="w-full sm:min-w-[12rem] border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              >
-                Alle Angebote entdecken
-                <Star className="ml-3 w-6 h-6" />
-              </Button>
-            </Link>
-          </div>
-          <div className="w-full sm:flex-1 min-w-0">
-            <Button asChild
-              variant="outline" 
-              size="lg"
-              className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                Kostenlose Beratung
-                <Phone className="ml-3 w-6 h-6" />
-              </a>
-            </Button>
-          </div>
-
-        </div>
-      </div>
-    </motion.div>
+    <CTASection />
   </div>
 
   {/* reduced motion support */}
@@ -445,59 +401,7 @@ export default function HomePage() {
  
 
       {/* 9) FOOTER */}
-      <footer className="bg-foreground/5 border-t border-border/20 py-12">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 text-center md:text-left">
-            <div className="md:col-span-2">
-              <img 
-                src="/InkluSolutionsLogo.png" 
-                alt="InkluSolutions Logo" 
-                className="h-12 mx-auto md:mx-0 mb-4"
-              />
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Navigation</h4>
-              <div className="space-y-2">
-                <Link href="/products" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Leistungen
-                </Link>
-                {/*
-                <Link href="/team" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Team
-                </Link>
-                <Link href="/historie" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Historie
-                </Link>
-                */}
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Rechtliches</h4>
-              <div className="space-y-2">
-                <Link href="/impressum" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Impressum
-                </Link>
-                <Link href="/datenschutz" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Datenschutz
-                </Link>
-                {/*
-                <a href="/datenschutz/contact" className="block text-foreground/70 hover:text-primary transition-colors duration-300">
-                  Kontakt
-                </a>
-                */}
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-border/20 mt-8 pt-8 text-center">
-            <p className="text-foreground/60">
-              © 2025 InkluSolutions. Alle Rechte vorbehalten.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -573,7 +477,12 @@ function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: st
          >
            {items.map((logo, idx) => (
              <div key={idx} style={{ width: `${itemWidth}px` }} className="flex-shrink-0 flex items-center justify-center p-2">
-               <img src={logo.src} alt={logo.alt} className="h-16 object-contain" loading="lazy" />
+               <img 
+                 src={logo.src} 
+                 alt={logo.alt} 
+                 className={`object-contain ${logo.alt === 'Scout24' ? 'h-20' : 'h-16'}`} 
+                 loading="lazy" 
+               />
              </div>
            ))}
          </div>

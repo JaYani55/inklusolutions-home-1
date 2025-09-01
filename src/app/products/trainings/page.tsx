@@ -19,6 +19,8 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import CTASection from '@/components/shared/CTASection'
+import Footer from '@/components/shared/Footer'
 
 const trainingsProducts = [
   {
@@ -110,85 +112,6 @@ export default function TrainingsPage() {
           </div>
         </section>
 
-        {/* Mission Statement Section */}
-        <section id="mission-section" className="w-full bg-gradient-to-br from-gray-50 to-slate-100 py-20">
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-5xl mx-auto">
-
-              {/* Content Cards Grid */}
-              <div className="grid lg:grid-cols-2 gap-8">
-                {/* Left Card - Problem Statement */}
-                <Card className="bg-white/70 backdrop-blur-sm shadow-xl border border-white/30 rounded-2xl hover:shadow-2xl transition-all duration-300 group">
-                  <CardContent className="p-8 space-y-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
-                      <Target className="h-6 w-10 text-primary" />
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h3 className="text-3xl font-bold text-foreground">Die Herausforderung</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">
-                        Wer Inklusion im Unternehmen wirksam gestalten will, braucht mehr als gute Absichten. 
-                        Es geht um Haltung – und um Handwerk: Handlungskompetenz, Sicherheit im Umgang mit 
-                        Behinderung und das Wissen, wie man Inklusion im Alltag lebt.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Right Card - Solution */}
-                <Card className="bg-white/70 backdrop-blur-sm shadow-xl border border-white/30 rounded-2xl hover:shadow-2xl transition-all duration-300 group">
-                  <CardContent className="p-8 space-y-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-accent/20 to-primary/20 rounded-xl flex items-center justify-center">
-                      <CheckCircle className="h-6 w-6 text-accent" />
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h3 className="text-3xl font-bold text-foreground">Unsere Lösung</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">
-                        Ob als Präsenz-Workshop oder Online-Session: Weniger Theorie, mehr Erfahrung. 
-                        Weniger Belehrung, mehr Begegnung.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Bottom Highlight Banner */}
-              <div className="mt-12">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-4 flex-wrap">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                        <Users className="text-lg text-primary" />
-                      </div>
-                      <span className="text-xl font-semibold text-foreground">Praxisnah</span>
-                    </div>
-                    
-                    <div className="w-1 h-1 bg-muted-foreground rounded-full hidden sm:block" />
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
-                        <MessageSquare className="text-lg text-accent" />
-                      </div>
-                      <span className="text-xl font-semibold text-foreground">Interaktiv</span>
-                    </div>
-                    
-                    <div className="w-1 h-1 bg-muted-foreground rounded-full hidden sm:block" />
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                        <TrendingUp className="text-lg text-primary" />
-                      </div>
-                      <span className="text-xl font-semibold text-foreground">Nachhaltig</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Inklusionsführerschein Section */}
         <section id="inklusionsführerschein" className="py-32">
           <div className="container mx-auto px-6">
@@ -211,12 +134,18 @@ export default function TrainingsPage() {
                   <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 text-primary font-semibold">
                       <GraduationCap className="h-5 w-5" />
-                      Training
+                      Basis-Workshop
+                    </div>
+                    <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">
+                      2-tägig
                     </div>
                     <h2 className="text-4xl font-bold">Inklusionsführerschein</h2>
                     <p className="text-2xl text-muted-foreground">
                       1-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – 
                       ideal für DEI, SBV, IB. Ziel: Sicherheit im Umgang mit Behinderung & Transfer in den Arbeitsalltag.
+                    </p>
+                    <p className="text-lg text-muted-foreground">
+                      Ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
                     </p>
                   </div>
                   
@@ -267,12 +196,8 @@ export default function TrainingsPage() {
             >
               <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
-                    <div className="inline-flex items-center gap-2 text-primary font-semibold mb-4">
-                      <Award className="h-5 w-5" />
-                      Vertiefung
-                    </div>
                   <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[1].name}</h2>
-                  <p className="mb-8 text-2xl text-foreground/80">{trainingsProducts[1].description}</p>
+                  <p className="mb-8 text-2xl text-foreground/80">Kurze, praxisnahe Sessions zu Spezialthemen wie barrierefreie Kommunikation, Fördermittel oder Bewerbungssimulation.</p>
                 </div>
 
                   <div className="space-y-8">
@@ -448,53 +373,18 @@ export default function TrainingsPage() {
         </section>
 
         {/* CTA Section - Full Width Background */}
-        <section className="w-full bg-gradient-to-r from-primary/10 to-accent/10 py-20">
-          <div className="container mx-auto px-6 md:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <h3 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
-                <span className="bg-primary bg-clip-text text-transparent">
-                  Bereit für Ihre Weiterbildung?
-                </span>
-              </h3>
-              <p className="mt-4 text-xl leading-relaxed text-foreground/80 mb-8">
-                Investieren Sie in nachhaltige Kompetenz für Ihr Team.
-              </p>
-              <div className="flex flex-col items-center justify-center gap-6 sm:flex-row w-full sm:max-w-xl mx-auto">
-                <div className="w-full sm:flex-1 min-w-0">
-                  <Button 
-                    asChild
-                    variant="outline" 
-                    size="lg"
-                    className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  >
-                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                      Kostenlose Beratung
-                      <Users className="ml-3 w-6 h-6" />
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="w-full sm:flex-1 min-w-0">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="w-full sm:min-w-[12rem] border-[3px] border-primary text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  >
-                    Alle Angebote entdecken
-                    <ArrowRight className="ml-3 w-6 h-6" />
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <CTASection 
+          title="Bereit für den nächsten Schritt?"
+          description="Entdecken Sie alle unsere Leistungen im Detail oder vereinbaren Sie ein kostenloses Beratungsgespräch."
+          subtitle=""
+          primaryButtonText="Mehr Erfahren"
+          primaryButtonHref="/products"
+          secondaryButtonText="Kostenlose Beratung"
+          showSecondaryButton={true}
+          className="w-full bg-gradient-to-r from-primary/10 to-accent/10 py-20 container mx-auto px-6 md:px-8"
+        />
       </div>
+      <Footer />
     </>
   )
 }

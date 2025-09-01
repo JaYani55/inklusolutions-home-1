@@ -1,4 +1,4 @@
-// src/app/products/bewusstsein/page.tsx
+// src/app/products/awareness/page.tsx
 'use client'
 
 import React from 'react'
@@ -8,6 +8,8 @@ import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Star, Users, Video, MessageCircle, Eye, Lightbulb, Pin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import CTASection from '@/components/shared/CTASection'
+import Footer from '@/components/shared/Footer'
 
 // fadeUp currently unused but kept for future animations
 // const fadeUp: Variants = {
@@ -21,7 +23,7 @@ const cardVariants: Variants = {
   hover: { y: -6, scale: 1.01, transition: { duration: 0.25 } },
 }
 
-// Icon-Mapping für Bewusstseins-Produkte (basierend auf der Produkt-Übersichtsseite)
+// Icon-Mapping für Awareness-Produkte (basierend auf der Produkt-Übersichtsseite)
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const productIconMap: Record<string, React.ComponentType<any> | undefined> = {
   'disability-awareness-session': Lightbulb,
@@ -34,9 +36,9 @@ const productIconMap: Record<string, React.ComponentType<any> | undefined> = {
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const bewusstseinsProducts = [
+const awarenessProducts = [
   {
-    id: 'bewusstsein-1',
+    id: 'awareness-1',
     slug: 'disability-awareness-session',
     name: 'Disability Awareness Session',
     description: 'Halbtägiger, interaktiver Sensibilisierungsworkshop mit authentischen Begegnungen und nachhaltigem Perspektivwechsel',
@@ -46,7 +48,7 @@ const bewusstseinsProducts = [
     hasDetailsPage: true,
   },
   {
-    id: 'bewusstsein-2',
+    id: 'awareness-2',
     slug: 'daw-awareness-workshop',
     name: 'DAW (Awareness Workshop)',
     description: 'Halbtägiger Präsenzworkshop für Teams, Führungskräfte & HR mit Film, Mentor:innen & Reflexion',
@@ -55,7 +57,7 @@ const bewusstseinsProducts = [
     hasDetailsPage: false,
   },
   {
-    id: 'bewusstsein-3',
+    id: 'awareness-3',
     slug: 'lass-uns-reden',
     name: '„Lass uns reden"',
     description: 'Videopaket mit authentischen Porträts für interne Kommunikation',
@@ -63,7 +65,7 @@ const bewusstseinsProducts = [
     hasDetailsPage: false,
   },
   {
-    id: 'bewusstsein-4',
+    id: 'awareness-4',
     slug: 'spotlight-moments',
     name: 'Spotlight Moments',
     description: 'Professionell begleitete Videoproduktion mit Mitarbeitenden mit Behinderung',
@@ -71,7 +73,7 @@ const bewusstseinsProducts = [
     hasDetailsPage: false,
   },
   {
-    id: 'bewusstsein-5',
+    id: 'awareness-5',
     slug: 'inklu-talks',
     name: 'Inklu-Talks (Lunchbag)',
     description: 'Kurzes Austauschformat zu spezifischen Behinderungsbildern (z. B. Autismus, Depression etc.)',
@@ -79,7 +81,7 @@ const bewusstseinsProducts = [
     hasDetailsPage: false,
   },
   {
-    id: 'bewusstsein-6',
+    id: 'awareness-6',
     slug: 'begehung-analyse-vor-ort',
     name: 'Begehung',
     description: 'Analyse vor Ort zur Sichtbarmachung struktureller Barrieren & Ableitung von Praxisimpulsen',
@@ -88,7 +90,7 @@ const bewusstseinsProducts = [
   },
 ]
 
-type BewusstseinProduct = {
+type AwarenessProduct = {
   id?: string;
   slug?: string;
   name?: string;
@@ -101,7 +103,7 @@ type BewusstseinProduct = {
   hasDetailsPage?: boolean;
 }
 
-function ProductCard({ product }: { product: BewusstseinProduct }) {
+function ProductCard({ product }: { product: AwarenessProduct }) {
   const IconComponent = product.icon || Users;
   
   return (
@@ -157,7 +159,7 @@ function ProductCard({ product }: { product: BewusstseinProduct }) {
   )
 }
 
-export default function BewusstseinsPage() {
+export default function AwarenessPage() {
   return (
     <>
       <Navigation />
@@ -201,7 +203,7 @@ export default function BewusstseinsPage() {
             >
               <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/90 backdrop-blur-sm border border-white/60 px-6 py-3 shadow-lg">
                 <Users className="h-6 w-6 text-primary" />
-                <span className="text-lg font-semibold text-primary">Bewusstsein & Sensibilisierung</span>
+                <span className="text-lg font-semibold text-primary">Awareness & Sensibilisierung</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
                 <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
@@ -226,7 +228,7 @@ export default function BewusstseinsPage() {
               viewport={{ once: true }}
             >
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-                {bewusstseinsProducts.map((product) => (
+                {awarenessProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
@@ -291,42 +293,17 @@ export default function BewusstseinsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden bg-gradient-to-br from-warm-bg to-background">
-          <img
-            src="/bg-texture-subtle.jpg"
-            alt="CTA Background"
-            className="absolute inset-0 w-full h-full object-cover opacity-5"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="max-w-4xl mx-auto">
-                <h3 className="text-4xl lg:text-5xl font-bold mb-6 pb-2">
-                  <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                    Bereit für echte Begegnungen?
-                  </span>
-                </h3>
-                <p className="text-xl lg:text-2xl leading-relaxed text-foreground/80 mb-12 font-light">
-                  Starten Sie den Kulturwandel in Ihrem Unternehmen.
-                </p>
-                <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-                  <Button asChild size="lg" className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
-                      <Users className="h-6 w-6" /> Kostenlose Beratung
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        <CTASection 
+          title="Bereit für echte Begegnungen?"
+          description="Starten Sie den Kulturwandel in Ihrem Unternehmen."
+          subtitle=""
+          primaryButtonText="Alle Angebote entdecken"
+          primaryButtonHref="/products"
+          secondaryButtonText="Kostenlose Beratung"
+          showSecondaryButton={true}
+        />
       </div>
+      <Footer />
     </>
   )
 }

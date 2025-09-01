@@ -15,7 +15,7 @@ export const mentors: Mentor[] = [
     image: '/Mentor1.jpg',
     quote: 'Echte Inklusion entsteht durch authentische Begegnungen, nicht durch Theorie.',
     role: 'Peer-Mentorin',
-    expertise: ['Sensibilisierung', 'Bewusstseinsbildung', 'Führungskultur']
+    expertise: ['Sensibilisierung', 'Awarenessbildung', 'Führungskultur']
   },
   {
     id: 2,
