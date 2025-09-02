@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground/5 border-t border-border/20 py-12 mt-20">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 text-center md:text-left">
+        <div className="grid md:grid-cols-5 gap-8 text-center md:text-left">
           <div className="md:col-span-2">
             <img 
               src="/InkluSolutionsLogo.png" 
@@ -27,6 +27,28 @@ export default function Footer() {
                 Historie
               </Link>
               */}
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Partnernetzwerk</h4>
+            <div className="space-y-2">
+              <a 
+                href="https://inklupreneur.de" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-foreground/70 hover:text-primary transition-colors duration-300"
+              >
+                Inklupreneur
+              </a>
+              <a 
+                href="https://inklu-connect.de" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-foreground/70 hover:text-primary transition-colors duration-300"
+              >
+                Inklu-Connect
+              </a>
             </div>
           </div>
           
