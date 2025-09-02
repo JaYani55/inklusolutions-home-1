@@ -41,7 +41,7 @@ const awarenessProducts = [
     id: 'awareness-1',
     slug: 'disability-awareness-session',
     name: 'Disability Awareness Session',
-    description: 'Halbtägiger, interaktiver Sensibilisierungsworkshop mit authentischen Begegnungen und nachhaltigem Perspektivwechsel',
+    description: 'Halbtägiger Präsenzworkshop für Teams, Führungskräfte & HR mit Film, Mentor:innen & Reflexion.',
     highlight: true,
     withMentors: true,
     icon: productIconMap['disability-awareness-session'],
@@ -51,7 +51,7 @@ const awarenessProducts = [
     id: 'awareness-3',
     slug: 'inklu-stories',
     name: 'InkluStories',
-    description: 'Videoportraits - als Lernimpulse oder individuelle Videoproduktion',
+    description: 'Echte Menschen, echte Geschichten. Authentische Video-Porträts für interne Kommunikation und Events.',
     icon: productIconMap['lass-uns-reden'],
     hasDetailsPage: false,
   },
@@ -59,7 +59,7 @@ const awarenessProducts = [
     id: 'awareness-4',
     slug: 'inklu-talks',
     name: 'InkluTalks',
-    description: 'Einmalige, intensive Experten-Talks für offenen Austausch und Diskussion',
+    description: 'Einstündige Austauschformate zu spezifischen Behinderungsarten mit unseren Mentor:innen auf Augenhöhe.',
     icon: productIconMap['inklu-talks'],
     hasDetailsPage: false,
   },
@@ -67,7 +67,7 @@ const awarenessProducts = [
     id: 'awareness-5',
     slug: 'begehung-analyse-vor-ort',
     name: 'Begehung',
-    description: 'Analyse vor Ort zur Sichtbarmachung struktureller Barrieren & Ableitung von Praxisimpulsen',
+    description: 'Gemeinsam begehen wir eure Räumlichkeiten - und machen so systematisch Barrieren sichtbar.',
     icon: productIconMap['begehung-analyse-vor-ort'],
     hasDetailsPage: false,
   },
@@ -190,11 +190,11 @@ export default function AwarenessPage() {
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
                 <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                  Kulturwandel durch Begegnung
+                  Perspektivwechsel durch Begegnung
                 </span>
               </h1>
               <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
-                Authentische Sensibilisierung durch echte Begegnungen und professionelle Aufklärung für nachhaltigen Wandel.
+                "Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?" Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
               </p>
             </motion.div>
           </div>
