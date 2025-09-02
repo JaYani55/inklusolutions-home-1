@@ -42,8 +42,8 @@ const awarenessProducts = [
     slug: 'disability-awareness-session',
     name: 'Disability Awareness Session',
     description: 'Halbtägiger Präsenzworkshop für Teams, Führungskräfte & HR mit Film, Mentor:innen & Reflexion.',
-    highlight: true,
-    withMentors: true,
+    highlight: false,
+    withMentors: false,
     icon: productIconMap['disability-awareness-session'],
     hasDetailsPage: true,
   },
@@ -194,7 +194,9 @@ export default function AwarenessPage() {
                 </span>
               </h1>
               <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
-                <strong>&ldquo;Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?&rdquo;</strong> Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
+                <strong>&ldquo;Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?&rdquo;</strong>
+                <br /><br />
+                Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
               </p>
             </motion.div>
           </div>
@@ -245,7 +247,7 @@ export default function AwarenessPage() {
                 </div>
                 <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mb-8 font-light">
                   Echte Veränderung beginnt mit Verständnis. Unsere Mentor:innen teilen ihre persönlichen Erfahrungen 
-                  und schaffen authentische Begegnungen, die nachhaltig wirken.
+                  und schaffen authentische Begegnungen, die Perspektivwechsel ermöglichen.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="bg-white/80 border border-white/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
@@ -266,8 +268,8 @@ export default function AwarenessPage() {
                     <div className="flex items-center justify-center mb-4">
                       <Video className="h-8 w-8 text-third" />
                     </div>
-                    <div className="text-xl font-bold text-third mb-2">Nachhaltigkeit</div>
-                    <div className="text-foreground/70">Langfristige Veränderung der Unternehmenskultur</div>
+                    <div className="text-xl font-bold text-third mb-2">Veränderung</div>
+                    <div className="text-foreground/70">Kulturwandel durch Perspektivwechsel</div>
                   </div>
                 </div>
               </div>

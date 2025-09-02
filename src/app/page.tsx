@@ -41,7 +41,7 @@ export default function HomePage() {
       color: "from-accent to-primary",
       withMentors: true,
       link: "/products/services",
-      products: ["peer-mentoring", "jobsync", "InkluScore", "zertifikate"]
+      products: ["peer-mentoring", "jobSync", "InkluScore", "zertifikate"]
     }
   ];
 

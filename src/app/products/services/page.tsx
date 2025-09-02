@@ -38,8 +38,8 @@ const servicesProducts = [
     id: 'services-1',
     slug: 'recruiting-support-jobsync',
     name: 'Inklu-Connect JobSync - Recruiting-Support',
-    description: 'JobSync ist ein Softwareservice, welcher Ihnen intelligente und automatisierte Stellendistribution in ein Netzwerk von großen Jobplattformen und inklusiven Partnerplattformen bietet.',
-    highlight: true,
+    description: 'KI-gestützte Multi-Posting Software für intelligente Stellenverteilung in ein inklusives Partnernetzwerk. Vollautomatisierung durch SmartSync-System.',
+    highlight: false,
     icon: productIconMap['recruiting-support-jobsync'],
     hasDetailsPage: false,
     isExternal: true,
@@ -52,7 +52,7 @@ const servicesProducts = [
     description: 'Wissenschaftliche Messung Ihrer Inklusionskultur mit Handlungsempfehlungen',
     highlight: false,
     icon: productIconMap['inklu-score'],
-    hasDetailsPage: true,
+    hasDetailsPage: false,
     isExternal: false
   },
   {
@@ -226,9 +226,187 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Special InkluScore Section */}
+        {/* JobSync Details Section */}
         <section className="py-20 bg-gradient-to-br from-background to-warm-bg relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent" />
+          
+          {/* Decorative background elements */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-15 z-10">
+            <div className="absolute top-32 right-16 w-3 h-3 bg-accent rounded-full animate-pulse" />
+            <div className="absolute bottom-32 left-16 w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '4s' }} />
+          </div>
+
+          <div className="container mx-auto px-6 relative z-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-5xl font-medium mb-6 pb-2">
+                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                  Details im Überblick
+                </span>
+                <br />
+                <span className="text-foreground/70">
+                  Inklu-Connect JobSync
+                </span>
+              </h2>
+              <p className="text-xl text-foreground/70 max-w-3xl mx-auto font-light">
+                Revolutioniere dein Recruiting mit intelligenter Inklusion und KI-gestützter Automatisierung.
+              </p>
+            </motion.div>
+            
+            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Multi-Posting Software Service */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
+                  <div className="p-8 relative h-full flex flex-col">
+                    {/* Icon with gradient background */}
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary/15 to-secondary/15 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="h-10 w-10 text-primary group-hover:text-secondary transition-colors duration-300" />
+                    </div>
+                    
+                    {/* Title and Description */}
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-medium text-foreground mb-3">
+                        Multi-Posting Software
+                      </h3>
+                      <p className="text-foreground/60 text-sm font-medium uppercase tracking-wider">
+                        Intelligente Stellenverteilung
+                      </p>
+                    </div>
+                    
+                    {/* Features List */}
+                    <ul className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Automatische Verteilung in inklusives Partnernetzwerk</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Erreichen von 3 Millionen Menschen mit Behinderungen</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>30% weniger Werbekosten pro Einstellung</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>Zugang zu inklusiven, spezialisierten Jobplattformen und Premium Jobbörsen</span>
+                      </li>
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+
+              {/* Job Synchronisation */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
+                  <div className="p-8 relative h-full flex flex-col">
+                    {/* Icon with gradient background */}
+                    <div className="w-20 h-20 bg-gradient-to-br from-secondary/15 to-third/15 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                      <Settings className="h-10 w-10 text-secondary group-hover:text-third transition-colors duration-300" />
+                    </div>
+                    
+                    {/* Title and Description */}
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-medium text-foreground mb-3">
+                        Job Synchronisation
+                      </h3>
+                      <p className="text-foreground/60 text-sm font-medium uppercase tracking-wider">
+                        Automatisiertes Crawling & KI-Analyse
+                      </p>
+                    </div>
+                    
+                    {/* Features List */}
+                    <ul className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <span>Automatisches Crawling Ihrer Jobseite (bis zu 5 Domains)</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <span>KI-Anreicherung mit präzisen Metadaten</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <span>30% schnellere Besetzungszeiten</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <span>2x mehr qualifizierte Bewerbungen aus organischen Quellen</span>
+                      </li>
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+
+              {/* Vollautomatisierung */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
+                  <div className="p-8 relative h-full flex flex-col">
+                    {/* Icon with gradient background */}
+                    <div className="w-20 h-20 bg-gradient-to-br from-third/15 to-accent/15 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                      <BarChart2 className="h-10 w-10 text-third group-hover:text-accent transition-colors duration-300" />
+                    </div>
+                    
+                    {/* Title and Description */}
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-medium text-foreground mb-3">
+                        Vollautomatisierung
+                      </h3>
+                      <p className="text-foreground/60 text-sm font-medium uppercase tracking-wider">
+                        SmartSync System & Partnernetzwerk
+                      </p>
+                    </div>
+                    
+                    {/* Features List */}
+                    <ul className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-third mt-0.5 flex-shrink-0" />
+                        <span>SmartSync LLM-System für intelligente Verteilung</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-third mt-0.5 flex-shrink-0" />
+                        <span>Dezentrales Partnernetzwerk mit Bildungseinrichtungen</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-third mt-0.5 flex-shrink-0" />
+                        <span>API-Zugang für ATS/CRM Integration</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-third mt-0.5 flex-shrink-0" />
+                        <span>Kein manueller Aufwand - Jobs erreichen die richtigen Talente</span>
+                      </li>
+                    </ul>
+                  </div>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Special InkluScore Section */}
+        <section className="py-20 bg-gradient-to-br from-warm-bg to-background relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/3 to-transparent" />
           
           {/* Decorative background elements like awareness page */}
           <div className="absolute top-0 left-0 w-full h-full opacity-15 z-10">

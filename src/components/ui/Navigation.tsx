@@ -14,20 +14,13 @@ export default function Navigation() {
       href: "/products",
       hasDropdown: true,
       dropdownItems: [
-  { name: "Übersicht", href: "/products", disabled: false },
-  { name: "Training", href: "/products/trainings", disabled: false },
-  { name: "Awareness", href: "/products/awareness", disabled: false },
-  { name: "Services", href: "/products/services", disabled: false },
-
+        { name: "Übersicht", href: "/products", disabled: false },
+        { name: "Training", href: "/products/trainings", disabled: false },
+        { name: "Awareness", href: "/products/awareness", disabled: false },
+        { name: "Services", href: "/products/services", disabled: false },
       ]
     },
-    //{ name: "Lösungen", href: "/solutions" },
-    //{ name: "Mentor:innen", href: "/mentors" },
-    //{ name: "Team", href: "/team" },
-    //{ name: "Historie", href: "/historie" },
-    { name: "Inklu-Connect", href: "https://inklu-connect.de", isExternal: true },
-    { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc" },
-    ////{ name: "Datenschutz", href: "/datenschutz" },
+    { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc", isExternal: true },
   ];
 
   return (
@@ -110,7 +103,7 @@ export default function Navigation() {
                           style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255, 1))' }}
                         >
                           <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                          {item.isExternal && (
+                          {'isExternal' in item && item.isExternal && (
                             <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
                           )}
                         </span>
@@ -206,7 +199,7 @@ export default function Navigation() {
                             style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 8px 18px rgba(255,255,255,0.20))' }}
                           >
                             <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                            {item.isExternal && (
+                            {'isExternal' in item && item.isExternal && (
                               <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
                             )}
                           </span>
