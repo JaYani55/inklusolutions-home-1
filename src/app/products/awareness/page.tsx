@@ -194,7 +194,7 @@ export default function AwarenessPage() {
                 </span>
               </h1>
               <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
-                "Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?" Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
+                <strong>&ldquo;Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?&rdquo;</strong> Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
               </p>
             </motion.div>
           </div>
