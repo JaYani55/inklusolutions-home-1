@@ -202,9 +202,8 @@ export default function TrainingsPage() {
                   {/* Inklusive Stellenausschreibungen - Sanftes Grün */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-primary"
                   >
                     <div className="mb-4">
@@ -222,9 +221,8 @@ export default function TrainingsPage() {
                   {/* Barrierefreiheit umsetzen - Sanftes Blau */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-secondary"
                   >
                     <div className="mb-4">
@@ -242,9 +240,8 @@ export default function TrainingsPage() {
                   {/* Barrierefreie Kommunikation online - Sanftes Orange */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-third"
                   >
                     <div className="mb-4">
@@ -262,9 +259,8 @@ export default function TrainingsPage() {
                   {/* Inklusives Onboarding - Sanftes Lila */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-accent"
                   >
                     <div className="mb-4">
@@ -285,9 +281,8 @@ export default function TrainingsPage() {
                   {/* Bewerbungssimulation mit Mentor:innen - Sanftes Cyan */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-third"
                   >
                     <div className="mb-4">
@@ -305,9 +300,8 @@ export default function TrainingsPage() {
                   {/* Deep Dives: Behinderungsarten - Sanftes Grau */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-accent"
                   >
                     <div className="mb-4">
@@ -325,9 +319,8 @@ export default function TrainingsPage() {
                   {/* Fördermittel-Optimierung - Sanftes Rosa */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-primary"
                   >
                     <div className="mb-4">
@@ -345,9 +338,8 @@ export default function TrainingsPage() {
                   {/* Vernetzung & Anlaufstellen - Sanftes Lime */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.6 }}
-                    viewport={{ once: true }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-secondary"
                   >
                     <div className="mb-4">

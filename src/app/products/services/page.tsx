@@ -82,11 +82,18 @@ type ServicesProduct = {
   externalUrl?: string;
 }
 
-function ProductCard({ product }: { product: ServicesProduct }) {
+function ProductCard({ product, index }: { product: ServicesProduct, index: number }) {
   const IconComponent = product.icon || Settings;
   
   return (
-    <motion.div variants={cardVariants} whileHover="hover" className="h-full">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={cardVariants}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      whileHover="hover" 
+      className="h-full"
+    >
       <Card className={`relative h-full flex flex-col overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-white/90 border border-white/60 hover:border-accent/30 ${
         product.highlight ? 'ring-2 ring-primary/30 border-primary/20' : ''
       }`}>
@@ -218,8 +225,8 @@ export default function ServicesPage() {
               viewport={{ once: true }}
             >
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-                {servicesProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                {servicesProducts.map((product, index) => (
+                  <ProductCard key={product.id} product={product} index={index} />
                 ))}
               </div>
             </motion.div>
