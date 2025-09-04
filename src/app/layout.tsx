@@ -8,7 +8,7 @@ import type { Metadata } from 'next'; // Typ für Metadaten
 import ReactQueryProvider from '../providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
-  title: 'Inklusionsführerschein', // Standardtitel für die Website
+  title: 'InkluSolutions', // Standardtitel für die Website
   description: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur.',
 };
 
