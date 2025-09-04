@@ -7,6 +7,12 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "routes": [
+    {
+      "pattern": "inklusolutions.de",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "binding": "ASSETS",
     "directory": ".open-next/assets"
