@@ -262,13 +262,13 @@ export default function HomePage() {
           >
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                &ldquo;Bei InkluSolutions hat uns geholfen: Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen.&rdquo;
+                &ldquo;Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen.&rdquo;
               </blockquote>
               <cite className="text-sm font-semibold text-primary">– Katharina Erdmann, BLG Logistics</cite>
             </div>
             <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
               <blockquote className="text-lg italic text-foreground/85 mb-4">
-                &ldquo;Bei InkluSolutions hat uns besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt.&rdquo;
+                &ldquo;Uns hat besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt.&rdquo;
               </blockquote>
               <cite className="text-sm font-semibold text-primary">– Sebastian Dillner, Bremedia</cite>
             </div>

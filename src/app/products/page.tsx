@@ -12,7 +12,6 @@ import {
   Star,
   Video,
   MessageCircle,
-  Users,
   Zap,
   Circle,
   BarChart3,
@@ -43,7 +42,7 @@ const productIconMap: Record<string, any> = {
   lassunsreden: Video,
   spotlightmoments: Video,
   inklutalks: MessageCircle,
-  peermentoring: Users,
+  'inklu-connect-jobsync': Zap,
   jobsync: Zap,
   inkluscore: BarChart3,
   zertifikate: Award,
@@ -84,11 +83,8 @@ const productCategories = [
       "Wir initiieren Formate, die echte Begegnungen ermöglichen, offene Dialoge fördern und diverse Perspektiven sichtbar machen. Erlebt einen nachhaltigen Wandel in eurer Unternehmenskultur.",
     products: [
       { name: "DAW", description: "Der Diversity & Awareness Workshop für tiefgehendes Verständnis" },
-      { name: "Inklustories", description: "Inspirierende Geschichten und Erfahrungsberichte" },
-      { name: "Lass uns reden", description: "Interaktive Gesprächsformate für offenen Austausch" },
-      { name: "Spotlight Moments", description: "Kurze, prägnante Einblicke in inklusive Themen" },
-      { name: "InkluTalks", description: "Regelmäßige Diskussionsrunden zu aktuellen Inklusionsfragen" },
-      { name: "Lunchbag", description: "Informelle Mittagspausen-Dialoge" },
+      { name: "Inklustories", description: "Inklusive Videoportraits - als Lizenzpaket oder individuelle Videoproduktion" },
+      { name: "InkluTalks", description: "60-Minütige informelle Experten-Talks für offenen Austausch und Diskussion" },
       { name: "Begehung", description: "Praktische Analyse der Barrierefreiheit vor Ort für Unternehmen" },
     ],
   },
@@ -103,8 +99,7 @@ const productCategories = [
     description:
       "Unsere Instrumente und Tools begleiten eure Prozesse, machen Erfolge sichtbar und verankern Inklusion nachhaltig in eurer Organisationsstruktur. Für messbaren Impact und langfristigen Erfolg.",
     products: [
-      { name: "Peer-Mentoring", description: "Erfahrene Mentor:innen unterstützen neue Mitarbeitende" },
-      { name: "Recruiting-Support", description: "Optimierung eurer Recruiting-Prozesse für mehr Inklusion" },
+      { name: "Inklu-Connect JobSync", description: "Automatisierte Stellenverteilung in unser inklusives Job-Netzwerk für reichweitenstarkes Recruiting." },
       { name: "InkluScore", description: "Messung und Analyse eures Inklusionsgrades" },
       { name: "Zertifikate", description: "Validierung und Auszeichnung eurer Inklusionsbemühungen" },
       // Füge hier weitere spezifische Services hinzu
@@ -381,11 +376,7 @@ export default function ProductsPage() {
                     <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed mb-8">
                       {category.description}
                     </p>
-                    <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                      <category.icon className="w-7 h-7 text-primary" />
-                      Formate im {category.title}-Bereich:
-                    </h3>
-                    <ul className="space-y-4">
+                    <ul className="space-y-4 pt-4">
                       {category.products.map((product, pIndex) => {
                         const key = product.name.toLowerCase().replace(/ /g, '-');
                         const IconComponent = productIconMap[key] || productIconMap.default;
@@ -408,6 +399,14 @@ export default function ProductsPage() {
                               <p className="text-foreground/70 text-base">
                                 {product.description}
                               </p>
+                              {product.name === "Inklu-Connect JobSync" && (
+                                <Link href="https://inklu-connect.de" target="_blank" rel="noopener noreferrer" className="inline-block mt-2">
+                                  <Button variant="link" className="p-0 h-auto text-primary hover:text-secondary font-semibold">
+                                    Mehr erfahren
+                                    <ArrowRight className="ml-2 w-4 h-4" />
+                                  </Button>
+                                </Link>
+                              )}
                             </div>
                           </motion.li>
                         );
