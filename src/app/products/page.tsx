@@ -165,14 +165,13 @@ export default function ProductsPage() {
             className="mt-10 flex flex-wrap justify-center gap-4"
           >
             {productCategories.map((category) => (
-              <a
+              <Link
                 key={category.id}
-                href={`#${category.id}`}
+                href={category.link}
                 className="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold text-lg hover:underline transition-colors duration-200"
               >
                 {category.title}
-
-              </a>
+              </Link>
             ))}
           </motion.div>
         </div>

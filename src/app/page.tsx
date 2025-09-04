@@ -204,6 +204,22 @@ export default function HomePage() {
       >
         Gemeinsam mit Menschen mit Behinderung als Mentor:innen schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen.
       </p>
+      
+      {/* Disclaimer */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="mt-8 pt-6 border-t border-white/30"
+      >
+        <p className="text-sm lg:text-base text-white/80 max-w-2xl mx-auto text-center leading-relaxed"
+          style={{
+            textShadow: '1px 1px 4px rgba(0,0,0,0.6)'
+          }}
+        >
+          Willkommen auf der neuen Inklu-Solutions Website. Die Website ist derzeit im Aufbau und wird kontinuierlich angepasst und erweitert.
+        </p>
+      </motion.div>
     </motion.div>
     
     {/* Dekorative Elemente */}
