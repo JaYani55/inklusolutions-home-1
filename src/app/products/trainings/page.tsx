@@ -30,7 +30,7 @@ const trainingsProducts = [
     id: 'training-2',
     slug: 'masterclasses',
     name: 'Masterclass-Serie',
-    description: 'Kompakte Vertiefungen z. B. zu: barrierefreie Kommunikation, Fördermittel, Bewerbungssimulation',
+    description: 'Kurze, praxisnahe Sessions zu Spezialthemen wie barrierefreie Kommunikation, Fördermittel oder Bewerbungssimulation.',
     topics: [
       { id: 'mc-1', slug: 'inklusive-stellenausschreibungen', name: 'Inklusive Stellenausschreibungen', description: 'Optimieren Sie Ihre Jobtexte für maximale Diversität und Ansprache.' },
       { id: 'mc-2', slug: 'barrierefreiheit-umsetzen', name: 'Barrierefreiheit umsetzen', description: 'Konkrete Schritte für physische und digitale Zugänglichkeit.' },
@@ -64,7 +64,7 @@ export default function TrainingsPage() {
                 <div className="space-y-8">
                 <div className="inline-flex items-center gap-3 bg-white/60 backdrop-blur-sm border border-white/30 rounded-full ">
                   <Lightbulb className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-primary">Unsere Mission</span>
+                  <span className="font-semibold text-primary">Training</span>
                 </div>
                   
                   <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
@@ -137,8 +137,8 @@ export default function TrainingsPage() {
                     </div>
                     <h2 className="text-4xl font-bold">Inklusionsführerschein</h2>
                     <p className="text-2xl text-muted-foreground">
-                      1-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – 
-                      ideal für DEI, SBV, IB. Ziel: Sicherheit im Umgang mit Behinderung & Transfer in den Arbeitsalltag.
+                      2-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – 
+                      ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
                     </p>
                     <p className="text-lg text-muted-foreground">
                       Ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
@@ -199,16 +199,15 @@ export default function TrainingsPage() {
                   <div className="space-y-8">
                     {/* Obere Reihe */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Inklusive Stellenausschreibungen - Sanftes Grün */}
+                  {/* Inklusive Stellenausschreibungen - Grün */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-primary"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-emerald-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-primary">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-emerald-500">
                         <img src="/Stellenausschreibung.png" alt="Stellenausschreibung" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -219,16 +218,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Barrierefreiheit umsetzen - Sanftes Blau */}
+                  {/* Barrierefreiheit umsetzen - Blau */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-secondary"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-blue-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-secondary">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-blue-500">
                         <img src="/Barrierefreiheit.png" alt="Barrierefreiheit" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -239,16 +237,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Barrierefreie Kommunikation online - Sanftes Orange */}
+                  {/* Barrierefreie Kommunikation online - Orange */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-third"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-orange-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-third">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-orange-500">
                         <img src="/KommunikationOnline.png" alt="Kommunikation Online" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -259,16 +256,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Inklusives Onboarding - Sanftes Lila */}
+                  {/* Inklusives Onboarding - Lila */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-accent"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-purple-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-accent">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-purple-500">
                         <img src="/Onboarding.png" alt="Inklusives Onboarding" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -282,16 +278,15 @@ export default function TrainingsPage() {
 
                 {/* Untere Reihe */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Bewerbungssimulation mit Mentor:innen - Sanftes Cyan */}
+                  {/* Bewerbungssimulation mit Mentor:innen - Rosa */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-third"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-pink-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-third">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-pink-500">
                         <img src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -302,16 +297,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Deep Dives: Behinderungsarten - Sanftes Grau */}
+                  {/* Deep Dives: Behinderungsarten - Rot */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-accent"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-red-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-accent">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-red-500">
                         <img src="/DeepDive.png" alt="Deep Dives" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -322,16 +316,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Fördermittel-Optimierung - Sanftes Rosa */}
+                  {/* Fördermittel-Optimierung - Gelb */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-primary"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-yellow-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-primary">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-yellow-500">
                         <img src="/Foerdermittel.png" alt="Fördermittel" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
@@ -342,16 +335,15 @@ export default function TrainingsPage() {
                     </p>
                   </motion.div>
 
-                  {/* Vernetzung & Anlaufstellen - Sanftes Lime */}
+                  {/* Vernetzung & Anlaufstellen - Türkis */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-secondary"
+                    className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-teal-500"
                   >
                     <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-secondary">
+                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-teal-500">
                         <img src="/Vernetzung.png" alt="Vernetzung" className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
