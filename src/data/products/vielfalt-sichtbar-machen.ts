@@ -6,6 +6,7 @@ export const vielfaltSichtbarMachen: ProductData = {
   slug: 'produkt-vielfalt-sichtbar-machen',
   name: 'Vielfalt sichtbar machen',
   subtitle: 'Vielfalt sichtbar machen statt Geld verschenken',
+  'trainer-module': true,
   hero: {
     title: 'Lass uns Reden',
     description: 'In Deutschland werden jedes Jahr Millionen Euro Ausgleichsabgaben gezahlt – weil viele Mitarbeitende ihre Behinderung nicht offenlegen. Wie viele unentdeckte Menschen mit Behinderung gibt es bei euch? Kennt ihr die ganze Vielfalt?',

@@ -5,6 +5,7 @@ export const inclusiveRecruitingPlatform: ProductData = {
   slug: 'produkt-inclusive-recruiting-platform',
   name: 'Inclusive Recruiting Platform',
   subtitle: 'Spezialisierte Plattform für barrierefreies Recruiting',
+  'trainer-module': true,
   hero: {
     title: 'Inclusive Recruiting Platform',
     description: 'Eine spezialisierte Plattform für barrierefreies Recruiting. Finden Sie die besten Talente unabhängig von körperlichen Einschränkungen.',

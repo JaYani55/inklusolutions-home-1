@@ -6,6 +6,7 @@ export const disabilityAwarenessSession: ProductData = {
   slug: 'disability-awareness-session',
   name: 'Disability Awareness Session',
   subtitle: 'Ein halbtägiger, interaktiver Sensibilisierungsworkshop für den Umgang mit Behinderung im Berufsalltag',
+  'trainer-module': true,
   hero: {
     title: 'Disability Awareness Session',
     description: 'Ein halbtägiger, interaktiver Sensibilisierungsworkshop in Präsenz, der Mitarbeitende auf Augenhöhe für den Umgang mit Behinderung im Berufsalltag sensibilisiert. Authentische Begegnung mit Expert:innen mit Behinderung.',

@@ -6,6 +6,7 @@ export const inklusionsführerschein: ProductData = {
   slug: 'inklusionsführerschein',
   name: 'Inklusionsführerschein',
   subtitle: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur',
+  'trainer-module': true,
   hero: {
     title: 'Der Inklusionsführerschein',
     description: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur. Entwickle einen konkreten Umsetzungsplan für dein Unternehmen.',
