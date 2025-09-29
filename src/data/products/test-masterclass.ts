@@ -1,10 +1,10 @@
 import { ProductData } from '@/types/product';
 import { Clock, Lightbulb, Target } from 'lucide-react';
 
-export const disabilityAwarenessSession: ProductData = {
-  id: '3',
-  slug: 'disability-awareness-session',
-  name: 'Disability Awareness Session',
+export const testMasterclass: ProductData = {
+  id: '9',
+  slug: 'test-masterclass',
+  name: 'Disability_Awareness_Session', // Changed to match API Produktfreigabe field
   subtitle: 'Ein halbtägiger, interaktiver Sensibilisierungsworkshop für den Umgang mit Behinderung im Berufsalltag',
   'trainer-module': true,
   hero: {

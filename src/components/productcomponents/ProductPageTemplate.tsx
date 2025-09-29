@@ -1,80 +1,180 @@
 // src/components/product/ProductPageTemplate.tsx
-'use client'; // <-- Markiert diese Komponente als Client Component, da wir DOM-Interaktion simulieren könnten.
-               // Später, wenn dein Template interaktive Teile hat (Slider etc.), ist dies nötig.
-               // Auch für Hooks wie useState/useEffect, die ein Template haben kann.
+'use client';
 
 import React from 'react';
-import { Product } from '@/types/product'; // Importiere dein Product-Interface
+import { ProductData } from '@/types/product';
+import TrainerComponent from '@/components/shared/TrainerComponent';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 interface ProductPageTemplateProps {
-  product: Product; // Erwartet ein Produkt-Objekt als Prop
+  product: ProductData;
 }
 
 /**
- * Dies ist ein generischer Platzhalter für dein späteres Produkt-Seiten-Template.
- * Es nimmt alle Produktdaten entgegen und rendert sie minimalistisch.
- * Den tatsächlichen Inhalt dieser Komponente wirst du später mit dem
- * final ausgewählten React-Template deiner Kollegen füllen und anpassen.
+ * Updated ProductPageTemplate that works with ProductData interface
+ * and includes the TrainerComponent when trainer-module is enabled
  */
 const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({ product }) => {
-  // Hier kannst du später das Design des von deinen Kollegen gewählten Templates umsetzen.
-  // Aktuell zeigen wir nur die Daten, um die Funktionalität zu prüfen.
-
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 max-w-4xl mx-auto my-8">
-      <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400">{product.name}</h2>
-      
-      {product.price && (
-        <p className="text-2xl font-semibold mb-4">
-          {product.price.toFixed(2)} {product.currency || '€'}
-        </p>
-      )}
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+              {product.hero.title}
+            </h1>
+            <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
+              {product.hero.description}
+            </p>
+            
+            {product.hero.stats && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                {product.hero.stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-foreground/60 uppercase tracking-wide">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
-      <h3 className="text-xl font-semibold mb-2">Kurze Beschreibung:</h3>
-      <p className="text-gray-700 dark:text-gray-300 mb-6">{product.description}</p>
-
-      {product.longDescription && (
-        <>
-          <h3 className="text-xl font-semibold mb-2">Detaillierte Informationen:</h3>
-          <div
-            className="prose dark:prose-invert max-w-none text-gray-800 dark:text-gray-200"
-            dangerouslySetInnerHTML={{ __html: product.longDescription }}
-          />
-        </>
-      )}
-
-      {product.images && product.images.length > 0 && (
-        <div className="mt-8">
-          <h3 className="text-xl font-semibold mb-4">Produktbilder:</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {product.images.map((image, index) => (
-              // HINWEIS: Hier würdest du später next/image verwenden,
-              // aber für diesen Platzhalter reicht ein img-Tag erstmal
-              <div key={index} className="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+      {/* Features Section */}
+      {product.features && product.features.length > 0 && (
+        <section className="py-20">
+          <div className="container mx-auto px-6">
+            {product.features.map((feature, index) => (
+              <div key={index} className={`flex flex-col ${feature.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 ${index > 0 ? 'mt-20' : ''}`}>
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-foreground mb-6">
+                    {feature.title}
+                  </h3>
+                  <p className="text-lg text-foreground/80 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+                {feature.image && (
+                  <div className="flex-1">
+                    <div className="relative w-full h-64 rounded-lg overflow-hidden">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
-      {product.features && product.features.length > 0 && (
-        <div className="mt-8">
-          <h3 className="text-xl font-semibold mb-4">Wichtige Merkmale:</h3>
-          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
-            {product.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
+      {/* Cards Section */}
+      {product.cards && product.cards.length > 0 && (
+        <section className="py-20 bg-muted/20">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {product.cards.map((card, index) => {
+                const IconComponent = card.icon;
+                return (
+                  <Card key={index} className="h-full">
+                    <CardContent className="p-8 h-full flex flex-col">
+                      <div className="mb-6">
+                        <div className={`w-16 h-16 rounded-full bg-${card.color}/10 flex items-center justify-center mb-4`}>
+                          <IconComponent className={`w-8 h-8 text-${card.color}`} />
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">
+                          {card.title}
+                        </h3>
+                        <p className="text-sm text-foreground/60 mb-4">
+                          {card.description}
+                        </p>
+                      </div>
+                      <ul className="space-y-2 flex-1">
+                        {card.items.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start gap-2 text-sm text-foreground/80">
+                            <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       )}
 
-      <div className="mt-12 p-4 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 border-l-4 border-yellow-500 rounded">
-        <p>
-          **Template-Platzhalter:** Der Inhalt dieser Seite wird später durch das endgültige Produkt-Template ersetzt.
-          Alle Daten werden dynamisch übergeben.
-        </p>
-      </div>
+      {/* Trainer Component - Only show if trainer-module is enabled */}
+      {product['trainer-module'] && (
+        <TrainerComponent productName={product.name} />
+      )}
+
+      {/* FAQ Section */}
+      {product.faq && product.faq.length > 0 && (
+        <section className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+                Häufig gestellte Fragen
+              </h2>
+              <div className="space-y-6">
+                {product.faq.map((faq, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6">
+                      <h3 className="text-lg font-semibold text-foreground mb-3">
+                        {faq.question}
+                      </h3>
+                      <p className="text-foreground/80">
+                        {faq.answer}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA Section */}
+      {product.cta && (
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                {product.cta.title}
+              </h2>
+              <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
+                {product.cta.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
+                  {product.cta.primaryButton}
+                </Button>
+                {product.cta.secondaryButton && (
+                  <Button variant="outline" className="px-8 py-3">
+                    {product.cta.secondaryButton}
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

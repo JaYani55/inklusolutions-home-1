@@ -21,6 +21,7 @@ import { ProductData } from '@/types/product';
 import { ProductService } from '@/data/productService';
 import CTASection from '@/components/shared/CTASection';
 import Footer from '@/components/shared/Footer';
+import TrainerComponent from '@/components/shared/TrainerComponent';
 
 const ProductSlugPage = () => {
   const params = useParams();
@@ -349,6 +350,11 @@ const ProductSlugPage = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Trainer Component - Only show if trainer-module is enabled */}
+                {productData['trainer-module'] && (
+                    <TrainerComponent productName={productData.name} />
+                )}
 
                 {/* FAQ Section */}
                 <section className="py-20 bg-gradient-to-br from-warm-bg to-background">

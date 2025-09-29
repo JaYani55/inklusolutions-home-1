@@ -5,6 +5,7 @@
 import './globals.css'; // Globales CSS importieren
 import { ThemeProvider } from 'next-themes'; // Provider für next-themes
 import type { Metadata } from 'next'; // Typ für Metadaten
+import Script from 'next/script'; // Next.js Script Komponente für optimales Laden
 import ReactQueryProvider from '../providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
@@ -28,6 +29,16 @@ export default function RootLayout({
         - disableTransitionOnChange: Verhindert Übergänge.
       */}
       <body>
+        {/* Eye-Able® Accessibility Scripts */}
+        <Script
+          src="https://cdn.eye-able.com/configs/inklusolutions.de.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://cdn.eye-able.com/public/js/eyeAble.js"
+          strategy="afterInteractive"
+        />
+        
         <ThemeProvider
           attribute="class"
           defaultTheme="light" // <-- Geändert zu "light"
