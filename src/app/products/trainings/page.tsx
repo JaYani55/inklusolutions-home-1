@@ -68,7 +68,7 @@ export default function TrainingsPage() {
                 </div>
                   
                   <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Vom Wollen</span>
+                    <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Vom Wollen</span>
                     <br />
                     <span className="text-foreground">ins Können</span>
                   </h1>
@@ -77,6 +77,7 @@ export default function TrainingsPage() {
                     Mit unseren Trainings wird Inklusion lebendig.
                   </p>
                   
+                  {/* Scroll down Button */} 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
                       variant="outline" 
@@ -139,9 +140,6 @@ export default function TrainingsPage() {
                     <p className="text-2xl text-muted-foreground">
                       2-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – 
                       ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
-                    </p>
-                    <p className="text-lg text-muted-foreground">
-                      Ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
                     </p>
                   </div>
                   

@@ -3,6 +3,8 @@ import { inklusionsführerschein } from './products/inklusionsführerschein';
 import { vielfaltSichtbarMachen } from './products/vielfalt-sichtbar-machen';
 import { inclusiveRecruitingPlatform } from './products/inclusive-recruiting-platform';
 import { disabilityAwarenessSession } from './products/disability-awareness-session';
+import { testProdukt } from './products/test_produkt';
+import { BarrierenErkennenUndAbbauen } from './products/neue_masterclass';
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
@@ -13,7 +15,9 @@ const productDatabase: Record<string, ProductData> = {
   'produkt-inklusionsfuehrerschein': inklusionsführerschein, // URL-freundlicher Fallback
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
+  'testProdukt': testProdukt,
   'disability-awareness-session': disabilityAwarenessSession,
+  'barrieren-erkennen-und-abbauen': BarrierenErkennenUndAbbauen,
   // Weitere Produkte können hier einfach hinzugefügt werden:
   // 'neues-produkt-slug': neuesProdukt,
 };

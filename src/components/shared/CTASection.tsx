@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Star, Phone } from "lucide-react";
+import { Star, Mail } from "lucide-react";
 import Link from "next/link";
 
 interface CTASectionProps {
@@ -19,7 +19,7 @@ interface CTASectionProps {
 export default function CTASection({
   title = "Bereit für den nächsten Schritt?",
   description = "Entdecken Sie alle unsere Leistungen im Detail oder vereinbaren Sie ein kostenloses Beratungsgespräch.",
-  subtitle = "Von Unsicherheit zu Sicherheit: Mit unseren Training Inklusion im Arbeitsalltag verankern",
+  subtitle = "Von Unsicherheit zu Sicherheit: Mit unseren Programmen Inklusion in Ihrem Unternehmen nachhaltig verankern",
   primaryButtonText = "Alle Angebote entdecken",
   primaryButtonHref = "/products",
   secondaryButtonText = "Kostenlose Beratung",
@@ -69,7 +69,7 @@ export default function CTASection({
               >
                 <a href={secondaryButtonHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                   {secondaryButtonText}
-                  <Phone className="ml-3 w-6 h-6" />
+                  <Mail className="ml-3 w-6 h-6" />
                 </a>
               </Button>
             </div>
