@@ -3,6 +3,7 @@ import { inklusionsführerschein } from './products/inklusionsführerschein';
 import { vielfaltSichtbarMachen } from './products/vielfalt-sichtbar-machen';
 import { inclusiveRecruitingPlatform } from './products/inclusive-recruiting-platform';
 import { disabilityAwarenessSession } from './products/disability-awareness-session';
+import { testMasterclass } from './products/test-masterclass';
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
@@ -14,6 +15,7 @@ const productDatabase: Record<string, ProductData> = {
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
   'disability-awareness-session': disabilityAwarenessSession,
+  'test-masterclass': testMasterclass
   // Weitere Produkte können hier einfach hinzugefügt werden:
   // 'neues-produkt-slug': neuesProdukt,
 };

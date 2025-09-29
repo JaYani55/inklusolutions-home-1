@@ -24,6 +24,7 @@ export interface ProductData {
     slug: string;
     name: string;
     subtitle: string;
+    'trainer-module'?: boolean;
     hero: {
         title: string;
         description: string;
@@ -65,4 +66,17 @@ export interface Mentor {
     name: string;
     image: string; // Pfad zum Bild oder URL
     quote: string;
+}
+
+// Trainer Profile Interface for API Response
+export interface TrainerProfile {
+    _id: string;
+    Vorname: string;
+    Nachname: string;
+    Bild?: string[];
+    Beschreibung: string;
+    Produktfreigabe?: string[];
+    Status?: string;
+    "Auf Webseite"?: boolean;
+    // Add other fields as needed
 }
