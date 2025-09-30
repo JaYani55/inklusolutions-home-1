@@ -108,8 +108,8 @@ const ProductSlugPage = () => {
                                     className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
                                     >
                                     <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                        Kostenlose Beratung
-                                        <Phone className="ml-3 w-6 h-6" />
+                                        Jetzt anmelden
+                                        {/* <Phone className="ml-3 w-6 h-6" /> */}
                                     </a>
                                     </Button>
                                     {productData.cta.secondaryButton && (

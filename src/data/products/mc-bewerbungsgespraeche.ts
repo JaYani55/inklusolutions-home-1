@@ -27,10 +27,10 @@ export const Bewerbungsgespraeche: ProductData = {
       description: 'Vermittelt wird praxisnah, wie Bewerbungsgespräche souverän und sicher geführt werden können. Realistische Gesprächssituationen, konkrete Handlungstipps und der Austausch mit Bewerber:innen mit Behinderungen fördern ein tieferes Verständnis für mögliche Barrieren und deren erfolgreiche Überwindung.',
       reverse: true
     },
-    { /* Listenformat ??? */
+    { /* Listenformat auf Webseite */
       title: 'Ergebnisse & Mehrwert',
       description: 'Nach Abschluss der beiden Sessions verfügen Sie über das Wissen und die Erfahrung, um: '
-    + '\n Bewerbungsgespräche mit Menschen mit Behinderungen professionell und inklusiv zu gestalten, '
+    + 'Bewerbungsgespräche mit Menschen mit Behinderungen professionell und inklusiv zu gestalten, '
     + 'eigene Unsicherheiten im Recruitingprozess abzubauen,' 
     + 'mehr Sicherheit im Umgang mit vielfältigen Bewerber:innen zu gewinnen.'
     }
