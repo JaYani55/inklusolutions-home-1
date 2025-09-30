@@ -127,11 +127,11 @@ body {
 }
 
 .mobile-bg {
-  background-color: black; /* #daeaffff; /* Hellblau - Tailwind blue-50 */
+  background-color: #daeaffff; /* Hellblau - Tailwind blue-50 */
 }
 
 @media (min-width: 640px) {
   .mobile-bg {
-    background-color: black;
+    background-color: #daeaffff;
   }
 }

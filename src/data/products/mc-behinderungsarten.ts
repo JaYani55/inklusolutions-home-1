@@ -2,7 +2,7 @@ import { ProductData } from '@/types/product';
 import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const Behinderungsarten: ProductData = {
-  id: '8',
+  id: '11',
   slug: 'behinderungsarten',
   name: 'Behinderungsarten',
   subtitle: 'Behinderungen sind vielfältig und mit unterschiedlichen Bedürfnissen verbunden. Die Masterclass vermittelt fundiertes Wissen zu verschiedenen Behinderungsformen und den jeweiligen Bedarfen. Mentor*innen mit eigener Behinderung geben Einblicke aus erster Hand und zeigen, wie Inklusion gelingen kann. Die Inhalte werden individuell auf jedes Unternehmen zugeschnitten.',

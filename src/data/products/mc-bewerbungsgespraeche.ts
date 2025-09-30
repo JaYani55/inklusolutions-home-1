@@ -2,7 +2,7 @@ import { ProductData } from '@/types/product';
 import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const Bewerbungsgespraeche: ProductData = {
-  id: '8',
+  id: '12',
   slug: 'bewerbungsgespraeche',
   name: 'Bewerbungsgespraeche',
   subtitle: 'Das Bewerbungsgespräch ist ein entscheidender Schritt im Recruitingprozess. Oft bestehen Unsicherheiten im Umgang mit Bewerber:innen mit Behinderungen.',

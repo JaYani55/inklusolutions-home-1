@@ -5,6 +5,14 @@ import { inclusiveRecruitingPlatform } from './products/inclusive-recruiting-pla
 import { disabilityAwarenessSession } from './products/disability-awareness-session';
 import { BarrierenErkennenUndAbbauen } from './products/mc-barrieren-erkennen-und-abbauen';
 import { Behinderungsarten} from './products/mc-behinderungsarten';
+import { Bewerbungsgespraeche} from './products/mc-bewerbungsgespraeche';
+import { Foerdermittel} from './products/mc-foerdermittel';
+import { InklusiveWebseite} from './products/mc-inklusive-webseite';
+import { Onboarding} from './products/mc-onboarding';
+import { StellenausschreibungJobcarving} from './products/mc-stellenausschreibung-jobcarving';
+import { Vernetzung} from './products/mc-vernetzung';
+
+// Tests
 import { testMasterclass } from './products/test-masterclass';
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
@@ -16,10 +24,17 @@ const productDatabase: Record<string, ProductData> = {
   'produkt-inklusionsfuehrerschein': inklusionsführerschein, // URL-freundlicher Fallback
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
-  'test-masterclass': testMasterclass,
   'disability-awareness-session': disabilityAwarenessSession,
   'barrieren-erkennen-und-abbauen': BarrierenErkennenUndAbbauen,
   'behinderungsarten': Behinderungsarten,
+  'bewerbungsgespraeche': Bewerbungsgespraeche,
+  'foerdermittel': Foerdermittel,
+  'inklusive-webseite': InklusiveWebseite,
+  'onboarding': Onboarding,
+  'stellenausschreibung-jobcarving': StellenausschreibungJobcarving,
+  'vernetzung': Vernetzung,
+  // Tests
+  'test-masterclass': testMasterclass,
   // Weitere Produkte können hier einfach hinzugefügt werden:
   // 'neues-produkt-slug': neuesProdukt,
 };
