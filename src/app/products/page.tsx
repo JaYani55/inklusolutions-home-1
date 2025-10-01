@@ -250,51 +250,57 @@ export default function ProductsPage() {
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Ebene 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-primary text-center"
-            >
-              <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">
-                Kompetenz aufbauen
-              </h3>
-              <p className="text-lg text-foreground/80">
-                Durch praxisnahe Trainings
-              </p>
-            </motion.div>
+            <Link href="/products/trainings" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-primary text-center"
+              >
+                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Kompetenz aufbauen
+                </h3>
+                <p className="text-lg text-foreground/80">
+                  Durch praxisnahe Trainings
+                </p>
+              </motion.div>
+            </Link>
             {/* Ebene 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-secondary text-center"
-            >
-              <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
-              <p className="text-lg text-foreground/80">
-                Mit Formaten für Awareness und Perspektivwechsel
-              </p>
-            </motion.div>
+            <Link href="/products/awareness" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-secondary text-center"
+              >
+                <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
+                <p className="text-lg text-foreground/80">
+                  Mit Formaten für Awareness und Perspektivwechsel
+                </p>
+              </motion.div>
+            </Link>
             {/* Ebene 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-accent text-center"
-            >
-              <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">
-                Strukturen verankern
-              </h3>
-              <p className="text-lg text-foreground/80">
-                Über Services und Tools zur Umsetzung
-              </p>
-            </motion.div>
+            <Link href="/products/services" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-accent text-center"
+              >
+                <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Strukturen verankern
+                </h3>
+                <p className="text-lg text-foreground/80">
+                  Über Services und Tools zur Umsetzung
+                </p>
+              </motion.div>
+            </Link>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -303,7 +309,7 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             className="text-center text-xl text-foreground/70 mt-12 max-w-2xl mx-auto"
           >
-            Wir arbeiten ganzheitlich – mit Fachwissen, der Perspektive von
+            Wir arbeiten ganzheitlich: mit Fachwissen, der Perspektive von
             Menschen mit Behinderung und messbarem Impact.
           </motion.p>
         </div>
