@@ -12,9 +12,9 @@ export const Vernetzung: ProductData = {
     description: 'Netzwerke sind zentral, um Inklusion im Unternehmen nachhaltig zu verankern. Sie ermöglichen Austausch, gegenseitiges Lernen und konkrete Unterstützung – etwa bei Rekrutierung oder Kommunikation. Die Masterclass bietet einen Überblick über relevante Netzwerke und zentrale Anlaufstellen zur Inklusion in der Arbeitswelt. So entsteht ein stabiles Fundament, das Inklusion sichtbar macht und langfristig stärkt.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 2 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -80,7 +80,7 @@ export const Vernetzung: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
     }
   ],
   cta: {

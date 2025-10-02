@@ -181,9 +181,10 @@ export default function ProductsPage() {
         </div>
       </section>
       
+      {/* 
       <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
   <div className="w-full">
-{/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
+{/* CTA Buttons - nur auf größeren Screens mit vollem Design 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -229,7 +230,7 @@ export default function ProductsPage() {
         </div>
       </motion.div>
   </div>
-      </section>
+      </section> */}
 
       {/* Sektion: Unsere Leistungen entfalten Wirkung */}
       <section

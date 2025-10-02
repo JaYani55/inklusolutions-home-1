@@ -12,9 +12,9 @@ export const Onboarding: ProductData = {
     description: 'Ein erfolgreicher Bewerbungsprozess ist nur der erste Schritt – das Onboarding entscheidet über einen gelingenden Start. Je nach Art der Behinderung sind vor, während und nach dem ersten Arbeitstag unterschiedliche Aspekte zu berücksichtigen. Die Sessions vermitteln Fachwissen, praxisnahe Tipps und konkrete Handlungsempfehlungen, ergänzt durch die Erfahrungen von Mentor:innen mit Behinderung. So wird gewährleistet, dass neue Mitarbeitende nicht nur barrierefrei starten, sondern sich vom ersten Tag an willkommen und unterstützt fühlen.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 2 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -80,7 +80,7 @@ export const Onboarding: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
     }
   ],
   cta: {

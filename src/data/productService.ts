@@ -12,9 +12,6 @@ import { Onboarding} from './products/mc-onboarding';
 import { StellenausschreibungJobcarving} from './products/mc-stellenausschreibung-jobcarving';
 import { Vernetzung} from './products/mc-vernetzung';
 
-// Tests
-import { testMasterclass } from './products/test-masterclass';
-
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
   'inklusionsführerschein': inklusionsführerschein,
@@ -33,8 +30,7 @@ const productDatabase: Record<string, ProductData> = {
   'onboarding': Onboarding,
   'stellenausschreibung-jobcarving': StellenausschreibungJobcarving,
   'vernetzung': Vernetzung,
-  // Tests
-  'test-masterclass': testMasterclass,
+
   // Weitere Produkte können hier einfach hinzugefügt werden:
   // 'neues-produkt-slug': neuesProdukt,
 };

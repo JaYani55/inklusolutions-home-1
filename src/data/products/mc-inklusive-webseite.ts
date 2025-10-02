@@ -12,9 +12,9 @@ export const InklusiveWebseite: ProductData = {
     description: 'Der erste Eindruck eines Unternehmens entsteht häufig über den Webauftritt. Neben technischer Barrierefreiheit sind dabei vor allem Benutzerfreundlichkeit und Ansprache entscheidend. In den Coachings analysieren Mentor:innen mit Behinderung Unternehmenswebsites mit Fokus auf Usability und Ansprache. Vermittelt werden praxisnahes Feedback sowie konkrete, leicht umsetzbare Lösungsvorschläge. So entsteht ein Auftritt, der barrierearm und zugleich inklusiv wirkt – mit positiver Wirkung für Bewerbende wie auch Kund:innen mit Behinderung.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 3 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '3 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -85,7 +85,7 @@ export const InklusiveWebseite: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte.'
     }
   ],
   cta: {

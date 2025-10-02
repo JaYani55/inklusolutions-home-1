@@ -12,9 +12,9 @@ export const Bewerbungsgespraeche: ProductData = {
     description: 'Das Bewerbungsgespräch ist ein entscheidender Schritt im Recruitingprozess. Oft bestehen Unsicherheiten im Umgang mit Bewerber:innen mit Behinderungen. In praxisnahen Bewerbungssimulationen mit Menschen mit unterschiedlichen Behinderungen werden typische Situationen erlebbar. So lassen sich Barrieren abbauen und mehr Sicherheit im Auswahlprozess gewinnen – eine Grundlage für faire und erfolgreiche Personalgewinnung.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 3 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '3 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -83,7 +83,7 @@ export const Bewerbungsgespraeche: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
     }
   ],
   cta: {

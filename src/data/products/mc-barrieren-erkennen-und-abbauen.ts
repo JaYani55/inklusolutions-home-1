@@ -12,9 +12,9 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
     description: 'Neben physischen gibt es auch soziale, visuelle oder akustische Barrieren, die Mitarbeitenden mit Behinderung im Arbeitsalltag im Weg stehen.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 2 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -81,7 +81,7 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'edes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'edes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
     }
   ],
   cta: {

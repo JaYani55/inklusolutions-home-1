@@ -12,9 +12,9 @@ export const StellenausschreibungJobcarving: ProductData = {
     description: 'Die Ansprache in Stellenausschreibungen ist entscheidend, damit sich potenzielle Mitarbeitende mit Behinderungen angesprochen fühlen. Wir analysieren ihre Ausschreibungen und geben praxisorientierts Feedback . Mentor:innen mit eigener Behinderung geben Einblicke und zeigen auf, wie inklusive Formulierungen gelingen. Ergänzend wird das Konzept des Jobcarving vorgestellt: Aufgabenprofile werden so gestaltet, dass individuelle Stärken optimal genutzt werden – ein Gewinn für Mitarbeitende mit Behinderungen wie auch für das gesamte Team.',
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
-      { value: 'INHALT', label: 'Vorbereitungsgespräch, 4 Session à 1,5 Std., Handout' },
-      { value: 'PREIS', label: 'Nach Anfrage' }
+      { value: 'ONLINE', label: 'FORMAT' },
+      { value: '4 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },
   features: [
@@ -82,7 +82,7 @@ export const StellenausschreibungJobcarving: ProductData = {
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen. Genauere Informationen dazu finden Sie unter diesem [Link zu den Diagnoseverfahren]. [Diagnose verfahren „unter diesem Link“]'
+      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
     }
   ],
   cta: {

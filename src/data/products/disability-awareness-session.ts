@@ -99,6 +99,6 @@ export const disabilityAwarenessSession: ProductData = {
     title: 'BEREIT FÜR MEHR AWARENESS IM TEAM?',
     description: 'Buchen Sie jetzt die Disability Awareness Session und schaffen Sie einen geschützten Raum für ehrliche Fragen und nachhaltigen Perspektivwechsel!',
     primaryButton: 'Session buchen',
-    secondaryButton: 'Mehr erfahren'
+    // secondaryButton: 'Mehr erfahren'
   }
 };

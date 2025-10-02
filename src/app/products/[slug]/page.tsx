@@ -7,7 +7,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Eye, CheckCircle, Phone
+  Eye, CheckCircle, //Phone
 } from "lucide-react";
 // TestimonialSlider temporarily unused in product slug
 // import TestimonialSlider from "@/components/shared/TestimonialSlider";
