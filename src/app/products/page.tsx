@@ -59,12 +59,12 @@ const productCategories = [
     id: "training", // Eindeutige ID für Ankerlinks
     title: "Training",
     icon: GraduationCap,
-    color: "from-primary to-secondary",
+    color: "from-primary to-primary",
     link: "/products/trainings",
     image: "/training1.png", // Platzhalterbild für Training (aus /public)
     alt: "Personen lernen in einem Training",
     description:
-      "Unsere praxisnahen Qualifizierungen vermitteln euch das nötige Wissen und schaffen Sicherheit im inklusiven Umgang. Von Grundlagen bis zu spezifischen Themen, individuell auf eure Anforderungen zugeschnitten.",
+      "Unsere praxisnahen Qualifizierungen vermitteln euch das nötige Wissen und schaffen Sicherheit im Umgang mit Inklusion. Von Grundlagen bis zu spezifischen Themen, individuell auf eure Anforderungen zugeschnitten.",
     products: [
       { name: "Inklusionsführerschein", description: "Grundlagenwissen für alle Mitarbeitenden" },
       { name: "Masterclasses", description: "Vertiefende Workshops zu spezifischen Inklusionsthemen" },
@@ -75,12 +75,12 @@ const productCategories = [
     id: "awareness",
     title: "Awareness",
     icon: Lightbulb,
-    color: "from-secondary to-accent",
+    color: "from-secondary to-secondary",
     link: "/products/awareness",
     image: null, // Explizit kein Bild für Awareness
     alt: "Menschen führen ein Gespräch in einem Workshop", // Alt-Text bleibt, falls man ihn doch wieder will
     description:
-      "Wir initiieren Formate, die echte Begegnungen ermöglichen, offene Dialoge fördern und diverse Perspektiven sichtbar machen. Erlebt einen nachhaltigen Wandel in eurer Unternehmenskultur.",
+      "Unsere Formate ermöglichen echte Begegnungen. Offene Dialoge werden gefördert. Neue Perspektiven werden sichtbar gemacht. Wir unterstützen euch bei einem nachhaltigen Wandel in eurer Unternehmenskultur.",
     products: [
       { name: "DAW", description: "Der Diversity & Awareness Workshop für tiefgehendes Verständnis" },
       { name: "Inklustories", description: "Inklusive Videoportraits - als Lizenzpaket oder individuelle Videoproduktion" },
@@ -92,7 +92,7 @@ const productCategories = [
     id: "services",
     title: "Services",
     icon: Settings,
-    color: "from-accent to-third",
+    color: "from-accent to-accent",
     link: "/products/services",
   image: "/Produktion2.jpg", // Platzhalterbild für Services (aus /public)
     alt: "Team arbeitet zusammen an einem Projekt mit Diagrammen",
@@ -101,7 +101,7 @@ const productCategories = [
     products: [
       { name: "Inklu-Connect JobSync", description: "Automatisierte Stellenverteilung in unser inklusives Job-Netzwerk für reichweitenstarkes Recruiting." },
       { name: "InkluScore", description: "Messung und Analyse eures Inklusionsgrades" },
-      { name: "Zertifikate", description: "Validierung und Auszeichnung eurer Inklusionsbemühungen" },
+      { name: "Zertifikate", description: "Validierung und Auszeichnung von eurem Inklusionsengagement" },
       // Füge hier weitere spezifische Services hinzu
     ],
   },
@@ -130,7 +130,7 @@ export default function ProductsPage() {
             transition={{ duration: 0.6 }}
             className="text-4xl lg:text-6xl font-bold mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
               Unsere Leistungen
             </span>
           </motion.h1>
@@ -140,7 +140,7 @@ export default function ProductsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl lg:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto"
           >
-            Inklusion braucht Lösungen – keine Einzelmaßnahmen.
+            Inklusion braucht ganzheitliche Lösungen – keine Einzelmaßnahmen.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -148,16 +148,20 @@ export default function ProductsPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg lg:text-xl text-foreground/70 max-w-4xl mx-auto leading-relaxed"
           >
-            InkluSolutions steht für ganzheitliche Inklusionsentwicklung im
-            Unternehmen: Von Awareness über Qualifizierung bis zur
-            strukturellen Verankerung. Statt isolierter Einzelmaßnahmen bieten
-            wir einen modularen Baukasten – strategisch, praxisnah und
-            wirksam. Mit Mentor:innen, messbarem Impact und einem
-            klaren Fokus auf die Potenziale eurer Mitarbeitenden mit
-            Behinderung begleiten wir euch auf dem Weg zu einer inklusiven
-            Unternehmenskultur.
+            InkluSolutions steht für <strong>ganzheitliche Inklusionsentwicklung im
+            Unternehmen</strong>: Von Awareness über Qualifizierung bis zur
+            strukturellen Verankerung. <br></br>
+            Statt isolierter Einzelmaßnahmen bieten
+            wir einen <strong>modularen Baukasten</strong>: <br></br>
+            strategisch, praxisnah und flexibel auf jedes Unternehmen anpassbar. <br></br>
+            Mit <strong>Mentor:innen (unsere Experten mit Behinderungen)</strong>, messbarem Impact und einem
+            klaren Fokus auf die Potenziale eurer Mitarbeitenden mit Behinderung.<br></br>
+            Wir begleiten auf dem Weg zu einer <strong>inklusiven Unternehmenskultur</strong>, 
+            die nicht nur für Menschen mit Behinderung eine angenehme, <strong>produktive Arbeitsatmosphäre</strong> schafft.
           </motion.p>
-          {/* Anker-Links zu den Sektionen */}
+
+
+          {/* Anker-Links zu den Sektionen 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -173,9 +177,61 @@ export default function ProductsPage() {
                 {category.title}
               </Link>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
+      
+      {/* 
+      <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
+  <div className="w-full">
+{/* CTA Buttons - nur auf größeren Screens mit vollem Design 
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="hidden sm:block justify-center max-w-4xl mx-auto"
+      >
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/trainings" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-primary to-primary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Trainings
+                  <GraduationCap className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/awareness" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-secondary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Awareness
+                  <Lightbulb className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/services" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-accent to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Services & Beratung
+                  <Settings className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+  </div>
+      </section> */}
+
       {/* Sektion: Unsere Leistungen entfalten Wirkung */}
       <section
         id="overview-section"
@@ -189,57 +245,63 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             className="text-3xl lg:text-4xl font-bold text-center mb-12"
           >
-            <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
               Unsere Leistungen entfalten Wirkung auf drei Ebenen
             </span>
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Ebene 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-white/60 text-center"
-            >
-              <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">
-                Kompetenz aufbauen
-              </h3>
-              <p className="text-lg text-foreground/80">
-                Durch praxisnahe Trainings
-              </p>
-            </motion.div>
+            <Link href="/products/trainings" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-primary text-center"
+              >
+                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Kompetenz aufbauen
+                </h3>
+                <p className="text-lg text-foreground/80">
+                  Durch praxisnahe Trainings
+                </p>
+              </motion.div>
+            </Link>
             {/* Ebene 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-white/60 text-center"
-            >
-              <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
-              <p className="text-lg text-foreground/80">
-                Mit Formaten für Awareness und Perspektivwechsel
-              </p>
-            </motion.div>
+            <Link href="/products/awareness" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-secondary text-center"
+              >
+                <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
+                <p className="text-lg text-foreground/80">
+                  Mit Formaten für Awareness und Perspektivwechsel
+                </p>
+              </motion.div>
+            </Link>
             {/* Ebene 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white/80 p-8 rounded-2xl shadow-lg border border-white/60 text-center"
-            >
-              <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-3 text-foreground">
-                Strukturen verankern
-              </h3>
-              <p className="text-lg text-foreground/80">
-                Über Services und Tools zur Umsetzung
-              </p>
-            </motion.div>
+            <Link href="/products/services" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-white/80 p-8 rounded-2xl shadow-lg border border-accent text-center"
+              >
+                <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Strukturen verankern
+                </h3>
+                <p className="text-lg text-foreground/80">
+                  Über Services und Tools zur Umsetzung
+                </p>
+              </motion.div>
+            </Link>
           </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -248,16 +310,19 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             className="text-center text-xl text-foreground/70 mt-12 max-w-2xl mx-auto"
           >
-            Wir arbeiten ganzheitlich – mit Fachwissen, der Perspektive von
+            Wir arbeiten ganzheitlich: mit Fachwissen, der Perspektive von
             Menschen mit Behinderung und messbarem Impact.
           </motion.p>
         </div>
       </section>
+
+
       {/* Leistungsbereiche als einzelne Sektionen */}
       {productCategories.map((category, index) => (
         <section
           key={category.id}
           id={category.id} // Anker-ID für Navigation
+          color={category.color}
           className={`py-24 ${
             index % 2 === 0
               ? "bg-gradient-to-br from-warm-bg to-background"
@@ -272,7 +337,7 @@ export default function ProductsPage() {
               viewport={{ once: true, amount: 0.5 }}
               className="text-4xl lg:text-5xl font-bold text-center mb-16"
             >
-              <span className={`bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent`}>
+              <span className={`bg-gradient-to-r ${category.color} ${category.color} bg-clip-text text-transparent`}>
                 {category.title}
               </span>
             </motion.h2>
@@ -442,7 +507,58 @@ export default function ProductsPage() {
             )}
           </div>
         </section>
+
       ))}
+
+      <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
+  <div className="w-full">
+{/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="hidden sm:block justify-center max-w-4xl mx-auto"
+      >
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/trainings" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-primary to-primary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Trainings
+                  <GraduationCap className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/awareness" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-secondary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Awareness
+                  <Lightbulb className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/services" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-accent to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Services & Beratung
+                  <Settings className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+  </div>
+      </section>
 
       {/* CTA-Bar */}
       <CTASection 
@@ -450,7 +566,7 @@ export default function ProductsPage() {
         secondaryButtonText="Kostenlose Beratung"
         primaryButtonText="Alle Angebote entdecken"
         showSecondaryButton={true}
-      />
+      /> 
       {/* Footer */}
       <Footer />
     </div>

@@ -161,12 +161,13 @@ export default function AwarenessPage() {
         }} />
         
         {/* HERO */}
-        <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
+        <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-grey to-grey">
           {/* Hero Background Image */}
+          
           <img
             src="/training2.jpg"
             alt="Professionals Background"
-            className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
+            className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
           />
           
           {/* Subtiler Textur-Hintergrund */}
@@ -196,14 +197,14 @@ export default function AwarenessPage() {
                 <span className="text-lg font-semibold text-primary">Awareness & Sensibilisierung</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
                   Perspektivwechsel durch Begegnung
                 </span>
               </h1>
-              <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
-                <strong>&ldquo;Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?&rdquo;</strong>
+              <p className="mx-auto max-w-4xl text-lg sm:text-xl lg:text-2xl leading-relaxed text-foreground font-light bg-white/80 backdrop-blur-sm rounded-xl px-8 py-4 shadow-sm">
+                <strong>&ldquo;“Wie willkommen wäre ich - mit einer Behinderung - in meinem eigenen Team?”&rdquo;</strong>
                 <br /><br />
-                Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen genau diesen Perspektivwechsel.
+                Unsere Awareness Formate sensibilisieren für Barrieren, Unsichtbarkeit und Ableismus und ermöglichen einen Perspektivwechsel.
               </p>
             </motion.div>
           </div>

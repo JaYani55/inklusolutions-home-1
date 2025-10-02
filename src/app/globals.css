@@ -132,6 +132,6 @@ body {
 
 @media (min-width: 640px) {
   .mobile-bg {
-    background-color: transparent;
+    background-color: #daeaffff;
   }
 }

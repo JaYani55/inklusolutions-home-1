@@ -21,27 +21,27 @@ export default function HomePage() {
 
   const productCategories = [
     {
-      title: "Training",
+      title: "Trainings",
       icon: GraduationCap,
-      color: "from-primary to-secondary",
+      color: "from-primary to-primary",
       link: "/products/trainings",
-      products: ["inklusionsführerschein", "masterclasses"]
+      products: ["Inklusionsführerschein", "Masterclasses"]
     },
     {
       title: "Awareness",
       icon: Lightbulb,
-      color: "from-secondary to-accent",
+      color: "from-secondary to-secondary",
       withMentors: true,
-      products: ["DAW", "inkluStories", "InkluTalks"],
+      products: ["Awareness Workshop", "inkluStories", "InkluTalks"],
       link: "/products/awareness"
     },
     {
-      title: "Services & Beratung", 
+      title: "Service & Beratung", 
       icon: Settings,
-      color: "from-accent to-primary",
+      color: "from-accent to-accent",
       withMentors: true,
       link: "/products/services",
-      products: ["peer-mentoring", "jobSync", "InkluScore", "zertifikate"]
+      products: ["peer-mentoring", "jobSync", "InkluScore", "Zertifikate"]
     }
   ];
 
@@ -86,15 +86,17 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      
-      {/* 1) HERO / Above the Fold - Elegant Text Solution */}
+
+
+
+{/* 1) HERO / Above the Fold - Elegant Text Solution */}
 <section className="relative overflow-hidden">
   {/* Background Image - nur auf größeren Screens sichtbar */}
   <div 
     className="hidden sm:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
     style={{
-      backgroundImage: "url('/header.jpg')",
-      filter: 'brightness(0.75) contrast(1.1)'
+       backgroundImage: "url('/header.jpg')",
+       filter: 'brightness(0.75) contrast(1.1)'
     }}
   />
   
@@ -141,199 +143,8 @@ export default function HomePage() {
           Wir leben, was wir beraten: 55% unseres Teams sind schwerbehindert.
         </h2>
       </div>
-      
-      {/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="hidden sm:block justify-center max-w-4xl mx-auto"
-      >
-        <div className="w-full">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/trainings" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-primary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Trainings
-                  <GraduationCap className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/awareness" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-secondary to-third border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Awareness
-                  <Lightbulb className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/services" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-third to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Services & Beratung
-                  <Settings className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      
-      {/* Einfache Mobile-Version */}
-      <div className="sm:hidden mt-8">
-        <Link href="/products">
-          <Button size="lg" className="bg-white px-8 py-6 text-lg">
-            Unsere Angebote entdecken
-          </Button>
-        </Link>
-      </div>
-      
-      <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl pt-10"
-        style={{
-          textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
-        }}
-      >
-        Gemeinsam mit Menschen mit Behinderung als Mentor:innen schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen.
-      </p>
-      
-      {/* Disclaimer */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-8 pt-6 border-t border-white/30"
-      >
-        <p className="text-sm lg:text-base text-white/80 max-w-2xl mx-auto text-center leading-relaxed"
-          style={{
-            textShadow: '1px 1px 4px rgba(0,0,0,0.6)'
-          }}
-        >
-          Willkommen auf der neuen Inklu-Solutions Website. Die Website ist derzeit im Aufbau und wird kontinuierlich angepasst und erweitert.
-        </p>
-      </motion.div>
-    </motion.div>
-    
-    {/* Dekorative Elemente */}
-    <div className="hidden sm:block absolute top-1/4 left-8 w-24 h-24 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse" />
-    <div className="hidden sm:block absolute bottom-1/3 right-8 w-32 h-32 bg-gradient-to-r from-red-400/20 to-amber-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
-  </div>
-</section>
 
-      {/* 2) SOCIAL PROOF (150+ Unternehmen) */}
-      <section className="py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
-        {/* Geometric background pattern */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-[#d06119] to-primary bg-clip-text text-transparent">
-                Vertrauen von über 150 Unternehmen
-              </span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-8">
-              Unsere Wurzeln: Inklupreneur. Unsere Gegenwart: InkluSolutions – 
-              Partner der führenden Wirtschaft & Forschung. Individuell und maßgeschneidert.
-            </p>
-          </motion.div>
-
-          {/* Logo Carousel (infinite loop, arrow controls) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative w-full mb-12"
-          >
-            {/* Carousel state */}
-            {/* showCount controls how many logos are visible at once */}
-            {/* we duplicate the logos array to allow smooth looping */}
-            <Carousel logos={companyLogos} showCount={4} sidePadding={56} />
-          </motion.div>
-
-          {/* Mini-Testimonials */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
-          >
-            <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
-              <blockquote className="text-lg italic text-foreground/85 mb-4">
-                &ldquo;Nicht Mitleid bringt uns weiter, sondern ein Perspektivwechsel. So konnten wir die verborgenen Potenziale von Menschen mit Behinderung wirklich erkennen und nutzen.&rdquo;
-              </blockquote>
-              <cite className="text-sm font-semibold text-primary">– Katharina Erdmann, BLG Logistics</cite>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
-              <blockquote className="text-lg italic text-foreground/85 mb-4">
-                &ldquo;Uns hat besonders die Offenheit der Menschen mit Behinderung beeindruckt. Durch persönliche Geschichten haben wir gelernt: Es gibt keine festen Muster, deshalb ist der Austausch auf Augenhöhe so wichtig, damit gemeinsames Arbeiten für Arbeitnehmer:innen und Arbeitgeber:innen gelingt.&rdquo;
-              </blockquote>
-              <cite className="text-sm font-semibold text-primary">– Sebastian Dillner, Bremedia</cite>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-{/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
-<section
-  id="angebote"
-  aria-labelledby="angebote-heading"
-  className="relative overflow-hidden py-24 bg-gray-200"
->
-  {/* Subtle texture + zwei weiche „blob“-highlights */}
-  <div
-    aria-hidden
-    className="pointer-events-none absolute inset-0 opacity-15"
-    style={{
-      backgroundImage: `url('/bg-texture-subtle.jpg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    }}
-  />
-  <div aria-hidden className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[hsl(var(--accent))] blur-3xl opacity-20" />
-  <div aria-hidden className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[hsl(var(--third))] blur-3xl opacity-20" />
-
-  <div className="container mx-auto px-6 relative z-10">
-    {/* Headline */}
-    <motion.header
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-      className="text-center mb-16"
-    >
-
-      <h2
-        id="angebote-heading"
-        className="text-4xl lg:text-5xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-          Unsere Angebote – nah und ganzheitlich
-        </span>
-      </h2>
-      <p className="mt-4 text-lg text-foreground/80">
-        Wir verbinden Wissen, Haltung und messbare Lösungen für gelebte Inklusion.
-      </p>
-    </motion.header>
-
-    {/* Karten */}
+      {/* Karten */}
     <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
       {productCategories.map((category, index) => (
         <motion.article
@@ -397,6 +208,216 @@ export default function HomePage() {
         </motion.article>
       ))}
     </div>
+      
+      
+      
+      {/* Einfache Mobile-Version */}
+      <div className="sm:hidden mt-8">
+        <Link href="/products">
+          <Button size="lg" className="white px-8 py-6 text-lg">
+            Unsere Angebote entdecken
+          </Button>
+        </Link>
+      </div>
+      
+      <p className="text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto text-white drop-shadow-xl pt-10"
+        style={{
+          textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
+        }}
+      >
+        Gemeinsam mit <strong>Menschen mit Behinderung</strong> als <strong>Mentor:innen</strong> schaffen wir Wissen, fördern Bewusstsein und verankern Inklusion in Strukturen und Prozessen.
+      </p>
+      
+      {/* Disclaimer */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="mt-8 pt-6 border-t border-white/30"
+      >
+        <p className="text-sm lg:text-base text-white/80 max-w-2xl mx-auto text-center leading-relaxed"
+          style={{
+            textShadow: '1px 1px 4px rgba(0,0,0,0.6)'
+          }}
+        >
+          Willkommen auf der neuen Inklu-Solutions Website. Die Website ist derzeit im Aufbau und wird kontinuierlich angepasst und erweitert.
+        </p>
+      </motion.div>
+    </motion.div>
+    
+    {/* Dekorative Elemente */}
+    <div className="hidden sm:block absolute top-1/4 left-8 w-24 h-24 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse" />
+    <div className="hidden sm:block absolute bottom-1/3 right-8 w-32 h-32 bg-gradient-to-r from-red-400/20 to-amber-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+  </div>
+</section>
+
+{/* 2) SOCIAL PROOF (150+ Unternehmen) */}
+<section className="py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
+        {/* Geometric background pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
+                Vertrauen von über 150 Unternehmen
+              </span>
+            </h2>
+            <p className="text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-8">
+              Unsere Wurzeln: Inklupreneur <br></br>
+              Unsere Gegenwart: InkluSolutions<br></br>
+              Partner der führenden Wirtschaft & Forschung <br></br>
+              Individuell und maßgeschneidert<br></br>
+            </p>
+          </motion.div>
+
+          {/* Logo Carousel (infinite loop, arrow controls) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative w-full mb-12"
+          >
+            {/* Carousel state */}
+            {/* showCount controls how many logos are visible at once */}
+            {/* we duplicate the logos array to allow smooth looping */}
+            <Carousel logos={companyLogos} showCount={4} sidePadding={56} />
+          </motion.div>
+
+          {/* Mini-Testimonials */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          >
+            <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
+              <blockquote className="text-lg italic text-foreground/85 mb-4">
+                &ldquo;Ich habe tolle Menschen kennengelernt und viel von Euch mitgenommen. Es ging nicht
+nur um Nachteilsausgleich oder Einhaltung der Vorgaben zur Beschäftigung von
+Menschen mit Behinderungen sondern immer auch um bewußte Teilhabe, Vielfalt und
+kreative Anpassung und Etablierung einer inklusiven Kultur. Anders war auch, dass die
+Talente, die ihr vermittelt habt, wirklich zu den Stellen passten und motiviert und
+engagiert waren.&rdquo;
+              </blockquote>
+              <cite className="text-sm font-semibold text-primary">– Meike Plötner, Inklusionsmanagerin,
+Concentrix Global Services GmbH</cite>
+            </div>
+            <div className="bg-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-6 text-center">
+              <blockquote className="text-lg italic text-foreground/85 mb-4">
+                &ldquo;Die Teilnahme am Programm kann ich nur jedem ans Herz legen, egal wie weit sich im
+Unternehmen bereits mit dem Thema Inklusion am Arbeitsplatz beschäftigt wurde.
+Durch viel Interaktion und viel Raum für Fragen und Austausch konnten wir uns dem
+Thema so nähern, dass wir in der Praxis nun gut aufgestellt sind, um auch Menschen mit
+Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
+              </blockquote>
+              <cite className="text-sm font-semibold text-primary">– Carolin Warlich, HR-Managerin,
+42DIGITAL GmbH</cite>
+            </div>
+          </motion.div>
+        </div>
+</section>
+
+<section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
+  <div className="w-full">
+{/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="hidden sm:block justify-center max-w-4xl mx-auto"
+      >
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/trainings" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-primary to-primary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Trainings
+                  <GraduationCap className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/awareness" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-secondary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Awareness
+                  <Lightbulb className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+            <div className="md:flex-1 min-w-0">
+              <Link href="/products/services" className="block">
+                <Button
+                  size="lg"
+                  className="w-full text-white bg-gradient-to-r from-accent to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
+                >
+                  Services & Beratung
+                  <Settings className="ml-4 w-7 h-7" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+  </div>
+</section>
+
+{/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
+<section
+  id="angebote"
+  aria-labelledby="angebote-heading"
+  className="relative overflow-hidden py-24 bg-gray-200"
+>
+  {/* Subtle texture + zwei weiche „blob“-highlights */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute inset-0 opacity-15"
+    style={{
+      backgroundImage: `url('/bg-texture-subtle.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  />
+  <div aria-hidden className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[hsl(var(--accent))] blur-3xl opacity-20" />
+  <div aria-hidden className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[hsl(var(--third))] blur-3xl opacity-20" />
+
+  <div className="container mx-auto px-6 relative z-10">
+    {/* Headline */}
+    <motion.header
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+      className="text-center mb-16"
+    >
+
+      <h2
+        id="angebote-heading"
+        className="text-4xl lg:text-5xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
+          Unsere Angebote – nah und ganzheitlich
+        </span>
+      </h2>
+      <p className="mt-4 text-lg text-foreground/80">
+        Wir verbinden Wissen, Haltung und messbare Lösungen für gelebte Inklusion.
+      </p>
+    </motion.header>
 
     {/* CTA-Bar */}
     <CTASection />

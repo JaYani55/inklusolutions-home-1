@@ -23,7 +23,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({ product }) =>
       <section className="relative py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 full-width">
               {product.hero.title}
             </h1>
             <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
@@ -34,10 +34,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({ product }) =>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 {product.hero.stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">
+                    <div className="text-2xl font-bold text-primary mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-foreground/60 uppercase tracking-wide">
+                    <div className="text-m text-foreground/60 uppercase tracking-wide">
                       {stat.label}
                     </div>
                   </div>

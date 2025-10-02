@@ -68,7 +68,7 @@ export default function TrainingsPage() {
                 </div>
                   
                   <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Vom Wollen</span>
+                    <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Vom Wollen</span>
                     <br />
                     <span className="text-foreground">ins Können</span>
                   </h1>
@@ -77,6 +77,7 @@ export default function TrainingsPage() {
                     Mit unseren Trainings wird Inklusion lebendig.
                   </p>
                   
+                  {/* Scroll down Button */} 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
                       variant="outline" 
@@ -140,9 +141,6 @@ export default function TrainingsPage() {
                       2-tägiger Präsenz-Workshop mit Fokus auf Haltung, Begegnung & Reflexion – 
                       ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
                     </p>
-                    <p className="text-lg text-muted-foreground">
-                      Ideal für alle, die Verantwortung für Inklusion im Arbeitsalltag tragen und dafür praxisnahe Impulse suchen.
-                    </p>
                   </div>
                   
                   <div className="text-lg space-y-4">
@@ -193,7 +191,7 @@ export default function TrainingsPage() {
               <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                   <h2 className="text-foreground text-4xl font-bold mb-4">{trainingsProducts[1].name}</h2>
-                  <p className="mb-8 text-2xl text-foreground/80">Kurze, praxisnahe Sessions zu Spezialthemen wie barrierefreie Kommunikation, Fördermittel oder Bewerbungssimulation.</p>
+                  <p className="mb-8 text-2xl text-foreground/80">In kurzen, praxisnahen Sessions wird vermittelt, wie Mitarbeitende mit Behinderung gewonnen, Bewerbungsprozesse inklusiv gestaltet und Mitarbeitende langfristig gebunden werden können. Ergänzend fließen Fachwissen, praktische Tipps und individuelle Beratung ein. Mentor:innen mit eigener Behinderung teilen ihre Erfahrungen und geben wertvolles Feedback zur Umsetzung.</p>
                 </div>
 
                   <div className="space-y-8">
@@ -212,9 +210,9 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Stellenausschreibungen</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Stellenausschreibung & Jobcarving</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Wie Stellenanzeigen, Anforderungsprofile und Recruitingprozesse barriereärmer und einladender gestaltet werden.
+                      Wie sprechen ihre Stellenausschreibungen besser potenzielle Mitarbeitende mit Behinderung an. Wie können Stellen angepasst werden.
                     </p>
                   </motion.div>
 
@@ -231,9 +229,9 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Barrierefreiheit umsetzen</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Barrieren verstehen und abbauen</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Wie Barrieren im Arbeitsumfeld erkannt, priorisiert und pragmatisch abgebaut werden können.
+                      Wir zeigen Ihnen, wie Sie Barrieren – ob räumlich, visuell oder sozial - erkennen und gezielt verringern.
                     </p>
                   </motion.div>
 
@@ -250,7 +248,7 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Barrierefreie Kommunikation online</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusiver Webauftritt</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       Wie Webseiten und Landingpages inklusiv, zugänglich und für Menschen mit Behinderung attraktiv gestaltet werden.
                     </p>
@@ -271,7 +269,7 @@ export default function TrainingsPage() {
                     </div>
                     <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusives Onboarding</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Wie ein inklusives Onboarding gestaltet wird – von Begrüßung bis Prozessanpassung.
+                      Was muss für ein erfolgreiches Onboarding bei Menschen mit Behinderungen berücksichtigt werden.
                     </p>
                   </motion.div>
                 </div>
@@ -291,9 +289,9 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Bewerbungssimulation mit Mentor:innen</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Bewerbungsgespräche</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Bewerbungsgespräche mit Menschen mit Behinderung trainieren – mit ehrlichem Feedback und Aha-Momenten.
+                      Bewerbungsgespräche mit Menschen mit Behinderung trainieren – mit direktem Feedback und Aha-Momenten.
                     </p>
                   </motion.div>
 
@@ -310,9 +308,9 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Deep Dives: Behinderungsarten</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Behinderungsarten</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Fachlich und erfahrungsbasiert – z. B. Autismus, psychische Erkrankungen oder chronische Schmerzen besser einordnen.
+                      Von Autismus über Sehbehinderung bis chronische Schmerzen – wir teilen fundiertes Wissen und persönliche Perspektiven, um Behinderungen besser zu verstehen und inklusiver zu handeln.
                     </p>
                   </motion.div>
 
@@ -329,9 +327,9 @@ export default function TrainingsPage() {
                       </div>
                       <div className="h-6" />
                     </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Fördermittel-Optimierung</h3>
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Fördermittel</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Überblick über relevante Leistungen und Strategien, wie Unternehmen Fördermittel effektiv für Inklusion nutzen können.
+                       Überblick über staatliche Fördermittel und die effektive Nutzung für die Inklusion.
                     </p>
                   </motion.div>
 
@@ -350,7 +348,7 @@ export default function TrainingsPage() {
                     </div>
                     <h3 className="font-bold text-lg mb-3 text-gray-800">Vernetzung & Anlaufstellen</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Die wichtigsten externen Kontakte, Förderakteure und Netzwerke für Inklusionsverantwortliche im Überblick.
+                      Die wichtigsten externen Kontakte, Förderakteure und Netzwerke, die bei der Inklusion eurer Unternehmen unterstützen können.
                     </p>
                   </motion.div>
                 </div>

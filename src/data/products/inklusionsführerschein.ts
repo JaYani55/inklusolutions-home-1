@@ -6,29 +6,30 @@ export const inklusionsführerschein: ProductData = {
   slug: 'inklusionsführerschein',
   name: 'Inklusionsführerschein',
   subtitle: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur',
+  'trainer-module': true,
   hero: {
-    title: 'Der Inklusionsführerschein',
-    description: 'Praktisches Wissen und echtes Verständnis für eine inklusive Unternehmenskultur. Entwickle einen konkreten Umsetzungsplan für dein Unternehmen.',
+    title: 'Sei Teil der Veränderung - hol dir den Inklusionsführerschein',
+    description: 'Erlebe zwei Tage voller Perspektivwechsel, praxisnaher Impulse und echter Begegnungen - für mehr Sicherheit und Handlungsspielraum im Umgang mit Behinderung im Arbeitsleben.',
     image: '/mentor-mentee.jpg',
     stats: [
       { value: '2 TAGE', label: 'INTENSIV-WORKSHOP' },
       { value: '998 €', label: 'PRO PERSON' },
-      { value: 'HANDLUNGSPLAN', label: 'FÜR IHR UNTERNEHMEN' }
+      { value: 'In Präsenz', label: 'FORMAT' }
     ]
   },
   features: [
     {
-      title: 'Format & Rahmen',
-      description: 'Unser Inklusionsführerschein ist ein 2-tägiger Präsenz-Workshop, der quartalsweise stattfindet und auf maximal 25 Teilnehmende begrenzt ist. Der Preis von 998 € pro Person beinhaltet alle Materialien und ein Zertifikat. Wir empfehlen mindestens zwei Personen pro Unternehmen, um eine nachhaltige Umsetzung zu gewährleisten.'
+      title: '',
+      description: '"Würdest du deinen Führerschein bei jemandem machen, der nie selbst gefahren ist? Deshalb arbeiten wir mit Mentor:innen, die wissen, wovon sie sprechen." - Nils Dreyer'
     },
     {
-      title: 'Ziel & Nutzen',
-      description: 'Dieser Kurs ist Ihr idealer Einstieg in die praktische Inklusionsarbeit im Unternehmen. Wir verbinden fundiertes Wissen, gezielte Selbstreflexion, intensiven Austausch mit Expert:innen aus eigener Erfahrung und praktische Übungen. Das Ergebnis sind konkrete Handlungsideen, persönliche Sicherheit im Umgang mit Behinderung und ein strategisches Verständnis von DEI-Prozessen.',
+      title: 'Crashkurs für wirksame Inklusion',
+      description: 'Der Inklusionsführerschein ist dein Start mit Haltung und Handwerkzeug - für alle, die in ihrem Unternehmen beim Thema Inklusion wirklich etwas bewegen wollen. Er verbindet fundiertes Wissen, ehrliche Selbstreflexion und echte Begegnungen mit Expert:innen mit gelebter Behinderung. So bekommst du Sprache, Strategien und Mut statt Unsicherheit - und legst die Basis für wirksames Handeln.',
       reverse: true
     },
     {
-      title: 'Ergebnisse & Mehrwert',
-      description: 'Nach Abschluss des Inklusionsführerscheins verfügen Sie über mehr Sicherheit in der Kommunikation, fundiertes Wissen über Barrieren und deren Lösungsansätze sowie ein strategisches Verständnis für umfassende DEI-Prozesse. Sie erhalten ein Zertifikat und Ihr Unternehmen wird bei InkluSolutions öffentlich als "inklusives Unternehmen" gelistet.'
+      title: 'In 2 Tagen zu sicherem Handeln',
+      description: 'Im zweitäigen Präsenz-Workshop durchläufst du kompakt Theorie und Praxis: typische Ängste bennenen, Fallstricke erkennen, Rolle klären. Du trainierst echte Gesprächssituationen, erhältst direktes Feedback von Mentor:innen, arbeitest am eigenen Unternehmenskontext und nimmst einen konkreten Transferauftrag mit. Ergebnis: spürbare Handlungssicherheit, klare nächste Schritte und ein Zertifikat - bereit, Inklusion im Arbeitsalltag...'
     }
   ],
   cards: [

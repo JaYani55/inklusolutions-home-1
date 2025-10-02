@@ -3,7 +3,14 @@ import { inklusionsführerschein } from './products/inklusionsführerschein';
 import { vielfaltSichtbarMachen } from './products/vielfalt-sichtbar-machen';
 import { inclusiveRecruitingPlatform } from './products/inclusive-recruiting-platform';
 import { disabilityAwarenessSession } from './products/disability-awareness-session';
-import { testMasterclass } from './products/test-masterclass';
+import { BarrierenErkennenUndAbbauen } from './products/mc-barrieren-erkennen-und-abbauen';
+import { Behinderungsarten} from './products/mc-behinderungsarten';
+import { Bewerbungsgespraeche} from './products/mc-bewerbungsgespraeche';
+import { Foerdermittel} from './products/mc-foerdermittel';
+import { InklusiveWebseite} from './products/mc-inklusive-webseite';
+import { Onboarding} from './products/mc-onboarding';
+import { StellenausschreibungJobcarving} from './products/mc-stellenausschreibung-jobcarving';
+import { Vernetzung} from './products/mc-vernetzung';
 
 // Zentrale Produktdatenbank - hier werden alle Produkte registriert
 const productDatabase: Record<string, ProductData> = {
@@ -15,7 +22,15 @@ const productDatabase: Record<string, ProductData> = {
   'produkt-vielfalt-sichtbar-machen': vielfaltSichtbarMachen,
   'produkt-inclusive-recruiting-platform': inclusiveRecruitingPlatform,
   'disability-awareness-session': disabilityAwarenessSession,
-  'test-masterclass': testMasterclass
+  'barrieren-erkennen-und-abbauen': BarrierenErkennenUndAbbauen,
+  'behinderungsarten': Behinderungsarten,
+  'bewerbungsgespraeche': Bewerbungsgespraeche,
+  'foerdermittel': Foerdermittel,
+  'inklusive-webseite': InklusiveWebseite,
+  'onboarding': Onboarding,
+  'stellenausschreibung-jobcarving': StellenausschreibungJobcarving,
+  'vernetzung': Vernetzung,
+
   // Weitere Produkte können hier einfach hinzugefügt werden:
   // 'neues-produkt-slug': neuesProdukt,
 };

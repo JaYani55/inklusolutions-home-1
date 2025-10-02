@@ -203,7 +203,7 @@ export default function ServicesPage() {
                 <span className="text-lg font-semibold text-primary">Services & Beratung</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
                   Strategische Unterstützung
                 </span>
               </h1>
@@ -253,7 +253,7 @@ export default function ServicesPage() {
               className="text-center mb-16"
             >
               <h2 className="text-5xl font-medium mb-6 pb-2">
-                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent">
                   Details im Überblick
                 </span>
                 <br />
