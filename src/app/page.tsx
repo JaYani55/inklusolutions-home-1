@@ -96,7 +96,7 @@ export default function HomePage() {
     className="hidden sm:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
     style={{
        backgroundImage: "url('/header.jpg')",
-       filter: 'brightness(0.75) contrast(1.1)'
+       filter: 'brightness(0.85) contrast(1)'
     }}
   />
   
@@ -144,71 +144,65 @@ export default function HomePage() {
         </h2>
       </div>
 
-      {/* Karten */}
-    <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
-      {productCategories.map((category, index) => (
-        <motion.article
-          key={index}
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: index * 0.08 }}
-          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-          className="group relative"
-        >
-          <Link
-            href={category.link}
-            className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent))]/40 rounded-2xl"
-            aria-label={`${category.title} erkunden`}
-          >
-            {/* Gradient-Border-Karte */}
-            <div className="rounded-2xl p-[1px] bg-gradient-to-br from-white/40 via-white/60 to-white/30 group-hover:from-[hsl(var(--primary))]/30 group-hover:via-white/70 group-hover:to-[hsl(var(--accent))]/30 transition-all duration-300">
-              <div className="h-full rounded-2xl p-9 bg-white/80 backdrop-blur-md border border-white/60 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-1.5 transition-all duration-500">
-
-
-                {/* Icon */}
-                <div
-                  className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
-                >
-                  <category.icon className="w-10 h-10 text-white" aria-hidden />
-                </div>
-
-                {/* Titel + Untertitel */}
-                <h3 className="md:text-3xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                  {category.title}
+      {/* Sektion: Unsere Leistungen entfalten Wirkung */}
+      <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-16 max-w mx-auto">
+            {/* Box 1 */}
+            <Link href="/products/trainings" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-primary text-center"
+              >
+                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Kompetenz aufbauen
                 </h3>
+                <p className="text-lg text-foreground/80">
+                  Durch praxisnahe Trainings
+                </p>
+              </motion.div>
+            </Link>
 
-                {/* optionale Produkt-Liste außerhalb der Karte (nicht clickable) */}
-                {Array.isArray(category.products) && category.products.length > 0 && (
-                  <div className="text-lg md:text-xl text-foreground/75 mt-6">
-                    <ul className="space-y-4">
-                      {category.products.map((product, pIndex) => {
-                        const key = String(product).toLowerCase().trim();
-                        const Icon = productIconMap[key] || productIconMap.default;
-                        return (
-                          <li key={pIndex} className="flex items-start gap-4">
-                            <span className="mt-0.5 text-primary">
-                              <Icon className="w-6 h-6" aria-hidden />
-                            </span>
-                            <span className="leading-snug">{formatLabel(String(product))}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
+            {/* Box 2 */}
+            <Link href="/products/awareness" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-secondary text-center"
+              >
+                <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
+                <p className="text-lg text-foreground/80">
+                  Mit Formaten für Awareness und Perspektivwechsel
+                </p>
+              </motion.div>
+            </Link>
 
-                {/* „Mehr“-Hint */}
-                <div className="mt-8 inline-flex items-center gap-3 text-lg font-semibold text-foreground/80 group-hover:text-primary">
-                  Mehr erfahren
-                  <ArrowRight className="w-5 h-5 translate-x-0 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </div>
-          </Link>
-        </motion.article>
-      ))}
-    </div>
-      
+            {/* Box 3 */}
+            <Link href="/products/services" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-accent text-center"
+              >
+                <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                  Strukturen verankern
+                </h3>
+                <p className="text-lg text-foreground/80">
+                  Über Services und Tools zur Umsetzung
+                </p>
+              </motion.div>
+            </Link>
+          </div>
+      </div>
       
       
       {/* Einfache Mobile-Version */}
@@ -326,6 +320,73 @@ Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
             </div>
           </motion.div>
         </div>
+</section>
+
+{/* Karten */}
+<section>
+    <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
+      {productCategories.map((category, index) => (
+        <motion.article
+          key={index}
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: index * 0.08 }}
+          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+          className="group relative"
+        >
+          <Link
+            href={category.link}
+            className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent))]/40 rounded-2xl"
+            aria-label={`${category.title} erkunden`}
+          >
+            {/* Gradient-Border-Karte */}
+            <div className="rounded-2xl p-[1px] bg-gradient-to-br from-white/40 via-white/60 to-white/30 group-hover:from-[hsl(var(--primary))]/30 group-hover:via-white/70 group-hover:to-[hsl(var(--accent))]/30 transition-all duration-300">
+              <div className="h-full rounded-2xl p-9 bg-white/80 backdrop-blur-md border border-white/60 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-1.5 transition-all duration-500">
+
+
+                {/* Icon */}
+                <div
+                  className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                >
+                  <category.icon className="w-10 h-10 text-white" aria-hidden />
+                </div>
+
+                {/* Titel + Untertitel */}
+                <h3 className="md:text-3xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+
+                {/* optionale Produkt-Liste außerhalb der Karte (nicht clickable) */}
+                {Array.isArray(category.products) && category.products.length > 0 && (
+                  <div className="text-lg md:text-xl text-foreground/75 mt-6">
+                    <ul className="space-y-4">
+                      {category.products.map((product, pIndex) => {
+                        const key = String(product).toLowerCase().trim();
+                        const Icon = productIconMap[key] || productIconMap.default;
+                        return (
+                          <li key={pIndex} className="flex items-start gap-4">
+                            <span className="mt-0.5 text-primary">
+                              <Icon className="w-6 h-6" aria-hidden />
+                            </span>
+                            <span className="leading-snug">{formatLabel(String(product))}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+
+                {/* „Mehr“-Hint */}
+                <div className="mt-8 inline-flex items-center gap-3 text-lg font-semibold text-foreground/80 group-hover:text-primary">
+                  Mehr erfahren
+                  <ArrowRight className="w-5 h-5 translate-x-0 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </Link>
+        </motion.article>
+      ))}
+    </div>
 </section>
 
 <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">

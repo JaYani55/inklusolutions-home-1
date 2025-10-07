@@ -15,7 +15,9 @@ export default function Navigation() {
       hasDropdown: true,
       dropdownItems: [
         { name: "Übersicht", href: "/products", disabled: false },
-        { name: "Training", href: "/products/trainings", disabled: false },
+        { name: "Training", href: "/products/trainings", disabled: false, },
+        { name: "-> Inklusionsführerschein", href: "/products/inklusionsfuehrerschein", disabled: false},
+        { name: "-> Masterclasses", href: "/products/trainings#masterclass", disabled: false},
         { name: "Awareness", href: "/products/awareness", disabled: false },
         { name: "Services", href: "/products/services", disabled: false },
       ]
@@ -40,7 +42,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="text-lg hidden md:flex items-center space-x-8">
+          <div className="text-lg hidden md:flex items-center space-x-10">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
                   {item.hasDropdown ? (
@@ -63,13 +65,13 @@ export default function Navigation() {
                       
                       {/* Dropdown Menu */}
                       {isProductsDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-2xl z-50">
+                        <div className="absolute top-full left-0 mt-2 w-60 bg-white border border-gray-200 rounded-xl shadow-2xl z-50">
                           <div className="py-2">
                             {item.dropdownItems?.map((dropdownItem) => (
                               dropdownItem.disabled ? (
                                 <div
                                   key={dropdownItem.name}
-                                  className="block px-4 py-3 text-gray-400 cursor-not-allowed select-none"
+                                  className="block px-6 py-2 text-gray-400 cursor-not-allowed select-none"
                                   title="Dieser Eintrag ist noch nicht verfügbar"
                                 >
                                   {dropdownItem.name}
@@ -78,7 +80,7 @@ export default function Navigation() {
                                 <Link
                                   key={dropdownItem.name}
                                   href={dropdownItem.href}
-                                  className="block px-4 py-3 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
+                                  className="block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
                                   onClick={() => setIsProductsDropdownOpen(false)}
                                 >
                                   {dropdownItem.name}

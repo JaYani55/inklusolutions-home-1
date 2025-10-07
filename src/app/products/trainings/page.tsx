@@ -179,7 +179,7 @@ export default function TrainingsPage() {
         </section>
 
         {/* Masterclass Section - Full Width Gray Background */}
-        <section className="w-full bg-gradient-to-br from-gray-50 to-slate-100 py-20">
+        <section className="w-full bg-gradient-to-br from-gray-50 to-slate-100 py-20" id="masterclass">
           <div className="container mx-auto px-6 md:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
