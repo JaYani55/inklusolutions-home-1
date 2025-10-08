@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 
+// Add edge runtime configuration for Cloudflare Pages
+export const runtime = 'nodejs'; // Use Node.js runtime instead of Edge
+export const dynamic = 'force-dynamic'; // Ensure no static optimization
+
 /**
  * Defines the expected structure of the Supabase webhook payload.
  * We only need the slug from the 'record' object.
@@ -22,6 +26,7 @@ export async function GET() {
       ? `${process.env.REVALIDATION_TOKEN.substring(0, 4)}...` 
       : 'not set',
     message: 'Revalidation API is active (authentication temporarily disabled)',
+    runtime: 'nodejs',
   });
 }
 
@@ -33,30 +38,6 @@ export async function GET() {
  */
 export async function POST(request: NextRequest) {
   console.log('🔄 Revalidation request received');
-
-  // ⚠️ TEMPORARY: Authentication disabled
-  // TODO: Uncomment this section once REVALIDATION_TOKEN is available
-  /*
-  const authHeader = request.headers.get('authorization');
-  const expectedAuth = `Bearer ${process.env.REVALIDATION_TOKEN}`;
-  
-  console.log('Auth check:', {
-    hasAuthHeader: !!authHeader,
-    hasToken: !!process.env.REVALIDATION_TOKEN,
-  });
-
-  if (!process.env.REVALIDATION_TOKEN) {
-    console.error('❌ REVALIDATION_TOKEN not configured');
-    return NextResponse.json({ 
-      message: 'Server configuration error: REVALIDATION_TOKEN not set' 
-    }, { status: 500 });
-  }
-
-  if (authHeader !== expectedAuth) {
-    console.error('❌ Authorization failed');
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-  }
-  */
 
   // Parse the request body to get the slug
   try {
