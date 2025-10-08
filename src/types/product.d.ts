@@ -1,5 +1,4 @@
 // src/types/product.d.ts
-import { LucideIcon } from 'lucide-react';
 
 export interface Product {
     id: string;
@@ -43,7 +42,7 @@ export interface ProductData {
     cards?: Array<{
         title: string;
         description: string;
-        icon: LucideIcon;
+        icon: string; // <-- CHANGE THIS: Was LucideIcon, now it's a string
         image?: string; // Make image optional
         items: string[];
         color: string;

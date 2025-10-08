@@ -1,5 +1,4 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const Behinderungsarten: ProductData = {
   id: '11',
@@ -36,7 +35,7 @@ export const Behinderungsarten: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+  icon: 'Users',
       items: [
         'Führungskräfte',
         'HR-Verantwortliche',
@@ -48,7 +47,7 @@ export const Behinderungsarten: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+  icon: 'Wrench',
       items: [
         'Fachwissen zu den unterschiedlichen Behinderungen und den damit verbundenen Bedarf',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -60,7 +59,7 @@ export const Behinderungsarten: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+  icon: 'CalendarDays',
       items: [
         'Vorgespräche zur individuellen Gestaltung',
         'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',

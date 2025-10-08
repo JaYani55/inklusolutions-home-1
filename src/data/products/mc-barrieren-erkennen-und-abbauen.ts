@@ -1,5 +1,5 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
+//import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const BarrierenErkennenUndAbbauen: ProductData = {
   id: '10',
@@ -36,7 +36,7 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+      icon: 'Users',
       items: [
         'Facility Management',
         'Kommunikation',
@@ -49,7 +49,7 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+      icon: 'Wrench',
       items: [
         'Fachwissen zu den unterschiedlichen Barrieren und wie diese reduziert werden können',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -61,7 +61,7 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+      icon: 'CalendarDays',
       items: [
         'Vorgespräche zur individuellen Gestaltung',
         'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',

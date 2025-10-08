@@ -1,0 +1,100 @@
+import {
+  LucideIcon,
+  Users,
+  Wrench,
+  CalendarDays,
+  Accessibility,
+  Briefcase,
+  Award,
+  ShieldCheck,
+  Info,
+  MessageSquare,
+  Landmark,
+  Globe,
+  LogIn,
+  FileText,
+  Network,
+  Eye,
+  Heart,
+  DollarSign,
+  Search,
+  Menu,
+  X,
+  Sun,
+  Moon,
+  ChevronDown,
+  ChevronRight,
+  ArrowRight,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Lightbulb,
+  Target,
+  BookOpen,
+  BarChart,
+  Settings,
+  UserCheck,
+  Building,
+  Handshake,
+  Star,
+  Quote,
+  CheckCircle2,
+  ExternalLink
+} from 'lucide-react';
+
+export const iconMap: Record<string, LucideIcon> = {
+  Accessibility,
+  ArrowRight,
+  Award,
+  BarChart,
+  BookOpen,
+  Briefcase,
+  Building,
+  CalendarDays,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  DollarSign,
+  ExternalLink,
+  Eye,
+  FileText,
+  Globe,
+  Handshake,
+  Heart,
+  Info,
+  Landmark,
+  Lightbulb,
+  Linkedin,
+  LogIn,
+  Mail,
+  MapPin,
+  Menu,
+  MessageSquare,
+  Moon,
+  Network,
+  Phone,
+  Quote,
+  Search,
+  Settings,
+  ShieldCheck,
+  Star,
+  Sun,
+  Target,
+  UserCheck,
+  Users,
+  Wrench,
+  X
+};
+
+/**
+ * Returns a Lucide icon component based on its string name.
+ * @param name - The name of the icon to retrieve from the iconMap.
+ * @returns The corresponding LucideIcon component or a default fallback icon (Users).
+ */
+export const getIconComponent = (name: string | undefined): LucideIcon => {
+  if (name && iconMap[name]) {
+    return iconMap[name];
+  }
+  return Users; // Default fallback icon
+};

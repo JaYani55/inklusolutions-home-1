@@ -1,5 +1,6 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
+// Removed direct icon imports to fix type error
+// import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const inklusionsführerschein: ProductData = {
   id: '1',
@@ -36,7 +37,7 @@ export const inklusionsführerschein: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+      icon: 'Users',
       items: [
         'DEI-Verantwortliche',
         'Schwerbehindertenvertretungen / Inklusionsbeauftragte',
@@ -48,7 +49,7 @@ export const inklusionsführerschein: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+      icon: 'Wrench',
       items: [
         'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, DEI & rechtliche Grundlagen',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -61,7 +62,7 @@ export const inklusionsführerschein: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+      icon: 'CalendarDays',
       items: [
         'Zwei intensive Tage mit Theorie und Praxis',
         'Thematisierung typischer Ängste und Fallstricke',

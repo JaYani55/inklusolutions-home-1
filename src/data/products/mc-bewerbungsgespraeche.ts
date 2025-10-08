@@ -1,5 +1,4 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const Bewerbungsgespraeche: ProductData = {
   id: '12',
@@ -39,7 +38,7 @@ export const Bewerbungsgespraeche: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+  icon: 'Users',
       items: [
         'Recruiting',
         'Personalentwicklung',
@@ -51,7 +50,7 @@ export const Bewerbungsgespraeche: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+  icon: 'Wrench',
       items: [
         'Fachwissen: über inklusive Bewerbungsgespräche',
         'Begegnung: Bewerbungssimulationen mit Mentor:innen mit Behinderung',
@@ -63,7 +62,7 @@ export const Bewerbungsgespraeche: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+  icon: 'CalendarDays',
       items: [
         'Vorgespräche zur individuellen Gestaltung',
         'Drei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',

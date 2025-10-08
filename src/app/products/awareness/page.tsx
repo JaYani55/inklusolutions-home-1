@@ -3,6 +3,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Star, Users, Video, MessageCircle, Eye, Lightbulb, Pin } from 'lucide-react'
@@ -164,10 +165,13 @@ export default function AwarenessPage() {
         <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-grey to-grey">
           {/* Hero Background Image */}
           
-          <img
+          <Image
             src="/training2.jpg"
             alt="Professionals Background"
+            fill
+            priority
             className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
+            sizes="100vw"
           />
           
           {/* Subtiler Textur-Hintergrund */}

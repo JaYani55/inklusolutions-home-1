@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/ui/Navigation";
 // MentorCarousel temporarily unused on home page
 // import MentorCarousel from "@/components/shared/MentorCarousel";
-import { 
+import {
   Lightbulb, 
   Settings,
   ArrowRight, Users, Award, CheckCircle, Video, GraduationCap, BarChart3, MessageCircle, 
   Zap} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import CTASection from "@/components/shared/CTASection";
 import Footer from "@/components/shared/Footer";
@@ -328,7 +329,7 @@ Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
         </div>
 </section>
 
-<section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
+<section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30">
   <div className="w-full">
 {/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
       <motion.div
@@ -512,16 +513,19 @@ function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: st
              transition: isAnimating ? 'transform 480ms ease' : 'none',
            }}
          >
-           {items.map((logo, idx) => (
-             <div key={idx} style={{ width: `${itemWidth}px` }} className="flex-shrink-0 flex items-center justify-center p-2">
-               <img 
-                 src={logo.src} 
-                 alt={logo.alt} 
-                 className={`object-contain ${logo.alt === 'Scout24' ? 'h-20' : 'h-16'}`} 
-                 loading="lazy" 
-               />
-             </div>
-           ))}
+          {items.map((logo, idx) => (
+            <div key={idx} style={{ width: `${itemWidth}px` }} className="flex-shrink-0 flex items-center justify-center p-2">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={200}
+                height={80}
+                className={`object-contain ${logo.alt === 'Scout24' ? 'h-20' : 'h-16'}`}
+                loading="lazy"
+                sizes="(min-width: 1280px) 200px, (min-width: 768px) 160px, 120px"
+              />
+            </div>
+          ))}
          </div>
        </div>
 
@@ -530,7 +534,7 @@ function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: st
          onClick={prev}
          className="absolute -left-6 top-1/2 -translate-y-1/2 p-1 bg-transparent hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
        >
-         <img src="/arrows.png" alt="Pfeil links" className="w-8 h-8 rotate-180" />
+  <Image src="/arrows.png" alt="Pfeil links" width={32} height={32} className="w-8 h-8 rotate-180" />
        </button>
 
        <button
@@ -538,7 +542,7 @@ function Carousel({ logos, showCount = 5, sidePadding = 48 }: { logos: { src: st
          onClick={next}
          className="absolute -right-6 top-1/2 -translate-y-1/2 p-1 bg-transparent hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
        >
-         <img src="/arrows.png" alt="Pfeil rechts" className="w-8 h-8" />
+  <Image src="/arrows.png" alt="Pfeil rechts" width={32} height={32} className="w-8 h-8" />
        </button>
      </div>
    );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,10 +7,13 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-5 gap-8 text-center md:text-left">
           <div className="md:col-span-2">
-            <img 
+            <Image 
               src="/InkluSolutionsLogo.png" 
               alt="InkluSolutions Logo" 
-              className="h-12 mx-auto md:mx-0 mb-4"
+              width={180}
+              height={48}
+              className="h-12 w-auto mx-auto md:mx-0 mb-4"
+              priority
             />
           </div>
           

@@ -3,6 +3,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navigation from '@/components/ui/Navigation'
 import { motion, Variants } from 'framer-motion'
 import { ArrowRight, Star, Target, BarChart2, Users, Zap, Award, Settings } from 'lucide-react'
@@ -170,10 +171,13 @@ export default function ServicesPage() {
         {/* HERO */}
         <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
           {/* Hero Background Image */}
-          <img
+          <Image
             src="/team-collaboration.jpg"
             alt="Services Background"
+            fill
+            priority
             className="absolute inset-0 w-full h-full object-cover opacity-15 z-0"
+            sizes="100vw"
           />
           
           {/* Subtiler Textur-Hintergrund */}

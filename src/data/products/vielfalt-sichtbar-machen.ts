@@ -1,5 +1,4 @@
 import { ProductData } from '@/types/product';
-import { Target, Video, TrendingUp } from 'lucide-react';
 
 export const vielfaltSichtbarMachen: ProductData = {
   id: '7',
@@ -34,7 +33,7 @@ export const vielfaltSichtbarMachen: ProductData = {
     {
       title: 'Porträts auswählen',
       description: 'Einstieg',
-      icon: Target,
+  icon: 'Target',
       image: '/placeholder-portrait.jpg',
       items: [
         'Gemeinsam finden wir die passenden Stimmen und Geschichten',
@@ -47,7 +46,7 @@ export const vielfaltSichtbarMachen: ProductData = {
     {
       title: 'Inhalte erhalten & nutzen',
       description: 'Video-Paket',
-      icon: Video,
+  icon: 'Video',
       image: '/placeholder-videos.jpg',
       items: [
         'Video mit eurem Logo & Intro/Outro',
@@ -61,7 +60,7 @@ export const vielfaltSichtbarMachen: ProductData = {
     {
       title: 'Wirkung entfalten',
       description: 'Wandel schaffen',
-      icon: TrendingUp,
+  icon: 'TrendingUp',
       image: '/team-collaboration.jpg',
       items: [
         'Gespräche initiieren und fördern',
