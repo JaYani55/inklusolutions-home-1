@@ -25,6 +25,7 @@ interface RevalidationResponse {
   now?: number;
   slug?: string;
   message?: string;
+  warning?: string;
 }
 
 /**
@@ -33,24 +34,28 @@ interface RevalidationResponse {
 async function revalidateProduct(slug: string): Promise<void> {
   const token = process.env.REVALIDATION_TOKEN;
 
-  if (!token) {
-    console.error('❌ Error: REVALIDATION_TOKEN not found in environment variables');
-    console.error('   Make sure you have a .env.local file with REVALIDATION_TOKEN defined');
-    process.exit(1);
-  }
-
   console.log('🚀 Triggering revalidation...');
   console.log(`   URL: ${REVALIDATION_ENDPOINT}`);
   console.log(`   Slug: ${slug}`);
+  
+  if (!token) {
+    console.log('⚠️  Authentication disabled (REVALIDATION_TOKEN not set)');
+  }
   console.log('');
 
   try {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+
+    // Only add auth header if token exists
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
     const response = await fetch(REVALIDATION_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
+      headers,
       body: JSON.stringify({
         record: {
           slug: slug,
@@ -65,7 +70,7 @@ async function revalidateProduct(slug: string): Promise<void> {
       console.error(`   Message: ${data.message || 'Unknown error'}`);
       
       if (response.status === 401) {
-        console.error('   → Check that your REVALIDATION_TOKEN matches the one deployed on production');
+        console.error('   → Authentication failed. Enable token auth on the API route.');
       }
       
       process.exit(1);
@@ -75,6 +80,11 @@ async function revalidateProduct(slug: string): Promise<void> {
     console.log(`   Revalidated: ${data.revalidated}`);
     console.log(`   Timestamp: ${data.now ? new Date(data.now).toISOString() : 'N/A'}`);
     console.log(`   Slug: ${data.slug}`);
+    
+    if (data.warning) {
+      console.log(`   ⚠️  ${data.warning}`);
+    }
+    
     console.log('');
     console.log(`🌐 Updated page: ${PRODUCTION_URL}/products/${slug}`);
 
