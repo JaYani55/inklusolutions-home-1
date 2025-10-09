@@ -16,17 +16,19 @@ import React, { useEffect, useState } from "react";
 import Navigation from "@/components/ui/Navigation";
 // MentorCarousel temporarily unused in product slug
 // import MentorCarousel from "@/components/shared/MentorCarousel";
-import { useParams } from 'next/navigation';
-import { ProductData } from '@/types/product';
-import { ProductService } from '@/data/productService';
+import { useParams } from 'next/navigation'; // Hook zum Auslesen von dynamischen Routenparametern (wie 'slug')
+import { ProductData } from '@/types/product'; // Typdefinition für die Produktdaten
+import { ProductService } from '@/data/productService'; // Dienst zum Abrufen von Produktdaten
 import CTASection from '@/components/shared/CTASection';
 import Footer from '@/components/shared/Footer';
 import TrainerComponent from '@/components/shared/TrainerComponent';
 
-const ProductSlugPage = () => {
-  const params = useParams();
-  const [productData, setProductData] = useState<ProductData | null>(null);
 
+const ProductSlugPage = () => {
+  const params = useParams(); // Holt sich die URL-Parameter, z.B. den 'slug'
+  const [productData, setProductData] = useState<ProductData | null>(null); // Speichert die abgerufenen Produktdaten
+
+  // useEffect Hook zum Abrufen der Produktdaten, wenn der 'slug' sich ändert
   useEffect(() => {
     const slug = params?.slug as string;
     if (slug) {
@@ -35,6 +37,7 @@ const ProductSlugPage = () => {
     }
   }, [params]);
 
+  // Fallback: Wenn keine Produktdaten gefunden wurden, zeige eine Fehlermeldung
   if (!productData) {
     return (
       <>
@@ -44,7 +47,7 @@ const ProductSlugPage = () => {
             <h1 className="text-4xl font-bold mb-4">Produkt nicht gefunden</h1>
             <p className="text-lg text-foreground/70 mb-8">Das angeforderte Produkt existiert nicht.</p>
             <Button
-              onClick={() => window.history.back()}
+              onClick={() => window.history.back()} // Button zum Zurücknavigieren
               className="rounded-full bg-white text-foreground border-[3px] border-accent hover:text-secondary-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Zurück
@@ -61,98 +64,114 @@ const ProductSlugPage = () => {
             <div className="min-h-screen bg-background text-foreground">
                 {/* Hero Section */}
                 <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
-                    <img
-                        src={productData.hero.image}
-                        alt={`${productData.name} Hintergrund`}
-                        className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
-                    />
-                    {/* Subtiler Textur-Hintergrund */}
-                    <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0 opacity-10"
-                        style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
-                        }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 z-10" />
-                    <div className="absolute top-0 left-0 w-full h-full opacity-20 z-20">
-                        <div className="absolute top-20 left-10 w-2 h-2 bg-secondary rounded-full animate-pulse" />
-                        <div className="absolute top-40 right-20 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-                        <div className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          {/* Hintergrundbild des Hero-Bereichs */}
+          <img
+            src={productData.hero.image}
+            alt={`${productData.name} Hintergrund`}
+            className="absolute inset-0 w-full h-full object-cover opacity-10 z-0"
+          />
+          {/* Subtiles Hintergrundmuster für dekorative Zwecke */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23CE8600' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10V0H20v10L10 0H0v10l10 10L0 30v10h10l10-10 10 10h10V30L30 20z'/%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+          {/* Farbige Verläufe als Überlagerung für den Hintergrund */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 z-10" />
+          {/* Dekorative animierte Punkte */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-20 z-20">
+            <div className="absolute top-20 left-10 w-2 h-2 bg-secondary rounded-full animate-pulse" />
+            <div className="absolute top-40 right-20 w-1 h-1 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-accent rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          </div>
+
+          {/* Container für den gesamten Hero-Inhalt, zentriert und breitenbegrenzt */}
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30 max-w-5xl text-center">
+            {/* H1 Überschrift - nimmt volle Breite des max-w-5xl Containers ein */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="w-full space-y-6 mb-8 lg:mb-12" // 'w-full' für volle Breite, 'mb-8' Abstand nach unten
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight break-words pb-2">
+                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                  {productData.hero.title}
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* NEUE STRUKTUR: Flex-Container für Beschreibung/Buttons (links) und Bild (rechts) */}
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+              {/* Linker Bereich: Beschreibung, Buttons und Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="w-full lg:w-1/2 space-y-8 text-center lg:text-left" // Auf größeren Screens 1/2 Breite, Text Links
+              >
+                {/* Beschreibungstext */}
+                <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed font-light">
+                  {productData.hero.description}
+                </p>
+                {/* CTA-Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"> {/* Buttons auf Desktop linksbündig */}
+                  <Button asChild
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                  <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      Jetzt anmelden
+                  </a>
+                  </Button>
+                  {productData.cta.secondaryButton && (
+                      <Button
+                          variant="outline"
+                          size="lg"
+                          className="rounded-full border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      >
+                          <Eye className="mr-2 h-5 w-5" />
+                          {productData.cta.secondaryButton}
+                      </Button>
+                  )}
+                </div>
+                {/* Optionale Statistiken */}
+                {productData.hero.stats && (
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                        {productData.hero.stats.map((stat, index) => (
+                            <div key={index} className="text-center">
+                                <div className="text-2xl font-bold text-primary text-foreground">{stat.value}</div>
+                                <div className="text-sm text-foreground/60 uppercase tracking-wider">{stat.label}</div>
+                            </div>
+                        ))}
                     </div>
-                    
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
-                        <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-center">
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="w-full max-w-xl space-y-8 text-center lg:text-left"
-                            >
-                                <div className="space-y-6">
-                                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight break-words pb-2">
-                                        <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
-                                            {productData.hero.title}
-                                        </span>
-                                    </h1>
-                                    <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed font-light">
-                                        {productData.hero.description}
-                                    </p>
-                                </div>
-                                
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                    <Button asChild
-                                    variant="outline" 
-                                    size="lg"
-                                    className="w-full sm:min-w-[12rem] border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                    >
-                                    <a href="https://forms.office.com/e/4fpN4gHamc" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                        Jetzt anmelden
-                                        {/* <Phone className="ml-3 w-6 h-6" /> */}
-                                    </a>
-                                    </Button>
-                                    {productData.cta.secondaryButton && (
-                                        <Button
-                                            variant="outline"
-                                            size="lg"
-                                            className="rounded-full border-[3px] border-accent text-foreground bg-white hover:text-secondary-foreground text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                                        >
-                                            <Eye className="mr-2 h-5 w-5" />
-                                            {productData.cta.secondaryButton}
-                                        </Button>
-                                    )}
-                                </div>
-                                
-                                {productData.hero.stats && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-                                        {productData.hero.stats.map((stat, index) => (
-                                            <div key={index} className="text-center">
-                                                <div className="text-2xl font-bold text-primary font-mono">{stat.value}</div>
-                                                <div className="text-sm text-foreground/60 uppercase tracking-wider">{stat.label}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </motion.div>
-                            
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                viewport={{ once: true }}
-                                className="w-full lg:w-1/2 flex justify-end mb-8 lg:mb-0"
-                            >
-                                <img
-                                    src={productData.hero.image}
-                                    alt={`${productData.name} Hero`}
-                                    className="rounded-3xl w-full h-[260px] sm:h-[340px] md:h-[400px] object-cover border border-primary/30 backdrop-blur-sm shadow-lg"
-                                    style={{ objectPosition: 'right' }}
-                                />
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
+                )}
+              </motion.div>
+
+              {/* Rechter Bereich: Bild */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0" // Auf LG 1/2 Breite, Bild rechts
+              >
+                <img
+                    src={productData.hero.image}
+                    alt={`${productData.name} Hero`}
+                    className="rounded-3xl w-full max-w-md h-[260px] sm:h-[340px] md:h-[400px] object-cover border border-primary/30 backdrop-blur-sm shadow-lg"
+                    style={{ objectPosition: 'center' }}
+                />
+              </motion.div>
+            </div> {/* Ende flex-col lg:flex-row Container */}
+
+          </div> {/* Ende container mx-auto px-4 ... max-w-5xl text-center */}
+        </section>
 
                 {/* Features Section - Text Only */}
                 <section className="py-24 bg-gradient-to-br from-warm-bg to-background relative overflow-visible">

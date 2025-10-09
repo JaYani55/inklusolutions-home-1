@@ -93,10 +93,10 @@ export default function HomePage() {
 <section className="relative overflow-hidden">
   {/* Background Image - nur auf größeren Screens sichtbar */}
   <div 
-    className="hidden sm:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" 
+    className="hidden sm:block absolute inset-0 bg-cover bg-center bg-no-repeat" 
     style={{
        backgroundImage: "url('/header.jpg')",
-       filter: 'brightness(0.85) contrast(1)'
+       filter: 'brightness(0.85) contrast(.9)'
     }}
   />
   
@@ -132,7 +132,7 @@ export default function HomePage() {
             textShadow: '3px 3px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)'
           }}
         >
-          Inklusion beginnt mit Menschen und wird mit den richtigen Lösungen wirksam
+          Inklusion beginnt mit Menschen und wird mit den richtigen Lösungen wirksam.
         </h1>
         
         <h2 className="text-xl lg:text-2xl font-semibold text-white drop-shadow-2xl"
@@ -148,55 +148,62 @@ export default function HomePage() {
       <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-16 max-w mx-auto">
             {/* Box 1 */}
-            <Link href="/products/trainings" className="block">
+            <Link href="/products/trainings" 
+            className="block flex-grow">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-primary text-center"
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-primary text-center flex flex-col items-center h-full"
               >
-                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4 flex-shrink-0" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground flex-grow-0">
                   Kompetenz aufbauen
                 </h3>
-                <p className="text-lg text-foreground/80">
+                <p className="text-lg text-foreground/80 flex-grow">
                   Durch praxisnahe Trainings
                 </p>
               </motion.div>
             </Link>
 
             {/* Box 2 */}
-            <Link href="/products/awareness" className="block">
+            <Link 
+              href="/products/awareness" 
+              className="block flex-grow">
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-secondary text-center"
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-secondary text-center flex flex-col items-center h-full"
               >
-                <Lightbulb className="w-12 h-12 text-third mx-auto mb-4" />
-                <h3 className="text-2xl font-semibold mb-3 text-foreground">Kultur stärken</h3>
-                <p className="text-lg text-foreground/80">
+                <Lightbulb className="w-12 h-12 text-third mx-auto mb-4 flex-shrink-0" />
+                <h3 className="text-2xl font-semibold mb-3 text-foreground flex-grow-0">Kultur stärken</h3>
+                <p className="text-lg text-foreground/80 flex-grow">
                   Mit Formaten für Awareness und Perspektivwechsel
                 </p>
               </motion.div>
             </Link>
 
             {/* Box 3 */}
-            <Link href="/products/services" className="block">
+            <Link 
+              href="/products/services" 
+              className="block flex-grow">
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-accent text-center"
+                className="bg-white/85 hover:bg-white/100 p-6 rounded-2xl shadow-lg border-4 border-accent text-center flex flex-col items-center h-full"
               >
-                <Settings className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                <Settings className="w-12 h-12 text-accent mx-auto mb-4 flex-shrink-0"/>
+                <h3 className="text-2xl font-semibold mb-3 text-foreground flex-grow-0">
                   Strukturen verankern
                 </h3>
-                <p className="text-lg text-foreground/80">
+                <p className="text-lg text-foreground/80 flex-grow">
                   Über Services und Tools zur Umsetzung
                 </p>
               </motion.div>
