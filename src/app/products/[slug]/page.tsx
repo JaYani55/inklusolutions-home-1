@@ -98,7 +98,7 @@ const ProductSlugPage = () => {
               className="w-full space-y-6 mb-8 lg:mb-12" // 'w-full' für volle Breite, 'mb-8' Abstand nach unten
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight break-words pb-2">
-                <span className="bg-gradient-to-r from-primary to-[#d06119] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
                   {productData.hero.title}
                 </span>
               </h1>

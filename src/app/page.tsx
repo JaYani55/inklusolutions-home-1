@@ -396,9 +396,10 @@ Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
     </div>
 </section>
 
+{/* 
 <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
   <div className="w-full">
-{/* CTA Buttons - nur auf größeren Screens mit vollem Design */}
+{/* CTA Buttons - nur auf größeren Screens mit vollem Design 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -445,6 +446,7 @@ Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
       </motion.div>
   </div>
 </section>
+*/}
 
 {/* 3) ANGEBOTE / PRODUKTE-BAUKASTEN (Teaser) – Pro Version */}
 <section
