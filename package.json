@@ -71,6 +71,7 @@
     "lint": "next lint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
-    "revalidate": "tsx scripts/revalidate.ts"
+    "revalidate": "tsx scripts/revalidate.ts",
+    "create-test-product": "tsx scripts/create-test-supabase-product-page.ts"
   }
 }
