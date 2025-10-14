@@ -1,5 +1,4 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const Foerdermittel: ProductData = {
   id: '13',
@@ -36,7 +35,7 @@ export const Foerdermittel: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+  icon: 'Users',
       items: [
         'Recruiting',
         'Personalentwicklung',
@@ -47,7 +46,7 @@ export const Foerdermittel: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+  icon: 'Wrench',
       items: [
         'Fachwissen: Fördermittel und deren Beantragung',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -59,7 +58,7 @@ export const Foerdermittel: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+  icon: 'CalendarDays',
       items: [
         'Vorgespräche zur individuellen Gestaltung',
         'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',

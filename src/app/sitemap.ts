@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Dynamische Produktseiten - jetzt über den ProductService
-  const productSlugs = ProductService.getAllSlugs();
+  const productSlugs = await ProductService.getAllSlugs();
   const productPages = productSlugs.map((slug) => ({
     url: `${baseUrl}/products/${slug}`,
     lastModified: new Date().toISOString(), // Oder das tatsächliche Änderungsdatum des Produkts

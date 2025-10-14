@@ -2,6 +2,7 @@
 "use client"; // Notwendig, da Hooks und Framer Motion verwendet werden
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -106,11 +107,13 @@ const MentorCarousel: React.FC<MentorCarouselProps> = ({ theme = 'warm' }) => {
                 >
                   {/* Mentor Image */}
                   <div className="relative mb-6 flex justify-center">
-                    <div className="relative">
-                      <img
+                    <div className="relative w-32 h-32 md:w-40 md:h-40">
+                      <Image
                         src={mentor.image}
                         alt={mentor.name}
-                        className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-theme-primary shadow-lg group-hover:scale-105 transition-transform duration-300"
+                        fill
+                        className="rounded-full object-cover border-4 border-theme-primary shadow-lg group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 8rem, 10rem"
                       />
                       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-theme-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>

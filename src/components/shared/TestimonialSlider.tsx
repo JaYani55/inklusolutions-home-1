@@ -1,6 +1,7 @@
 // app/components/TestimonialSlider.tsx
 'use client'; // Notwendig, da Swiper Hooks und Browser-APIs verwendet
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Quote, Star } from "lucide-react";
@@ -89,11 +90,13 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ theme = 'warm' })
                   relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2
                   border-theme-primary shadow-lg flex items-center justify-center bg-theme-bg
               `}>
-                  <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
+          <Image
+            src={t.image}
+            alt={t.name}
+            fill
+            className="object-cover transition-transform duration-300 hover:scale-110"
+            sizes="96px"
+          />
                    {/* Subtiler Ring um das Bild - ring-theme-primary */}
                   <div className={`absolute inset-0 rounded-full ring-2 ring-theme-primary/50 animate-pulse-slow`} />
               </div>

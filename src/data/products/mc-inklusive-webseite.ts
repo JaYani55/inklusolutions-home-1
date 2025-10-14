@@ -1,5 +1,4 @@
 import { ProductData } from '@/types/product';
-import { Users, Wrench, CalendarDays } from 'lucide-react';
 
 export const InklusiveWebseite: ProductData = {
   id: '14',
@@ -40,7 +39,7 @@ export const InklusiveWebseite: ProductData = {
     {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
-      icon: Users,
+  icon: 'Users',
       items: [
         'Facility Management',
         'Kommunikation',
@@ -53,7 +52,7 @@ export const InklusiveWebseite: ProductData = {
     {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
-      icon: Wrench,
+  icon: 'Wrench',
       items: [
         'Fachwissen zu den unterschiedlichen Barrieren und wie diese reduziert werden können',
         'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
@@ -65,7 +64,7 @@ export const InklusiveWebseite: ProductData = {
     {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
-      icon: CalendarDays,
+  icon: 'CalendarDays',
       items: [
         'Vorgespräche zur individuellen Gestaltung',
         'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',

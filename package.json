@@ -24,6 +24,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@supabase/supabase-js": "^2.74.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/react-query": "^5.85.5",
     "autoprefixer": "^10.4.21",
@@ -34,13 +35,14 @@
     "framer-motion": "^12.23.12",
     "lucide": "^0.540.0",
     "lucide-react": "^0.540.0",
-    "next": "15.3.0",
+    "next": "^15.5.5",
     "next-themes": "^0.4.6",
     "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.62.0",
     "react-icons": "^5.5.0",
+    "supabase": "^2.48.3",
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
@@ -48,12 +50,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@types/node": "^20.19.11",
+    "@types/node": "^20.19.19",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "dotenv": "^17.2.3",
     "eslint": "^9.33.0",
     "eslint-config-next": "15.3.0",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.2",
     "wrangler": "^4.24.4"
   },
@@ -66,6 +70,8 @@
     "dev": "next dev",
     "lint": "next lint",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "start": "next start"
+    "start": "next start",
+    "revalidate": "tsx scripts/revalidate.ts",
+    "create-test-product": "tsx scripts/create-test-supabase-product-page.ts"
   }
 }

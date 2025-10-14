@@ -1,5 +1,6 @@
 import { ProductData } from '@/types/product';
-import { Clock, Lightbulb, Target } from 'lucide-react';
+// No longer importing icons directly
+// import { Clock, Lightbulb, Target } from 'lucide-react';
 
 export const disabilityAwarenessSession: ProductData = {
   id: '3',
@@ -36,7 +37,7 @@ export const disabilityAwarenessSession: ProductData = {
     {
       title: 'Format & Ablauf',
       description: 'Workshop-Details',
-      icon: Clock,
+      icon: 'Clock',
       items: [
         'Begrüßung und Einstieg mit Leitfrage: "Wie willkommen wäre ich – wenn ich eine Behinderung hätte?"',
         'Filmimpuls "The Interviewer" mit anschließender Szenarienarbeit',
@@ -49,7 +50,7 @@ export const disabilityAwarenessSession: ProductData = {
     {
       title: 'Inhalte & Methoden',
       description: 'Was Sie lernen',
-      icon: Lightbulb,
+      icon: 'Lightbulb',
       items: [
         'Einführung in sichtbare und unsichtbare Behinderungen',
         'Unconscious Bias und Ableismus verstehen',
@@ -62,7 +63,7 @@ export const disabilityAwarenessSession: ProductData = {
     {
       title: 'Zielgruppen & Wirkung',
       description: 'Für wen & warum',
-      icon: Target,
+      icon: 'Target',
       items: [
         'Alle Mitarbeitende: 15-40 Teilnehmende pro Session',
         'Abbau von Unsicherheiten im Umgang mit Behinderung',

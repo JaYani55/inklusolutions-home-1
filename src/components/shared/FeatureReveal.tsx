@@ -2,6 +2,7 @@
 'use client'; // Notwendig, da Framer Motion Hooks verwendet
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface FeatureRevealProps {
@@ -53,11 +54,15 @@ const FeatureReveal: React.FC<FeatureRevealProps> = ({
       >
         {/* Hauptbild */}
         {/* Der Rahmen nutzt --theme-border für dynamische Farbe */}
-        <img
-          src={image}
-          alt={title}
-          className="rounded-3xl w-full h-[300px] object-cover shadow-lg border border-[var(--theme-border)] transform hover:scale-105 transition-transform duration-500"
-        />
+        <div className="relative w-full h-[300px]">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="rounded-3xl object-cover shadow-lg border border-[var(--theme-border)] transform hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
         {/* Dekorative Elemente um das Bild, gesteuert durch das Theme (nutzen --theme- Farben und Schatten) */}
       </motion.div>
       {/* Bereich für den Textinhalt */}

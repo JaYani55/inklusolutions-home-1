@@ -3,6 +3,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Navigation from '@/components/ui/Navigation'
 import { motion } from 'framer-motion'
 import { 
@@ -95,11 +96,14 @@ export default function TrainingsPage() {
                 </div>
                 
                 <div className="relative">
-                  <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                    <img 
+                  <div className="relative overflow-hidden rounded-3xl shadow-2xl h-[500px]">
+                    <Image
                       src="/workshop-setting.jpg"
                       alt="Professional training session with diverse participants"
-                      className="w-full h-[500px] object-cover"
+                      fill
+                      priority
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
@@ -115,11 +119,13 @@ export default function TrainingsPage() {
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="relative">
-                  <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                    <img 
+                  <div className="relative overflow-hidden rounded-3xl shadow-2xl h-[400px]">
+                    <Image
                       src="/inclusive-leadership-course.jpg"
                       alt="Inclusive workplace collaboration"
-                      className="w-full h-[400px] object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
                   <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center shadow-xl">
@@ -206,7 +212,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-emerald-500">
-                        <img src="/Stellenausschreibung.png" alt="Stellenausschreibung" className="w-16 h-16 object-contain" />
+                        <Image src="/Stellenausschreibung.png" alt="Stellenausschreibung" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -225,7 +231,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-blue-500">
-                        <img src="/Barrierefreiheit.png" alt="Barrierefreiheit" className="w-16 h-16 object-contain" />
+                        <Image src="/Barrierefreiheit.png" alt="Barrierefreiheit" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -244,7 +250,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-orange-500">
-                        <img src="/KommunikationOnline.png" alt="Kommunikation Online" className="w-16 h-16 object-contain" />
+                        <Image src="/KommunikationOnline.png" alt="Kommunikation Online" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -263,7 +269,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-purple-500">
-                        <img src="/Onboarding.png" alt="Inklusives Onboarding" className="w-16 h-16 object-contain" />
+                        <Image src="/Onboarding.png" alt="Inklusives Onboarding" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -285,7 +291,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-pink-500">
-                        <img src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" className="w-16 h-16 object-contain" />
+                        <Image src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -304,7 +310,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-red-500">
-                        <img src="/DeepDive.png" alt="Deep Dives" className="w-16 h-16 object-contain" />
+                        <Image src="/DeepDive.png" alt="Deep Dives" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -323,7 +329,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-yellow-500">
-                        <img src="/Foerdermittel.png" alt="Fördermittel" className="w-16 h-16 object-contain" />
+                        <Image src="/Foerdermittel.png" alt="Fördermittel" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
@@ -342,7 +348,7 @@ export default function TrainingsPage() {
                   >
                     <div className="mb-4">
                       <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-teal-500">
-                        <img src="/Vernetzung.png" alt="Vernetzung" className="w-16 h-16 object-contain" />
+                        <Image src="/Vernetzung.png" alt="Vernetzung" width={64} height={64} className="w-16 h-16 object-contain" />
                       </div>
                       <div className="h-6" />
                     </div>
