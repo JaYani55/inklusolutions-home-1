@@ -82,7 +82,7 @@ export const disabilityAwarenessSession: ProductData = {
   faq: [
     {
       question: 'Ist die Session auch für kleinere Teams geeignet?',
-      answer: 'Ja, Inhalte und Methoden werden flexibel an Teamgröße und Kontext angepasst.'
+      text: 'Ja, Inhalte und Methoden werden flexibel an Teamgröße und Kontext angepasst.'
     },
     {
       question: 'Können mehrere Zielgruppen gleichzeitig teilnehmen?',

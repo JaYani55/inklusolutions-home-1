@@ -1,4 +1,5 @@
 // src/types/product.d.ts
+import { ContentBlock, BaseBlock } from "@/types/content";
 
 export interface Product {
     id: string;
@@ -26,7 +27,7 @@ export interface ProductData {
     'trainer-module'?: boolean;
     hero: {
         title: string;
-        description: string;
+        description: ContentBlock[];
         image: string;
         stats?: Array<{
             value: string;
@@ -35,7 +36,7 @@ export interface ProductData {
     };
     features: Array<{
         title: string;
-        description: string;
+        description: ContentBlock[];
         image?: string; // Make image optional
         reverse?: boolean;
     }>;
@@ -49,7 +50,7 @@ export interface ProductData {
     }>;
     faq: Array<{
         question: string;
-        answer: string;
+        answer: ContentBlock[];
     }>;
     cta: {
         title: string;
