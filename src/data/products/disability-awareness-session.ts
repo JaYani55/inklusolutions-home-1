@@ -1,4 +1,5 @@
 import { ProductData } from '@/types/product';
+import { ContentBlock } from '@/types/content';
 // No longer importing icons directly
 // import { Clock, Lightbulb, Target } from 'lucide-react';
 
@@ -10,7 +11,11 @@ export const disabilityAwarenessSession: ProductData = {
   'trainer-module': true,
   hero: {
     title: 'Disability Awareness Session – Perspektivwechsel, der bewegt.',
-    description: 'Ein halbtägiger, praxisnaher Sensibilisierungsworkshop in Präsenz, der Mitarbeitende befähigt, Inklusion im Arbeitsalltag zu verstehen, mitzugestalten und sicherer zu kommunizieren. \n „Stell dir vor, du wärst ein Mensch mit Behinderung in deinem Unternehmen. Würdest du dich willkommen fühlen?“',
+    description: [
+          { id: 'hero-desc-1', type: 'text', 
+            content: 'Ein halbtägiger, praxisnaher Sensibilisierungsworkshop in Präsenz, der Mitarbeitende befähigt, Inklusion im Arbeitsalltag zu verstehen, mitzugestalten und sicherer zu kommunizieren. \n „Stell dir vor, du wärst ein Mensch mit Behinderung in deinem Unternehmen. Würdest du dich willkommen fühlen?“',
+          } as ContentBlock,
+        ],
     image: '/diverse-professionals.jpg',
     stats: [
       { value: '4 STUNDEN', label: 'INKL. PAUSEN' },
@@ -19,20 +24,44 @@ export const disabilityAwarenessSession: ProductData = {
     ]
   },
   features: [
-    {
-      title: 'Begegnung auf Augenhöhe',
-      description: 'Keine trockene Theorie, sondern echte Erfahrungen: In der Session entsteht ein offener Raum für ehrliche Fragen, Austausch und Reflexion. Gemeinsam mit Expert:innen mit Behinderung. So werden neue Perspektiven verständlich und konkrete Tipps direkt anwendbar.'
-    },
-    {
-      title: 'Bewusstsein schaffen',
-      description: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache. Ein kurzer Film („The Interviewer“) und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.',
-      reverse: true
-    },
-    {
-      title: 'Wirkung, die bleibt',
-      description: 'Die Session verändert Haltung und Strukturen. Sie baut Unsicherheiten ab, stärkt das Selbstverständnis als inklusiver Arbeitgeber und sorgt dafür, dass Menschen mit Behinderung sichtbarer und selbstverständlicher Teil des Teams werden ohne zusätzlichen Aufwand oder Kosten.'
-    }
-  ],
+  {
+    title: 'Begegnung auf Augenhöhe',
+    description: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'feature1-block1',
+        type: 'text',
+        content: 'Keine trockene Theorie, sondern echte Erfahrungen: In der Session entsteht ein offener Raum für ehrliche Fragen, Austausch und Reflexion. Gemeinsam mit Expert:innen mit Behinderung. So werden neue Perspektiven verständlich und konkrete Tipps direkt anwendbar.'
+      } as ContentBlock,
+    ]
+  },
+  {
+    title: 'Bewusstsein schaffen',
+    description: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'feature2-block1',
+        type: 'text',
+        content: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache.'
+      } as ContentBlock,
+      {
+        id: 'feature2-block2',
+        type: 'text',
+        content: 'Ein kurzer Film („The Interviewer") und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.',
+        format: 'italic' // Optional: Hebt diesen Teil hervor
+      } as ContentBlock,
+    ],
+    reverse: true
+  },
+  {
+    title: 'Wirkung, die bleibt',
+    description: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'feature3-block1',
+        type: 'text',
+        content: 'Die Session verändert Haltung und Strukturen. Sie baut Unsicherheiten ab, stärkt das Selbstverständnis als inklusiver Arbeitgeber und sorgt dafür, dass Menschen mit Behinderung sichtbarer und selbstverständlicher Teil des Teams werden ohne zusätzlichen Aufwand oder Kosten.'
+      } as ContentBlock,
+    ]
+  }
+],
   cards: [
     {
       title: 'Format & Ablauf',
@@ -79,28 +108,60 @@ export const disabilityAwarenessSession: ProductData = {
       color: 'accent'
     }
   ],
+
   faq: [
-    {
-      question: 'Ist die Session auch für kleinere Teams geeignet?',
-      text: 'Ja, Inhalte und Methoden werden flexibel an Teamgröße und Kontext angepasst.'
-    },
-    {
-      question: 'Können mehrere Zielgruppen gleichzeitig teilnehmen?',
-      answer: 'Ja, wir gewichten die Inhalte je nach Zusammensetzung – etwa mit Fokus auf Führung, Kommunikation oder Sensibilisierung.'
-    },
-    {
-      question: 'Ist eine hybride Umsetzung möglich?',
-      answer: 'Die Session ist für Präsenz konzipiert, hybride Varianten sind aber nach Absprache umsetzbar.'
-    },
-    {
-      question: 'Welche Vorbereitungen sind nötig?',
-      answer: 'Nur Raum, Technik und Teilnehmende – wir übernehmen die komplette inhaltliche Gestaltung.'
-    },
-    {
-      question: 'Wie viel Aufwand entsteht intern?',
-      answer: 'Minimal – die Session wirkt über Haltung, nicht über Strukturen. Es sind keine Prozessänderungen nötig.'
-    }
-  ],
+  {
+    question: 'Ist die Session auch für kleinere Teams geeignet?',
+    answer: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'faq1-block1',
+        type: 'text',
+        content: 'Ja, Inhalte und Methoden werden flexibel an Teamgröße und Kontext angepasst.'
+      } as ContentBlock,
+    ]
+  },
+  {
+    question: 'Können mehrere Zielgruppen gleichzeitig teilnehmen?',
+    answer: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'faq2-block1',
+        type: 'text',
+        content: 'Ja, wir gewichten die Inhalte je nach Zusammensetzung – etwa mit Fokus auf Führung, Kommunikation oder Sensibilisierung.'
+      } as ContentBlock,
+    ]
+  },
+  {
+    question: 'Ist eine hybride Umsetzung möglich?',
+    answer: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'faq3-block1',
+        type: 'text',
+        content: 'Die Session ist für Präsenz konzipiert, hybride Varianten sind aber nach Absprache umsetzbar.'
+      } as ContentBlock,
+    ]
+  },
+  {
+    question: 'Welche Vorbereitungen sind nötig?',
+    answer: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'faq4-block1',
+        type: 'text',
+        content: 'Nur Raum, Technik und Teilnehmende – wir übernehmen die komplette inhaltliche Gestaltung.'
+      } as ContentBlock,
+    ]
+  },
+  {
+    question: 'Wie viel Aufwand entsteht intern?',
+    answer: [ // Jetzt ein Array von ContentBlöcken
+      {
+        id: 'faq5-block1',
+        type: 'text',
+        content: 'Minimal – die Session wirkt über Haltung, nicht über Strukturen. Es sind keine Prozessänderungen nötig.'
+      } as ContentBlock,
+    ]
+  }
+],
+
   cta: {
     title: 'BEREIT FÜR MEHR AWARENESS IM TEAM?',
     description: 'Buchen Sie jetzt die Disability Awareness Session und schaffen Sie einen geschützten Raum für ehrliche Fragen und nachhaltigen Perspektivwechsel!',
