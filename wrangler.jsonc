@@ -3,7 +3,6 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */ {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "inklusolutions-home-prod",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
