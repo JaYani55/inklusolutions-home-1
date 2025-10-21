@@ -169,7 +169,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                 viewport={{ once: true, amount: 0.3 }}
                 className={`max-w-4xl mx-auto text-center space-y-8 ${index % 2 === 1 ? 'lg:text-right' : 'lg:text-left'}`}
               >
-                {/* Feature Number Badge */}
+                {/* Feature Number Badge 
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -180,7 +180,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                   <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                </motion.div>
+                </motion.div>*/}
 
                 {/* Feature Title */}
                 <motion.h3
@@ -188,7 +188,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="text-4xl lg:text-5xl font-normal leading-relaxed mb-6 pb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                  className="text-4xl lg:text-5xl font-normal leading-relaxed mb-6 pb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent"
                   style={{ WebkitFontSmoothing: 'antialiased', fontWeight: 400 }}
                 >
                   {feature.title}

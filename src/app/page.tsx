@@ -15,6 +15,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import CTASection from "@/components/shared/CTASection";
 import Footer from "@/components/shared/Footer";
+import ContentRenderer from "@/components/shared/ContentRenderer";
 
 export default function HomePage() {
   // handlungsfelder (temporarily unused)
@@ -97,12 +98,12 @@ export default function HomePage() {
     className="hidden sm:block absolute inset-0 bg-cover bg-center bg-no-repeat" 
     style={{
        backgroundImage: "url('/header.jpg')",
-       filter: 'brightness(0.85) contrast(.9)'
+       filter: 'brightness(0.85) contrast(0.9) blur(3px)'
     }}
   />
   
   {/* Subtle dark overlay */}
-  <div className="hidden sm:block absolute inset-0 bg-black/20" />
+  <div className="hidden sm:block absolute inset-0 bg-black/25" />
   
   {/* Content Container - responsive height ohne negative translation */}
   <div className="relative z-10 flex flex-col justify-center 
@@ -253,6 +254,45 @@ export default function HomePage() {
   </div>
 </section>
 
+
+{/* Video Section */}
+<section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 border">
+  <div className="container mx-auto px-0">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-12 px-6"
+    >
+      <p className="text-xl text-foreground/80 max-w-3xl mx-auto font-bold">
+        Erleben Sie, wie wir Inklusion in die Praxis umsetzen
+      </p>
+    </motion.div>
+    
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="w-full px-6 lg:px-12"
+    >
+      <ContentRenderer 
+        content={[
+          {
+            id: 'v-1',
+            type: 'video',
+            src: 'https://player.vimeo.com/video/1126325516?h=6fb514b6ff',
+            provider: 'vimeo',
+            caption: 'InkluSolutions – Gemeinsam Inklusion gestalten',
+          }
+        ]}
+      />
+    </motion.div>
+  </div>
+</section>
+
+
 {/* 2) SOCIAL PROOF (150+ Unternehmen) */}
 <section className="py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
         {/* Geometric background pattern */}
@@ -331,70 +371,69 @@ Behinderung einen angenehmen Arbeitsplatz gestalten zu können.&rdquo;
 </section>
 
 {/* Karten */}
-<section>
-    <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto">
-      {productCategories.map((category, index) => (
-        <motion.article
-          key={index}
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: index * 0.08 }}
-          viewport={{ once: true, margin: '0px 0px -80px 0px' }}
-          className="group relative"
+<section className="py-16">
+  <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto px-6">
+    {productCategories.map((category, index) => (
+      <motion.article
+        key={index}
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: index * 0.08 }}
+        viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+        className="group relative h-full" // h-full hinzugefügt
+      >
+        <Link
+          href={category.link}
+          className="block h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent))]/40 rounded-2xl"
+          aria-label={`${category.title} erkunden`}
         >
-          <Link
-            href={category.link}
-            className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent))]/40 rounded-2xl"
-            aria-label={`${category.title} erkunden`}
-          >
-            {/* Gradient-Border-Karte */}
-            <div className="rounded-2xl p-[1px] bg-gradient-to-br from-white/40 via-white/60 to-white/30 group-hover:from-[hsl(var(--primary))]/30 group-hover:via-white/70 group-hover:to-[hsl(var(--accent))]/30 transition-all duration-300">
-              <div className="h-full rounded-2xl p-9 bg-white/80 backdrop-blur-md border border-white/60 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-1.5 transition-all duration-500">
-
-
-                {/* Icon */}
-                <div
-                  className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
-                >
-                  <category.icon className="w-10 h-10 text-white" aria-hidden />
+          {/* Gradient-Border-Karte */}
+          <div className="h-full rounded-2xl p-[1px] bg-gradient-to-br from-white/40 via-white/60 to-white/30 group-hover:from-[hsl(var(--primary))]/30 group-hover:via-white/70 group-hover:to-[hsl(var(--accent))]/30 transition-all duration-300">
+            <div className="h-full rounded-2xl p-9 bg-white/80 backdrop-blur-md border border-white/60 shadow-sm group-hover:shadow-2xl group-hover:-translate-y-1.5 transition-all duration-500 flex flex-col">
+              
+              {/* Icon */}
+              <div
+                className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 flex-shrink-0`}
+              >
+                <category.icon className="w-10 h-10 text-white" aria-hidden />
+              </div>
+              
+              {/* Titel */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors flex-shrink-0">
+                {category.title}
+              </h3>
+              
+              {/* Produkt-Liste - nimmt verfügbaren Platz ein */}
+              {Array.isArray(category.products) && category.products.length > 0 && (
+                <div className="text-lg md:text-xl text-foreground/75 mt-6 flex-grow">
+                  <ul className="space-y-4">
+                    {category.products.map((product, pIndex) => {
+                      const key = String(product).toLowerCase().trim();
+                      const Icon = productIconMap[key] || productIconMap.default;
+                      return (
+                        <li key={pIndex} className="flex items-start gap-4">
+                          <span className="mt-0.5 text-primary flex-shrink-0">
+                            <Icon className="w-6 h-6" aria-hidden />
+                          </span>
+                          <span className="leading-snug">{formatLabel(String(product))}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-
-                {/* Titel + Untertitel */}
-                <h3 className="md:text-3xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                  {category.title}
-                </h3>
-
-                {/* optionale Produkt-Liste außerhalb der Karte (nicht clickable) */}
-                {Array.isArray(category.products) && category.products.length > 0 && (
-                  <div className="text-lg md:text-xl text-foreground/75 mt-6">
-                    <ul className="space-y-4">
-                      {category.products.map((product, pIndex) => {
-                        const key = String(product).toLowerCase().trim();
-                        const Icon = productIconMap[key] || productIconMap.default;
-                        return (
-                          <li key={pIndex} className="flex items-start gap-4">
-                            <span className="mt-0.5 text-primary">
-                              <Icon className="w-6 h-6" aria-hidden />
-                            </span>
-                            <span className="leading-snug">{formatLabel(String(product))}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-
-                {/* „Mehr“-Hint */}
-                <div className="mt-8 inline-flex items-center gap-3 text-lg font-semibold text-foreground/80 group-hover:text-primary">
-                  Mehr erfahren
-                  <ArrowRight className="w-5 h-5 translate-x-0 group-hover:translate-x-1 transition-transform" />
-                </div>
+              )}
+              
+              {/* „Mehr"-Hint - bleibt am unteren Rand */}
+              <div className="mt-8 inline-flex items-center gap-3 text-lg font-semibold text-foreground/80 group-hover:text-primary flex-shrink-0">
+                Mehr erfahren
+                <ArrowRight className="w-5 h-5 translate-x-0 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-          </Link>
-        </motion.article>
-      ))}
-    </div>
+          </div>
+        </Link>
+      </motion.article>
+    ))}
+  </div>
 </section>
 
 {/* 

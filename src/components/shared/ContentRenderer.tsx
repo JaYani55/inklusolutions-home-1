@@ -77,33 +77,47 @@ const ContentRenderer: React.FC<ContentRendererProps> = ({ content, className })
           
           case 'video':
             const videoBlock = block as VideoBlock;
-            // Einfaches Embedding für YouTube/Vimeo
             let embedUrl = '';
+            
             if (videoBlock.provider === 'youtube') {
               const videoId = videoBlock.src.split('v=')[1]?.split('&')[0] || videoBlock.src.split('/').pop();
               embedUrl = `https://www.youtube.com/embed/${videoId}`;
             } else if (videoBlock.provider === 'vimeo') {
-              const videoId = videoBlock.src.split('/').pop();
-              embedUrl = `https://player.vimeo.com/video/${videoId}`;
+              if (videoBlock.src.includes('player.vimeo.com')) {
+                embedUrl = videoBlock.src;
+              } else {
+                const videoId = videoBlock.src.split('/').pop()?.split('?')[0];
+                embedUrl = `https://player.vimeo.com/video/${videoId}`;
+              }
             } else {
-                embedUrl = videoBlock.src; // Fallback für andere Anbieter
+              embedUrl = videoBlock.src;
             }
 
-            if (!embedUrl) return null; // Falls keine gültige Embed-URL gefunden wurde
+            if (!embedUrl) return null;
 
             return (
-                <div key={key} className="my-6 aspect-video w-full overflow-hidden rounded-lg shadow-md">
+              <div key={key} className="my-6 w-full">
+                {/* Container mit max-height und zentriertem Inhalt */}
+                <div className="w-full flex justify-center items-center lg:max-h-[calc(100vh-120px)]">
+                  <div className="w-full aspect-video overflow-hidden rounded-xl shadow-2xl border border-primary/20 lg:max-h-[calc(100vh-120px)]">
                     <iframe
-                        className="w-full h-full"
-                        src={embedUrl}
-                        title={videoBlock.caption || `Video from ${videoBlock.provider}`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+                      className="w-full h-full"
+                      src={embedUrl}
+                      title={videoBlock.caption || `Video from ${videoBlock.provider}`}
+                      frameBorder="0"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      allowFullScreen
                     ></iframe>
-                    {videoBlock.caption && <figcaption className="mt-2 text-sm text-center text-gray-500">{videoBlock.caption}</figcaption>}
+                  </div>
                 </div>
-            )
+                {videoBlock.caption && (
+                  <figcaption className="mt-4 text-center text-base text-foreground/70 font-light">
+                    {videoBlock.caption}
+                  </figcaption>
+                )}
+              </div>
+            );
 
           default:
             // TypeScript sollte hier eigentlich nicht hinkommen, wenn ContentBlock[] alle Typen abdeckt,
