@@ -1,7 +1,6 @@
 import { ContentBlock } from '@/types/content';
 import { ProductData } from '@/types/product';
-// Removed direct icon imports to fix type error
-// import { Users, Wrench, CalendarDays } from 'lucide-react';
+
 
 export const inklusionsführerschein: ProductData = {
   id: '1',

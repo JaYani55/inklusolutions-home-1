@@ -59,7 +59,7 @@ const ContentRenderer: React.FC<ContentRendererProps> = ({ content, className })
             const quoteBlock = block as QuoteBlock;
             return (
               <blockquote key={key} className="my-6 p-4 border-l-4 border-primary italic text-foreground/80">
-                <p className="text-xl">"{quoteBlock.text}"</p>
+                <p className="text-xl">&quot;{quoteBlock.text}&quot;</p>
                 {quoteBlock.author && <footer className="mt-2 text-sm text-gray-600">-- {quoteBlock.author}</footer>}
               </blockquote>
             );

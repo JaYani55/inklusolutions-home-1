@@ -2,31 +2,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// Import der benötigten Icons von Lucide React
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 
-// Hauptkomponente für die Navigation
+
 export default function Navigation() {
-  // State für die Sichtbarkeit des mobilen Menüs (gesamte Overlay-Navigation)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // State, der die ID des gerade aktiv GEEKLIICKTEN Haupt-Dropdown-Elements speichert.
-  // Wenn null, ist kein Haupt-Dropdown per Klick offen.
-  // Dies ermöglicht persistentes Öffnen/Schließen auf Klick und dient als Flag für den Hover-Effekt.
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  // State, der die ID des gerade aktiv GEEKLIICKTEN Sub-Dropdown-Elements (z.B. "Training") speichert.
-  // Ähnlich wie activeDropdown, aber für die zweite Ebene der Menüpunkte.
-  // Hat Auswirkungen auf das Chevron-Icon und die Sichtbarkeit des Sub-Menüs.
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
-
-  // useRef, um auf das DOM-Element der gesamten Navigationskomponente zuzugreifen.
-  // Dies ist entscheidend, um Klicks zu detektieren, die außerhalb der Navigation stattfinden.
   const navRef = useRef<HTMLElement>(null);
 
-  // Definition der Navigationsstruktur
-  // Jedes Objekt repräsentiert einen Top-Level-Menüpunkt.
-  // 'id' wird hinzugefügt, um den Zustand von activeDropdown/activeSubDropdown eindeutig zu verwalten.
   const navItems = [
     {
       name: "Leistungen",
@@ -49,12 +33,9 @@ export default function Navigation() {
         { name: "Services", href: "/products/services", disabled: false },
       ],
     },
-    // Ein Top-Level-Menüpunkt ohne Dropdown, der zu einer externen Ressource führt
     { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc", isExternal: true },
   ];
 
-  // Hilfsfunktion: Schließt alle offenen Dropdowns, indem sie deren IDs im State auf null setzt.
-  // Wird verwendet, wenn Klicks außerhalb der Navigation erkannt werden oder wenn ein Link geklickt wird.
   const closeAllDropdowns = () => {
     setActiveDropdown(null);
     setActiveSubDropdown(null);

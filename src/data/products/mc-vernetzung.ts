@@ -1,4 +1,5 @@
 import { ProductData } from '@/types/product';
+import { ContentBlock} from '@/types/content';
 
 export const Vernetzung: ProductData = {
   id: '17',
@@ -8,7 +9,13 @@ export const Vernetzung: ProductData = {
   'trainer-module': true,
   hero: {
     title: 'Vernetzung & Anlaufstellen',
-    description: 'Netzwerke sind zentral, um Inklusion im Unternehmen nachhaltig zu verankern. Sie ermöglichen Austausch, gegenseitiges Lernen und konkrete Unterstützung – etwa bei Rekrutierung oder Kommunikation. Die Masterclass bietet einen Überblick über relevante Netzwerke und zentrale Anlaufstellen zur Inklusion in der Arbeitswelt. So entsteht ein stabiles Fundament, das Inklusion sichtbar macht und langfristig stärkt.',
+    description: [
+      {
+        id: 'hero-desc-1',
+        type: 'text',
+        content: 'Netzwerke sind zentral, um Inklusion im Unternehmen nachhaltig zu verankern. Sie ermöglichen Austausch, gegenseitiges Lernen und konkrete Unterstützung – etwa bei Rekrutierung oder Kommunikation. Die Masterclass bietet einen Überblick über relevante Netzwerke und zentrale Anlaufstellen zur Inklusion in der Arbeitswelt. So entsteht ein stabiles Fundament, das Inklusion sichtbar macht und langfristig stärkt.',
+      } as ContentBlock,
+    ],
     image: '/mentor-mentee.jpg',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
@@ -19,16 +26,34 @@ export const Vernetzung: ProductData = {
   features: [
     {
       title: 'Format & Rahmen',
-      description: 'Die Masterclass umfasst zwei Sessions à 1,5 Stunden sowie ein Vorbereitungsgespräch zur Festlegung individueller Schwerpunkte, z. B. in Rekrutierung, Marketing oder Wissenstransfer. Begleitet wird sie von erfahrenen Coaches, ergänzt durch Einblicke von Mentor:innen mit Behinderung in den Umgang mit Netzwerken und deren Potenzial für mehr Inklusion.'
+      description: [
+        {
+          id: 'feat-1-desc-1',
+          type: 'text',
+          content: 'Die Masterclass umfasst zwei Sessions à 1,5 Stunden sowie ein Vorbereitungsgespräch zur Festlegung individueller Schwerpunkte, z. B. in Rekrutierung, Marketing oder Wissenstransfer. Begleitet wird sie von erfahrenen Coaches, ergänzt durch Einblicke von Mentor:innen mit Behinderung in den Umgang mit Netzwerken und deren Potenzial für mehr Inklusion.',
+        } as ContentBlock,
+      ],
     },
     {
       title: 'Ziel & Nutzen',
-      description: 'Vermittelt werden Wissen über relevante Netzwerke und Anlaufstellen sowie praxisnahe Tipps zur Nutzung dieser Ressourcen für Personalgewinnung, Arbeitgebermarke und Erfahrungsaustausch.',
+      description: [
+        {
+          id: 'feat-2-desc-1',
+          type: 'text',
+          content: 'Vermittelt werden Wissen über relevante Netzwerke und Anlaufstellen sowie praxisnahe Tipps zur Nutzung dieser Ressourcen für Personalgewinnung, Arbeitgebermarke und Erfahrungsaustausch.',
+        } as ContentBlock,
+      ],
       reverse: true
     },
     {
       title: 'Ergebnisse & Mehrwert',
-      description: 'Nach Abschluss stehen fundiertes Wissen und konkrete Handlungsideen bereit, um Netzwerke gezielt in die Unternehmenspraxis zu integrieren und Inklusion nachhaltig zu stärken – mit Mehrwert für Mitarbeitende, Teams und Außenwirkung.'
+      description: [
+        {
+          id: 'feat-3-desc-1',
+          type: 'text',
+          content: 'Nach Abschluss stehen fundiertes Wissen und konkrete Handlungsideen bereit, um Netzwerke gezielt in die Unternehmenspraxis zu integrieren und Inklusion nachhaltig zu stärken – mit Mehrwert für Mitarbeitende, Teams und Außenwirkung.',
+        } as ContentBlock,
+      ],
     }
   ],
   cards: [
@@ -71,15 +96,33 @@ export const Vernetzung: ProductData = {
   faq: [
     {
       question: 'Für wen eignet sich die Masterclass? ',
-      answer: 'Die Masterclass eignet sich besonders für Recruiting, Personalentwicklung, Marketing und Inklusions-/Behindertenbeauftragt*e. Da Unternehmensstrukturen unterschiedlich sind, klären wir diese Frage gerne auch in unserem persönlichen Beratungsgespräch.'
+      answer: [
+        {
+          id: 'faq-1-ans-1',
+          type: 'text',
+          content: 'Die Masterclass eignet sich besonders für Recruiting, Personalentwicklung, Marketing und Inklusions-/Behindertenbeauftragt*e. Da Unternehmensstrukturen unterschiedlich sind, klären wir diese Frage gerne auch in unserem persönlichen Beratungsgespräch.',
+        } as ContentBlock,
+      ],
     },
     {
       question: 'Findet die Masterclass individuell für unser Unternehmen statt? ',
-      answer: 'Ja, die Masterclass findet ganz individuell für euer Unternehmen statt. Dadurch ist es möglich direkt auf eure Themen einzugehen und mit euch zusammen Schritte für euer Unternehmen herauszuarbeiten.'
+      answer: [
+        {
+          id: 'faq-2-ans-1',
+          type: 'text',
+          content: 'Ja, die Masterclass findet ganz individuell für euer Unternehmen statt. Dadurch ist es möglich direkt auf eure Themen einzugehen und mit euch zusammen Schritte für euer Unternehmen herauszuarbeiten.',
+        } as ContentBlock,
+      ],
     },
     {
       question: 'Mit welcher Masterclass sollte unser Unternehmen beginnen? ',
-      answer: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.'
+      answer: [
+        {
+          id: 'faq-3-ans-1',
+          type: 'text',
+          content: 'Jedes Unternehmen ist einzigartig – ebenso die Bedürfnisse seiner Mitarbeitenden. Deshalb entwickeln wir passgenaue Lösungen statt Standardkonzepte. Ergänzend dazu bieten wir spezielle Diagnoseverfahren an, die eine fundierte Analyse der Ausgangssituation ermöglichen.',
+        } as ContentBlock,
+      ],
     }
   ],
   cta: {

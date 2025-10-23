@@ -1,5 +1,5 @@
 // src/types/product.d.ts
-import { ContentBlock, BaseBlock } from "@/types/content";
+import { ContentBlock} from "@/types/content";
 
 export interface Product {
     id: string;
