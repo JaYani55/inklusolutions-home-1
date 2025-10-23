@@ -23,6 +23,14 @@
     },
     "types": ["./env.d.ts", "node", "react", "react-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.ts", "src/types/react.d.ts"],
+  "include": [
+    "next-env.d.ts", 
+    "**/*.ts", "**/*.tsx", 
+    ".next/types/**/*.ts", 
+    "tailwind.config.ts", 
+    "src/types/react.d.ts",
+    "src/types/content.d.ts",
+  ],
+
   "exclude": ["node_modules"]
 }
