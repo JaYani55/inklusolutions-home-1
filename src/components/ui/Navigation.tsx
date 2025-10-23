@@ -96,8 +96,9 @@ export default function Navigation() {
                               </DropdownMenu.SubTrigger>
                               <DropdownMenu.Portal>
                                 <DropdownMenu.SubContent
-                                  sideOffset={10}
                                   className="bg-white p-2 shadow-lg rounded-xl border border-gray-200 w-60 z-50"
+                                  sideOffset={2}
+                                  alignOffset={-5}
                                 >
                                   {dropdownItem.subDropdownItems?.map((subItem) => (
                                     <DropdownMenu.Item key={subItem.name} asChild disabled={subItem.disabled}>
@@ -177,32 +178,30 @@ export default function Navigation() {
                       {item.name}
                       <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                     </DropdownMenu.Trigger>
-                    <DropdownMenu.Content className="mt-2 space-y-2 pl-4">
+                    <DropdownMenu.Content className="mt-2 space-y-2 pl-4 bg-white rounded-md shadow-lg">
                       {item.dropdownItems?.map((dropdownItem) => (
                         dropdownItem.hasSubDropdown ? (
                           <DropdownMenu.Sub key={dropdownItem.name}>
-                            <DropdownMenu.SubTrigger className="w-full text-left font-medium text-gray-700 flex justify-between items-center">
+                            <DropdownMenu.SubTrigger className="w-full text-left font-medium text-gray-700 flex justify-between items-center py-2">
                               {dropdownItem.name}
                               <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200" />
                             </DropdownMenu.SubTrigger>
-                            <DropdownMenu.Portal>
-                              <DropdownMenu.SubContent className="mt-2 space-y-2 pl-4">
-                                {dropdownItem.subDropdownItems?.map((subItem) => (
-                                  <DropdownMenu.Item key={subItem.name} asChild disabled={subItem.disabled}>
-                                    <Link
-                                      href={subItem.href}
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      className={cn(
-                                        "block py-1 text-gray-600",
-                                        subItem.disabled && "text-gray-400 cursor-not-allowed"
-                                      )}
-                                    >
-                                      {subItem.name}
-                                    </Link>
-                                  </DropdownMenu.Item>
-                                ))}
-                              </DropdownMenu.SubContent>
-                            </DropdownMenu.Portal>
+                            <DropdownMenu.SubContent className="mt-2 space-y-1 pl-4 bg-white">
+                              {dropdownItem.subDropdownItems?.map((subItem) => (
+                                <DropdownMenu.Item key={subItem.name} asChild disabled={subItem.disabled}>
+                                  <Link
+                                    href={subItem.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={cn(
+                                      "block py-1 text-gray-600",
+                                      subItem.disabled && "text-gray-400 cursor-not-allowed"
+                                    )}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                </DropdownMenu.Item>
+                              ))}
+                            </DropdownMenu.SubContent>
                           </DropdownMenu.Sub>
                         ) : (
                           <DropdownMenu.Item key={dropdownItem.name} asChild disabled={dropdownItem.disabled}>
