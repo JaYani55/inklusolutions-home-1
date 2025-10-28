@@ -17,7 +17,7 @@ export const inklusionsführerschein: ProductData = {
         content: 'Erlebe zwei Tage voller Perspektivwechsel, praxisnaher Impulse und echter Begegnungen - für mehr Sicherheit und Handlungsspielraum im Umgang mit Behinderung im Arbeitsleben.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/Beiersdorf_DAW.jpg',
     stats: [
       { value: '2 TAGE', label: 'INTENSIV-WORKSHOP' },
       { value: '998 €', label: 'PRO PERSON' },

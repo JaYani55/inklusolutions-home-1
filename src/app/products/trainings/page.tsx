@@ -98,8 +98,8 @@ export default function TrainingsPage() {
                 <div className="relative">
                   <div className="relative overflow-hidden rounded-3xl shadow-2xl h-[500px]">
                     <Image
-                      src="/workshop-setting.jpg"
-                      alt="Professional training session with diverse participants"
+                      src="/InkluSol_Beiersdorf_Tyll_Ansgar.jpg"
+                      alt="Vortrag mit Präsentation im Hintergrund"
                       fill
                       priority
                       className="object-cover"
@@ -121,8 +121,8 @@ export default function TrainingsPage() {
                 <div className="relative">
                   <div className="relative overflow-hidden rounded-3xl shadow-2xl h-[400px]">
                     <Image
-                      src="/inclusive-leadership-course.jpg"
-                      alt="Inclusive workplace collaboration"
+                      src="/found_it.jpg"
+                      alt="Personen beraten sich an einem Tisch"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 50vw"

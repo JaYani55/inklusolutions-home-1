@@ -61,8 +61,8 @@ const productCategories = [
     icon: GraduationCap,
     color: "from-primary to-primary",
     link: "/products/trainings",
-    image: "/training1.png", // Platzhalterbild für Training (aus /public)
-    alt: "Personen lernen in einem Training",
+    image: "/Gracia_Foddis_Buehne.jpg", // Platzhalterbild für Training (aus /public)
+    alt: "Präsentation während einem Training",
     description:
       "Unsere praxisnahen Qualifizierungen vermitteln euch das nötige Wissen und schaffen Sicherheit im Umgang mit Inklusion. Von Grundlagen bis zu spezifischen Themen, individuell auf eure Anforderungen zugeschnitten.",
     products: [
@@ -94,8 +94,8 @@ const productCategories = [
     icon: Settings,
     color: "from-accent to-accent",
     link: "/products/services",
-  image: "/Produktion2.jpg", // Platzhalterbild für Services (aus /public)
-    alt: "Team arbeitet zusammen an einem Projekt mit Diagrammen",
+  image: "/found_it.jpg", // Platzhalterbild für Services (aus /public)
+    alt: "Team arbeitet zusammen an einem Projekt",
     description:
       "Unsere Instrumente und Tools begleiten eure Prozesse, machen Erfolge sichtbar und verankern Inklusion nachhaltig in eurer Organisationsstruktur. Für messbaren Impact und langfristigen Erfolg.",
     products: [
@@ -123,12 +123,12 @@ export default function ProductsPage() {
           }}
         />
         {/* Inhalt des Hero-Bereichs */}
-        <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
+        <div className="container mx-auto px-6 relative z-10 max-w-5xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl lg:text-6xl font-bold mb-6 leading-tight text-center"
           >
             <span className="bg-gradient-to-r from-black to-black bg-clip-text text-transparent">
               Unsere Leistungen
@@ -149,88 +149,16 @@ export default function ProductsPage() {
             className="text-lg lg:text-xl text-foreground/70 max-w-4xl mx-auto leading-relaxed"
           >
             InkluSolutions steht für <strong>ganzheitliche Inklusionsentwicklung im
-            Unternehmen</strong>: Von Awareness über Qualifizierung bis zur
-            strukturellen Verankerung. <br></br>
-            Statt isolierter Einzelmaßnahmen bieten
-            wir einen <strong>modularen Baukasten</strong>: <br></br>
-            strategisch, praxisnah und flexibel auf jedes Unternehmen anpassbar. <br></br>
+            Unternehmen</strong>: <br></br>Von Awareness über Qualifizierung bis zur strukturellen Verankerung. 
+            Statt isolierter Einzelmaßnahmen bieten wir einen <strong>modularen Baukasten</strong>:
+            strategisch, praxisnah und flexibel auf jedes Unternehmen anpassbar.
             Mit <strong>Mentor:innen (unsere Experten mit Behinderungen)</strong>, messbarem Impact und einem
-            klaren Fokus auf die Potenziale eurer Mitarbeitenden mit Behinderung.<br></br>
+            klaren Fokus auf die Potenziale eurer Mitarbeitenden mit Behinderung.
             Wir begleiten auf dem Weg zu einer <strong>inklusiven Unternehmenskultur</strong>, 
             die nicht nur für Menschen mit Behinderung eine angenehme, <strong>produktive Arbeitsatmosphäre</strong> schafft.
           </motion.p>
-
-
-          {/* Anker-Links zu den Sektionen 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex flex-wrap justify-center gap-4"
-          >
-            {productCategories.map((category) => (
-              <Link
-                key={category.id}
-                href={category.link}
-                className="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold text-lg hover:underline transition-colors duration-200"
-              >
-                {category.title}
-              </Link>
-            ))}
-          </motion.div> */}
         </div>
       </section>
-      
-      {/* 
-      <section className="relative overflow-hidden py-20 bg-gradient-to-r from-muted/30 via-background to-muted/30 relative">
-  <div className="w-full">
-{/* CTA Buttons - nur auf größeren Screens mit vollem Design 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="hidden sm:block justify-center max-w-4xl mx-auto"
-      >
-        <div className="w-full">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/trainings" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-primary to-primary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Trainings
-                  <GraduationCap className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/awareness" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-secondary to-secondary border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Awareness
-                  <Lightbulb className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-            <div className="md:flex-1 min-w-0">
-              <Link href="/products/services" className="block">
-                <Button
-                  size="lg"
-                  className="w-full text-white bg-gradient-to-r from-accent to-accent border-transparent rounded-full px-10 py-7 text-xl font-semibold transition-all duration-300 hover:brightness-110"
-                >
-                  Services & Beratung
-                  <Settings className="ml-4 w-7 h-7" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-  </div>
-      </section> */}
 
       {/* Sektion: Unsere Leistungen entfalten Wirkung */}
       <section

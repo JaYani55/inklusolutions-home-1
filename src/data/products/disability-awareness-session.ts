@@ -1,7 +1,6 @@
 import { ProductData } from '@/types/product';
 import { ContentBlock } from '@/types/content';
-// No longer importing icons directly
-// import { Clock, Lightbulb, Target } from 'lucide-react';
+
 
 export const disabilityAwarenessSession: ProductData = {
   id: '3',
@@ -16,7 +15,7 @@ export const disabilityAwarenessSession: ProductData = {
             content: 'Ein halbtägiger, praxisnaher Sensibilisierungsworkshop in Präsenz, der Mitarbeitende befähigt, Inklusion im Arbeitsalltag zu verstehen, mitzugestalten und sicherer zu kommunizieren. \n „Stell dir vor, du wärst ein Mensch mit Behinderung in deinem Unternehmen. Würdest du dich willkommen fühlen?“',
           } as ContentBlock,
         ],
-    image: '/diverse-professionals.jpg',
+    image: '/gruppenarbeit.png',
     stats: [
       { value: '4 STUNDEN', label: 'INKL. PAUSEN' },
       { value: '15-40', label: 'TEILNEHMENDE' },
@@ -46,10 +45,8 @@ export const disabilityAwarenessSession: ProductData = {
         id: 'feature2-block2',
         type: 'text',
         content: 'Ein kurzer Film („The Interviewer") und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.',
-        format: 'italic' // Optional: Hebt diesen Teil hervor
       } as ContentBlock,
-    ],
-    reverse: true
+    ]
   },
   {
     title: 'Wirkung, die bleibt',

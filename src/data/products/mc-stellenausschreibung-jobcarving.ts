@@ -18,9 +18,9 @@ export const StellenausschreibungJobcarving: ProductData = {
     ],
     image: '/mentor-mentee.jpg',
     stats: [
-      { value: 'ONLINE', label: 'FORMAT' },
-      { value: '4 Session à 1,5 Std., Handout', label: 'INHALT' },
-      { value: 'Nach Anfrage', label: 'PREIS' }
+      { value: 'FORMAT', label: 'ONLINE' },
+      { value: 'DAUER' , label: '4 x 1,5 Stunden'},
+      { value: 'PREIS', label: 'Auf Anfrage' }
     ]
   },
   features: [

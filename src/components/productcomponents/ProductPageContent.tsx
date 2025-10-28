@@ -69,7 +69,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                 </h1>
             </motion.div>
 
-            {/* NEUE STRUKTUR: Flex-Container für Beschreibung/Buttons (links) und Bild (rechts) unter der H1 */}
+            {/* NEUE STRUKTUR: Flex-Container für Beschreibung/Buttons (links) und Bild (rechts) */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
                 {/* Linker Bereich: Beschreibung, Buttons und optional Stats */}
                 <motion.div
@@ -106,14 +106,19 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                             </Button>
                         )}
                     </div>
-                    {/* Optionale Statistiken - HIER IST DIE ANPASSUNG */}
+                    {/* Optionale Statistiken*/}
               {productData.hero.stats && (
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8"> {/* pt-8 für etwas mehr vertikalen Abstand zu den Buttons */}
                       {productData.hero.stats.map((stat, index) => (
-                          <div key={index} className="text-center rounded-lg bg-white/50 border border-primary/20 p-4"> {/* p-4 für interne Polsterung, bg/border für optische Trennung */}
-                              <div className="text-2xl font-bold text-primary text-foreground mb-1">{stat.value}</div> {/* mb-1 für minimalen Abstand zwischen Wert und Label */}
-                              <div className="text-sm text-foreground/60 uppercase tracking-wider">{stat.label}</div>
+                          <div 
+                            key={index} 
+                            className="flex flex-col justify-center h-full text-center rounded-lg bg-white/50 border border-primary/20 p-4"
+                          >
+                            <div className="text-xl font-bold text-primary text-foreground mb-1">{stat.value}</div>
+                            <hr></hr>
+                            <div className="text-sm font-bold text-foreground/60 uppercase tracking-wider mb-1">{stat.label}</div>
                           </div>
+
                       ))}
                   </div>
                     )}
