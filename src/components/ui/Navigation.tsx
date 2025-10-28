@@ -1,15 +1,13 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
-
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { cn } from "@/lib/utils";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
-  const navRef = useRef<HTMLElement>(null);
 
   const navItems = [
     {
@@ -36,100 +34,9 @@ export default function Navigation() {
     { name: "Kontakt", href: "https://forms.office.com/e/4fpN4gHamc", isExternal: true },
   ];
 
-  const closeAllDropdowns = () => {
-    setActiveDropdown(null);
-    setActiveSubDropdown(null);
-  };
-
-  // useEffect Hook für den "Klick außerhalb schließen"-Mechanismus auf Desktop.
-  useEffect(() => {
-    // Event-Handler, der prüft, ob der Klick außerhalb der Navigationskomponente erfolgte.
-    const handleClickOutside = (event: MouseEvent) => {
-      // Wenn das navRef.current existiert und der Klick NICHT innerhalb der Navigation war
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        closeAllDropdowns(); // Schließe alle Dropdowns
-        setIsMobileMenuOpen(false); // Stelle sicher, dass auch das mobile Menü geschlossen wird
-      }
-    };
-    // Fügt den Event-Listener beim Initial-Rendering hinzu
-    document.addEventListener("mousedown", handleClickOutside);
-    // Bereinigungsfunktion: Entfernt den Event-Listener beim Unmount der Komponente
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [navRef]); // Abhängigkeit von navRef, damit der Listener bei Änderungen (wenn auch unwahrscheinlich) aktualisiert wird
-
-  // Click-Handler für Haupt-Dropdown-Elemente (funktioniert auf Desktop und Mobile zum Togglen).
-  // Wenn ein Menüpunkt geklickt wird, wird dessen ID im activeDropdown/activeSubDropdown State gespeichert.
-  const handleDropdownClick = (itemId: string) => {
-    // Schließt vor dem Öffnen andere Dropdowns, die möglicherweise noch offen sind.
-    // Dies verhindert, dass mehrere Top-Level-Dropdowns gleichzeitig offen sind durch Klicks.
-    closeAllDropdowns();
-    // Togglet den Zustand des geklickten Dropdowns: War es offen, wird es geschlossen (null); war es geschlossen, wird es geöffnet (itemId).
-    setActiveDropdown(activeDropdown === itemId ? null : itemId);
-  };
-
-  // Click-Handler für Sub-Dropdown-Elemente (z.B. "Training").
-  const handleSubDropdownClick = (subItemId: string) => {
-    // Togglet den Zustand des geklickten Sub-Dropdowns.
-    setActiveSubDropdown(activeSubDropdown === subItemId ? null : subItemId);
-  };
-
-
-  // HOVER-Logik für Desktop-Ansicht: Öffnet Dropdowns nur, wenn sie NICHT bereits per Klick geöffnet sind.
-  // Auf diese Weise hat der "Klick" Priorität und hält das Menü offen.
-  // Wenn kein Menü geklickt ist, funktioniert der Hover-Effekt wie gewohnt.
-
-  // Hover-Handler für Haupt-Dropdown (z.B. "Leistungen") auf Desktop.
-  const handleDropdownMouseEnter = (itemId: string) => {
-    // Das Dropdown soll sich nur auf Hover öffnen, wenn nicht bereits ein anderes Dropdown per Klick geöffnet ist.
-    // Falls activeDropdown == null, d.h. aktuell kein Dropdown per Klick "festgepinnt" ist,
-    // dann können wir das aktuelle Menü per Hover öffnen.
-    // Falls activeDropdown einen Wert hat, bedeutet das, ein Dropdown wurde geklickt und soll permanent offen bleiben –
-    // in diesem Fall soll der Hover-Effekt keine anderen Menüs öffnen.
-    if (activeDropdown === null) {
-      setActiveDropdown(itemId);
-    }
-  };
-
-  // Hover-Handler beim Verlassen des Haupt-Dropdowns auf Desktop.
-  const handleDropdownMouseLeave = () => {
-    // Das Dropdown soll sich nur schließen, wenn es durch Hover geöffnet wurde (d.h., kein aktiver Klick-Status).
-    // Wenn activeDropdown auf 'null' ist, bedeutet dies, es wurde entweder durch Hover geöffnet oder es war bereits geschlossen.
-    // Das Schließen findet nur statt, wenn ein Dropdown gerade offen ist (per Hover), UND es kein permanent geöffnetes Menü gibt.
-    // Die persistente Schließlogik ist nun im handleClickOutside() und per Klick auf die Menüpunkte abgedeckt.
-     if (activeDropdown !== null && activeSubDropdown === null) {
-      // Wenn activeDropdown gesetzt ist, aber activeSubDropdown nicht,
-      // und wir das Hauptmenü verlassen ohne in ein Submenü zu gehen,
-      // dann schließen wir das Hauptmenü. Dies ist die komplexere Logik für "Hover schließt, wenn nicht geklickt".
-      // Ein Klick auf ein Menüelement im Dropdown schließt es auch über die closeAllDropdowns()-Funktion.
-      setActiveDropdown(null);
-     }
-  };
-
-
-  // Hover-Handler für Sub-Dropdown (z.B. "Training") auf Desktop.
-  const handleSubDropdownMouseEnter = (subItemId: string) => {
-    // Öffnet das Sub-Dropdown nur, wenn kein Sub-Dropdown per Klick "festgepinnt" ist
-    // UND wenn das Haupt-Dropdown aktiv ist (entweder durch Klick oder Hover).
-    if (activeSubDropdown === null && activeDropdown !== null) {
-      setActiveSubDropdown(subItemId);
-    }
-  };
-
-  // Hover-Handler beim Verlassen des Sub-Dropdowns auf Desktop.
-  const handleSubDropdownMouseLeave = () => {
-    // Schließt das Sub-Dropdown nur, wenn es durch Hover geöffnet wurde (d.h., kein aktiver Klick-Status).
-    // Wenn activeSubDropdown auf 'null' ist, bedeutet dies, es wurde entweder durch Hover geöffnet oder es war bereits geschlossen.
-    if (activeSubDropdown !== null) {
-      setActiveSubDropdown(null);
-    }
-  };
-
-
   return (
     // Die Navigationselemente umschließen, um handleClickOutside zu ermöglichen.
-    <nav ref={navRef} className="sticky top-0 z-50 w-full border-b border-primary/10 bg-white backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-primary/10 bg-white backdrop-blur-xl">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo-Bereich */}
@@ -139,7 +46,6 @@ export default function Navigation() {
             // Beim Klick auf das Logo alle Menüs schließen und zur Startseite navigieren
             onClick={() => {
               setIsMobileMenuOpen(false);
-              closeAllDropdowns();
             }}
           >
             <Image
@@ -153,329 +59,184 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation - Versteckt auf mobilen Geräten */}
-          <div className="text-lg hidden md:flex items-center space-x-10">
+          <ul className="text-lg hidden md:flex items-center space-x-10">
             {navItems.map((item) => (
-              <div key={item.name} className="relative group">
-                {item.hasDropdown ? ( // Prüft, ob der Menüpunkt ein Haupt-Dropdown hat
-                  <div
-                    className="relative"
-                    // Hover-Events für das Haupt-Dropdown
-                    onMouseEnter={() => handleDropdownMouseEnter(item.id)}
-                    onMouseLeave={() => handleDropdownMouseLeave()}
-                  >
-                    <button
-                      // Click-Event für das Haupt-Dropdown. Toggelt den Status des geklickten Dropdowns.
-                      onClick={() => handleDropdownClick(item.id)}
-                      className="transition-colors duration-200 font-medium relative flex items-center"
-                    >
-                       <span
-                        className="inline-flex items-center px-3 py-1 rounded-full"
-                        // Inline-Style für den Hintergrund und den Schatten, um das Design zu unterstützen
-                        style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
-                      >
-                        <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                        {/* Chevron-Icon dreht sich basierend auf dem 'activeDropdown' Status */}
-                        <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-200 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
-                      </span>
-                      {/* Unterstrich-Effekt bei Hover */}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
-                    </button>
-                    {/* Rendert das Haupt-Dropdown-Menü nur, wenn 'activeDropdown' dieser ID entspricht */}
-                    {(activeDropdown === item.id) && (
-                      <div className="absolute top-full left-0 mt-2 w-60 bg-white border border-gray-200 rounded-xl shadow-2xl z-50">
-                        <div className="py-2">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <div key={dropdownItem.name} className="relative group">
-                              {dropdownItem.hasSubDropdown ? ( // Prüft, ob dieser Dropdown-Unterpunkt ein Sub-Dropdown hat (z.B. "Training")
-                                <div
-                                  // Hover-Events für das Sub-Dropdown
-                                  onMouseEnter={() => handleSubDropdownMouseEnter(dropdownItem.id)}
-                                  onMouseLeave={() => handleSubDropdownMouseLeave()}
-                                >
-                                  <Link
-                                    href={dropdownItem.href} // Link des Sub-Dropdown-Trägers
-                                    onClick={(e) => {
-                                      // Auf Desktop (md breakpoint) soll ein Klick auf den Sub-Dropdown-Träger das Sub-Dropdown togglen,
-                                      // anstatt direkt zum Link zu navigieren.
-                                      if (window.innerWidth >= 768) {
-                                        e.preventDefault(); // Verhindert die Standard-Navigationsaktion des Links
-                                        handleSubDropdownClick(dropdownItem.id); // Togglet den Zustand des Sub-Dropdowns
-                                      } else {
-                                        // Auf mobilen Geräten soll der Link normal navigieren
-                                        setIsMobileMenuOpen(false);
-                                        closeAllDropdowns();
-                                      }
-                                    }}
-                                    className="block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200 relative group flex justify-between items-center"
-                                  >
-                                    {dropdownItem.name}
-                                    {/* Chevron-Icon dreht sich basierend auf dem 'activeSubDropdown' Status */}
-                                    <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-200 ${activeSubDropdown === dropdownItem.id ? 'rotate-180' : ''}`} />
-                                  </Link>
-                                  {/* Rendert das Sub-Dropdown-Menü nur, wenn 'activeSubDropdown' dieser ID entspricht */}
-                                  {(activeSubDropdown === dropdownItem.id) && (
-                                    <div className="absolute top-0 right-full mt-0 w-60 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 mr-2">
-                                      <div className="py-2">
-                                        {dropdownItem.subDropdownItems?.map((subItem) => (
-                                          subItem.disabled ? ( // Prüft, ob der Sub-Eintrag deaktiviert ist
-                                            <div
-                                              key={subItem.name}
-                                              className="block px-4 py-2 text-gray-400 cursor-not-allowed select-none"
-                                              title="Dieser Eintrag ist noch nicht verfügbar"
-                                            >
-                                              {subItem.name}
-                                            </div>
-                                          ) : (
-                                            <Link
-                                              key={subItem.name}
-                                              href={subItem.href}
-                                              className="block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
-                                              onClick={() => {
-                                                setIsMobileMenuOpen(false); // Schließt mobile Menü
-                                                closeAllDropdowns(); // Schließt alle Desktop-Dropdowns
-                                              }}
-                                            >
-                                              {subItem.name}
-                                            </Link>
-                                          )
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                              ) : ( // Wenn der Dropdown-Unterpunkt KEIN Sub-Dropdown hat
-                                dropdownItem.disabled ? (
-                                  <div
-                                    key={dropdownItem.name}
-                                    className="block px-4 py-2 text-gray-400 cursor-not-allowed select-none"
-                                    title="Dieser Eintrag ist noch nicht verfügbar"
-                                  >
-                                    {dropdownItem.name}
-                                  </div>
-                                ) : (
-                                  <Link
-                                    key={dropdownItem.name}
-                                    href={dropdownItem.href}
-                                    className="block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200"
-                                    onClick={() => {
-                                      setIsMobileMenuOpen(false);
-                                      closeAllDropdowns();
-                                    }}
-                                  >
-                                    {dropdownItem.name}
-                                  </Link>
-                                )
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : ( // Wenn der Top-Level-Menüpunkt KEIN Dropdown hat
-                  // Behandelt externe Links
-                  (item.href && item.href.startsWith('http')) ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-colors duration-200 font-medium relative group"
-                      onClick={() => closeAllDropdowns()} // Schließt alle Dropdowns beim Klick auf einen externen Link
-                    >
-                      <span
-                        className="inline-flex items-center px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
-                      >
-                        <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                        {'isExternal' in item && item.isExternal && ( // Zeigt das Externe-Link-Icon, falls isExternal true
-                          <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
-                        )}
-                      </span>
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                  ) : (
-                    // Behandelt interne Links ohne Dropdown
-                    <Link
-                      href={item.href}
-                      className="transition-colors duration-200 font-medium relative group"
-                      onClick={() => closeAllDropdowns()} // Schließt alle Dropdowns beim Klick auf einen internen Link
-                    >
-                      <span
-                        className="inline-block px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
-                      >
-                        <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                      </span>
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
-                    </Link>
-                  )
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Mobiler Menü-Button - Nur auf kleinen Bildschirmen sichtbar */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(!isMobileMenuOpen); // Togglet die Sichtbarkeit des mobilen Menüs
-                closeAllDropdowns(); // Schließt alle Desktop-Dropdowns, wenn das mobile Menü geöffnet/geschlossen wird
-              }}
-              className="text-foreground/80 hover:text-primary transition-colors p-2"
-              aria-label="Navigation öffnen"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation - Wird nur gerendert, wenn 'isMobileMenuOpen' true ist */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-primary/10">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  {item.hasDropdown ? ( // Prüft, ob der Haupt-Menüpunkt ein Dropdown hat
-                    <div>
+              <li key={item.name} className="relative group">
+                {item.hasDropdown ? (
+                  <DropdownMenu.Root>
+                    <DropdownMenu.Trigger asChild>
                       <button
-                        // Klick-Event für Haupt-Dropdown im mobilen Menü
-                        onClick={() => handleDropdownClick(item.id)}
-                        className="w-full text-left block px-3 py-2 rounded-lg transition-colors"
-                      >
-                        <span
-                          className="inline-flex items-center justify-between w-full px-3 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
-                        >
-                          <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                          {/* Chevron-Icon dreht sich basierend auf dem 'activeDropdown' Status */}
-                          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
-                        </span>
-                      </button>
-                      {/* Rendert das Haupt-Dropdown-Menü nur, wenn 'activeDropdown' dieser ID entspricht */}
-                      {activeDropdown === item.id && (
-                        <div className="ml-4 mt-2 space-y-1">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <div key={dropdownItem.name}>
-                              {dropdownItem.hasSubDropdown ? ( // Prüft, ob dieser Dropdown-Unterpunkt ein Sub-Dropdown hat
-                                <>
-                                  <button
-                                    // Klick-Event für Sub-Dropdown im mobilen Menü
-                                    onClick={() => handleSubDropdownClick(dropdownItem.id)}
-                                    className="w-full text-left block px-3 py-2 rounded-lg transition-colors flex justify-between items-center"
-                                  >
-                                    <span className="text-foreground/70 hover:text-primary">{dropdownItem.name}</span>
-                                    {/* Chevron-Icon dreht sich basierend auf dem 'activeSubDropdown' Status */}
-                                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeSubDropdown === dropdownItem.id ? 'rotate-180' : ''}`} />
-                                  </button>
-                                  {/* Rendert das Sub-Dropdown-Menü nur, wenn 'activeSubDropdown' dieser ID entspricht */}
-                                  {activeSubDropdown === dropdownItem.id && (
-                                    <div className="ml-4 mt-2 space-y-1">
-                                      {dropdownItem.subDropdownItems?.map((subItem) => (
-                                        subItem.disabled ? (
-                                          <div
-                                            key={subItem.name}
-                                            className="block px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed select-none"
-                                            title="Dieser Eintrag ist noch nicht verfügbar"
-                                          >
-                                            {subItem.name}
-                                          </div>
-                                        ) : (
-                                          <Link
-                                            key={subItem.name}
-                                            href={subItem.href}
-                                            className="block px-3 py-2 rounded-lg transition-colors text-foreground/70 hover:text-primary hover:bg-primary/5"
-                                            // Schließt alle Menüs beim Klick auf einen Link im mobilen Unter-Dropdown
-                                            onClick={() => {
-                                              setIsMobileMenuOpen(false);
-                                              closeAllDropdowns();
-                                            }}
-                                          >
-                                            {subItem.name}
-                                          </Link>
-                                        )
-                                      ))}
-                                    </div>
-                                  )}
-                                </>
-                              ) : ( // Wenn der Dropdown-Unterpunkt KEIN Sub-Dropdown hat (mobil)
-                                dropdownItem.disabled ? (
-                                  <div
-                                    key={dropdownItem.name}
-                                    className="block px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed select-none"
-                                    title="Dieser Eintrag ist noch nicht verfügbar"
-                                  >
-                                    {dropdownItem.name}
-                                  </div>
-                                ) : (
-                                  <Link
-                                    key={dropdownItem.name}
-                                    href={dropdownItem.href}
-                                    className="block px-3 py-2 rounded-lg transition-colors text-foreground/70 hover:text-primary hover:bg-primary/5"
-                                    // Schließt alle Menüs beim Klick auf einen Link im mobilen Haupt-Dropdown
-                                    onClick={() => {
-                                      setIsMobileMenuOpen(false);
-                                      closeAllDropdowns();
-                                    }}
-                                  >
-                                    {dropdownItem.name}
-                                  </Link>
-                                )
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : ( // Wenn der Top-Level-Menüpunkt KEIN Dropdown hat (mobil)
-                    // Behandelt externe Links (mobil)
-                    (item.href && item.href.startsWith('http')) ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-3 py-2 rounded-lg transition-colors"
-                        // Schließt alle Menüs beim Klick auf einen externen Link im mobilen Menü
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          closeAllDropdowns();
-                        }}
+                        tabIndex={0}
+                        className="transition-colors duration-200 font-medium relative flex items-center"
                       >
                         <span
                           className="inline-flex items-center px-3 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
+                          // Inline-Style für den Hintergrund und den Schatten, um das Design zu unterstützen
+                          style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
                         >
                           <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                          {'isExternal' in item && item.isExternal && (
-                            <ExternalLink className="ml-1 h-3 w-3 text-foreground/60" />
-                          )}
+                          {/* Chevron-Icon dreht sich basierend auf dem 'activeDropdown' Status */}
+                          <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                         </span>
-                      </a>
-                    ) : (
-                      // Behandelt interne Links ohne Dropdown (mobil)
-                      <Link
-                        href={item.href}
-                        className="block px-3 py-2 rounded-lg transition-colors"
-                        // Schließt alle Menüs beim Klick auf einen internen Link im mobilen Menü
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          closeAllDropdowns();
-                        }}
+                        {/* Unterstrich-Effekt bei Hover */}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+                      </button>
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Portal>
+                      <DropdownMenu.Content
+                        sideOffset={5}
+                        className="bg-white p-2 shadow-lg rounded-xl border border-gray-200 w-60 z-50"
                       >
-                        <span
-                          className="inline-block px-3 py-1 rounded-full"
-                          style={{ background: 'rgba(255,255,255,0.06)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
-                        >
-                          <span className="text-foreground/80 hover:text-primary">{item.name}</span>
-                        </span>
-                      </Link>
-                    )
-                  )}
-                </div>
-              ))}
-            </div>
+                        {item.dropdownItems?.map((dropdownItem) => (
+                          dropdownItem.hasSubDropdown ? (
+                            <DropdownMenu.Sub key={dropdownItem.name}>
+                              <DropdownMenu.SubTrigger className="flex items-center justify-between w-full px-4 py-2 text-left text-gray-800 rounded-md hover:bg-gray-50 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                                <Link href={dropdownItem.href} onClick={(e) => e.preventDefault()}>{dropdownItem.name}</Link>
+                                <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200" />
+                              </DropdownMenu.SubTrigger>
+                              <DropdownMenu.Portal>
+                                <DropdownMenu.SubContent
+                                  className="bg-white p-2 shadow-lg rounded-xl border border-gray-200 w-60 z-50"
+                                  sideOffset={2}
+                                  alignOffset={-5}
+                                >
+                                  {dropdownItem.subDropdownItems?.map((subItem) => (
+                                    <DropdownMenu.Item key={subItem.name} asChild disabled={subItem.disabled}>
+                                      <Link
+                                        href={subItem.href}
+                                        className={cn(
+                                          "block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200 rounded-md",
+                                          subItem.disabled && "text-gray-400 cursor-not-allowed"
+                                        )}
+                                      >
+                                        {subItem.name}
+                                      </Link>
+                                    </DropdownMenu.Item>
+                                  ))}
+                                </DropdownMenu.SubContent>
+                              </DropdownMenu.Portal>
+                            </DropdownMenu.Sub>
+                          ) : (
+                            <DropdownMenu.Item key={dropdownItem.name} asChild disabled={dropdownItem.disabled}>
+                              <Link
+                                href={dropdownItem.href}
+                                className={cn(
+                                  "block px-4 py-2 text-gray-800 hover:text-primary hover:bg-gray-50 transition-all duration-200 rounded-md",
+                                  dropdownItem.disabled && "text-gray-400 cursor-not-allowed"
+                                )}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            </DropdownMenu.Item>
+                          )
+                        ))}
+                      </DropdownMenu.Content>
+                    </DropdownMenu.Portal>
+                  </DropdownMenu.Root>
+                ) : (
+                  <Link
+                    href={item.href}
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
+                    className="transition-colors duration-200 font-medium relative flex items-center"
+                  >
+                    <span
+                      className="inline-flex items-center px-3 py-1 rounded-full"
+                      style={{ background: 'rgba(255,255,255,0.14)', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.8))' }}
+                    >
+                      <span className="text-foreground/80 hover:text-primary">{item.name}</span>
+                      {item.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
+                    </span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile Menu Button - Sichtbar nur auf mobilen Geräten */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-800 hover:text-primary focus:outline-none"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-        )}
+        </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          <ul className="container mx-auto px-6 py-4">
+            {navItems.map((item) => (
+              <li key={item.name} className="py-2">
+                {item.hasDropdown ? (
+                  <DropdownMenu.Root>
+                    <DropdownMenu.Trigger className="w-full text-left font-medium text-gray-800 flex justify-between items-center">
+                      {item.name}
+                      <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content className="mt-2 space-y-2 pl-4 bg-white rounded-md shadow-lg">
+                      {item.dropdownItems?.map((dropdownItem) => (
+                        dropdownItem.hasSubDropdown ? (
+                          <DropdownMenu.Sub key={dropdownItem.name}>
+                            <DropdownMenu.SubTrigger className="w-full text-left font-medium text-gray-700 flex justify-between items-center py-2">
+                              {dropdownItem.name}
+                              <ChevronDown className="ml-2 h-4 w-4 transition-transform duration-200" />
+                            </DropdownMenu.SubTrigger>
+                            <DropdownMenu.SubContent className="mt-2 space-y-1 pl-4 bg-white">
+                              {dropdownItem.subDropdownItems?.map((subItem) => (
+                                <DropdownMenu.Item key={subItem.name} asChild disabled={subItem.disabled}>
+                                  <Link
+                                    href={subItem.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={cn(
+                                      "block py-1 text-gray-600",
+                                      subItem.disabled && "text-gray-400 cursor-not-allowed"
+                                    )}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                </DropdownMenu.Item>
+                              ))}
+                            </DropdownMenu.SubContent>
+                          </DropdownMenu.Sub>
+                        ) : (
+                          <DropdownMenu.Item key={dropdownItem.name} asChild disabled={dropdownItem.disabled}>
+                            <Link
+                              href={dropdownItem.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className={cn(
+                                "block text-gray-700",
+                                dropdownItem.disabled && "text-gray-400 cursor-not-allowed"
+                              )}
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          </DropdownMenu.Item>
+                        )
+                      ))}
+                    </DropdownMenu.Content>
+                  </DropdownMenu.Root>
+                ) : (
+                  <Link
+                    href={item.href}
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="font-medium text-gray-800 flex items-center"
+                  >
+                    {item.name}
+                    {item.isExternal && <ExternalLink className="ml-2 h-4 w-4" />}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

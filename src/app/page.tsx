@@ -266,8 +266,15 @@ export default function HomePage() {
       viewport={{ once: true }}
       className="text-center mb-12 px-6"
     >
-      <p className="text-xl text-foreground/80 max-w-3xl mx-auto font-bold">
-        Erleben Sie, wie wir Inklusion in die Praxis umsetzen
+      <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+        <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
+          Inklusion beginnt mit Sichtbarkeit.
+        </span>
+      </h2>
+      <p className="text-xl lg:text-2xl text-foreground/80 max-w-3xl mx-auto">
+        Echte Menschen. Echte Geschichten. Echte Wirkung.
+        <br />
+        InkluStories, die inspirieren und Barrieren abbauen.
       </p>
     </motion.div>
     
