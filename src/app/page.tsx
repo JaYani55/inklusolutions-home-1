@@ -82,7 +82,8 @@ export default function HomePage() {
     { src: '/logos/Nordsee.png', alt: 'Nordsee' },
     { src: '/logos/Radisson_Blu.png', alt: 'Radisson Blu' },
     { src: '/logos/Scout24.png', alt: 'Scout24' },
-    { src: '/logos/UNIQLO.png', alt: 'UNIQLO' }
+    { src: '/logos/UNIQLO.png', alt: 'UNIQLO' },
+    { src: '/logos/Beiersdorf.png', alt: 'Beiersdorf'}
   ];
 
   return (
