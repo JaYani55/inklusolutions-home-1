@@ -1,13 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, Eye } from "lucide-react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/lib/utils";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Attach event listener to mobile Eyeable button
+    const mobileButton = document.getElementById('eyeAble_mobile_opener');
+    if (mobileButton) {
+      const handleClick = () => {
+        // Trigger Eyeable API
+        const windowWithEyeable = window as Window & { EyeAbleAPI?: { toggleToolbar: () => void } };
+        if (typeof window !== 'undefined' && windowWithEyeable.EyeAbleAPI) {
+          windowWithEyeable.EyeAbleAPI.toggleToolbar();
+        }
+        // Close mobile menu after a short delay
+        setTimeout(() => setIsMobileMenuOpen(false), 100);
+      };
+      mobileButton.addEventListener('click', handleClick);
+      return () => mobileButton.removeEventListener('click', handleClick);
+    }
+  }, [isMobileMenuOpen]); // Re-attach when mobile menu opens/closes
 
   const navItems = [
     {
@@ -59,9 +77,10 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation - Versteckt auf mobilen Geräten */}
-          <ul className="text-lg hidden md:flex items-center space-x-10">
-            {navItems.map((item) => (
-              <li key={item.name} className="relative group">
+          <div className="hidden md:flex items-center gap-6">
+            <ul className="text-lg flex items-center space-x-10">
+              {navItems.map((item) => (
+                <li key={item.name} className="relative group">
                 {item.hasDropdown ? (
                   <DropdownMenu.Root>
                     <DropdownMenu.Trigger asChild>
@@ -154,6 +173,18 @@ export default function Navigation() {
             ))}
           </ul>
 
+          {/* Accessibility Button - Desktop */}
+          <button
+            id="eyeAble_customToolOpenerID"
+            className="flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-primary transition-colors duration-200 rounded-full border-2 border-primary/20 hover:border-primary/40 bg-white/50"
+            aria-label="Visuelle Assistenzsoftware öffnen. Mit der Tastatur erreichbar über ALT + 1"
+            tabIndex={0}
+          >
+            <Eye className="h-5 w-5" />
+            <span className="font-medium">Barrierefreiheit</span>
+          </button>
+          </div>
+
           {/* Mobile Menu Button - Sichtbar nur auf mobilen Geräten */}
           <div className="md:hidden">
             <button
@@ -234,6 +265,19 @@ export default function Navigation() {
                 )}
               </li>
             ))}
+            
+            {/* Accessibility Button - Mobile */}
+            <li className="py-2 mt-4 border-t border-gray-200 pt-4">
+              <button
+                id="eyeAble_mobile_opener"
+                className="w-full flex items-center gap-2 px-4 py-3 text-foreground/80 hover:text-primary transition-colors duration-200 rounded-lg border-2 border-primary/20 hover:border-primary/40 bg-white/50 font-medium justify-center"
+                aria-label="Visuelle Assistenzsoftware öffnen. Mit der Tastatur erreichbar über ALT + 1"
+                tabIndex={0}
+              >
+                <Eye className="h-5 w-5" />
+                <span>Barrierefreiheit</span>
+              </button>
+            </li>
           </ul>
         </div>
       )}

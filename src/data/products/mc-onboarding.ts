@@ -47,7 +47,7 @@ export const Onboarding: ProductData = {
             'Vermittelt werden Fachwissen, Praxisbeispiele und konkrete Tipps für ein inklusives Onboarding von Mitarbeitenden mit Behinderung. Der direkte Austausch mit Mentor:innen ermöglicht ein tieferes Verständnis und praxisnahe Handlungsempfehlungen.',
         } as ContentBlock,
       ],
-      reverse: true,
+      alignment: 'right',
     },
     {
       title: 'Ergebnisse & Mehrwert',
@@ -66,11 +66,11 @@ export const Onboarding: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
       icon: 'Users',
-      items: [
-        'Personalbetreuung',
-        'Personalentwicklung',
-        'Führungskräfte',
-        'Inklusionsbeauftragte/Schwerbehindertenvertretung',
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Personalbetreuung' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Personalentwicklung' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Führungskräfte' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Inklusionsbeauftragte/Schwerbehindertenvertretung' },
       ],
       color: 'primary',
     },
@@ -78,11 +78,11 @@ export const Onboarding: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
       icon: 'Wrench',
-      items: [
-        'Fachwissen: die notwendigen Schritte des Onboardings',
-        'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
-        'Reflexion & Transfer: eures Onboarding-Konzepts',
-        'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout',
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Fachwissen: die notwendigen Schritte des Onboardings' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Reflexion & Transfer: eures Onboarding-Konzepts' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout' },
       ],
       color: 'secondary',
     },
@@ -90,10 +90,10 @@ export const Onboarding: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
       icon: 'CalendarDays',
-      items: [
-        'Vorgespräche zur individuellen Gestaltung',
-        'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',
-        'Reflexion über die aktuelle Situation in eurem Unternehmen für Mitarbeitende mit Behinderung',
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Vorgespräche zur individuellen Gestaltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Reflexion über die aktuelle Situation in eurem Unternehmen für Mitarbeitende mit Behinderung' },
       ],
       color: 'primary',
     },

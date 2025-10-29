@@ -51,7 +51,7 @@ export const Behinderungsarten: ProductData = {
             'Der Workshop bietet Ihnen einen praxisnahen Zugang zu den Themen Behinderung und Inklusion im Arbeitskontext. Sie erhalten fundiertes Fachwissen, konkrete Beispiele aus der Praxis sowie hilfreiche Tipps im Umgang mit unterschiedlichen Bedarfen. Durch den Austausch mit Menschen mit Behinderung entwickeln Sie ein tieferes Verständnis und können dieses Wissen direkt in Ihrem Arbeitsalltag anwenden.',
         } as ContentBlock,
       ],
-      reverse: true,
+      alignment: 'right',
     },
     {
       title: 'Ergebnisse & Mehrwert',
@@ -72,11 +72,11 @@ export const Behinderungsarten: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
       icon: 'Users',
-      items: [
-        'Führungskräfte',
-        'HR-Verantwortliche',
-        'Inklusionsbeauftragte/Schwerbehindertenvertretung',
-        'Kommunikationsverantwortlich',
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Führungskräfte' },
+        { type: 'bullet-point', id: 'card1-2', text: 'HR-Verantwortliche' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Inklusionsbeauftragte/Schwerbehindertenvertretung' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Kommunikationsverantwortlich' },
       ],
       color: 'primary',
     },
@@ -84,11 +84,11 @@ export const Behinderungsarten: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
       icon: 'Wrench',
-      items: [
-        'Fachwissen zu den unterschiedlichen Behinderungen und den damit verbundenen Bedarf',
-        'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
-        'Reflexion & Transfer: Reflexion welche Bedarfe in eurem Unternehmen umgesetzt werden könnten und was gebarucht wird.',
-        'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout',
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Fachwissen zu den unterschiedlichen Behinderungen und den damit verbundenen Bedarf' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Reflexion & Transfer: Reflexion welche Bedarfe in eurem Unternehmen umgesetzt werden könnten und was gebarucht wird.' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout' },
       ],
       color: 'secondary',
     },
@@ -96,10 +96,10 @@ export const Behinderungsarten: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
       icon: 'CalendarDays',
-      items: [
-        'Vorgespräche zur individuellen Gestaltung',
-        'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',
-        'Reflexion über die aktuelle Situation in eurem Unternehmen für Menschen mit Behinderung',
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Vorgespräche zur individuellen Gestaltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Reflexion über die aktuelle Situation in eurem Unternehmen für Menschen mit Behinderung' },
       ],
       color: 'primary',
     },

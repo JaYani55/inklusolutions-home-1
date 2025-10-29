@@ -43,7 +43,7 @@ export const Vernetzung: ProductData = {
           content: 'Vermittelt werden Wissen über relevante Netzwerke und Anlaufstellen sowie praxisnahe Tipps zur Nutzung dieser Ressourcen für Personalgewinnung, Arbeitgebermarke und Erfahrungsaustausch.',
         } as ContentBlock,
       ],
-      reverse: true
+      alignment: 'right'
     },
     {
       title: 'Ergebnisse & Mehrwert',
@@ -61,11 +61,11 @@ export const Vernetzung: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
   icon: 'Users',
-      items: [
-        'Recruiting',
-        'Personalentwicklung',
-        'Marketing',
-        'Inklusionsbeauftragte/Schwerbehindertenvertretung',
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Recruiting' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Personalentwicklung' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Marketing' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Inklusionsbeauftragte/Schwerbehindertenvertretung' },
       ],
       color: 'primary'
     },
@@ -73,11 +73,11 @@ export const Vernetzung: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
   icon: 'Wrench',
-      items: [
-        'Fachwissen: Netzwerke und Anlaufstellen in Deutschland',
-        'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
-        'Reflexion & Transfer: Reflexion welche Netzwerke ihr bisher nutzt und welche potentiell sinnvoll für euer Unternehmen sind.',
-        'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout'
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Fachwissen: Netzwerke und Anlaufstellen in Deutschland' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Reflexion & Transfer: Reflexion welche Netzwerke ihr bisher nutzt und welche potentiell sinnvoll für euer Unternehmen sind.' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout' },
       ],
       color: 'secondary'
     },
@@ -85,10 +85,10 @@ export const Vernetzung: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
   icon: 'CalendarDays',
-      items: [
-        'Vorgespräche zur individuellen Gestaltung',
-        'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',
-        'Reflexion über die aktuelle Situation',
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Vorgespräche zur individuellen Gestaltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Reflexion über die aktuelle Situation' },
       ],
       color: 'primary'
     }

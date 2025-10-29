@@ -45,7 +45,7 @@ export const StellenausschreibungJobcarving: ProductData = {
             'Vermittelt werden Fachwissen, Praxisbeispiele und Tipps zur inklusiven Gestaltung von Stellenausschreibungen sowie zum Einsatz des Jobcarving zur Entwicklung passgenauer Aufgabenprofile. Der Austausch mit Menschen mit Behinderung schafft zusätzliches Verständnis für inklusive Ansprache und flexible Stellenmodelle.'        
         } as ContentBlock,
       ],
-      reverse: true
+      alignment: 'right'
     },
     {
       title: 'Ergebnisse & Mehrwert',
@@ -78,9 +78,9 @@ export const StellenausschreibungJobcarving: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
   icon: 'Users',
-      items: [
-        'Recruiting',
-        'Personalentwicklung',
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Recruiting' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Personalentwicklung' },
       ],
       color: 'primary'
     },
@@ -88,11 +88,11 @@ export const StellenausschreibungJobcarving: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
   icon: 'Wrench',
-      items: [
-        'Fachwissen: Inklusive Stellenausschreibung, Ansprache von potentiellen Mitarbeitenden mit Behinderungen und Praxisbeispiele',
-        'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
-        'Reflexion & Transfer: Zusammen gehen wir eure Stellenausschreibung durch und geben euch wertvolle Tipps',
-        'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout'
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Fachwissen: Inklusive Stellenausschreibung, Ansprache von potentiellen Mitarbeitenden mit Behinderungen und Praxisbeispiele' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Reflexion & Transfer: Zusammen gehen wir eure Stellenausschreibung durch und geben euch wertvolle Tipps' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout' },
       ],
       color: 'secondary'
     },
@@ -100,10 +100,10 @@ export const StellenausschreibungJobcarving: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
   icon: 'CalendarDays',
-      items: [
-        'Vorgespräche zur individuellen Gestaltung',
-        'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',
-        'Reflexion über die aktuelle Situation in eurem Unternehmen für Mitarbeitende mit Behinderung',
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Vorgespräche zur individuellen Gestaltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Zwei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Reflexion über die aktuelle Situation in eurem Unternehmen für Mitarbeitende mit Behinderung' },
       ],
       color: 'primary'
     }

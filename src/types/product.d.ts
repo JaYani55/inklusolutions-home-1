@@ -38,14 +38,14 @@ export interface ProductData {
         title: string;
         description: ContentBlock[];
         image?: string; // Make image optional
-        reverse?: boolean;
+        alignment?: 'left' | 'center' | 'right'; // Text alignment, defaults to center
     }>;
     cards?: Array<{
         title: string;
         description: string;
         icon: string; // <-- CHANGE THIS: Was LucideIcon, now it's a string
         image?: string; // Make image optional
-        items: string[];
+        content: Array<ContentBlock | { type: 'bullet-point'; id: string; text: string }>; // Support both ContentBlock and bullet points
         color: string;
     }>;
     faq: Array<{

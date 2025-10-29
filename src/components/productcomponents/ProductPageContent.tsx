@@ -114,7 +114,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                             key={index} 
                             className="flex flex-col justify-center h-full text-center rounded-lg bg-white/50 border border-primary/20 p-4"
                           >
-                            <div className="text-xl font-bold text-primary text-foreground mb-1">{stat.value}</div>
+                            <div className="text-xl font-bold text-primary mb-1">{stat.value}</div>
                             <hr></hr>
                             <div className="text-sm font-bold text-foreground/60 uppercase tracking-wider mb-1">{stat.label}</div>
                           </div>
@@ -165,14 +165,18 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
           </div>
 
           <div className="container mx-auto px-6 relative z-20 space-y-20">
-            {productData.features.map((feature, index) => (
+            {productData.features.map((feature, index) => {
+              const alignment = feature.alignment || 'center';
+              const alignmentClass = alignment === 'left' ? 'lg:text-left' : alignment === 'right' ? 'lg:text-right' : 'lg:text-center';
+              
+              return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
-                className={`max-w-4xl mx-auto text-center space-y-8 ${index % 2 === 1 ? 'lg:text-right' : 'lg:text-left'}`}
+                className={`max-w-4xl mx-auto text-center space-y-8 ${alignmentClass}`}
               >
                 {/* Feature Number Badge 
                 <motion.div
@@ -216,7 +220,8 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                   />
                 )}
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </section>
       )}
@@ -265,7 +270,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="bg-white/80 border border-white/60 backdrop-blur-sm hover:border-accent/30 transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
+                    <Card className="bg-white/80 border-2 border-white/60 backdrop-blur-sm hover:border-primary hover:shadow-xl transition-all duration-300 group overflow-hidden relative shadow-lg h-full">
                       <CardContent className="p-8 relative h-full flex flex-col">
                         {/* Icon with gradient background */}
                         <div className="w-20 h-20 bg-gradient-to-br from-primary/15 to-secondary/15 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
@@ -281,18 +286,28 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ product: produc
                             {card.description}
                           </p>
                         </div>
-                        {/* Items List */}
-                        <ul className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
-                          {card.items.map((item, itemIndex) => (
-                            <li key={itemIndex} className="flex items-start gap-3">
-                              <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Hover Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                        {/* Content - supports both text blocks and bullet points */}
+                        <div className="space-y-3 text-foreground/70 leading-relaxed mb-8 flex-grow">
+                          {card.content.map((contentItem, itemIndex) => {
+                            if (contentItem.type === 'bullet-point') {
+                              return (
+                                <div key={contentItem.id || itemIndex} className="flex items-start gap-3">
+                                  <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                                  <span>{contentItem.text}</span>
+                                </div>
+                              );
+                            } else if (contentItem.type === 'text') {
+                              return (
+                                <ContentRenderer
+                                  key={contentItem.id || itemIndex}
+                                  content={[contentItem]}
+                                  className="text-foreground/70"
+                                />
+                              );
+                            }
+                            return null;
+                          })}
+                        </div>
                       </CardContent>
                     </Card>
                   </motion.div>

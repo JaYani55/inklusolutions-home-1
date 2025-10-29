@@ -47,7 +47,7 @@ export const vielfaltSichtbarMachen: ProductData = {
           src: '/film.jpg', alt: '',
         } as ContentBlock,
       ],
-      reverse: true
+      alignment: 'right'
     },
     {
       title: 'Echte Begegnung, echter Wandel',
@@ -68,11 +68,11 @@ export const vielfaltSichtbarMachen: ProductData = {
       description: 'Einstieg',
   icon: 'Target',
       image: '/placeholder-portrait.jpg',
-      items: [
-        'Gemeinsam finden wir die passenden Stimmen und Geschichten',
-        'Individuell abgestimmt auf eure Ziele',
-        'Inspirierende Videos aus eurer Branche',
-        'Passend zu eurer Unternehmenskultur'
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Gemeinsam finden wir die passenden Stimmen und Geschichten' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Individuell abgestimmt auf eure Ziele' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Inspirierende Videos aus eurer Branche' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Passend zu eurer Unternehmenskultur' },
       ],
       color: 'primary'
     },
@@ -81,12 +81,12 @@ export const vielfaltSichtbarMachen: ProductData = {
       description: 'Video-Paket',
   icon: 'Video',
       image: '/placeholder-videos.jpg',
-      items: [
-        'Video mit eurem Logo & Intro/Outro',
-        'Lizenz zur Nutzung auf internen Kanälen (Intranet, Schulungen, interne Events)',
-        'Tutorials für einfache Einbindung',
-        'Textbausteine & Fachartikel zum Video',
-        '1h Kommunikationsberatung für gezielte Platzierung & Anschlussmaßnahmen'
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Video mit eurem Logo & Intro/Outro' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Lizenz zur Nutzung auf internen Kanälen (Intranet, Schulungen, interne Events)' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Tutorials für einfache Einbindung' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Textbausteine & Fachartikel zum Video' },
+        { type: 'bullet-point', id: 'card2-5', text: '1h Kommunikationsberatung für gezielte Platzierung & Anschlussmaßnahmen' },
       ],
       color: 'secondary'
     },
@@ -95,12 +95,12 @@ export const vielfaltSichtbarMachen: ProductData = {
       description: 'Wandel schaffen',
   icon: 'TrendingUp',
       image: '/team-collaboration.jpg',
-      items: [
-        'Gespräche initiieren und fördern',
-        'Sichtbarkeit von Vielfalt erhöhen',
-        'Vertrauen im Unternehmen stärken',
-        'Offene Unternehmenskultur entwickeln',
-        'Langfristige Verhaltensänderung bewirken'
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Gespräche initiieren und fördern' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Sichtbarkeit von Vielfalt erhöhen' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Vertrauen im Unternehmen stärken' },
+        { type: 'bullet-point', id: 'card3-4', text: 'Offene Unternehmenskultur entwickeln' },
+        { type: 'bullet-point', id: 'card3-5', text: 'Langfristige Verhaltensänderung bewirken' },
       ],
       color: 'accent'
     }

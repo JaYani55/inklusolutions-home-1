@@ -51,7 +51,7 @@ export const Bewerbungsgespraeche: ProductData = {
             'Vermittelt wird praxisnah, wie Bewerbungsgespräche souverän und sicher geführt werden können. Realistische Gesprächssituationen, konkrete Handlungstipps und der Austausch mit Bewerber:innen mit Behinderungen fördern ein tieferes Verständnis für mögliche Barrieren und deren erfolgreiche Überwindung.',
         } as ContentBlock,
       ],
-      reverse: true,
+      alignment: 'right',
     },
     {
       title: 'Ergebnisse & Mehrwert',
@@ -72,11 +72,11 @@ export const Bewerbungsgespraeche: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
       icon: 'Users',
-      items: [
-        'Recruiting',
-        'Personalentwicklung',
-        'Führungskräfte',
-        'Inklusionsbeauftragte/Schwerbehindertenvertretung',
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Recruiting' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Personalentwicklung' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Führungskräfte' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Inklusionsbeauftragte/Schwerbehindertenvertretung' },
       ],
       color: 'primary',
     },
@@ -84,11 +84,11 @@ export const Bewerbungsgespraeche: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
       icon: 'Wrench',
-      items: [
-        'Fachwissen: über inklusive Bewerbungsgespräche',
-        'Begegnung: Bewerbungssimulationen mit Mentor:innen mit Behinderung',
-        'Reflexion & Transfer: Bisherige Bewerbungspraxis reflektieren und neue Erfahrungen sammeln',
-        'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout',
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Fachwissen: über inklusive Bewerbungsgespräche' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Bewerbungssimulationen mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Reflexion & Transfer: Bisherige Bewerbungspraxis reflektieren und neue Erfahrungen sammeln' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Werkzeugkasten: Fachwissen, Erfahrungsaustausch, Handout' },
       ],
       color: 'secondary',
     },
@@ -96,10 +96,10 @@ export const Bewerbungsgespraeche: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
       icon: 'CalendarDays',
-      items: [
-        'Vorgespräche zur individuellen Gestaltung',
-        'Drei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in',
-        'Reflexion über die aktuelle Situation in eurem Unternehmen für Menschen mit Behinderung',
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Vorgespräche zur individuellen Gestaltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Drei Sessions mit fachlichem und erfahrungsbezogenem Input durch Coach und Mentor:in' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Reflexion über die aktuelle Situation in eurem Unternehmen für Menschen mit Behinderung' },
       ],
       color: 'primary',
     },

@@ -31,7 +31,8 @@ export const disabilityAwarenessSession: ProductData = {
         type: 'text',
         content: 'Keine trockene Theorie, sondern **echte Erfahrungen**: In der Session entsteht ein offener Raum für ehrliche Fragen, Austausch und Reflexion. Gemeinsam mit Expert:innen mit Behinderung. So werden neue Perspektiven verständlich und konkrete Tipps direkt anwendbar.'
       } as ContentBlock,
-    ]
+    ],
+    alignment: 'center'
   },
   {
     title: 'Bewusstsein schaffen',
@@ -39,15 +40,10 @@ export const disabilityAwarenessSession: ProductData = {
       {
         id: 'feature2-block1',
         type: 'text',
-        content: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache.'
+        content: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache.\n\n*Ein kurzer Film („The Interviewer") und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.*'
       } as ContentBlock,
-      {
-        id: 'feature2-block2',
-        type: 'text',
-        content: 'Ein kurzer Film („The Interviewer") und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.',
-        format: 'italic' // Optional: Hebt diesen Teil hervor
-      } as ContentBlock,
-    ]
+    ],
+    alignment: 'right'
   },
   {
     title: 'Wirkung, die bleibt',
@@ -65,12 +61,12 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Format & Ablauf',
       description: 'Workshop-Details',
       icon: 'Clock',
-      items: [
-        'Kleingruppenübungen & Rollenspiele',
-        'Filmimpuls „The Interviewer“ mit Szenarienarbeit',
-        'Kleingruppenübungen und Rollenspiele',
-        'Peer-Gespräche mit Mentor:innen mit Behinderung',
-        'Reflexion & konkrete Handlungshilfen'
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'Kleingruppenübungen & Rollenspiele' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Filmimpuls „The Interviewer" mit Szenarienarbeit' },
+        { type: 'bullet-point', id: 'card1-3', text: 'Kleingruppenübungen und Rollenspiele' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Peer-Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card1-5', text: 'Reflexion & konkrete Handlungshilfen' },
       ],
       color: 'primary'
     },
@@ -78,12 +74,12 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Inhalte & Methoden',
       description: 'Was Sie lernen',
       icon: 'Lightbulb',
-      items: [
-        'Einführung in sichtbare & unsichtbare Behinderungen',
-        'Unconscious Bias und Ableismus verstehen',
-        'Kommunikation & Disclosure im Arbeitskontext',
-        'Handlungshilfen & Best Practices für den Alltag',
-        'Methodik: Input, Reflexion, Rollenspiel, Film, Quiz, Austausch'
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Einführung in sichtbare & unsichtbare Behinderungen' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Unconscious Bias und Ableismus verstehen' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Kommunikation & Disclosure im Arbeitskontext' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Handlungshilfen & Best Practices für den Alltag' },
+        { type: 'bullet-point', id: 'card2-5', text: 'Methodik: Input, Reflexion, Rollenspiel, Film, Quiz, Austausch' },
       ],
       color: 'secondary'
     },
@@ -91,17 +87,17 @@ export const disabilityAwarenessSession: ProductData = {
       title: 'Zielgruppen & Wirkung',
       description: 'Für wen & warum',
       icon: 'Target',
-      items: [
-        'Für wen & warum:',
-        'DEI-Verantwortliche: Perspektivwechsel für Strategie & Haltung',
-        'HR / Fachabteilungen: Sicherer Umgang mit Disclosure, Recruiting & Kommunikation',
-        'Führungskräfte: Führungsverantwortung für diverse Teams',
-        'Menschen mit Behinderung fühlen sich sichtbarer und sicherer',
-        'SBV / Inklusionsbeauftragte: Brückenbauer:innen in der Organisation',
-        'Wirkung:',
-        'Abbau von Unsicherheiten im Umgang mit Behinderung',
-        'Öffnet für die Arbeit von DEI-, SBV- und Inklusionsbeauftragten',
-        'Stärkt das Selbstverständnis als inklusiver Arbeitgeber'
+      content: [
+        { type: 'text', id: 'card3-header1', content: '**Für wen & warum:**' } as ContentBlock,
+        { type: 'bullet-point', id: 'card3-1', text: 'DEI-Verantwortliche: Perspektivwechsel für Strategie & Haltung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'HR / Fachabteilungen: Sicherer Umgang mit Disclosure, Recruiting & Kommunikation' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Führungskräfte: Führungsverantwortung für diverse Teams' },
+        { type: 'bullet-point', id: 'card3-4', text: 'Menschen mit Behinderung fühlen sich sichtbarer und sicherer' },
+        { type: 'bullet-point', id: 'card3-5', text: 'SBV / Inklusionsbeauftragte: Brückenbauer:innen in der Organisation' },
+        { type: 'text', id: 'card3-header2', content: '**Wirkung:**' } as ContentBlock,
+        { type: 'bullet-point', id: 'card3-6', text: 'Abbau von Unsicherheiten im Umgang mit Behinderung' },
+        { type: 'bullet-point', id: 'card3-7', text: 'Öffnet für die Arbeit von DEI-, SBV- und Inklusionsbeauftragten' },
+        { type: 'bullet-point', id: 'card3-8', text: 'Stärkt das Selbstverständnis als inklusiver Arbeitgeber' },
       ],
       color: 'accent'
     }

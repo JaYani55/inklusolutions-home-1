@@ -42,7 +42,7 @@ export const inklusionsführerschein: ProductData = {
           content: 'Der Inklusionsführerschein ist dein Start mit Haltung und Handwerkzeug - für alle, die in ihrem Unternehmen beim Thema Inklusion wirklich etwas bewegen wollen. Er verbindet fundiertes Wissen, ehrliche Selbstreflexion und echte Begegnungen mit Expert:innen mit gelebter Behinderung. So bekommst du Sprache, Strategien und Mut statt Unsicherheit - und legst die Basis für wirksames Handeln.',
         } as ContentBlock,
       ],
-      reverse: true
+      alignment: 'right'
     },
     {
       title: 'In 2 Tagen zu sicherem Handeln',
@@ -51,7 +51,7 @@ export const inklusionsführerschein: ProductData = {
           content: 'Im zweitäigen Präsenz-Workshop durchläufst du kompakt Theorie und Praxis: typische Ängste bennenen, Fallstricke erkennen, Rolle klären. Du trainierst echte Gesprächssituationen, erhältst direktes Feedback von Mentor:innen, arbeitest am eigenen Unternehmenskontext und nimmst einen konkreten Transferauftrag mit. Ergebnis: spürbare Handlungssicherheit, klare nächste Schritte und ein Zertifikat - bereit, Inklusion im Arbeitsalltag...',
         } as ContentBlock,
       ],
-      reverse: true
+      alignment: 'right'
     },
   ],
 
@@ -61,11 +61,11 @@ export const inklusionsführerschein: ProductData = {
       title: 'Zielgruppen',
       description: 'Wer profitiert',
       icon: 'Users',
-      items: [
-        'DEI-Verantwortliche',
-        'Schwerbehindertenvertretungen / Inklusionsbeauftragte',
-        'HR-Verantwortliche',
-        'Führungskräfte mit Verantwortung für Kultur & Personal'
+      content: [
+        { type: 'bullet-point', id: 'card1-1', text: 'DEI-Verantwortliche' },
+        { type: 'bullet-point', id: 'card1-2', text: 'Schwerbehindertenvertretungen / Inklusionsbeauftragte' },
+        { type: 'bullet-point', id: 'card1-3', text: 'HR-Verantwortliche' },
+        { type: 'bullet-point', id: 'card1-4', text: 'Führungskräfte mit Verantwortung für Kultur & Personal' },
       ],
       color: 'primary'
     },
@@ -73,12 +73,12 @@ export const inklusionsführerschein: ProductData = {
       title: 'Inhalte / Bausteine',
       description: 'Lerninhalte entdecken',
       icon: 'Wrench',
-      items: [
-        'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, DEI & rechtliche Grundlagen',
-        'Begegnung: Gespräche mit Mentor:innen mit Behinderung',
-        'Simulationen: Bewerbungsgespräch, Onboarding, Kommunikation',
-        'Reflexion & Transfer: Canvas-Arbeit, Handlungsideen, Peer-Feedback',
-        'Werkzeugkasten: Argumente, Formulierungen, nächste Schritte'
+      content: [
+        { type: 'bullet-point', id: 'card2-1', text: 'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, DEI & rechtliche Grundlagen' },
+        { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Simulationen: Bewerbungsgespräch, Onboarding, Kommunikation' },
+        { type: 'bullet-point', id: 'card2-4', text: 'Reflexion & Transfer: Canvas-Arbeit, Handlungsideen, Peer-Feedback' },
+        { type: 'bullet-point', id: 'card2-5', text: 'Werkzeugkasten: Argumente, Formulierungen, nächste Schritte' },
       ],
       color: 'secondary'
     },
@@ -86,12 +86,12 @@ export const inklusionsführerschein: ProductData = {
       title: 'Ablauf des Workshops',
       description: 'Workshop-Struktur',
       icon: 'CalendarDays',
-      items: [
-        'Zwei intensive Tage mit Theorie und Praxis',
-        'Thematisierung typischer Ängste und Fallstricke',
-        'Training echter Gesprächssituationen',
-        'Direktes Feedback von Mentor:innen',
-        'Entwicklung individueller Umsetzungsschritte'
+      content: [
+        { type: 'bullet-point', id: 'card3-1', text: 'Zwei intensive Tage mit Theorie und Praxis' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Thematisierung typischer Ängste und Fallstricke' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Training echter Gesprächssituationen' },
+        { type: 'bullet-point', id: 'card3-4', text: 'Direktes Feedback von Mentor:innen' },
+        { type: 'bullet-point', id: 'card3-5', text: 'Entwicklung individueller Umsetzungsschritte' },
       ],
       color: 'primary'
     }
