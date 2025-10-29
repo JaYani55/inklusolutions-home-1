@@ -1,17 +1,22 @@
 // src/types/content.d.ts (oder direkt in product.d.ts, wenn nur dort verwendet)
 
 // Union-Typ für alle möglichen Block-Typen
-export type ContentBlock = TextBlock | ImageBlock | QuoteBlock | ListBlock | VideoBlock;
+export type ContentBlock = TextBlock | HeadingBlock | ImageBlock | QuoteBlock | ListBlock | VideoBlock;
 
 export interface BaseBlock {
   id: string; // Eindeutiger Identifier für diesen Block (z.B. UUID oder Index)
-  type: string; // Der Typ des Blocks (z.B. 'text', 'image', 'quote', 'list', 'video')
+  type: string; // Der Typ des Blocks (z.B. 'text', 'heading', 'image', 'quote', 'list', 'video')
 }
 
 export interface TextBlock extends BaseBlock {
   type: 'text';
-  content: string; // Der Textinhalt des Paragraphen
-  format?: 'paragraph' | 'heading1' | 'heading2' | 'heading3' | 'bold' | 'italic'; // Optional: Formatierung
+  content: string; // Der Textinhalt des Paragraphen - unterstützt Markdown-Formatierung
+}
+
+export interface HeadingBlock extends BaseBlock {
+  type: 'heading';
+  content: string; // Der Text der Überschrift
+  level: 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'heading5' | 'heading6'; // Überschriftsebene
 }
 
 export interface ImageBlock extends BaseBlock {

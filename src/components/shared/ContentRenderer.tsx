@@ -4,10 +4,11 @@
 
 import React from 'react';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 // Importiere die ContentBlock-Typen
 // Angenommen, du hast sie in src/types/content.d.ts gespeichert
-import { ContentBlock, TextBlock, ImageBlock, QuoteBlock, ListBlock, VideoBlock, BaseBlock } from '@/types/content';
+import { ContentBlock, TextBlock, HeadingBlock, ImageBlock, QuoteBlock, ListBlock, VideoBlock, BaseBlock } from '@/types/content';
 
 interface ContentRendererProps {
   content: ContentBlock[]; // Das Array der Inhaltsblöcke
@@ -28,14 +29,37 @@ const ContentRenderer: React.FC<ContentRendererProps> = ({ content, className })
         switch (block.type) {
           case 'text':
             const textBlock = block as TextBlock;
-            // Je nach Format des Textblocks unterschiedliche Tags rendern
-            switch (textBlock.format) {
-              case 'heading1': return <h1 key={key} className="text-4xl font-bold">{textBlock.content}</h1>;
-              case 'heading2': return <h2 key={key} className="text-3xl font-bold">{textBlock.content}</h2>;
-              case 'heading3': return <h3 key={key} className="text-2xl font-bold">{textBlock.content}</h3>;
-              case 'bold': return <p key={key} className="font-bold">{textBlock.content}</p>;
-              case 'italic': return <p key={key} className="italic">{textBlock.content}</p>;
-              default: return <p key={key} className="text-lg leading-relaxed">{textBlock.content}</p>;
+            // Render text with markdown support
+            return (
+              <div key={key} className="prose prose-lg max-w-none text-foreground/80">
+                <ReactMarkdown
+                  components={{
+                    p: ({ children }) => <p className="text-lg leading-relaxed mb-4">{children}</p>,
+                    strong: ({ children }) => <strong className="font-bold text-foreground">{children}</strong>,
+                    em: ({ children }) => <em className="italic">{children}</em>,
+                    a: ({ href, children }) => (
+                      <a href={href} className="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    ),
+                  }}
+                >
+                  {textBlock.content}
+                </ReactMarkdown>
+              </div>
+            );
+
+          case 'heading':
+            const headingBlock = block as HeadingBlock;
+            // Render headings based on their level
+            switch (headingBlock.level) {
+              case 'heading1': return <h1 key={key} className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">{headingBlock.content}</h1>;
+              case 'heading2': return <h2 key={key} className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">{headingBlock.content}</h2>;
+              case 'heading3': return <h3 key={key} className="text-2xl lg:text-3xl font-bold mb-3 text-foreground">{headingBlock.content}</h3>;
+              case 'heading4': return <h4 key={key} className="text-xl lg:text-2xl font-bold mb-3 text-foreground">{headingBlock.content}</h4>;
+              case 'heading5': return <h5 key={key} className="text-lg lg:text-xl font-bold mb-2 text-foreground">{headingBlock.content}</h5>;
+              case 'heading6': return <h6 key={key} className="text-base lg:text-lg font-bold mb-2 text-foreground">{headingBlock.content}</h6>;
+              default: return <h2 key={key} className="text-3xl font-bold mb-4 text-foreground">{headingBlock.content}</h2>;
             }
 
           case 'image':
