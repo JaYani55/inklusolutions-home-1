@@ -19,6 +19,7 @@ import { Button } from '@/components/ui/button'
 import CTASection from '@/components/shared/CTASection'
 import Footer from '@/components/shared/Footer'
 
+
 const trainingsProducts = [
   {
     id: 'training-1',
@@ -32,7 +33,7 @@ const trainingsProducts = [
     slug: 'masterclasses',
     name: 'Masterclass-Serie',
     description: 'Kurze, praxisnahe Sessions zu Spezialthemen wie barrierefreie Kommunikation, Fördermittel oder Bewerbungssimulation.',
-    topics: [
+    topics: [ 
       { id: 'mc-1', slug: 'stellenausschreibung-jobcarving', name: 'Inklusive Stellenausschreibungen', description: 'Optimieren Sie Ihre Jobtexte für maximale Diversität und Ansprache.' },
       { id: 'mc-2', slug: 'barrieren-erkennen-und-abbauen', name: 'Barrierefreiheit umsetzen', description: 'Konkrete Schritte für physische und digitale Zugänglichkeit.' },
       { id: 'mc-3', slug: 'inklusive-webseite', name: 'Barrierefreie Online-Kommunikation', description: 'Web, Social Media und Dokumente für alle zugänglich gestalten.' },
@@ -210,7 +211,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.1, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-emerald-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[0].slug}`}>
+                    <Link href='/products/stellenausschreibung-jobcarving'>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-emerald-500">
                           <Image src="/Stellenausschreibung.png" alt="Stellenausschreibung" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -232,7 +233,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-blue-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[1].slug}`}>
+                    <Link href={`/products/barrieren-erkennen-und-abbauen`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-blue-500">
                           <Image src="/Barrierefreiheit.png" alt="Barrierefreiheit" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -253,7 +254,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.3, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-orange-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[2].slug}`}>
+                    <Link href={`/products/inklusive-webseite`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-orange-500">
                           <Image src="/KommunikationOnline.png" alt="Kommunikation Online" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -274,7 +275,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.4, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-purple-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[3].slug}`}>
+                    <Link href={`/products/onboarding`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-purple-500">
                           <Image src="/Onboarding.png" alt="Inklusives Onboarding" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -298,7 +299,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.5, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-pink-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[4].slug}`}>
+                    <Link href={`/products/bewerbungsgespraeche`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-pink-500">
                           <Image src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -319,7 +320,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-red-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[5].slug}`}>
+                    <Link href={`/products/behinderungsarten`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-red-500">
                           <Image src="/DeepDive.png" alt="Deep Dives" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -340,7 +341,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.7, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-yellow-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[6].slug}`}>
+                    <Link href={`/products/foerdermittel`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-yellow-500">
                           <Image src="/Foerdermittel.png" alt="Fördermittel" width={64} height={64} className="w-16 h-16 object-contain" />
@@ -361,7 +362,7 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.8, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-teal-500"
                   >
-                    <Link href={`/products/${trainingsProducts[1].topics[7].slug}`}>
+                    <Link href={`/products/vernetzung`}>
                       <div className="mb-4">
                         <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-teal-500">
                           <Image src="/Vernetzung.png" alt="Vernetzung" width={64} height={64} className="w-16 h-16 object-contain" />
