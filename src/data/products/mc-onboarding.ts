@@ -18,11 +18,11 @@ export const Onboarding: ProductData = {
           'Ein erfolgreicher Bewerbungsprozess ist nur der erste Schritt – das Onboarding entscheidet über einen gelingenden Start. Je nach Art der Behinderung sind vor, während und nach dem ersten Arbeitstag unterschiedliche Aspekte zu berücksichtigen. Die Sessions vermitteln Fachwissen, praxisnahe Tipps und konkrete Handlungsempfehlungen, ergänzt durch die Erfahrungen von Mentor:innen mit Behinderung. So wird gewährleistet, dass neue Mitarbeitende nicht nur barrierefrei starten, sondern sich vom ersten Tag an willkommen und unterstützt fühlen.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/interview.jpg',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
-      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
-      { value: 'Nach Anfrage', label: 'PREIS' },
+      { value: '2 x 1,5 Std.', label: 'INHALT' },
+      { value: 'Auf Anfrage', label: 'PREIS' },
     ],
   },
   features: [

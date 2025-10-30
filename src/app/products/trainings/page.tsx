@@ -33,14 +33,14 @@ const trainingsProducts = [
     name: 'Masterclass-Serie',
     description: 'Kurze, praxisnahe Sessions zu Spezialthemen wie barrierefreie Kommunikation, Fördermittel oder Bewerbungssimulation.',
     topics: [
-      { id: 'mc-1', slug: 'inklusive-stellenausschreibungen', name: 'Inklusive Stellenausschreibungen', description: 'Optimieren Sie Ihre Jobtexte für maximale Diversität und Ansprache.' },
-      { id: 'mc-2', slug: 'barrierefreiheit-umsetzen', name: 'Barrierefreiheit umsetzen', description: 'Konkrete Schritte für physische und digitale Zugänglichkeit.' },
-      { id: 'mc-3', slug: 'barrierefreie-kommunikation-online', name: 'Barrierefreie Online-Kommunikation', description: 'Web, Social Media und Dokumente für alle zugänglich gestalten.' },
-      { id: 'mc-4', slug: 'inklusives-onboarding', name: 'Inklusives Onboarding', description: 'Erfolgreicher Start für alle neuen Teammitglieder.' },
-      { id: 'mc-5', slug: 'bewerbungssimulation', name: 'Bewerbungssimulation mit Mentor:innen', description: 'Realistische Vorbereitung mit professionellem Feedback.' },
-      { id: 'mc-6', slug: 'deep-dives-behinderungsarten', name: 'Deep Dives: Behinderungsarten', description: 'Fundiertes Verständnis und sensibler Umgang.' },
-      { id: 'mc-7', slug: 'foerdermittel-optimierung', name: 'Fördermittel-Optimierung', description: 'Maximale Ausschöpfung verfügbarer Fördermöglichkeiten.' },
-      { id: 'mc-8', slug: 'vernetzung-anlaufstellen', name: 'Vernetzung & Anlaufstellen', description: 'Strategischer Aufbau Ihres Inklusionsnetzwerks.' },
+      { id: 'mc-1', slug: 'stellenausschreibung-jobcarving', name: 'Inklusive Stellenausschreibungen', description: 'Optimieren Sie Ihre Jobtexte für maximale Diversität und Ansprache.' },
+      { id: 'mc-2', slug: 'barrieren-erkennen-und-abbauen', name: 'Barrierefreiheit umsetzen', description: 'Konkrete Schritte für physische und digitale Zugänglichkeit.' },
+      { id: 'mc-3', slug: 'inklusive-webseite', name: 'Barrierefreie Online-Kommunikation', description: 'Web, Social Media und Dokumente für alle zugänglich gestalten.' },
+      { id: 'mc-4', slug: 'onboarding', name: 'Inklusives Onboarding', description: 'Erfolgreicher Start für alle neuen Teammitglieder.' },
+      { id: 'mc-5', slug: 'bewerbungsgespraeche', name: 'Bewerbungssimulation mit Mentor:innen', description: 'Realistische Vorbereitung mit professionellem Feedback.' },
+      { id: 'mc-6', slug: 'behinderungsarten', name: 'Deep Dives: Behinderungsarten', description: 'Fundiertes Verständnis und sensibler Umgang.' },
+      { id: 'mc-7', slug: 'foerdermittel', name: 'Fördermittel-Optimierung', description: 'Maximale Ausschöpfung verfügbarer Fördermöglichkeiten.' },
+      { id: 'mc-8', slug: 'vernetzung', name: 'Vernetzung & Anlaufstellen', description: 'Strategischer Aufbau Ihres Inklusionsnetzwerks.' },
     ],
   },
 ]
@@ -210,17 +210,20 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.1, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-emerald-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-emerald-500">
-                        <Image src="/Stellenausschreibung.png" alt="Stellenausschreibung" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[0].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-emerald-500">
+                          <Image src="/Stellenausschreibung.png" alt="Stellenausschreibung" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Stellenausschreibung & Jobcarving</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Wie sprechen ihre Stellenausschreibungen besser potenzielle Mitarbeitende mit Behinderung an. Wie können Stellen angepasst werden.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Stellenausschreibung & Jobcarving</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Wie sprechen ihre Stellenausschreibungen besser potenzielle Mitarbeitende mit Behinderung an. Wie können Stellen angepasst werden.
+                      </p>
+                    </Link>
                   </motion.div>
+
 
                   {/* Barrierefreiheit umsetzen - Blau */}
                   <motion.div
@@ -229,16 +232,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-blue-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-blue-500">
-                        <Image src="/Barrierefreiheit.png" alt="Barrierefreiheit" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[1].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-blue-500">
+                          <Image src="/Barrierefreiheit.png" alt="Barrierefreiheit" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Barrieren verstehen und abbauen</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Wir zeigen Ihnen, wie Sie Barrieren – ob räumlich, visuell oder sozial - erkennen und gezielt verringern.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Barrieren verstehen und abbauen</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Wir zeigen Ihnen, wie Sie Barrieren – ob räumlich, visuell oder sozial - erkennen und gezielt verringern.
+                      </p>
+                    </Link>
                   </motion.div>
 
                   {/* Barrierefreie Kommunikation online - Orange */}
@@ -248,16 +253,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.3, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-orange-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-orange-500">
-                        <Image src="/KommunikationOnline.png" alt="Kommunikation Online" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[2].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-orange-500">
+                          <Image src="/KommunikationOnline.png" alt="Kommunikation Online" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusiver Webauftritt</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Wie Webseiten und Landingpages inklusiv, zugänglich und für Menschen mit Behinderung attraktiv gestaltet werden.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusiver Webauftritt</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Wie Webseiten und Landingpages inklusiv, zugänglich und für Menschen mit Behinderung attraktiv gestaltet werden.
+                      </p>
+                    </Link>
                   </motion.div>
 
                   {/* Inklusives Onboarding - Lila */}
@@ -267,16 +274,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.4, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-purple-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-purple-500">
-                        <Image src="/Onboarding.png" alt="Inklusives Onboarding" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[3].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-purple-500">
+                          <Image src="/Onboarding.png" alt="Inklusives Onboarding" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusives Onboarding</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Was muss für ein erfolgreiches Onboarding bei Menschen mit Behinderungen berücksichtigt werden.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusives Onboarding</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Was muss für ein erfolgreiches Onboarding bei Menschen mit Behinderungen berücksichtigt werden.
+                      </p>
+                    </Link>
                   </motion.div>
                 </div>
 
@@ -289,16 +298,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.5, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-pink-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-pink-500">
-                        <Image src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[4].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-pink-500">
+                          <Image src="/Bewerbungssimulation.png" alt="Bewerbungssimulation" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Bewerbungsgespräche</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Bewerbungsgespräche mit Menschen mit Behinderung trainieren – mit direktem Feedback und Aha-Momenten.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Inklusive Bewerbungsgespräche</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Bewerbungsgespräche mit Menschen mit Behinderung trainieren – mit direktem Feedback und Aha-Momenten.
+                      </p>
+                    </Link>
                   </motion.div>
 
                   {/* Deep Dives: Behinderungsarten - Rot */}
@@ -308,16 +319,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-red-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-red-500">
-                        <Image src="/DeepDive.png" alt="Deep Dives" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[5].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-red-500">
+                          <Image src="/DeepDive.png" alt="Deep Dives" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Behinderungsarten</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Von Autismus über Sehbehinderung bis chronische Schmerzen – wir teilen fundiertes Wissen und persönliche Perspektiven, um Behinderungen besser zu verstehen und inklusiver zu handeln.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Behinderungsarten</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Von Autismus über Sehbehinderung bis chronische Schmerzen – wir teilen fundiertes Wissen und persönliche Perspektiven, um Behinderungen besser zu verstehen und inklusiver zu handeln.
+                      </p>
+                    </Link>
                   </motion.div>
 
                   {/* Fördermittel-Optimierung - Gelb */}
@@ -327,16 +340,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.7, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-yellow-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-yellow-500">
-                        <Image src="/Foerdermittel.png" alt="Fördermittel" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[6].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-yellow-500">
+                          <Image src="/Foerdermittel.png" alt="Fördermittel" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Fördermittel</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                       Überblick über staatliche Fördermittel und die effektive Nutzung für die Inklusion.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Fördermittel</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Überblick über staatliche Fördermittel und die effektive Nutzung für die Inklusion.
+                      </p>
+                    </Link>
                   </motion.div>
 
                   {/* Vernetzung & Anlaufstellen - Türkis */}
@@ -346,16 +361,18 @@ export default function TrainingsPage() {
                     transition={{ delay: 0.8, duration: 0.6 }}
                     className="relative rounded-3xl p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white border-[3px] border-teal-500"
                   >
-                    <div className="mb-4">
-                      <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-teal-500">
-                        <Image src="/Vernetzung.png" alt="Vernetzung" width={64} height={64} className="w-16 h-16 object-contain" />
+                    <Link href={`/products/${trainingsProducts[1].topics[7].slug}`}>
+                      <div className="mb-4">
+                        <div className="p-2 bg-white absolute left-5 top-3 transform -translate-x-1/2 -translate-y-1/2 rounded-full backdrop-blur-sm shadow-lg overflow-visible border-2 border-teal-500">
+                          <Image src="/Vernetzung.png" alt="Vernetzung" width={64} height={64} className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="h-6" />
                       </div>
-                      <div className="h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-3 text-gray-800">Vernetzung & Anlaufstellen</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Die wichtigsten externen Kontakte, Förderakteure und Netzwerke, die bei der Inklusion eurer Unternehmen unterstützen können.
-                    </p>
+                      <h3 className="font-bold text-lg mb-3 text-gray-800">Vernetzung & Anlaufstellen</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Die wichtigsten externen Kontakte, Förderakteure und Netzwerke, die bei der Inklusion eurer Unternehmen unterstützen können.
+                      </p>
+                    </Link>
                   </motion.div>
                 </div>
                 </div>

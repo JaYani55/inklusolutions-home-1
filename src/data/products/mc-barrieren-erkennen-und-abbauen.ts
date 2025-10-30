@@ -21,11 +21,11 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
           'Neben physischen gibt es auch soziale, visuelle oder akustische Barrieren, die Mitarbeitenden mit Behinderung im Arbeitsalltag im Weg stehen.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/arbeitsgruppe.png',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
-      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
-      { value: 'Nach Anfrage', label: 'PREIS' },
+      { value: '2 x 1,5 Stunden', label: 'INHALT' },
+      { value: 'Auf Anfrage', label: 'PREIS' },
     ],
   },
 

@@ -20,11 +20,11 @@ export const Behinderungsarten: ProductData = {
           'Behinderungen sind vielfältig und mit unterschiedlichen Bedürfnissen verbunden. Die Masterclass vermittelt fundiertes Wissen zu verschiedenen Behinderungsformen und den jeweiligen Bedarfen. Mentor*innen mit eigener Behinderung geben Einblicke aus erster Hand und zeigen, wie Inklusion gelingen kann. Die Inhalte werden individuell auf jedes Unternehmen zugeschnitten.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/inclusive-leadership-course.jpg',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
-      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
-      { value: 'Nach Anfrage', label: 'PREIS' },
+      { value: '2 x 1,5 Std.', label: 'INHALT' },
+      { value: 'Auf Anfrage', label: 'PREIS' },
     ],
   },
 

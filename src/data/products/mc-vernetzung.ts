@@ -16,10 +16,10 @@ export const Vernetzung: ProductData = {
         content: 'Netzwerke sind zentral, um Inklusion im Unternehmen nachhaltig zu verankern. Sie ermöglichen Austausch, gegenseitiges Lernen und konkrete Unterstützung – etwa bei Rekrutierung oder Kommunikation. Die Masterclass bietet einen Überblick über relevante Netzwerke und zentrale Anlaufstellen zur Inklusion in der Arbeitswelt. So entsteht ein stabiles Fundament, das Inklusion sichtbar macht und langfristig stärkt.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/team.jpg',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
-      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: '2 x 1,5 Std.', label: 'DAUER ' },
       { value: 'Nach Anfrage', label: 'PREIS' }
     ]
   },

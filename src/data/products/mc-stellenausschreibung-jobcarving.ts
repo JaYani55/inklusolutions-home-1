@@ -16,9 +16,9 @@ export const StellenausschreibungJobcarving: ProductData = {
         content: 'Die Ansprache in Stellenausschreibungen ist entscheidend, damit sich potenzielle Mitarbeitende mit Behinderungen angesprochen fühlen. Wir analysieren ihre Ausschreibungen und geben praxisorientierts Feedback . Mentor:innen mit eigener Behinderung geben Einblicke und zeigen auf, wie inklusive Formulierungen gelingen. Ergänzend wird das Konzept des Jobcarving vorgestellt: Aufgabenprofile werden so gestaltet, dass individuelle Stärken optimal genutzt werden – ein Gewinn für Mitarbeitende mit Behinderungen wie auch für das gesamte Team.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/gruppenbild_handsup1.jpg',
     stats: [
-      { value: 'FORMAT', label: 'ONLINE' },
+      { value: 'FORMAT', label: 'ONLINE', },
       { value: 'DAUER' , label: '4 x 1,5 Stunden'},
       { value: 'PREIS', label: 'Auf Anfrage' }
     ]

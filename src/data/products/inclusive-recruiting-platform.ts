@@ -19,7 +19,7 @@ export const inclusiveRecruitingPlatform: ProductData = {
           'Unsere spezialisierte Recruiting-Plattform verbindet Sie mit einem vielfältigen Pool an qualifizierten Fachkräften und stellt sicher, dass Ihr Bewerbungsprozess für alle zugänglich ist.',
       } as ContentBlock,
     ],
-    image: '/images/products/platform-hero.jpg',
+    image: '/gruppenbild_handsup1.jpg',
   },
 
   // features – each description is now a ContentBlock array

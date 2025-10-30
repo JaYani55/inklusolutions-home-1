@@ -172,7 +172,7 @@ export default function ServicesPage() {
         <section className="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-background to-warm-bg">
           {/* Hero Background Image */}
           <Image
-            src="/team-collaboration.jpg"
+            src="/gruppenarbeit.png"
             alt="Services Background"
             fill
             priority

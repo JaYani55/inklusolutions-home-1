@@ -15,7 +15,7 @@ export const vielfaltSichtbarMachen: ProductData = {
         content: 'In Deutschland werden jedes Jahr Millionen Euro Ausgleichsabgaben gezahlt – weil viele Mitarbeitende ihre Behinderung nicht offenlegen. Wie viele unentdeckte Menschen mit Behinderung gibt es bei euch? Kennt ihr die ganze Vielfalt?',
       } as ContentBlock,
     ],
-    image: '/diverse-professionals.jpg'
+    image: '/gruppenbild_handsup2.jpg'
   },
 
   // Features

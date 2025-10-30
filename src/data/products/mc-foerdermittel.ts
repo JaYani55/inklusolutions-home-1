@@ -20,10 +20,10 @@ export const Foerdermittel: ProductData = {
           'Die Masterclass vermittelt einen strukturierten Überblick über zentrale Fördermöglichkeiten, zeigt relevante Optionen auf und gibt praxisnahe Handlungsempfehlungen für die konkrete Nutzung. So können vorhandene Ressourcen gezielt eingesetzt werden, um Inklusion im Unternehmen nachhaltig zu stärken.',
       } as ContentBlock,
     ],
-    image: '/mentor-mentee.jpg',
+    image: '/gruppenbild_handsup2.jpg',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
-      { value: '2 Session à 1,5 Std., Handout', label: 'INHALT' },
+      { value: '2 x 1,5 Std.', label: 'INHALT' },
       { value: 'Nach Anfrage', label: 'PREIS' },
     ],
   },
