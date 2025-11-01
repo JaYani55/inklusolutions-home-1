@@ -9,23 +9,19 @@ import { cn } from "@/lib/utils";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Attach event listener to mobile Eyeable button
-    const mobileButton = document.getElementById('eyeAble_mobile_opener');
-    if (mobileButton) {
-      const handleClick = () => {
-        // Trigger Eyeable API
-        const windowWithEyeable = window as Window & { EyeAbleAPI?: { toggleToolbar: () => void } };
-        if (typeof window !== 'undefined' && windowWithEyeable.EyeAbleAPI) {
-          windowWithEyeable.EyeAbleAPI.toggleToolbar();
-        }
-        // Close mobile menu after a short delay
-        setTimeout(() => setIsMobileMenuOpen(false), 100);
-      };
-      mobileButton.addEventListener('click', handleClick);
-      return () => mobileButton.removeEventListener('click', handleClick);
+  const handleEyeAbleClick = () => {
+    const windowWithEyeable = window as Window & { EyeAbleAPI?: { toggleToolbar: () => void } };
+    if (windowWithEyeable.EyeAbleAPI && typeof windowWithEyeable.EyeAbleAPI.toggleToolbar === 'function') {
+      windowWithEyeable.EyeAbleAPI.toggleToolbar();
+    } else {
+      console.error("EyeAble API not found or toggleToolbar is not a function.");
     }
-  }, [isMobileMenuOpen]); // Re-attach when mobile menu opens/closes
+  };
+
+  // This useEffect is no longer needed for the EyeAble button logic.
+  useEffect(() => {
+    // Kept in case other side-effects depending on the mobile menu are needed in the future.
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     {
@@ -175,7 +171,8 @@ export default function Navigation() {
 
           {/* Accessibility Button - Desktop */}
           <button
-            id="eyeAble_customToolOpenerID"
+            onClick={handleEyeAbleClick}
+            id="eyeAble_customToolOpenerID" // ID is kept for compatibility with EyeAble script if needed
             className="flex items-center gap-2 px-4 py-2 text-foreground/80 hover:text-primary transition-colors duration-200 rounded-full border-2 border-primary/20 hover:border-primary/40 bg-white/50"
             aria-label="Visuelle Assistenzsoftware öffnen. Mit der Tastatur erreichbar über ALT + 1"
             tabIndex={0}
@@ -269,7 +266,12 @@ export default function Navigation() {
             {/* Accessibility Button - Mobile */}
             <li className="py-2 mt-4 border-t border-gray-200 pt-4">
               <button
-                id="eyeAble_mobile_opener"
+                id="eyeAble_mobile_opener" // ID is kept for compatibility
+                onClick={() => {
+                  handleEyeAbleClick();
+                  // Close mobile menu after a short delay to allow the API to trigger
+                  setTimeout(() => setIsMobileMenuOpen(false), 100);
+                }}
                 className="w-full flex items-center gap-2 px-4 py-3 text-foreground/80 hover:text-primary transition-colors duration-200 rounded-lg border-2 border-primary/20 hover:border-primary/40 bg-white/50 font-medium justify-center"
                 aria-label="Visuelle Assistenzsoftware öffnen. Mit der Tastatur erreichbar über ALT + 1"
                 tabIndex={0}
