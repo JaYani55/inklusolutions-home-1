@@ -20,7 +20,7 @@ export const InklusiveWebseite: ProductData = {
           'Der erste Eindruck eines Unternehmens entsteht häufig über den Webauftritt. Neben technischer Barrierefreiheit sind dabei vor allem Benutzerfreundlichkeit und Ansprache entscheidend. In den Coachings analysieren Mentor:innen mit Behinderung Unternehmenswebsites mit Fokus auf Usability und Ansprache. Vermittelt werden praxisnahes Feedback sowie konkrete, leicht umsetzbare Lösungsvorschläge. So entsteht ein Auftritt, der barrierearm und zugleich inklusiv wirkt – mit positiver Wirkung für Bewerbende wie auch Kund:innen mit Behinderung.',
       } as ContentBlock,
     ],
-    image: '/KommunikationOnline.png',
+    image: '/inklusiver_Webauftritt.png',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
       { value: '3 x 1,5 Std.', label: 'INHALT' },

@@ -58,7 +58,7 @@ export const inklusionsführerschein: ProductData = {
   // Cards
   cards: [
     {
-      title: 'Zielgruppen',
+      title: 'Für wen ist der Workshop?',
       description: 'Wer profitiert',
       icon: 'Users',
       content: [
@@ -66,32 +66,32 @@ export const inklusionsführerschein: ProductData = {
         { type: 'bullet-point', id: 'card1-2', text: 'Schwerbehindertenvertretungen / Inklusionsbeauftragte' },
         { type: 'bullet-point', id: 'card1-3', text: 'HR-Verantwortliche' },
         { type: 'bullet-point', id: 'card1-4', text: 'Führungskräfte mit Verantwortung für Kultur & Personal' },
+        { type: 'bullet-point', id: 'card1-5', text: 'Für alle Change-Maker in Sachen Inklusion' },
       ],
       color: 'primary'
     },
     {
-      title: 'Inhalte / Bausteine',
+      title: 'Das lernst du',
       description: 'Lerninhalte entdecken',
       icon: 'Wrench',
       content: [
-        { type: 'bullet-point', id: 'card2-1', text: 'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, DEI & rechtliche Grundlagen' },
+        { type: 'bullet-point', id: 'card2-1', text: 'Grundlagen: Disability Basics (Begriffe, Haltung), Unconscious Bias, Sstemwissen & gesetzliche Grundlagen' },
         { type: 'bullet-point', id: 'card2-2', text: 'Begegnung: Gespräche mit Mentor:innen mit Behinderung' },
-        { type: 'bullet-point', id: 'card2-3', text: 'Simulationen: Bewerbungsgespräch, Onboarding, Kommunikation' },
+        { type: 'bullet-point', id: 'card2-3', text: 'Expert:innen Input zu Themen: Bewerbungsgespräch, Onboarding, Kommunikation' },
         { type: 'bullet-point', id: 'card2-4', text: 'Reflexion & Transfer: Canvas-Arbeit, Handlungsideen, Peer-Feedback' },
         { type: 'bullet-point', id: 'card2-5', text: 'Werkzeugkasten: Argumente, Formulierungen, nächste Schritte' },
       ],
       color: 'secondary'
     },
     {
-      title: 'Ablauf des Workshops',
-      description: 'Workshop-Struktur',
+      title: "So läuft's ab",
+      description: 'Workshop-Struktur (2 Tage, Präsenz)',
       icon: 'CalendarDays',
       content: [
-        { type: 'bullet-point', id: 'card3-1', text: 'Zwei intensive Tage mit Theorie und Praxis' },
-        { type: 'bullet-point', id: 'card3-2', text: 'Thematisierung typischer Ängste und Fallstricke' },
-        { type: 'bullet-point', id: 'card3-3', text: 'Training echter Gesprächssituationen' },
-        { type: 'bullet-point', id: 'card3-4', text: 'Direktes Feedback von Mentor:innen' },
-        { type: 'bullet-point', id: 'card3-5', text: 'Entwicklung individueller Umsetzungsschritte' },
+        { type: 'bullet-point', id: 'card3-1', text: 'Ankommen, Ziel & Erwartungsklärung' },
+        { type: 'bullet-point', id: 'card3-2', text: 'Perspektivwechsel Basics & Sprache' },
+        { type: 'bullet-point', id: 'card3-3', text: 'Begegnung mit Mentor:innen (Q&A)' },
+        { type: 'bullet-point', id: 'card3-4', text: 'Üben: Gesprächssituationen' },
       ],
       color: 'primary'
     }

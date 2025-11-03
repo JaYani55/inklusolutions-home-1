@@ -21,7 +21,7 @@ export const BarrierenErkennenUndAbbauen: ProductData = {
           'Neben physischen gibt es auch soziale, visuelle oder akustische Barrieren, die Mitarbeitenden mit Behinderung im Arbeitsalltag im Weg stehen.',
       } as ContentBlock,
     ],
-    image: '/arbeitsgruppe.png',
+    image: '/Barrieren_erkennen_und_abbauen.png',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
       { value: '2 x 1,5 Stunden', label: 'INHALT' },

@@ -20,7 +20,7 @@ export const Bewerbungsgespraeche: ProductData = {
           'Das Bewerbungsgespräch ist ein entscheidender Schritt im Recruitingprozess. Oft bestehen Unsicherheiten im Umgang mit Bewerber:innen mit Behinderungen. In praxisnahen Bewerbungssimulationen mit Menschen mit unterschiedlichen Behinderungen werden typische Situationen erlebbar. So lassen sich Barrieren abbauen und mehr Sicherheit im Auswahlprozess gewinnen – eine Grundlage für faire und erfolgreiche Personalgewinnung.',
       } as ContentBlock,
     ],
-    image: '/rolli_personal.jpg',
+    image: '/inklusive_Bewerbungsgespraeche.png',
     stats: [
       { value: 'ONLINE', label: 'FORMAT' },
       { value: '3 x 1,5 Std.', label: 'INHALT' },
