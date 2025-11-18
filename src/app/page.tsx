@@ -43,7 +43,7 @@ export default function HomePage() {
       color: "from-accent to-accent",
       withMentors: true,
       link: "/products/services",
-      products: ["peer-mentoring", "jobSync", "InkluScore", "Zertifikate"]
+      products: ["jobSync", "InkluScore", "Zertifikate"]
     }
   ];
 
@@ -57,7 +57,6 @@ export default function HomePage() {
     "lass uns reden": Video,
     "spotlight moments": Video,
     inklutalks: MessageCircle,
-    "peer-mentoring": Users,
     jobsync: Zap,
     inkluscore: BarChart3,
     zertifikate: Award,
