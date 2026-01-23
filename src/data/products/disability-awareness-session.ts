@@ -12,7 +12,10 @@ export const disabilityAwarenessSession: ProductData = {
     title: 'Disability Awareness Session – Perspektivwechsel, der bewegt.',
     description: [
           { id: 'hero-desc-1', type: 'text', 
-            content: 'Ein halbtägiger, praxisnaher Sensibilisierungsworkshop in Präsenz, der Mitarbeitende befähigt, Inklusion im Arbeitsalltag zu verstehen, mitzugestalten und sicherer zu kommunizieren.\n\n**„Stell dir vor, du wärst ein Mensch mit Behinderung in deinem Unternehmen. Würdest du dich willkommen fühlen?"**',
+            content: 'Ein halbtägiger, praxisnaher Sensibilisierungsworkshop in Präsenz, der Mitarbeitende befähigt, Inklusion im Arbeitsalltag zu verstehen, mitzugestalten und sicherer zu kommunizieren.',
+          } as ContentBlock,
+          { id: 'hero-desc-2', type: 'quote', 
+            text: 'Stell dir vor, du wärst ein Mensch mit Behinderung in deinem Unternehmen. Würdest du dich willkommen fühlen?'
           } as ContentBlock,
         ],
     image: '/gruppenarbeit.png',
@@ -40,7 +43,7 @@ export const disabilityAwarenessSession: ProductData = {
       {
         id: 'feature2-block1',
         type: 'text',
-        content: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache.\n\n*Ein kurzer Film („The Interviewer") und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.*'
+        content: 'Ob sichtbare oder unsichtbare Behinderungen, unbewusste Vorurteile oder der richtige Umgang im Gespräch alle wichtigen Themen kommen zur Sprache.\n\nEin kurzer Film (*„The Interviewer"*) und kleine Rollenspiele machen Alltagssituationen greifbar und helfen, sicherer im Umgang zu werden.'
       } as ContentBlock,
     ],
     alignment: 'right'
